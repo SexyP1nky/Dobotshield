@@ -2,7 +2,7 @@
 
 Proxy reverso de segurança com WAF integrado, desenvolvido como Trabalho de Conclusão de Curso em Ciência da Computação. O DoBotShield fica à frente de uma aplicação web legada e filtra o tráfego sem exigir alteração no código da aplicação protegida.
 
-A ideia é simples: em vez de expor a aplicação diretamente na internet, os clientes passam a acessar o Shield. Ele termina o TLS, inspeciona cada requisição e cada resposta, descarta o que é malicioso e encaminha o restante para a aplicação, que continua funcionando como antes.
+A ideia é simples: em vez de expor a aplicação diretamente na internet, os clientes passam a acessar o DoBot Shield. Ele termina o TLS, inspeciona cada requisição e cada resposta, descarta o que é malicioso e encaminha o restante para a aplicação, que continua funcionando como antes.
 
 ---
 
@@ -26,7 +26,7 @@ A ideia é simples: em vez de expor a aplicação diretamente na internet, os cl
 
 ## Como usar
 
-O Shield é um único binário. O fluxo normal é: gerar o certificado, apontar para a aplicação, escolher o modo do WAF, subir o serviço e redirecionar o tráfego para ele.
+O DoBot Shield é um único binário. O fluxo normal é: gerar o certificado, apontar para a aplicação, escolher o modo do WAF, subir o serviço e redirecionar o tráfego para ele.
 
 ### 1. Pré-requisitos
 
@@ -35,7 +35,7 @@ O Shield é um único binário. O fluxo normal é: gerar o certificado, apontar 
 
 ### 2. Gerar o certificado TLS
 
-Em produção, o Shield atende em HTTPS; portanto, precisa de um par certificado/chave. Para um ambiente de teste, é possível gerar um certificado autoassinado:
+Em produção, o DoBot Shield atende em HTTPS; portanto, precisa de um par certificado/chave. Para um ambiente de teste, é possível gerar um certificado autoassinado:
 
 ```powershell
 # Windows (PowerShell)
@@ -58,11 +58,11 @@ Em produção, use o certificado emitido para o seu domínio e aponte `CERT_FILE
 A única configuração realmente obrigatória é a `TARGET_URL`, que representa o endereço interno da aplicação protegida:
 
 ```text
-TARGET_URL = http://localhost:8080     # para onde o Shield encaminha
-PROXY_PORT = :443                      # porta em que o Shield escuta
+TARGET_URL = http://localhost:8080     # para onde o DoBot Shield encaminha
+PROXY_PORT = :443                      # porta em que o DoBot Shield escuta
 ```
 
-A aplicação não muda. Ela continua escutando onde sempre escutou; o Shield passa a receber o tráfego externo.
+A aplicação não muda. Ela continua escutando onde sempre escutou; o DoBot Shield passa a receber o tráfego externo.
 
 ### 4. Escolher o modo do WAF
 
@@ -72,7 +72,7 @@ Comece em **monitor** e só depois mude para **block**:
 - `WAF_MODE=block`: passa a bloquear de fato. Requisições maliciosas recebem `400`; vazamentos detectados na resposta viram `502`.
 - `WAF_ALLOWLIST`: abre exceções cirúrgicas quando uma rota legítima cai em uma regra. Veja [Allowlist WAF](#allowlist-waf).
 
-### 5. Subir o Shield
+### 5. Subir o DoBot Shield
 
 ```powershell
 # Windows (PowerShell)
@@ -92,15 +92,15 @@ go build -o dobotshield .
 ./dobotshield
 ```
 
-Ao subir, o Shield imprime um banner com o protocolo, a URL de acesso e o backend para onde encaminha. A partir daí, ele atende em `https://localhost:443` (ou na porta escolhida) e repassa para a `TARGET_URL`.
+Ao subir, o DoBot Shield imprime um banner com o protocolo, a URL de acesso e o backend para onde encaminha. A partir daí, ele atende em `https://localhost:443` (ou na porta escolhida) e repassa para a `TARGET_URL`.
 
 ### 6. Redirecionar o tráfego
 
-Os clientes agora acessam o **Shield**, não a aplicação diretamente. Em produção, ajuste o DNS e o firewall para que a aplicação só seja alcançável pelo Shield. Se houver um balanceador ou CDN na frente do Shield, liste o IP dele em `TRUSTED_PROXIES`; assim, o Shield confia no `X-Forwarded-For` e registra o IP real do cliente em vez do IP do balanceador.
+Os clientes agora acessam o **DoBot Shield**, não a aplicação diretamente. Em produção, ajuste o DNS e o firewall para que a aplicação só seja alcançável pelo DoBot Shield. Se houver um balanceador ou CDN na frente do DoBot Shield, liste o IP dele em `TRUSTED_PROXIES`; assim, o DoBot Shield confia no `X-Forwarded-For` e registra o IP real do cliente em vez do IP do balanceador.
 
 ### Sem TLS (laboratório)
 
-`HTTP_MODE=true` faz o Shield atender em **HTTP puro**, sem certificado. Serve quando o TLS é terminado por outro componente ou em um teste local rápido. Apenas o valor exato `true` ativa esse modo.
+`HTTP_MODE=true` faz o DoBot Shield atender em **HTTP puro**, sem certificado. Serve quando o TLS é terminado por outro componente ou em um teste local rápido. Apenas o valor exato `true` ativa esse modo.
 
 ### Atalho: montar o comando pela interface
 
@@ -286,7 +286,7 @@ Resposta ao cliente
 | Variável | Padrão | Descrição |
 |---|---|---|
 | `TARGET_URL` | `http://localhost:4280` | URL da aplicação protegida |
-| `PROXY_PORT` | `:443` | Porta de escuta do Shield |
+| `PROXY_PORT` | `:443` | Porta de escuta do DoBot Shield |
 | `HTTP_MODE` | `false` | `true` = HTTP puro (laboratório); qualquer outro valor = HTTPS |
 | `ENABLE_WAF` | `true` | Liga/desliga o WAF |
 | `WAF_MODE` | `block` | `block`, `monitor` ou `off` |
