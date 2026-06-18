@@ -152,7 +152,7 @@ const reportHTML = `<!doctype html>
         </dl>
         {{if .Attack}}
         <details class="explain">
-          <summary>O que foi esse ataque e como o DoBot Shield barrou?</summary>
+          <summary>O que foi esse ataque e como o DoBot Shield agiu?</summary>
           {{if .FriendlyTitle}}<p style="margin:8px 0 0;font-weight:600">{{.FriendlyTitle}}</p>{{end}}
           <div class="ex attack"><span class="tag">O ataque</span><p>{{.Attack}}</p></div>
           <div class="ex defense"><span class="tag">A defesa</span><p>{{.Defense}}</p></div>

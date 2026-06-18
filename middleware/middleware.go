@@ -55,7 +55,7 @@ func BuildProxy(cfg config.Config) (*httputil.ReverseProxy, error) {
 		}
 		utils.LogEventWithRequestID(requestID, "PROXY_ERROR", clientIP, err.Error(), r.URL.Path)
 		w.Header().Set("X-Request-ID", requestID)
-		w.Header().Set("X-Shield-Action", "Proxy-Error")
+		w.Header().Set("X-DoBotShield-Action", "Proxy-Error")
 		writeJSONError(w, http.StatusBadGateway, "Bad Gateway", "Backend unavailable")
 	}
 
@@ -74,14 +74,14 @@ func MakeSecureHandler(proxy *httputil.ReverseProxy, fw *ratelimit.Manager, bl *
 
 		if bl.Contains(clientIP) {
 			utils.LogEventWithRequestID(requestID, "IP_BLOCK", clientIP, "blocked IP", r.URL.Path)
-			w.Header().Set("X-Shield-Action", "Blocked-IP")
+			w.Header().Set("X-DoBotShield-Action", "Blocked-IP")
 			writeJSONError(w, http.StatusForbidden, "Forbidden", "Access denied")
 			return
 		}
 
 		if isBlockedMethod(r.Method) {
 			utils.LogEventWithRequestID(requestID, "METHOD_BLOCK", clientIP, r.Method, r.URL.Path)
-			w.Header().Set("X-Shield-Action", "Blocked-Method")
+			w.Header().Set("X-DoBotShield-Action", "Blocked-Method")
 			http.Error(w, "405 Method Not Allowed", http.StatusMethodNotAllowed)
 			return
 		}
@@ -90,7 +90,7 @@ func MakeSecureHandler(proxy *httputil.ReverseProxy, fw *ratelimit.Manager, bl *
 			allowed, reason := fw.Allow(clientIP)
 			if !allowed {
 				utils.LogEventWithRequestID(requestID, "DoS_BLOCK", clientIP, reason, r.URL.Path)
-				w.Header().Set("X-Shield-Action", "Blocked-DoS")
+				w.Header().Set("X-DoBotShield-Action", "Blocked-DoS")
 				w.Header().Set("Retry-After", "30")
 				http.Error(w, "429 Too Many Requests", http.StatusTooManyRequests)
 				return
@@ -125,7 +125,7 @@ func inspectRequest(w http.ResponseWriter, r *http.Request, cfg config.Config, r
 			var maxBytesErr *http.MaxBytesError
 			if errors.As(err, &maxBytesErr) {
 				utils.LogEventWithRequestID(requestID, "BODY_BLOCK", clientIP, "Request body too large", r.URL.Path)
-				w.Header().Set("X-Shield-Action", "Blocked-Body-Size")
+				w.Header().Set("X-DoBotShield-Action", "Blocked-Body-Size")
 				http.Error(w, "413 Payload Too Large", http.StatusRequestEntityTooLarge)
 				return true
 			}
@@ -144,7 +144,7 @@ func inspectRequest(w http.ResponseWriter, r *http.Request, cfg config.Config, r
 		if cfg.WAFBlocks() {
 			utils.LogEventWithRequestID(requestID, "WAF_BLOCK", clientIP, details, r.URL.Path)
 			recordTrainingRequest(r, bodyBytes, requestID, clientIP, details, rule, "blocked")
-			w.Header().Set("X-Shield-Action", "Blocked-WAF")
+			w.Header().Set("X-DoBotShield-Action", "Blocked-WAF")
 			writeJSONError(w, http.StatusBadRequest, "Security Violation", "Request blocked by security policy")
 			return true
 		}
@@ -215,7 +215,7 @@ func hardenResponseHeaders(resp *http.Response, cfg config.Config) {
 	resp.Header.Del("X-AspNet-Version")
 	resp.Header.Del("X-AspNetMvc-Version")
 
-	resp.Header.Set("X-Shield-Action", "Forwarded")
+	resp.Header.Set("X-DoBotShield-Action", "Forwarded")
 	if requestID != "" {
 		resp.Header.Set("X-Request-ID", requestID)
 	}
@@ -340,7 +340,7 @@ func blockBackendResponse(resp *http.Response) {
 	resp.Header.Del("Transfer-Encoding")
 	resp.Header.Set("Content-Type", "application/json")
 	resp.Header.Set("Content-Length", strconv.Itoa(len(body)))
-	resp.Header.Set("X-Shield-Action", "Blocked-Response-WAF")
+	resp.Header.Set("X-DoBotShield-Action", "Blocked-Response-WAF")
 }
 
 func responseLogContext(resp *http.Response) (string, string, string) {
@@ -393,7 +393,7 @@ func injectForwardedHeaders(r *http.Request, clientIP, directIP string, directTr
 	}
 
 	r.Header.Set("X-Real-IP", clientIP)
-	r.Header.Set("X-Shield-Request-ID", r.Header.Get("X-Request-ID"))
+	r.Header.Set("X-DoBotShield-Request-ID", r.Header.Get("X-Request-ID"))
 	r.Header.Set("X-Forwarded-Proto", "https")
 	r.Header.Set("X-Forwarded-Host", r.Host)
 }

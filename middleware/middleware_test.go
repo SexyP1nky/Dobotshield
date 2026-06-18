@@ -16,7 +16,7 @@ import (
 )
 
 func TestInjectForwardedHeadersStripsUntrustedForwarding(t *testing.T) {
-	r := httptest.NewRequest("GET", "https://shield.local/", nil)
+	r := httptest.NewRequest("GET", "https://dobotshield.local/", nil)
 	r.RemoteAddr = "203.0.113.10:49152"
 	r.Header.Set("Forwarded", "for=198.51.100.20")
 	r.Header.Set("X-Forwarded-For", "198.51.100.20")
@@ -35,7 +35,7 @@ func TestInjectForwardedHeadersStripsUntrustedForwarding(t *testing.T) {
 }
 
 func TestInjectForwardedHeadersRebuildsTrustedProxyChain(t *testing.T) {
-	r := httptest.NewRequest("GET", "https://shield.local/", nil)
+	r := httptest.NewRequest("GET", "https://dobotshield.local/", nil)
 	r.RemoteAddr = "10.0.0.5:49152"
 	r.Header.Set("X-Forwarded-For", "198.51.100.20, 10.0.0.4")
 
@@ -119,7 +119,7 @@ func TestBuildProxyBlocksBackendSQLLeak(t *testing.T) {
 		t.Fatalf("unexpected proxy error: %v", err)
 	}
 
-	req := httptest.NewRequest("GET", "https://shield.local/items", nil)
+	req := httptest.NewRequest("GET", "https://dobotshield.local/items", nil)
 	req.Header.Set("X-Request-ID", "test-request")
 	req.Header.Set("X-Real-IP", "203.0.113.10")
 	resp := &http.Response{
@@ -138,7 +138,7 @@ func TestBuildProxyBlocksBackendSQLLeak(t *testing.T) {
 	if resp.StatusCode != http.StatusBadGateway {
 		t.Fatalf("expected blocked response status 502, got %d", resp.StatusCode)
 	}
-	if got := resp.Header.Get("X-Shield-Action"); got != "Blocked-Response-WAF" {
+	if got := resp.Header.Get("X-DoBotShield-Action"); got != "Blocked-Response-WAF" {
 		t.Fatalf("expected blocked response action, got %q", got)
 	}
 }
@@ -154,7 +154,7 @@ func TestBuildProxyMonitorModeDoesNotBlockBackendLeak(t *testing.T) {
 		t.Fatalf("unexpected proxy error: %v", err)
 	}
 
-	req := httptest.NewRequest("GET", "https://shield.local/items", nil)
+	req := httptest.NewRequest("GET", "https://dobotshield.local/items", nil)
 	req.Header.Set("X-Request-ID", "test-request")
 	resp := &http.Response{
 		StatusCode:    http.StatusInternalServerError,
@@ -172,7 +172,7 @@ func TestBuildProxyMonitorModeDoesNotBlockBackendLeak(t *testing.T) {
 	if resp.StatusCode != http.StatusInternalServerError {
 		t.Fatalf("expected monitor mode to keep backend status, got %d", resp.StatusCode)
 	}
-	if got := resp.Header.Get("X-Shield-Action"); got != "Forwarded" {
+	if got := resp.Header.Get("X-DoBotShield-Action"); got != "Forwarded" {
 		t.Fatalf("expected forwarded action in monitor mode, got %q", got)
 	}
 }
@@ -199,7 +199,7 @@ func TestSecureHandlerRecordsTrainingEventOnBlock(t *testing.T) {
 
 	handler := MakeSecureHandler(proxy, fw, bl, cfg)
 
-	req := httptest.NewRequest("GET", "https://shield.local/search?q=<script>alert(1)</script>", nil)
+	req := httptest.NewRequest("GET", "https://dobotshield.local/search?q=<script>alert(1)</script>", nil)
 	req.RemoteAddr = "203.0.113.50:12345"
 	rec := httptest.NewRecorder()
 
@@ -257,7 +257,7 @@ func TestSecureHandlerNoTrainingEventWhenDisabled(t *testing.T) {
 	}
 	handler := MakeSecureHandler(proxy, ratelimit.NewManager(100, 10, 20, 10), blocklist.New(nil), cfg)
 
-	req := httptest.NewRequest("GET", "https://shield.local/search?q=<script>alert(1)</script>", nil)
+	req := httptest.NewRequest("GET", "https://dobotshield.local/search?q=<script>alert(1)</script>", nil)
 	req.RemoteAddr = "203.0.113.51:12345"
 	rec := httptest.NewRecorder()
 
@@ -272,7 +272,7 @@ func TestSecureHandlerNoTrainingEventWhenDisabled(t *testing.T) {
 }
 
 func TestIsWebSocketUpgrade(t *testing.T) {
-	r := httptest.NewRequest("GET", "https://shield.local/ws", nil)
+	r := httptest.NewRequest("GET", "https://dobotshield.local/ws", nil)
 	r.Header.Set("Connection", "keep-alive, Upgrade")
 	r.Header.Set("Upgrade", "websocket")
 

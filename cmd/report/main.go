@@ -1,5 +1,5 @@
-// Comando report: gera o relatorio HTML do "Modo de Treinamento" do DoBot
-// Shield a partir do log estruturado (JSON) de ataques barrados.
+// Comando report: gera o relatorio HTML do "Modo de Treinamento" do DoBot Shield
+// a partir do log estruturado (JSON) de ataques barrados.
 //
 // Uso:
 //

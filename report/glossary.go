@@ -53,7 +53,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Injeção de SQL (SQLi)",
 		Summary: "O atacante digita comandos de banco de dados nos campos do site para enganar o sistema e chegar a dados que não deveria ver.",
 		Attack:  "Os sites guardam suas informações, como logins, senhas e produtos, num banco de dados, que obedece a uma linguagem chamada SQL. Em vez de preencher um campo com um dado comum, o atacante escreve ali um trecho dessa linguagem. Quando o site não trata isso direito, o banco de dados acaba obedecendo ao comando do atacante e pode entregar, alterar ou apagar informações.",
-		Defense: "O Dobot Shield reconhece os comandos típicos dessa linguagem, e também os truques usados para escondê-los, e bloqueia a requisição antes que ela chegue ao banco.",
+		Defense: "O DoBot Shield reconhece os comandos típicos dessa linguagem, e também os truques usados para escondê-los, e bloqueia a requisição antes que ela chegue ao banco.",
 		Subtypes: []Subtype{
 			{
 				Name:        "Entrar sem saber a senha",
@@ -79,7 +79,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Injeção de Comando (Command Injection)",
 		Summary: "O atacante aproveita uma função do site que executa tarefas no servidor e gruda comandos próprios nela.",
 		Attack:  "Algumas páginas executam tarefas no próprio servidor, como um teste de conexão. Quando isso não é bem protegido, o atacante consegue grudar comandos extras do sistema naquela tarefa. Com eles, tenta ler arquivos restritos ou até mesmo em casos severos assumir o controle da máquina.",
-		Defense: "O Dobot Shield percebe os sinais usados para emendar um comando no outro, junto com as ferramentas que costumam ser chamadas nesses ataques, e recusa a requisição.",
+		Defense: "O DoBot Shield percebe os sinais usados para emendar um comando no outro, junto com as ferramentas que costumam ser chamadas nesses ataques, e recusa a requisição.",
 		Subtypes: []Subtype{
 			{
 				Name:        "Emendar um comando a mais",
@@ -99,7 +99,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Injeção JNDI (Log4Shell)",
 		Summary: "Um texto especial que faz o servidor buscar e rodar um programa indicado pelo atacante.",
 		Attack:  "Aqui o atacante explora uma falha que ficou conhecida como Log4Shell. Basta enviar um texto montado de um jeito específico para o servidor sair buscando um programa num endereço escolhido pelo atacante e executá-lo. Em muitos casos, o problema acontece só de esse texto ser anotado em um registro interno do sistema.",
-		Defense: "O Dobot Shield procura por esse texto de armadilha em qualquer parte da requisição, inclusive em cabeçalhos discretos, como o que informa qual navegador está sendo usado, e bloqueia.",
+		Defense: "O DoBot Shield procura por esse texto de armadilha em qualquer parte da requisição, inclusive em cabeçalhos discretos, como o que informa qual navegador está sendo usado, e bloqueia.",
 		Subtypes: []Subtype{
 			{
 				Name:        "A forma direta",
@@ -119,7 +119,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Injeção em banco NoSQL (NoSQLi)",
 		Summary: "Em bancos de dados mais modernos, o atacante troca a senha por uma regra que combina com quase qualquer valor.",
 		Attack:  "Existe um tipo de banco de dados, chamado NoSQL, que aceita receber regras de busca no lugar de valores fixos. O atacante aproveita isso e, em vez da senha, envia uma regra de propósito bem frouxa, que acaba sendo aceita para qualquer usuário.",
-		Defense: "O Dobot Shield reconhece essas regras especiais dentro dos dados enviados e barra a tentativa.",
+		Defense: "O DoBot Shield reconhece essas regras especiais dentro dos dados enviados e barra a tentativa.",
 		Subtypes: []Subtype{
 			{
 				Name:        "Qualquer senha que não esteja vazia",
@@ -139,7 +139,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Redirecionamento Aberto (Open Redirect)",
 		Summary: "Um link que começa no endereço do site verdadeiro, mas leva a vítima para uma página falsa.",
 		Attack:  "Alguns sites têm links que, depois de uma ação, mandam a pessoa para outro endereço. O atacante manipula esse destino para apontar para uma página falsa. Como o começo do link é o site de confiança, a vítima não desconfia e acaba caindo num golpe.",
-		Defense: "O Dobot Shield percebe quando esse destino aponta para um endereço de fora que parece suspeito e impede o desvio.",
+		Defense: "O DoBot Shield percebe quando esse destino aponta para um endereço de fora que parece suspeito e impede o desvio.",
 		Subtypes: []Subtype{
 			{
 				Name:        "Destino trocado dentro do link",
@@ -159,7 +159,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Travessia de Diretórios (Path Traversal)",
 		Summary: "O atacante usa atalhos de 'voltar uma pasta' para alcançar arquivos do servidor que deveriam ficar fora do seu alcance.",
 		Attack:  "Quando um site deixa o usuário pedir um arquivo pelo nome, o atacante tenta usar atalhos que significam 'voltar uma pasta'. Repetindo esses atalhos, ele sai da área permitida e chega a arquivos sensíveis do servidor, como a lista de contas do sistema.",
-		Defense: "O Dobot Shield identifica esses atalhos de 'voltar uma pasta' no endereço pedido e bloqueia o acesso ao arquivo.",
+		Defense: "O DoBot Shield identifica esses atalhos de 'voltar uma pasta' no endereço pedido e bloqueia o acesso ao arquivo.",
 		Subtypes: []Subtype{
 			{
 				Name:        "Subindo pastas com ../",
@@ -179,7 +179,7 @@ var categoryGlossary = map[string]CategoryInfo{
 			Title:   "Falsificação de Requisição no Servidor (SSRF)",
 			Summary: "O atacante faz o próprio servidor acessar endereços internos que só ele enxerga.",
 			Attack:  "Em vez de atacar de fora, o atacante convence o servidor a fazer uma conexão no lugar dele. Normalmente o alvo é um endereço interno, que só o servidor consegue acessar, onde costumam ficar chaves de acesso e painéis de administração.",
-			Defense: "O Dobot Shield reconhece quando o pedido aponta para endereços internos, privados ou de serviços de nuvem e recusa a requisição.",
+			Defense: "O DoBot Shield reconhece quando o pedido aponta para endereços internos, privados ou de serviços de nuvem e recusa a requisição.",
 			Subtypes: []Subtype{
 				{
 				Name:        "Chaves secretas da nuvem",
@@ -199,7 +199,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Injeção em Template no Servidor (SSTI)",
 		Summary: "O atacante coloca uma fórmula no modelo da página para o servidor calcular.",
 		Attack:  "Muitos sites montam suas páginas a partir de modelos, que são preenchidos com os dados de cada visita. O atacante coloca uma fórmula desse modelo dentro de um campo. Se o servidor calcular a fórmula em vez de só mostrar o texto, fica provado que ele obedece ao que recebe.",
-		Defense: "O Dobot Shield identifica essas fórmulas de modelo dentro dos dados enviados e bloqueia.",
+		Defense: "O DoBot Shield identifica essas fórmulas de modelo dentro dos dados enviados e bloqueia.",
 		Subtypes: []Subtype{
 			{
 				Name:        "A continha que entrega o jogo",
@@ -219,7 +219,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Vazamento de Erro de Banco de Dados (na resposta)",
 		Summary: "Ao dar erro, o site devolve uma mensagem técnica do banco que acaba entregando informações internas.",
 		Attack:  "Aqui o problema está na resposta do site, e não no pedido. Quando algo dá errado, o sistema pode acabar mostrando a mensagem de erro crua do banco de dados. Essa mensagem revela detalhes internos, como nomes de tabelas, que ajudam o atacante a planejar o passo seguinte.",
-		Defense: "O Dobot Shield examina o que o site responde e, ao encontrar uma mensagem de erro de banco vazando, troca a resposta para não entregar nenhuma pista.",
+		Defense: "O DoBot Shield examina o que o site responde e, ao encontrar uma mensagem de erro de banco vazando, troca a resposta para não entregar nenhuma pista.",
 		Subtypes: []Subtype{
 			{
 				Name:        "Mensagem de erro do banco aparecendo na tela",
@@ -233,7 +233,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Entidade Externa de XML (XXE)",
 		Summary: "Um arquivo XML preparado que faz o servidor abrir arquivos ou conexões que não deveria.",
 		Attack:  "Quando o site aceita receber arquivos no formato XML, o atacante envia um XML montado com instruções escondidas. Essas instruções fazem o servidor abrir arquivos locais ou se conectar a outros endereços, vazando informações.",
-		Defense: "O Dobot Shield detecta essas instruções perigosas dentro do XML enviado e bloqueia.",
+		Defense: "O DoBot Shield detecta essas instruções perigosas dentro do XML enviado e bloqueia.",
 		Subtypes: []Subtype{
 			{
 				Name:        "Ler um arquivo do servidor",
@@ -247,7 +247,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Poluição de Protótipo (Prototype Pollution)",
 		Summary: "O atacante mexe na configuração interna que todos os objetos do sistema compartilham.",
 		Attack:  "Em sistemas feitos com JavaScript, existe uma espécie de configuração base que vale para todos os objetos do programa. O atacante usa chaves especiais para alterar essa base e, com isso, mudar o comportamento do sistema inteiro, por exemplo se tornando administrador.",
-		Defense: "O Dobot Shield reconhece essas chaves especiais nos dados enviados e barra a requisição.",
+		Defense: "O DoBot Shield reconhece essas chaves especiais nos dados enviados e barra a requisição.",
 		Subtypes: []Subtype{
 			{
 				Name:        "Plantar um privilégio escondido",
@@ -261,7 +261,7 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Injeção em Cabeçalho HTTP",
 		Summary: "O atacante usa quebras de linha para forjar cabeçalhos extras na comunicação.",
 		Attack:  "Toda mensagem entre o navegador e o site carrega cabeçalhos, que são informações de controle. O atacante insere uma quebra de linha no meio de um valor para começar um cabeçalho novo, forjado por ele. Com isso, consegue, por exemplo, plantar um cookie ou bagunçar a resposta entregue a outras pessoas.",
-		Defense: "O Dobot Shield detecta essas quebras de linha e os cabeçalhos forjados nos valores recebidos e recusa a requisição.",
+		Defense: "O DoBot Shield detecta essas quebras de linha e os cabeçalhos forjados nos valores recebidos e recusa a requisição.",
 		Subtypes: []Subtype{
 			{
 				Name:        "Plantar um cookie falso",
@@ -275,43 +275,43 @@ var categoryGlossary = map[string]CategoryInfo{
 		Title:   "Vazamento de Rastro de Erro (Stack Trace)",
 		Summary: "A resposta entrega o relatório interno de um erro, mostrando como o sistema é feito por dentro.",
 		Attack:  "Quando um programa quebra, ele pode imprimir um rastro detalhado do erro, com nomes de arquivos, linhas e funções internas. Entregue ao usuário, isso dá ao atacante um mapa de como o sistema foi construído.",
-		Defense: "O Dobot Shield reconhece esses rastros de erro na resposta e bloqueia a entrega, evitando expor o funcionamento interno do sistema.",
+		Defense: "O DoBot Shield reconhece esses rastros de erro na resposta e bloqueia a entrega, evitando expor o funcionamento interno do sistema.",
 	},
 	"RESPONSE_XSS_REFLECTION": {
 		Title:   "Script Refletido na Resposta",
 		Summary: "A resposta do site devolve um script ativo, sinal de que um ataque de XSS conseguiu passar.",
 		Attack:  "O site acaba devolvendo, na sua resposta, um script ativo. Esse é o sinal de que um ataque de XSS conseguiu passar e que ele seria executado no navegador da vítima.",
-		Defense: "O Dobot Shield examina a resposta do site, percebe o script ativo e impede que ele chegue ao navegador da pessoa.",
+		Defense: "O DoBot Shield examina a resposta do site, percebe o script ativo e impede que ele chegue ao navegador da pessoa.",
 	},
 	"RESPONSE_FILE_LEAK": {
 		Title:   "Vazamento de Arquivo Sensível (na resposta)",
 		Summary: "A resposta contém o conteúdo de arquivos que deveriam ser secretos.",
 		Attack:  "A resposta do site contém o conteúdo de arquivos que deveriam ficar em segredo, como listas de contas do sistema ou arquivos de configuração.",
-		Defense: "O Dobot Shield identifica esse conteúdo sensível na resposta e bloqueia a entrega.",
+		Defense: "O DoBot Shield identifica esse conteúdo sensível na resposta e bloqueia a entrega.",
 	},
 	"MALFORMED_MULTIPART": {
 		Title:   "Envio de Formulário Malformado",
 		Summary: "Um envio de arquivo quebrado de propósito para confundir o servidor.",
 		Attack:  "Em envios de formulários e arquivos, o atacante monta um pacote quebrado de propósito para confundir o servidor e escapar das verificações de segurança.",
-		Defense: "O Dobot Shield recusa envios que não seguem corretamente as regras do formato, evitando que pacotes ambíguos sejam interpretados de um jeito perigoso.",
+		Defense: "O DoBot Shield recusa envios que não seguem corretamente as regras do formato, evitando que pacotes ambíguos sejam interpretados de um jeito perigoso.",
 	},
 	"MULTIPART_LIMIT": {
 		Title:   "Excesso de Partes no Envio",
 		Summary: "Um envio com partes demais, usado para sobrecarregar o servidor ou esconder conteúdo.",
 		Attack:  "O atacante envia um formulário com um número exagerado de partes, seja para sobrecarregar o servidor, seja para esconder conteúdo malicioso no meio de muitos pedaços.",
-		Defense: "O Dobot Shield limita a quantidade de partes que inspeciona e recusa envios que passam desse limite.",
+		Defense: "O DoBot Shield limita a quantidade de partes que inspeciona e recusa envios que passam desse limite.",
 	},
 	"MULTIPART_PART_TOO_LARGE": {
 		Title:   "Parte de Envio Grande Demais",
 		Summary: "Uma parte gigante, usada para esgotar recursos ou driblar a inspeção.",
 		Attack:  "Uma das partes do envio é grande demais, o que pode servir para esgotar os recursos do servidor ou para passar despercebida pela inspeção de conteúdo.",
-		Defense: "O Dobot Shield recusa partes que passam do tamanho permitido para inspeção.",
+		Defense: "O DoBot Shield recusa partes que passam do tamanho permitido para inspeção.",
 	},
 	"MULTIPART_READ_ERROR": {
 		Title:   "Falha ao Ler o Envio",
 		Summary: "Um envio que não pôde ser lido com segurança, muitas vezes sinal de manipulação.",
 		Attack:  "O conteúdo enviado não pôde ser lido corretamente. Em geral, isso é sinal de um pacote manipulado para enganar o servidor.",
-		Defense: "Diante de um envio que não dá para ler com segurança, o Dobot Shield prefere recusar a requisição.",
+		Defense: "Diante de um envio que não dá para ler com segurança, o DoBot Shield prefere recusar a requisição.",
 	},
 }
 
@@ -320,7 +320,7 @@ var defaultCategoryInfo = CategoryInfo{
 	Title:   "Atividade maliciosa detectada",
 	Summary: "Um padrão típico de ataque a aplicações web.",
 	Attack:  "Esta requisição apresentou um padrão típico de ataque a aplicações web.",
-	Defense: "O Dobot Shield reconheceu o padrão suspeito e barrou a requisição antes que ela pudesse afetar o sistema protegido.",
+	Defense: "O DoBot Shield reconheceu o padrão suspeito e barrou a requisição antes que ela pudesse afetar o sistema protegido.",
 }
 
 // lookupCategory devolve a explicação da categoria, ou um texto genérico.
