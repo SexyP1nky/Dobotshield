@@ -1,0 +1,19 @@
+=== wrk | dvwa/no_waf | http://172.18.0.2:80 | 06/06/2026 18:41:56,40 ===
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency http://172.18.0.2:80
+----------------------------------------------------------------
+Running 30s test @ http://172.18.0.2:80
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   658.49ms    1.09s    5.00s    81.99%
+    Req/Sec     0.90k   679.93     6.87k    68.85%
+  Latency Distribution
+     50%   27.58ms
+     75%    1.05s 
+     90%    2.57s 
+     99%    3.93s 
+  216932 requests in 30.09s, 87.55MB read
+  Socket errors: connect 0, read 0, write 0, timeout 272
+Requests/sec:   7209.31
+Transfer/sec:      2.91MB
+
+TOOL_RC=0

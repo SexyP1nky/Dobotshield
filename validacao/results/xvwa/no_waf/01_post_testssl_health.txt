@@ -1,0 +1,7 @@
+=== health_probe  06/06/2026 15:59:06,25 ===
+URL: http://172.18.0.5:80
+probe 1  code=403  time=0.000720s  bytes=275
+probe 2  code=403  time=0.000701s  bytes=275
+probe 3  code=403  time=0.000657s  bytes=275
+probe 4  code=403  time=0.000694s  bytes=275
+probe 5  code=403  time=0.000723s  bytes=275

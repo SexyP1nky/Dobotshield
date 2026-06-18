@@ -1,0 +1,198 @@
+name: dobotshield-lab
+
+# Mapa de portas do laboratorio:
+#   8080  -> DVWA sem WAF          (HTTP - referencia, acesso direto)
+#   8081  -> Mutillidae sem WAF    (HTTP - referencia, acesso direto)
+#   9080  -> DoBotShield -> DVWA   (HTTPS - TLS termination)
+#   9081  -> DoBotShield -> Mutillidae (HTTPS - TLS termination)
+#   9180  -> ModSecurity -> DVWA   (HTTPS)
+#   9181  -> ModSecurity -> Mutillidae (HTTPS)
+#   9280  -> Coraza -> DVWA        (HTTPS)
+#   9281  -> Coraza -> Mutillidae  (HTTPS)
+
+networks:
+  waf_lab:
+    driver: bridge
+
+services:
+
+  # ============================================================
+  # APLICACOES VULNERAVEIS
+  # ============================================================
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: lab_dvwa
+    networks:
+      - waf_lab
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  mutillidae_db:
+    image: webpwnized/mutillidae:database
+    container_name: lab_mutillidae_db
+    networks:
+      waf_lab:
+        aliases:
+          - database
+    restart: unless-stopped
+
+  mutillidae:
+    image: webpwnized/mutillidae:www
+    container_name: lab_mutillidae
+    networks:
+      - waf_lab
+    ports:
+      - "8081:80"
+    depends_on:
+      - mutillidae_db
+    restart: unless-stopped
+
+  # ============================================================
+  # DOBOTSHIELD (TLS termination — converte HTTP backend em HTTPS)
+  # Demonstra a funcionalidade principal do WAF: encerramento TLS.
+  # ============================================================
+
+  dobotshield_dvwa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lab_dobotshield_dvwa
+    networks:
+      - waf_lab
+    ports:
+      - "9080:443"
+    environment:
+      TARGET_URL:               http://dvwa:80
+      PROXY_PORT:               ":443"
+      HTTP_MODE:                "false"
+      CERT_FILE:                "/app/certs/server.crt"
+      KEY_FILE:                 "/app/certs/server.key"
+      ENABLE_WAF:               "true"
+      WAF_MODE:                 "block"
+      ENABLE_RESPONSE_INSPECTION: "true"
+      ENABLE_RATE_LIMIT:        "false"
+      INSECURE_SKIP_VERIFY:     "false"
+      TRAINING_MODE:            "true"
+      TRAINING_LOG_FILE:        "/app/logs/training.jsonl"
+    volumes:
+      - ./certs:/app/certs:ro
+      - ./logs/training/dvwa:/app/logs
+    depends_on:
+      - dvwa
+    restart: unless-stopped
+
+  dobotshield_mutillidae:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lab_dobotshield_mutillidae
+    networks:
+      - waf_lab
+    ports:
+      - "9081:443"
+    environment:
+      TARGET_URL:               http://mutillidae:80
+      PROXY_PORT:               ":443"
+      HTTP_MODE:                "false"
+      CERT_FILE:                "/app/certs/server.crt"
+      KEY_FILE:                 "/app/certs/server.key"
+      ENABLE_WAF:               "true"
+      WAF_MODE:                 "block"
+      ENABLE_RESPONSE_INSPECTION: "true"
+      ENABLE_RATE_LIMIT:        "false"
+      INSECURE_SKIP_VERIFY:     "false"
+      TRAINING_MODE:            "true"
+      TRAINING_LOG_FILE:        "/app/logs/training.jsonl"
+    volumes:
+      - ./certs:/app/certs:ro
+      - ./logs/training/mutillidae:/app/logs
+    depends_on:
+      - mutillidae
+    restart: unless-stopped
+
+  # ============================================================
+  # MODSECURITY + OWASP CRS (HTTPS, paranoia level 1)
+  # ============================================================
+
+  modsecurity_dvwa:
+    image: owasp/modsecurity-crs:nginx
+    container_name: lab_modsecurity_dvwa
+    networks:
+      - waf_lab
+    ports:
+      - "9180:8443"
+    environment:
+      BACKEND:           http://dvwa:80
+      PORT:              "8080"
+      SSL_PORT:          "8443"
+      PARANOIA:          "1"
+      ANOMALY_INBOUND:   "5"
+      ANOMALY_OUTBOUND:  "4"
+    volumes:
+      - ./certs/server.crt:/etc/nginx/conf/server.crt:ro
+      - ./certs/server.key:/etc/nginx/conf/server.key:ro
+    depends_on:
+      - dvwa
+    restart: unless-stopped
+
+  modsecurity_mutillidae:
+    image: owasp/modsecurity-crs:nginx
+    container_name: lab_modsecurity_mutillidae
+    networks:
+      - waf_lab
+    ports:
+      - "9181:8443"
+    environment:
+      BACKEND:           http://mutillidae:80
+      PORT:              "8080"
+      SSL_PORT:          "8443"
+      PARANOIA:          "1"
+      ANOMALY_INBOUND:   "5"
+      ANOMALY_OUTBOUND:  "4"
+    volumes:
+      - ./certs/server.crt:/etc/nginx/conf/server.crt:ro
+      - ./certs/server.key:/etc/nginx/conf/server.key:ro
+    depends_on:
+      - mutillidae
+    restart: unless-stopped
+
+  # ============================================================
+  # CORAZA + CADDY + OWASP CRS (HTTPS)
+  # Implementacao moderna em Go do motor WAF, compativel com CRS.
+  # ============================================================
+
+  coraza_dvwa:
+    build:
+      context: docker/coraza
+      dockerfile: Dockerfile
+    container_name: lab_coraza_dvwa
+    networks:
+      - waf_lab
+    ports:
+      - "9280:443"
+    environment:
+      BACKEND: http://dvwa:80
+    volumes:
+      - ./certs:/certs:ro
+    depends_on:
+      - dvwa
+    restart: unless-stopped
+
+  coraza_mutillidae:
+    build:
+      context: docker/coraza
+      dockerfile: Dockerfile
+    container_name: lab_coraza_mutillidae
+    networks:
+      - waf_lab
+    ports:
+      - "9281:443"
+    environment:
+      BACKEND: http://mutillidae:80
+    volumes:
+      - ./certs:/certs:ro
+    depends_on:
+      - mutillidae
+    restart: unless-stopped

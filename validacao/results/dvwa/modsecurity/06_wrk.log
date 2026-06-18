@@ -1,0 +1,18 @@
+=== wrk | dvwa/modsecurity | https://172.18.0.4:8443 | 06/06/2026 18:42:42,01 ===
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency https://172.18.0.4:8443
+----------------------------------------------------------------
+Running 30s test @ https://172.18.0.4:8443
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   172.71ms   69.26ms 570.92ms   67.17%
+    Req/Sec   191.81     41.66     0.90k    73.02%
+  Latency Distribution
+     50%  164.08ms
+     75%  217.53ms
+     90%  265.73ms
+     99%  363.82ms
+  67875 requests in 30.09s, 29.97MB read
+Requests/sec:   2255.44
+Transfer/sec:      1.00MB
+
+TOOL_RC=0

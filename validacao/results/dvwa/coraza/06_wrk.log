@@ -1,0 +1,19 @@
+=== wrk | dvwa/coraza | https://172.18.0.7:443 | 06/06/2026 18:44:17,18 ===
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency https://172.18.0.7:443
+----------------------------------------------------------------
+Running 30s test @ https://172.18.0.7:443
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   619.08ms    1.10s    5.00s    84.00%
+    Req/Sec   260.73     86.11   750.00     69.42%
+  Latency Distribution
+     50%   78.87ms
+     75%  653.24ms
+     90%    2.49s 
+     99%    4.27s 
+  92512 requests in 30.10s, 41.55MB read
+  Socket errors: connect 0, read 0, write 0, timeout 335
+Requests/sec:   3073.43
+Transfer/sec:      1.38MB
+
+TOOL_RC=0

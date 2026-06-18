@@ -1,0 +1,7 @@
+=== health_probe  06/06/2026 18:24:10,42 ===
+URL: http://172.18.0.2:80/vulnerabilities/xss_r/?name=test
+probe 1  code=302  time=0.001204s  bytes=0
+probe 2  code=302  time=0.001252s  bytes=0
+probe 3  code=302  time=0.001256s  bytes=0
+probe 4  code=302  time=0.001279s  bytes=0
+probe 5  code=302  time=0.001250s  bytes=0

@@ -1,0 +1,19 @@
+=== wrk | xvwa/coraza | https://172.18.0.9:443/xvwa/ | 06/06/2026 18:47:37,23 ===
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency https://172.18.0.9:443/xvwa/
+----------------------------------------------------------------
+Running 30s test @ https://172.18.0.9:443/xvwa/
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.67s   984.37ms   5.00s    66.18%
+    Req/Sec    14.36     10.51   101.00     76.15%
+  Latency Distribution
+     50%    2.54s 
+     75%    3.39s 
+     90%    4.07s 
+     99%    4.85s 
+  3936 requests in 30.09s, 41.02MB read
+  Socket errors: connect 0, read 0, write 0, timeout 163
+Requests/sec:    130.81
+Transfer/sec:      1.36MB
+
+TOOL_RC=0

@@ -1,0 +1,196 @@
+name: dobotshield-lab-test
+
+# Bancada exclusiva para a bateria do run_lab_tests.bat
+# Apps testadas: DVWA e XVWA (Xtreme Vulnerable Web Application)
+# WAFs:          DoBotShield, ModSecurity (nginx + CRS), Coraza (Caddy + CRS)
+#
+# Mapa de portas:
+#   8080  -> DVWA          (HTTP  direto, sem WAF)
+#   8082  -> XVWA          (HTTP  direto, sem WAF; app servida em /xvwa/)
+#   9080  -> DoBotShield   -> DVWA        (HTTPS)
+#   9082  -> DoBotShield   -> XVWA        (HTTPS)
+#   9180  -> ModSecurity   -> DVWA        (HTTPS)
+#   9182  -> ModSecurity   -> XVWA        (HTTPS)
+#   9280  -> Coraza        -> DVWA        (HTTPS)
+#   9282  -> Coraza        -> XVWA        (HTTPS)
+
+networks:
+  waflab:
+    name: dobotshield_waflab
+    driver: bridge
+
+services:
+
+  # =====================================================================
+  # APLICACOES VULNERAVEIS (BACKEND)
+  # =====================================================================
+
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: lab_dvwa
+    networks: [waflab]
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  xvwa:
+    build:
+      context: docker/xvwa
+      dockerfile: Dockerfile
+    container_name: lab_xvwa
+    networks: [waflab]
+    ports:
+      - "8082:80"
+    environment:
+      XVWA_DB_HOST: xvwa_db
+      XVWA_DB_NAME: xvwa
+      XVWA_DB_USER: root
+      XVWA_DB_PASS: root
+    depends_on: [xvwa_db]
+    restart: unless-stopped
+
+  xvwa_db:
+    image: mysql:5.7
+    container_name: lab_xvwa_db
+    networks: [waflab]
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: xvwa
+    restart: unless-stopped
+
+  # =====================================================================
+  # DOBOTSHIELD (TLS termination + WAF proprio)
+  # =====================================================================
+
+  dobot_dvwa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lab_dobot_dvwa
+    networks: [waflab]
+    ports:
+      - "9080:443"
+    environment:
+      TARGET_URL:                 http://dvwa:80
+      PROXY_PORT:                 ":443"
+      HTTP_MODE:                  "false"
+      CERT_FILE:                  "/app/certs/server.crt"
+      KEY_FILE:                   "/app/certs/server.key"
+      ENABLE_WAF:                 "true"
+      WAF_MODE:                   "block"
+      ENABLE_RESPONSE_INSPECTION: "true"
+      # Rate-limit LIGADO: e funcionalidade central do DoBotShield ("Shield").
+      # Decisao metodologica do TCC: o DoBotShield e testado como em producao.
+      # Valores explicitos = os defaults do produto (documentados em METODOLOGIA.txt).
+      ENABLE_RATE_LIMIT:          "true"
+      RATE_LIMIT:                 "10"
+      BURST_LIMIT:                "20"
+      MAX_CONNS:                  "10"
+      INSECURE_SKIP_VERIFY:       "false"
+    volumes:
+      - ./certs:/app/certs:ro
+    depends_on: [dvwa]
+    restart: unless-stopped
+
+  dobot_xvwa:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lab_dobot_xvwa
+    networks: [waflab]
+    ports:
+      - "9082:443"
+    environment:
+      TARGET_URL:                 http://xvwa:80
+      PROXY_PORT:                 ":443"
+      HTTP_MODE:                  "false"
+      CERT_FILE:                  "/app/certs/server.crt"
+      KEY_FILE:                   "/app/certs/server.key"
+      ENABLE_WAF:                 "true"
+      WAF_MODE:                   "block"
+      ENABLE_RESPONSE_INSPECTION: "true"
+      # Rate-limit LIGADO (mesma decisao metodologica do dobot_dvwa).
+      ENABLE_RATE_LIMIT:          "true"
+      RATE_LIMIT:                 "10"
+      BURST_LIMIT:                "20"
+      MAX_CONNS:                  "10"
+      INSECURE_SKIP_VERIFY:       "false"
+    volumes:
+      - ./certs:/app/certs:ro
+    depends_on: [xvwa]
+    restart: unless-stopped
+
+  # =====================================================================
+  # MODSECURITY (nginx + OWASP CRS)
+  # =====================================================================
+
+  modsec_dvwa:
+    image: owasp/modsecurity-crs:nginx
+    container_name: lab_modsec_dvwa
+    networks: [waflab]
+    ports:
+      - "9180:8443"
+    environment:
+      BACKEND:           http://dvwa:80
+      PORT:              "8080"
+      SSL_PORT:          "8443"
+      PARANOIA:          "1"
+      ANOMALY_INBOUND:   "5"
+      ANOMALY_OUTBOUND:  "4"
+    # Sem mount de certificado: a imagem owasp/modsecurity-crs:nginx gera/embute
+    # o proprio cert auto-assinado no SSL_PORT. Evita falha de boot por caminho
+    # de cert divergente entre versoes. Os scanners nao verificam TLS (-k /
+    # PYTHONHTTPSVERIFY=0), e o testssl analisa o cert que o WAF apresentar.
+    depends_on: [dvwa]
+    restart: unless-stopped
+
+  modsec_xvwa:
+    image: owasp/modsecurity-crs:nginx
+    container_name: lab_modsec_xvwa
+    networks: [waflab]
+    ports:
+      - "9182:8443"
+    environment:
+      BACKEND:           http://xvwa:80
+      PORT:              "8080"
+      SSL_PORT:          "8443"
+      PARANOIA:          "1"
+      ANOMALY_INBOUND:   "5"
+      ANOMALY_OUTBOUND:  "4"
+    # Sem mount de certificado (mesma razao do modsec_dvwa).
+    depends_on: [xvwa]
+    restart: unless-stopped
+
+  # =====================================================================
+  # CORAZA (Caddy + OWASP CRS)
+  # =====================================================================
+
+  coraza_dvwa:
+    build:
+      context: docker/coraza
+      dockerfile: Dockerfile
+    container_name: lab_coraza_dvwa
+    networks: [waflab]
+    ports:
+      - "9280:443"
+    environment:
+      BACKEND: http://dvwa:80
+    volumes:
+      - ./certs:/certs:ro
+    depends_on: [dvwa]
+    restart: unless-stopped
+
+  coraza_xvwa:
+    build:
+      context: docker/coraza
+      dockerfile: Dockerfile
+    container_name: lab_coraza_xvwa
+    networks: [waflab]
+    ports:
+      - "9282:443"
+    environment:
+      BACKEND: http://xvwa:80
+    volumes:
+      - ./certs:/certs:ro
+    depends_on: [xvwa]
+    restart: unless-stopped

@@ -1,0 +1,7 @@
+=== health_probe  06/06/2026 18:28:15,39 ===
+URL: http://172.18.0.5:80/xvwa/vulnerabilities/reflected_xss/?item=test
+probe 1  code=200  time=0.004145s  bytes=8868
+probe 2  code=200  time=0.003619s  bytes=8868
+probe 3  code=200  time=0.003831s  bytes=8868
+probe 4  code=200  time=0.004128s  bytes=8868
+probe 5  code=200  time=0.004348s  bytes=8868

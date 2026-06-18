@@ -1,0 +1,7 @@
+=== health_probe  06/06/2026 18:35:31,42 ===
+URL: http://172.18.0.5:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1
+probe 1  code=200  time=2.036541s  bytes=8946
+probe 2  code=200  time=2.046007s  bytes=8946
+probe 3  code=200  time=2.050013s  bytes=8946
+probe 4  code=200  time=2.044845s  bytes=8946
+probe 5  code=200  time=2.046448s  bytes=8946

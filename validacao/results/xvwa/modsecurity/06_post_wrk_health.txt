@@ -1,0 +1,7 @@
+=== health_probe  06/06/2026 18:46:25,65 ===
+URL: https://172.18.0.8:8443/xvwa/
+probe 1  code=200  time=0.028073s  bytes=10482
+probe 2  code=200  time=0.031392s  bytes=10482
+probe 3  code=200  time=0.028648s  bytes=10482
+probe 4  code=200  time=0.027498s  bytes=10482
+probe 5  code=200  time=0.033283s  bytes=10482

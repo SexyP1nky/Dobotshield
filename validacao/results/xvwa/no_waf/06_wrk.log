@@ -1,0 +1,19 @@
+=== wrk | xvwa/no_waf | http://172.18.0.5:80/xvwa/ | 06/06/2026 18:45:03,64 ===
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency http://172.18.0.5:80/xvwa/
+----------------------------------------------------------------
+Running 30s test @ http://172.18.0.5:80/xvwa/
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   222.48ms  483.40ms   4.99s    93.93%
+    Req/Sec   122.50    170.93     1.34k    92.72%
+  Latency Distribution
+     50%   46.01ms
+     75%  276.31ms
+     90%  549.02ms
+     99%    2.80s 
+  22380 requests in 30.09s, 193.28MB read
+  Socket errors: connect 0, read 0, write 0, timeout 187
+Requests/sec:    743.84
+Transfer/sec:      6.42MB
+
+TOOL_RC=0

@@ -1,0 +1,66 @@
+=== SQLMap | xvwa/coraza | "https://172.18.0.9:443/xvwa/vulnerabilities/sqli/" | 06/06/2026 18:16:32,27 ===
+CMD: sqlmap.py -u "https://172.18.0.9:443/xvwa/vulnerabilities/sqli/" -p "item" --data=item=1 --batch --random-agent --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --tamper=equaltolike --string="Category"  --output-dir=/work
+----------------------------------------------------------------
+        ___
+       __H__
+ ___ ___[)]_____ ___ ___  {1.10.5.3#dev}
+|_ -| . [(]     | .'| . |
+|___|_  [']_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 21:16:34 /2026-06-06/
+
+[21:16:34] [WARNING] using '/work' as the output directory
+[21:16:34] [INFO] loading tamper module 'equaltolike'
+[21:16:34] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:140.0) Gecko/20100101 Firefox/140.0' from file '/opt/sqlmap/data/txt/user-agents.txt'
+[1/1] URL:
+GET https://172.18.0.9:443/xvwa/vulnerabilities/sqli/
+POST data: item=1
+do you want to test this URL? [Y/n/q]
+> Y
+[21:16:35] [INFO] testing URL 'https://172.18.0.9:443/xvwa/vulnerabilities/sqli/'
+[21:16:35] [INFO] using '/work/results-06062026_0916pm.csv' as the CSV results file in multiple targets mode
+[21:16:35] [INFO] testing connection to the target URL
+[21:16:35] [INFO] testing if the provided string is within the target URL page content
+you have not declared cookie(s), while server wants to set its own ('PHPSESSID=3ca951cbb13...c21f988105'). Do you want to use those [Y/n] Y
+[21:16:35] [INFO] heuristic (basic) test shows that POST parameter 'item' might be injectable (possible DBMS: 'MySQL')
+[21:16:36] [INFO] testing for SQL injection on POST parameter 'item'
+it looks like the back-end DBMS is 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] N
+for the remaining tests, do you want to include all tests for 'MySQL' extending provided level (1) and risk (1) values? [Y/n] Y
+[21:16:36] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[21:16:40] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
+[21:16:40] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[21:16:45] [WARNING] reflective value(s) found and filtering out
+[21:16:56] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (MySQL comment)'
+[21:17:10] [INFO] testing 'OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)'
+[21:17:25] [INFO] testing 'MySQL RLIKE boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause'
+[21:17:51] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'
+[21:18:19] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (MAKE_SET)'
+[21:18:43] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'
+[21:19:12] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (ELT)'
+[21:19:36] [INFO] testing 'MySQL AND boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'
+[21:20:04] [INFO] testing 'MySQL OR boolean-based blind - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'
+[21:20:28] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET)'
+[21:20:28] [INFO] testing 'MySQL boolean-based blind - Parameter replace (MAKE_SET - original value)'
+[21:20:28] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT)'
+[21:20:29] [INFO] testing 'MySQL boolean-based blind - Parameter replace (ELT - original value)'
+[21:20:29] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int)'
+[21:20:30] [INFO] testing 'MySQL boolean-based blind - Parameter replace (bool*int - original value)'
+[21:20:30] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[21:20:31] [INFO] testing 'MySQL >= 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'
+[21:20:31] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause'
+[21:20:31] [INFO] testing 'MySQL < 5.0 boolean-based blind - ORDER BY, GROUP BY clause (original value)'
+[21:20:31] [INFO] testing 'MySQL >= 5.0 boolean-based blind - Stacked queries'
+[21:20:50] [INFO] testing 'MySQL < 5.0 boolean-based blind - Stacked queries'
+[21:20:50] [WARNING] POST parameter 'item' does not seem to be injectable
+[21:20:50] [ERROR] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. As heuristic test turned out positive you are strongly advised to continue on with the tests. Also, you can try to rerun by providing a valid value for option '--string' as perhaps the string you have chosen does not match exclusively True responses, skipping to the next target
+[21:20:50] [WARNING] HTTP error codes detected during run:
+403 (Forbidden) - 704 times
+[21:20:50] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/work/results-06062026_0916pm.csv'
+
+[*] ending @ 21:20:50 /2026-06-06/
+
+
+TOOL_RC_1=0
