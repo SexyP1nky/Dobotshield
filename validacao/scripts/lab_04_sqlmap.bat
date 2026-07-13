@@ -23,17 +23,18 @@ REM ============================================================================
 
 setlocal enableextensions enabledelayedexpansion
 
-set "ROOT=%~dp0"
-if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+set "SCRIPT_DIR=%~dp0"
+if "%SCRIPT_DIR:~-1%"=="\" set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+for %%I in ("%SCRIPT_DIR%\..") do set "ROOT=%%~fI"
 set "NET=dobotshield_waflab"
-set "RESULTS=%ROOT%\lab_results"
-set "LIB=%ROOT%\lab_lib.bat"
+set "RESULTS=%ROOT%\results"
+set "LIB=%SCRIPT_DIR%\lab_lib.bat"
 set "IMG_CURL=curlimages/curl:latest"
 set "IMG_TOOLS=dobotshield/lab-tools:latest"
 set "IMG_PY=python:3-alpine"
 set "CERT_DIR=%ROOT%\certs"
 set "CERT_FWD=%CERT_DIR:\=/%"
-set "SCRIPTS_DIR=%ROOT%\lab_scripts"
+set "SCRIPTS_DIR=%ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
 set "COOKIE_FILE=%SCRIPTS_DIR%\dvwa_cookie.txt"
 set "FAIL=0"
@@ -91,26 +92,26 @@ REM --string=Surname: texto que so aparece na resposta do /sqli/ quando a linha
 REM do usuario e retornada (condicao booleana VERDADEIRA). Lido por
 REM lab_04_sqlmap_one.bat. Mesmo valor nos 4 cenarios DVWA (justo).
 set "SQLMAP_STRING=Surname"
-call "%ROOT%\lab_04_sqlmap_one.bat" dvwa no_waf      "http://!IP_DVWA!:80"           "/vulnerabilities/sqli/?id=1&Submit=Submit" "/vulnerabilities/sqli_blind/?id=1&Submit=Submit" "id" lab_dvwa      ""                "!DVWA_COOKIE!" ""
+call "%SCRIPT_DIR%\lab_04_sqlmap_one.bat" dvwa no_waf      "http://!IP_DVWA!:80"           "/vulnerabilities/sqli/?id=1&Submit=Submit" "/vulnerabilities/sqli_blind/?id=1&Submit=Submit" "id" lab_dvwa      ""                "!DVWA_COOKIE!" ""
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_04_sqlmap_one.bat" dvwa modsecurity "https://!IP_MODSEC_DVWA!:8443" "/vulnerabilities/sqli/?id=1&Submit=Submit" "/vulnerabilities/sqli_blind/?id=1&Submit=Submit" "id" lab_dvwa      lab_modsec_dvwa   "!DVWA_COOKIE!" ""
+call "%SCRIPT_DIR%\lab_04_sqlmap_one.bat" dvwa modsecurity "https://!IP_MODSEC_DVWA!:8443" "/vulnerabilities/sqli/?id=1&Submit=Submit" "/vulnerabilities/sqli_blind/?id=1&Submit=Submit" "id" lab_dvwa      lab_modsec_dvwa   "!DVWA_COOKIE!" ""
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_04_sqlmap_one.bat" dvwa dobotshield "https://!IP_DOBOT_DVWA!:443"   "/vulnerabilities/sqli/?id=1&Submit=Submit" "/vulnerabilities/sqli_blind/?id=1&Submit=Submit" "id" lab_dvwa      lab_dobot_dvwa    "!DVWA_COOKIE!" ""
+call "%SCRIPT_DIR%\lab_04_sqlmap_one.bat" dvwa dobotshield "https://!IP_DOBOT_DVWA!:443"   "/vulnerabilities/sqli/?id=1&Submit=Submit" "/vulnerabilities/sqli_blind/?id=1&Submit=Submit" "id" lab_dvwa      lab_dobot_dvwa    "!DVWA_COOKIE!" ""
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_04_sqlmap_one.bat" dvwa coraza      "https://!IP_CORAZA_DVWA!:443"  "/vulnerabilities/sqli/?id=1&Submit=Submit" "/vulnerabilities/sqli_blind/?id=1&Submit=Submit" "id" lab_dvwa      lab_coraza_dvwa   "!DVWA_COOKIE!" ""
+call "%SCRIPT_DIR%\lab_04_sqlmap_one.bat" dvwa coraza      "https://!IP_CORAZA_DVWA!:443"  "/vulnerabilities/sqli/?id=1&Submit=Submit" "/vulnerabilities/sqli_blind/?id=1&Submit=Submit" "id" lab_dvwa      lab_coraza_dvwa   "!DVWA_COOKIE!" ""
 if errorlevel 1 set "FAIL=1"
 
 REM --- XVWA: SQLi (POST, parametro item; sem cookie; sem crawl) ---
 REM --string=Category: so aparece quando o produto e retornado (TRUE). Mesmo
 REM valor nos 4 cenarios XVWA.
 set "SQLMAP_STRING=Category"
-call "%ROOT%\lab_04_sqlmap_one.bat" xvwa no_waf      "http://!IP_XVWA!:80"           "/xvwa/vulnerabilities/sqli/" "" "item" lab_xvwa      ""                "" "item=1"
+call "%SCRIPT_DIR%\lab_04_sqlmap_one.bat" xvwa no_waf      "http://!IP_XVWA!:80"           "/xvwa/vulnerabilities/sqli/" "" "item" lab_xvwa      ""                "" "item=1"
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_04_sqlmap_one.bat" xvwa modsecurity "https://!IP_MODSEC_XVWA!:8443" "/xvwa/vulnerabilities/sqli/" "" "item" lab_xvwa      lab_modsec_xvwa   "" "item=1"
+call "%SCRIPT_DIR%\lab_04_sqlmap_one.bat" xvwa modsecurity "https://!IP_MODSEC_XVWA!:8443" "/xvwa/vulnerabilities/sqli/" "" "item" lab_xvwa      lab_modsec_xvwa   "" "item=1"
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_04_sqlmap_one.bat" xvwa dobotshield "https://!IP_DOBOT_XVWA!:443"   "/xvwa/vulnerabilities/sqli/" "" "item" lab_xvwa      lab_dobot_xvwa    "" "item=1"
+call "%SCRIPT_DIR%\lab_04_sqlmap_one.bat" xvwa dobotshield "https://!IP_DOBOT_XVWA!:443"   "/xvwa/vulnerabilities/sqli/" "" "item" lab_xvwa      lab_dobot_xvwa    "" "item=1"
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_04_sqlmap_one.bat" xvwa coraza      "https://!IP_CORAZA_XVWA!:443"  "/xvwa/vulnerabilities/sqli/" "" "item" lab_xvwa      lab_coraza_xvwa   "" "item=1"
+call "%SCRIPT_DIR%\lab_04_sqlmap_one.bat" xvwa coraza      "https://!IP_CORAZA_XVWA!:443"  "/xvwa/vulnerabilities/sqli/" "" "item" lab_xvwa      lab_coraza_xvwa   "" "item=1"
 if errorlevel 1 set "FAIL=1"
 
 echo.

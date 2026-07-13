@@ -12,11 +12,12 @@ REM ============================================================================
 
 setlocal enableextensions enabledelayedexpansion
 
-set "ROOT=%~dp0"
-if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+set "SCRIPT_DIR=%~dp0"
+if "%SCRIPT_DIR:~-1%"=="\" set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+for %%I in ("%SCRIPT_DIR%\..") do set "ROOT=%%~fI"
 set "NET=dobotshield_waflab"
-set "RESULTS=%ROOT%\lab_results"
-set "LIB=%ROOT%\lab_lib.bat"
+set "RESULTS=%ROOT%\results"
+set "LIB=%SCRIPT_DIR%\lab_lib.bat"
 set "IMG_CURL=curlimages/curl:latest"
 set "IMG_TESTSSL=drwetter/testssl.sh:latest"
 set "FAIL=0"
@@ -46,21 +47,21 @@ for %%V in (IP_DVWA IP_XVWA IP_DOBOT_DVWA IP_DOBOT_XVWA IP_MODSEC_DVWA IP_MODSEC
     )
 )
 
-call "%ROOT%\lab_02_testssl_one.bat" dvwa no_waf      "http://!IP_DVWA!:80"            lab_dvwa      ""
+call "%SCRIPT_DIR%\lab_02_testssl_one.bat" dvwa no_waf      "http://!IP_DVWA!:80"            lab_dvwa      ""
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_02_testssl_one.bat" dvwa modsecurity "https://!IP_MODSEC_DVWA!:8443"  lab_dvwa      lab_modsec_dvwa
+call "%SCRIPT_DIR%\lab_02_testssl_one.bat" dvwa modsecurity "https://!IP_MODSEC_DVWA!:8443"  lab_dvwa      lab_modsec_dvwa
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_02_testssl_one.bat" dvwa dobotshield "https://!IP_DOBOT_DVWA!:443"    lab_dvwa      lab_dobot_dvwa
+call "%SCRIPT_DIR%\lab_02_testssl_one.bat" dvwa dobotshield "https://!IP_DOBOT_DVWA!:443"    lab_dvwa      lab_dobot_dvwa
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_02_testssl_one.bat" dvwa coraza      "https://!IP_CORAZA_DVWA!:443"   lab_dvwa      lab_coraza_dvwa
+call "%SCRIPT_DIR%\lab_02_testssl_one.bat" dvwa coraza      "https://!IP_CORAZA_DVWA!:443"   lab_dvwa      lab_coraza_dvwa
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_02_testssl_one.bat" xvwa no_waf      "http://!IP_XVWA!:80"            lab_xvwa      ""
+call "%SCRIPT_DIR%\lab_02_testssl_one.bat" xvwa no_waf      "http://!IP_XVWA!:80"            lab_xvwa      ""
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_02_testssl_one.bat" xvwa modsecurity "https://!IP_MODSEC_XVWA!:8443"  lab_xvwa      lab_modsec_xvwa
+call "%SCRIPT_DIR%\lab_02_testssl_one.bat" xvwa modsecurity "https://!IP_MODSEC_XVWA!:8443"  lab_xvwa      lab_modsec_xvwa
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_02_testssl_one.bat" xvwa dobotshield "https://!IP_DOBOT_XVWA!:443"    lab_xvwa      lab_dobot_xvwa
+call "%SCRIPT_DIR%\lab_02_testssl_one.bat" xvwa dobotshield "https://!IP_DOBOT_XVWA!:443"    lab_xvwa      lab_dobot_xvwa
 if errorlevel 1 set "FAIL=1"
-call "%ROOT%\lab_02_testssl_one.bat" xvwa coraza      "https://!IP_CORAZA_XVWA!:443"   lab_xvwa      lab_coraza_xvwa
+call "%SCRIPT_DIR%\lab_02_testssl_one.bat" xvwa coraza      "https://!IP_CORAZA_XVWA!:443"   lab_xvwa      lab_coraza_xvwa
 if errorlevel 1 set "FAIL=1"
 
 echo.

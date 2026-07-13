@@ -64,7 +64,7 @@ services:
 
   dobot_dvwa:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile
     container_name: lab_dobot_dvwa
     networks: [waflab]
@@ -94,7 +94,7 @@ services:
 
   dobot_xvwa:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile
     container_name: lab_dobot_xvwa
     networks: [waflab]

@@ -14,14 +14,15 @@ REM ============================================================================
 
 setlocal enableextensions enabledelayedexpansion
 
-set "ROOT=%~dp0"
-if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+set "SCRIPT_DIR=%~dp0"
+if "%SCRIPT_DIR:~-1%"=="\" set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+for %%I in ("%SCRIPT_DIR%\..") do set "ROOT=%%~fI"
 set "COMPOSE=%ROOT%\docker-compose.lab.yml"
 set "CERT_DIR=%ROOT%\certs"
 set "NET=dobotshield_waflab"
 set "IMG_CURL=curlimages/curl:latest"
 set "IMG_PY=python:3-alpine"
-set "SCRIPTS_DIR=%ROOT%\lab_scripts"
+set "SCRIPTS_DIR=%ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
 
 echo.
@@ -43,6 +44,10 @@ echo.
 echo [1/2] Subindo containers (build se necessario)...
 echo --------------------------------------------------------
 docker compose -f "%COMPOSE%" up -d --build || ( echo [ERRO] docker compose up falhou. & exit /b 20 )
+
+REM A imagem historica do DVWA ocasionalmente inicia o banco, mas deixa o
+REM Apache parado. Corrige essa corrida de forma idempotente antes dos probes.
+docker exec lab_dvwa sh -c "pidof apache2 >/dev/null 2>&1 || service apache2 start" >nul 2>&1
 
 echo.
 echo [2/2] Resolvendo IPs e aguardando disponibilidade dos 8 alvos (ate 180s cada)...

@@ -9,7 +9,7 @@ bloqueada por um WAF. A execucao completa recomendada e `lab_run_tudo.bat`.
 Para cada combinacao `app x cenario`, os arquivos ficam em:
 
 ```text
-lab_results\<app>\<cenario>\
+results\<app>\<cenario>\
 ```
 
 Apps:
@@ -110,7 +110,7 @@ lab_run_tudo.bat
 O runner salva um log mestre em:
 
 ```text
-lab_results\run_<timestamp>.log
+results\run_<timestamp>.log
 ```
 
 Os scripts individuais tambem podem ser rodados separadamente depois de

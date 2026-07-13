@@ -201,6 +201,7 @@ func recordTrainingResponse(requestID, clientIP, path, details, rule string, bod
 		Location:  location,
 		Rule:      rule,
 		Payload:   string(bodyBytes),
+		Variants:  waf.BuildVariants(string(bodyBytes)),
 	})
 }
 
@@ -394,7 +395,11 @@ func injectForwardedHeaders(r *http.Request, clientIP, directIP string, directTr
 
 	r.Header.Set("X-Real-IP", clientIP)
 	r.Header.Set("X-DoBotShield-Request-ID", r.Header.Get("X-Request-ID"))
-	r.Header.Set("X-Forwarded-Proto", "https")
+	forwardedProto := "http"
+	if r.TLS != nil {
+		forwardedProto = "https"
+	}
+	r.Header.Set("X-Forwarded-Proto", forwardedProto)
 	r.Header.Set("X-Forwarded-Host", r.Host)
 }
 

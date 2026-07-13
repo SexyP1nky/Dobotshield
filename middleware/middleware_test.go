@@ -49,6 +49,16 @@ func TestInjectForwardedHeadersRebuildsTrustedProxyChain(t *testing.T) {
 	}
 }
 
+func TestInjectForwardedHeadersUsesHTTPForPlainRequest(t *testing.T) {
+	r := httptest.NewRequest("GET", "http://dobotshield.local/", nil)
+
+	injectForwardedHeaders(r, "203.0.113.10", "203.0.113.10", false)
+
+	if got := r.Header.Get("X-Forwarded-Proto"); got != "http" {
+		t.Fatalf("expected X-Forwarded-Proto=http, got %q", got)
+	}
+}
+
 func TestWriteJSONErrorUsesGenericReason(t *testing.T) {
 	w := httptest.NewRecorder()
 
@@ -111,6 +121,7 @@ func TestBuildProxySetsConfiguredCSP(t *testing.T) {
 func TestBuildProxyBlocksBackendSQLLeak(t *testing.T) {
 	proxy, err := BuildProxy(config.Config{
 		TargetURL:                "http://localhost:4280",
+		EnableSanitizer:          true,
 		WAFMode:                  "block",
 		EnableResponseInspection: true,
 		ResponseInspectionLimit:  1024,
@@ -146,6 +157,7 @@ func TestBuildProxyBlocksBackendSQLLeak(t *testing.T) {
 func TestBuildProxyMonitorModeDoesNotBlockBackendLeak(t *testing.T) {
 	proxy, err := BuildProxy(config.Config{
 		TargetURL:                "http://localhost:4280",
+		EnableSanitizer:          true,
 		WAFMode:                  "monitor",
 		EnableResponseInspection: true,
 		ResponseInspectionLimit:  1024,
@@ -174,6 +186,27 @@ func TestBuildProxyMonitorModeDoesNotBlockBackendLeak(t *testing.T) {
 	}
 	if got := resp.Header.Get("X-DoBotShield-Action"); got != "Forwarded" {
 		t.Fatalf("expected forwarded action in monitor mode, got %q", got)
+	}
+}
+
+func TestRecordTrainingResponseIncludesInspectionVariants(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "training-response.jsonl")
+	traininglog.Configure(true, path)
+	t.Cleanup(func() { _ = traininglog.CloseDefault() })
+
+	body := []byte(`{"error":"SQLSTATE%5B42000%5D"}`)
+	recordTrainingResponse("response-request", "203.0.113.60", "/items", "RESPONSE_SQL_ERROR in Body", "SQLSTATE", body, "blocked")
+	_ = traininglog.CloseDefault()
+
+	events, err := traininglog.Load(path)
+	if err != nil {
+		t.Fatalf("load training log: %v", err)
+	}
+	if len(events) != 1 {
+		t.Fatalf("expected one response event, got %d", len(events))
+	}
+	if events[0].Phase != "response" || len(events[0].Variants) < 2 {
+		t.Fatalf("expected response variants to include decoded forms, got %#v", events[0].Variants)
 	}
 }
 

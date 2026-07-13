@@ -9,11 +9,12 @@ REM ============================================================================
 
 setlocal enableextensions enabledelayedexpansion
 
-set "ROOT=%~dp0"
-if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+set "SCRIPT_DIR=%~dp0"
+if "%SCRIPT_DIR:~-1%"=="\" set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+for %%I in ("%SCRIPT_DIR%\..") do set "ROOT=%%~fI"
 if "%NET%"=="" set "NET=dobotshield_waflab"
-if "%RESULTS%"=="" set "RESULTS=%ROOT%\lab_results"
-if "%LIB%"=="" set "LIB=%ROOT%\lab_lib.bat"
+if "%RESULTS%"=="" set "RESULTS=%ROOT%\results"
+if "%LIB%"=="" set "LIB=%SCRIPT_DIR%\lab_lib.bat"
 if "%IMG_TOOLS%"=="" set "IMG_TOOLS=dobotshield/lab-tools:latest"
 if "%IMG_CURL%"=="" set "IMG_CURL=curlimages/curl:latest"
 if "%CERT_DIR%"=="" set "CERT_DIR=%ROOT%\certs"

@@ -113,3 +113,23 @@ func TestLoadFallsBackForInvalidNumbers(t *testing.T) {
 		t.Fatalf("expected default body size, got %d", cfg.MaxBodySize)
 	}
 }
+
+func TestEnableWAFControlsRequestAndResponseInspection(t *testing.T) {
+	cfg := Config{
+		EnableSanitizer:          false,
+		EnableResponseInspection: true,
+		WAFMode:                  "block",
+	}
+
+	if cfg.RequestWAFEnabled() {
+		t.Fatalf("expected ENABLE_WAF=false to disable request inspection")
+	}
+	if cfg.ResponseWAFEnabled() {
+		t.Fatalf("expected ENABLE_WAF=false to disable response inspection")
+	}
+
+	cfg.EnableSanitizer = true
+	if !cfg.RequestWAFEnabled() || !cfg.ResponseWAFEnabled() {
+		t.Fatalf("expected ENABLE_WAF=true to enable both inspection phases")
+	}
+}

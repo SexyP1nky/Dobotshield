@@ -8,7 +8,7 @@ REM    2) lab_01_subir.bat
 REM    3) lab_02_testssl.bat ... lab_07_wrk.bat
 REM
 REM  Alem dos logs individuais de cada ferramenta, grava:
-REM    - lab_results\run_<timestamp>.log
+REM    - results\run_<timestamp>.log
 REM    - 00_pre_battery_* e 99_post_battery_* por app/cenario
 REM    - 99_backend_full.log e 99_waf_full.log por app/cenario
 REM    - SUMMARY.txt por app/cenario
@@ -16,11 +16,12 @@ REM ============================================================================
 
 setlocal enableextensions enabledelayedexpansion
 
-set "ROOT=%~dp0"
-if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+set "SCRIPT_DIR=%~dp0"
+if "%SCRIPT_DIR:~-1%"=="\" set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+for %%I in ("%SCRIPT_DIR%\..") do set "ROOT=%%~fI"
 
-set "RESULTS=%ROOT%\lab_results"
-set "LIB=%ROOT%\lab_lib.bat"
+set "RESULTS=%ROOT%\results"
+set "LIB=%SCRIPT_DIR%\lab_lib.bat"
 set "NET=dobotshield_waflab"
 set "IMG_CURL=curlimages/curl:latest"
 set "FAIL=0"
@@ -40,21 +41,22 @@ echo   DoBotShield Lab -- BATERIA COMPLETA
 echo   Log mestre: %RUN_LOG%
 echo ============================================================
 
-call :run_step "00_setup" "%ROOT%\lab_00_setup.bat" true
+call :run_step "00_setup" "%SCRIPT_DIR%\lab_00_setup.bat" true
 if errorlevel 1 exit /b %ERRORLEVEL%
 
-call :run_step "01_subir" "%ROOT%\lab_01_subir.bat" true
+call :run_step "01_subir" "%SCRIPT_DIR%\lab_01_subir.bat" true
 if errorlevel 1 exit /b %ERRORLEVEL%
 
 call :resolve_ips
 call :battery_snapshot "00_pre_battery"
 
-call :run_step "02_testssl"  "%ROOT%\lab_02_testssl.bat"  false
-call :run_step "03_zap"      "%ROOT%\lab_03_zap.bat"      false
-call :run_step "04_sqlmap"   "%ROOT%\lab_04_sqlmap.bat"   false
-call :run_step "05_xsstrike" "%ROOT%\lab_05_xsstrike.bat" false
-call :run_step "06_commix"   "%ROOT%\lab_06_commix.bat"   false
-call :run_step "07_wrk"      "%ROOT%\lab_07_wrk.bat"      false
+call :run_step "02_testssl"  "%SCRIPT_DIR%\lab_02_testssl.bat"  false
+call :run_step "03_zap"      "%SCRIPT_DIR%\lab_03_zap.bat"      false
+call :run_step "04_sqlmap"   "%SCRIPT_DIR%\lab_04_sqlmap.bat"   false
+call :run_step "05_xsstrike" "%SCRIPT_DIR%\lab_05_xsstrike.bat" false
+call :run_step "06_commix"   "%SCRIPT_DIR%\lab_06_commix.bat"   false
+call :run_step "08_manual_regression" "%SCRIPT_DIR%\lab_08_manual_regression.bat" false
+call :run_step "07_wrk"      "%SCRIPT_DIR%\lab_07_wrk.bat"      false
 
 call :resolve_ips
 call :battery_snapshot "99_post_battery"

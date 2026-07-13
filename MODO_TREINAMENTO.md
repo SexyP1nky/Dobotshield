@@ -35,7 +35,7 @@ no arquivo de log. Esquema de cada evento:
 | `location`    | Onde foi encontrada: `Query`, `Body`, `Path`, `Header User-Agent`… |
 | `rule`        | **Regra específica** acionada (a própria regex do WAF).            |
 | `payload`     | **Payload original** recebido no campo que casou.                  |
-| `variants`    | **Variantes geradas** pelo WAF ao decodificar o payload.          |
+| `variants`    | **Variantes geradas** pelo WAF ao decodificar o payload, tanto em requisições quanto em respostas. |
 
 Exemplo de uma linha (XSS codificado em URL):
 

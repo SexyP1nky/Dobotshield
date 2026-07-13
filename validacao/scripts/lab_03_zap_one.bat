@@ -1,6 +1,6 @@
 @echo off
 REM ============================================================================
-REM  lab_03_zap_one.bat -- execucao unitaria do OWASP ZAP
+REM  lab_03_zap_one.bat -- execucao unitaria do ZAP
 REM
 REM  Uso interno pelo lab_03_zap.bat:
 REM    lab_03_zap_one.bat <app> <cenario> <url> <backend_ct> <waf_ct> <cookie>
@@ -8,14 +8,15 @@ REM ============================================================================
 
 setlocal enableextensions enabledelayedexpansion
 
-set "ROOT=%~dp0"
-if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+set "SCRIPT_DIR=%~dp0"
+if "%SCRIPT_DIR:~-1%"=="\" set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+for %%I in ("%SCRIPT_DIR%\..") do set "ROOT=%%~fI"
 if "%NET%"=="" set "NET=dobotshield_waflab"
-if "%RESULTS%"=="" set "RESULTS=%ROOT%\lab_results"
-if "%LIB%"=="" set "LIB=%ROOT%\lab_lib.bat"
+if "%RESULTS%"=="" set "RESULTS=%ROOT%\results"
+if "%LIB%"=="" set "LIB=%SCRIPT_DIR%\lab_lib.bat"
 if "%IMG_ZAP%"=="" set "IMG_ZAP=zaproxy/zap-stable:latest"
 if "%IMG_CURL%"=="" set "IMG_CURL=curlimages/curl:latest"
-if "%SCRIPTS_DIR%"=="" set "SCRIPTS_DIR=%ROOT%\lab_scripts"
+if "%SCRIPTS_DIR%"=="" set "SCRIPTS_DIR=%ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
 
 set "APP=%~1"
@@ -55,7 +56,7 @@ REM aceita mas a extensao nao a aplica -> o scan ia DESLOGADO e so achava
 REM login.php). O cookie chega ao hook pela variavel de ambiente DVWA_COOKIE
 REM (vazia no XVWA, que nao exige login -> o hook nao injeta nada).
 
-> "%LOG%" echo === OWASP ZAP ^| %APP%/%SCEN% ^| %URL% ^| %DATE% %TIME% ===
+> "%LOG%" echo === ZAP ^| %APP%/%SCEN% ^| %URL% ^| %DATE% %TIME% ===
 >> "%LOG%" echo CMD: docker run -e DVWA_COOKIE=^<cookie^> %IMG_ZAP% zap-full-scan.py -t %URL% -m 2 -T 5 -r zap_report.html -J zap_report.json -w zap_report.md -z "!_ZAP_CFG!" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
 >> "%LOG%" echo ----------------------------------------------------------------
 docker run --rm --network %NET% ^

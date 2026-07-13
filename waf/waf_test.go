@@ -245,3 +245,55 @@ func TestCheckRequestAllowsNormalRequest(t *testing.T) {
 		t.Fatalf("expected normal request to pass, got %q", details)
 	}
 }
+
+func TestCheckRequestDetectsManualCommandInjectionRegressions(t *testing.T) {
+	tests := []struct {
+		name    string
+		payload string
+	}{
+		{name: "semicolon echo", payload: "target=127.0.0.1;echo DOBOT_CMDI_TEST"},
+		{name: "semicolon sleep", payload: "target=127.0.0.1;sleep 2"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			r := httptest.NewRequest("POST", "/command", nil)
+			malicious, details, _ := CheckRequest(r, []byte(tt.payload))
+			if !malicious {
+				t.Fatalf("expected %q to be blocked", tt.payload)
+			}
+			if !strings.Contains(details, "CMD_INJ") {
+				t.Fatalf("expected CMD_INJ details, got %q", details)
+			}
+		})
+	}
+}
+
+func TestTargetedBenignCorpusHasNoFalsePositives(t *testing.T) {
+	tests := []struct {
+		name string
+		url  string
+		body string
+	}{
+		{name: "profile update", url: "/profile?tab=settings", body: "name=Maria&note=regular+update"},
+		{name: "product search", url: "/search?q=wireless+keyboard", body: ""},
+		{name: "pagination", url: "/items?page=2&order=price", body: ""},
+		{name: "email form", url: "/contact", body: "email=ana%40example.com&message=Preciso+de+ajuda"},
+		{name: "address", url: "/checkout", body: "street=Rua+das+Flores&number=120"},
+		{name: "json preferences", url: "/api/preferences", body: `{"theme":"dark","notifications":true}`},
+		{name: "date filter", url: "/reports?from=2026-01-01&to=2026-06-30", body: ""},
+		{name: "decimal values", url: "/cart", body: "quantity=2&price=19.90"},
+		{name: "hyphenated slug", url: "/articles/web-application-security", body: ""},
+		{name: "localized text", url: "/comment", body: "text=Aplicacao+segura+e+rapida"},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			r := httptest.NewRequest("POST", tt.url, nil)
+			malicious, details, _ := CheckRequest(r, []byte(tt.body))
+			if malicious {
+				t.Fatalf("unexpected false positive (%s): %q", details, tt.body)
+			}
+		})
+	}
+}

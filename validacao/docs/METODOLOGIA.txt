@@ -32,7 +32,7 @@ Cenarios por aplicacao:
 
 Ferramentas (todas open source, executadas em containers):
   1. testssl.sh -- analise de criptografia TLS/SSL
-  2. OWASP ZAP  -- DAST / vulnerability scanner (full-scan)
+  2. ZAP        -- DAST / vulnerability scanner (full-scan)
   3. SQLMap     -- SQL Injection
   4. XSStrike   -- XSS (fuzzing/evasao)
   5. Commix     -- Command Injection (OSCI)
@@ -105,11 +105,13 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
   interativo que, sem stdin real, entrava em loop e INUNDAVA o log (>1 GB). Tambem
   removido --all (enumeracao pesada, desnecessaria p/ medir deteccao). (bug duplo
   corrigido: "nao testava nada" + "flood de log de >1 GB").
-  NOTA (resultado): o DoBotShield NAO falha no Commix. A brecha existe (echo/sleep
-  nao estao na lista de comandos do WAF e executam), mas toda confirmacao do
-  Commix usa $(...) (classic/eval/time) ou um interpretador da lista (python/perl)
-  -> bloqueados. O file-based (unica via sem $()) exige diretorio web gravavel,
-  que o DVWA nao tem. Logo o Commix e barrado pelo DoBotShield.
+  NOTA (resultado): o Commix recebe HTTP 400 e interrompe o ensaio antes de
+  confirmar a injecao. Como esse comportamento da ferramenta nao provava que os
+  comandos literais estavam cobertos, o motor foi corrigido para reconhecer
+  ;echo e ;sleep. O lab_08_manual_regression.bat testa diretamente os dois
+  payloads em DVWA e XVWA: 4/4 retornaram HTTP 400 e Blocked-WAF. O mesmo ensaio
+  inclui seis requisicoes benignas focalizadas; 6/6 foram encaminhadas e nao se
+  observou falso positivo nesse corpus pequeno.
 
 - XSStrike: 10 threads, --skip-dom, sem --crawl; alvo no parametro refletido.
 
@@ -168,7 +170,7 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 6. ESTRUTURA DOS RESULTADOS
 ---------------------------------------------------------------------------
-  lab_results/
+  results/
     METODOLOGIA.txt                  (este documento, com timestamp da rodada)
     <app>/<cenario>/
         01_testssl.log               saida da ferramenta (1 log por teste)
@@ -267,11 +269,14 @@ CORRECOES APLICADAS E VALIDADAS (OK):
 RESULTADOS POR FERRAMENTA vs DOBOTSHIELD (o que o WAF faz):
   - SQLMap   : FALHA o DoBotShield (injecao booleana passa) -> ver config acima.
   - XSStrike : DoBotShield BLOQUEIA (XSS robustamente filtrado; sem tamper viavel).
-  - Commix   : DoBotShield BLOQUEIA (toda confirmacao usa $() ou interpretador da
-               lista; a brecha do echo nao e "confirmavel" pelo Commix).
+  - Commix   : DoBotShield responde HTTP 400 e a ferramenta interrompe o ensaio.
+               Teste manual complementar comprova ;echo e ;sleep: 4/4 bloqueios.
   - ZAP/testssl/wrk: nao sao vetores de "bypass" (DAST/TLS/carga).
 
-RESULTADO DA BATERIA COMPLETA (8 alvos x 6 ferramentas = 48 testes): 48/48 OK.
+RESULTADO CONSOLIDADO: as 36 execucoes validas dos cenarios no_waf,
+ModSecurity e Coraza foram preservadas. Em 12/07/2026, reexecutaram-se somente
+as 12 execucoes DoBotShield necessarias, mais os 10 casos manuais focalizados.
+Nao foi produzido manifesto SHA-256.
   - testssl : 8/8 executaram. Nos 6 alvos HTTPS (os 3 WAFs x 2 apps) analisa o
               TLS normalmente. Nos 2 no_waf (HTTP puro, porta 80) reporta
               "doesn't seem to be a TLS/SSL enabled server" e sai RC=10 -- isso e
@@ -282,10 +287,9 @@ RESULTADO DA BATERIA COMPLETA (8 alvos x 6 ferramentas = 48 testes): 48/48 OK.
               injecao confirmada).
   - XSStrike: 8/8 RC=0 (apos --skip).
   - Commix  : 8/8 RC=0. no_waf detecta a injecao; os 3 WAFs bloqueiam.
-  - wrk     : 8/8 RC=0. DoBotShield estrangula o flood com rate-limit (429): ~64k
-              respostas/s, ~100% non-2xx -- rejeicao na BORDA, backend blindado.
-              ModSec/Coraza/no_waf proxiam de fato (2,5k-6,5k req/s). O numero alto
-              do DoBotShield e rejeicao rapida, NAO vazao de aplicacao.
+  - wrk     : nos dois cenarios DoBotShield reexecutados, RC=0: 42.408,74 req/s
+              no DVWA e 36.749,62 req/s no XVWA, com quase 100% non-2xx. Trata-se
+              de rejeicao rapida na borda pelo rate-limit, NAO vazao de aplicacao.
 
 TROUBLESHOOTING (se reaparecer):
   - Se ZAP der "failed to access" ou Commix der "connection refused" em UM unico
@@ -301,7 +305,8 @@ LIMITACAO CONHECIDA:
     identico para todos.
 
 ============================================================================
-ANALISE DOS RESULTADOS (revisao 2026-06-06) -- 4 pontos verificados
+REGISTRO HISTORICO DA ANALISE (revisao 2026-06-06) -- os valores vigentes do
+DoBotShield sao os da reexecucao seletiva de 12/07/2026 descrita acima.
 ============================================================================
 
 PONTO 1 -- ZAP no XVWA gera poucos alertas (e a comparacao com WAF):
@@ -314,8 +319,10 @@ PONTO 1 -- ZAP no XVWA gera poucos alertas (e a comparacao com WAF):
   Conclusao 2 (causa-raiz): o spider do ZAP quase nao percorre o XVWA. URLs
   unicas atacadas por cenario (instancias com param): XVWA so /xvwa/, /, robots,
   sitemap, .git/config (6 caminhos) -- NUNCA chega em /xvwa/vulnerabilities/sqli,
-  /xss_*, /cmdi etc. Resultado: 0 HIGH reais no XVWA (o unico "High" =
-  'Spring4Shell' em dobot/xvwa e FALSO-POSITIVO: XVWA e PHP, nao Java/Spring).
+  /xss_*, /cmdi etc. Na reexecucao de 12/07/2026, o ZAP registrou um unico
+  HIGH em cada app DoBotShield: Spring4Shell, com evidence igual a
+  "HTTP/1.1 400 Bad Request". A evidencia e resposta de bloqueio, nao prova
+  de execucao no backend; no XVWA, PHP, tampouco ha aplicacao Spring.
   No DVWA o ZAP entra autenticado (cookie via zap_hook.py) e varre 77 URLs ->
   6 HIGH no no_waf. "Total of N URLs" do spider: XVWA 11/6/11/6 vs DVWA 77/69/43/63.
   => O baixo numero no XVWA e COBERTURA do spider (nao bug de execucao). Para o
@@ -364,7 +371,7 @@ REQUISITO "nao parar prematuramente por causa de input" -- estado por ferramenta
 FIX IMPLEMENTADO (Ponto 1) -- seed do XVWA no ZAP (zap_hook.py):
   Decisao do usuario: semear as URLs vulneraveis do XVWA, com INPUT IDENTICO nos
   4 cenarios do XVWA (so o host:porta muda), e o DVWA INTOCADO.
-  Implementacao 100% no lab_scripts/zap_hook.py (que ja e passado via --hook a
+   Implementacao 100% no helpers/zap_hook.py (que ja e passado via --hook a
   TODOS os scans). O hook detecta o XVWA pelo alvo ("/xvwa" na URL) e:
     (1) liga no spider postForm/processForm/handleParameters=USE_ALL/maxChildren=0
         -> o spider passa a SUBMETER os forms POST e descobrir params sozinho;
@@ -409,9 +416,9 @@ AUDITORIA HTML / RELATORIO DE TREINAMENTO (admin-config + training-report)
   (DoBotshield-main.zip), congelada em 30/05/2026. Provas:
     - main.go raiz (4105 b, 02/06) tem a integracao do traininglog; o main.go
       aninhado (3791 b, 30/05) NAO tem (diff confirma 3 blocos a mais na raiz).
-    - So a raiz tem lab_0X_*_one.bat, lab_METODOLOGIA, lab_RELATORIO, report/,
-      traininglog/, cmd/report. A aninhada ainda usa o monolitico
-      run_lab_tests.bat. => a aninhada pode ser ignorada/apagada.
+    - Os executores ficam em validacao/scripts/, os auxiliares em
+      validacao/helpers/, a metodologia em validacao/docs/ e os artefatos em
+      validacao/results/.
 
   COMO O RELATORIO E GERADO (cadeia):
     logs\training.jsonl  (log JSON Lines do Modo de Treinamento)

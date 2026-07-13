@@ -245,7 +245,8 @@ Requisição HTTP/S chegando
         | ameaça detectada (modo monitor) -> log e continua
         | limpo
         v
-[7] Injetar X-Forwarded-For, X-Real-IP, X-Forwarded-Proto
+[7] Injetar X-Forwarded-For, X-Real-IP e X-Forwarded-Proto
+    (http/https conforme o esquema recebido)
         |
         v
 [8] Encaminhar ao backend (httputil.ReverseProxy)
@@ -271,7 +272,7 @@ Resposta ao cliente
 | Acesso | Blocklist por IP e CIDR | `BLOCKED_IPS` |
 | Acesso | Rate limiting (token bucket por IP) | `RATE_LIMIT`, `BURST_LIMIT`, `MAX_CONNS` |
 | WAF | Inspeção de requisição (12 categorias) | `ENABLE_WAF`, `WAF_MODE` |
-| WAF | Inspeção de resposta (4 categorias) | `ENABLE_RESPONSE_INSPECTION` |
+| WAF | Inspeção de resposta (4 categorias) | `ENABLE_WAF` + `ENABLE_RESPONSE_INSPECTION` |
 | WAF | Allowlist por categoria e rota | `WAF_ALLOWLIST` |
 | WAF | Modo de Treinamento: log estruturado de bloqueios + relatório HTML | `TRAINING_MODE`, `TRAINING_LOG_FILE` |
 | Headers | Remoção de headers de versão (`Server`, `X-Powered-By`) | automático |
@@ -288,9 +289,9 @@ Resposta ao cliente
 | `TARGET_URL` | `http://localhost:4280` | URL da aplicação protegida |
 | `PROXY_PORT` | `:443` | Porta de escuta do DoBot Shield |
 | `HTTP_MODE` | `false` | `true` = HTTP puro (laboratório); qualquer outro valor = HTTPS |
-| `ENABLE_WAF` | `true` | Liga/desliga o WAF |
+| `ENABLE_WAF` | `true` | Interruptor geral: liga/desliga a inspeção de requisições e respostas |
 | `WAF_MODE` | `block` | `block`, `monitor` ou `off` |
-| `ENABLE_RESPONSE_INSPECTION` | `true` | Inspeção de respostas do backend |
+| `ENABLE_RESPONSE_INSPECTION` | `true` | Inspeção de respostas do backend, desde que `ENABLE_WAF=true` |
 | `RESPONSE_INSPECTION_LIMIT` | `1048576` | Limite de bytes por resposta inspecionada |
 | `WAF_ALLOWLIST` | vazio | Exceções, por exemplo `SQLi:/api/search,/health` |
 | `BLOCKED_IPS` | vazio | IPs/CIDRs bloqueados antes do WAF, por exemplo `1.2.3.4,10.0.0.0/8` |

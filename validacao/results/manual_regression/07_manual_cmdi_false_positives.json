@@ -1,0 +1,138 @@
+{
+  "scope": "targeted manual regression; not a population-wide false-positive estimate",
+  "attack_cases": 4,
+  "attacks_blocked_as_expected": 4,
+  "benign_cases": 6,
+  "benign_false_positives": 0,
+  "all_passed": true,
+  "results": [
+    {
+      "id": "dvwa_echo",
+      "kind": "attack",
+      "method": "POST",
+      "url": "https://172.18.0.5:443/vulnerabilities/exec/",
+      "data": {
+        "ip": "127.0.0.1;echo DOBOT_CMDI_TEST",
+        "Submit": "Submit"
+      },
+      "status": 400,
+      "action": "Blocked-WAF",
+      "elapsed_seconds": 0.037,
+      "response_excerpt": "{\"error\":\"Security Violation\",\"reason\":\"Request blocked by security policy\"} ",
+      "expectation": "HTTP 400 and X-DoBotShield-Action=Blocked-WAF",
+      "passed": true
+    },
+    {
+      "id": "dvwa_sleep",
+      "kind": "attack",
+      "method": "POST",
+      "url": "https://172.18.0.5:443/vulnerabilities/exec/",
+      "data": {
+        "ip": "127.0.0.1;sleep 2",
+        "Submit": "Submit"
+      },
+      "status": 400,
+      "action": "Blocked-WAF",
+      "elapsed_seconds": 0.008,
+      "response_excerpt": "{\"error\":\"Security Violation\",\"reason\":\"Request blocked by security policy\"} ",
+      "expectation": "HTTP 400 and X-DoBotShield-Action=Blocked-WAF",
+      "passed": true
+    },
+    {
+      "id": "xvwa_echo",
+      "kind": "attack",
+      "method": "GET",
+      "url": "https://172.18.0.8:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1%3Becho+DOBOT_CMDI_TEST",
+      "status": 400,
+      "action": "Blocked-WAF",
+      "elapsed_seconds": 0.008,
+      "response_excerpt": "{\"error\":\"Security Violation\",\"reason\":\"Request blocked by security policy\"} ",
+      "expectation": "HTTP 400 and X-DoBotShield-Action=Blocked-WAF",
+      "passed": true
+    },
+    {
+      "id": "xvwa_sleep",
+      "kind": "attack",
+      "method": "GET",
+      "url": "https://172.18.0.8:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1%3Bsleep+2",
+      "status": 400,
+      "action": "Blocked-WAF",
+      "elapsed_seconds": 0.007,
+      "response_excerpt": "{\"error\":\"Security Violation\",\"reason\":\"Request blocked by security policy\"} ",
+      "expectation": "HTTP 400 and X-DoBotShield-Action=Blocked-WAF",
+      "passed": true
+    },
+    {
+      "id": "dvwa_home",
+      "kind": "benign",
+      "method": "GET",
+      "url": "https://172.18.0.5:443/",
+      "status": 200,
+      "action": "Forwarded",
+      "elapsed_seconds": 0.02,
+      "response_excerpt": "  <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">    <html xmlns=\"http://www.w3.org/1999/xhtml\">    \t<head>    \t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8",
+      "expectation": "request must not be blocked by the WAF",
+      "passed": true
+    },
+    {
+      "id": "dvwa_login",
+      "kind": "benign",
+      "method": "GET",
+      "url": "https://172.18.0.5:443/login.php",
+      "status": 200,
+      "action": "Forwarded",
+      "elapsed_seconds": 0.022,
+      "response_excerpt": "  <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">    <html xmlns=\"http://www.w3.org/1999/xhtml\">    \t<head>    \t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8",
+      "expectation": "request must not be blocked by the WAF",
+      "passed": true
+    },
+    {
+      "id": "dvwa_benign_query",
+      "kind": "benign",
+      "method": "GET",
+      "url": "https://172.18.0.5:443/?page=2&order=price",
+      "status": 200,
+      "action": "Forwarded",
+      "elapsed_seconds": 0.02,
+      "response_excerpt": "  <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">    <html xmlns=\"http://www.w3.org/1999/xhtml\">    \t<head>    \t\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8",
+      "expectation": "request must not be blocked by the WAF",
+      "passed": true
+    },
+    {
+      "id": "xvwa_home",
+      "kind": "benign",
+      "method": "GET",
+      "url": "https://172.18.0.8:443/xvwa/",
+      "status": 200,
+      "action": "Forwarded",
+      "elapsed_seconds": 0.042,
+      "response_excerpt": "<!DOCTYPE html> <html lang=\"en\">  <head>      <meta charset=\"utf-8\">     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">     <meta name=\"description\" content=\"\">",
+      "expectation": "request must not be blocked by the WAF",
+      "passed": true
+    },
+    {
+      "id": "xvwa_benign_search",
+      "kind": "benign",
+      "method": "GET",
+      "url": "https://172.18.0.8:443/xvwa/?q=wireless+keyboard",
+      "status": 200,
+      "action": "Forwarded",
+      "elapsed_seconds": 0.041,
+      "response_excerpt": "<!DOCTYPE html> <html lang=\"en\">  <head>      <meta charset=\"utf-8\">     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">     <meta name=\"description\" content=\"\">",
+      "expectation": "request must not be blocked by the WAF",
+      "passed": true
+    },
+    {
+      "id": "xvwa_benign_pagination",
+      "kind": "benign",
+      "method": "GET",
+      "url": "https://172.18.0.8:443/xvwa/?page=2&order=price",
+      "status": 200,
+      "action": "Forwarded",
+      "elapsed_seconds": 0.048,
+      "response_excerpt": "<!DOCTYPE html> <html lang=\"en\">  <head>      <meta charset=\"utf-8\">     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">     <meta name=\"description\" content=\"\">",
+      "expectation": "request must not be blocked by the WAF",
+      "passed": true
+    }
+  ]
+}

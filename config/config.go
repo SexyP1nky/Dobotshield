@@ -74,7 +74,7 @@ func (c Config) RequestWAFEnabled() bool {
 }
 
 func (c Config) ResponseWAFEnabled() bool {
-	return c.EnableResponseInspection && c.WAFMode != "off"
+	return c.EnableSanitizer && c.EnableResponseInspection && c.WAFMode != "off"
 }
 
 func (c Config) WAFBlocks() bool {

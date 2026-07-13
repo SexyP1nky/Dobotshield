@@ -69,7 +69,7 @@ func initCMDPatterns() []*regexp.Regexp {
 		regexp.MustCompile(`(?i)\b(?:bash|sh|cmd)\s+(?:-c|/c)\b`),
 		regexp.MustCompile("(?i)`[^`]{1,200}`"),
 		regexp.MustCompile(`(?i)\$\([^)]{1,200}\)`),
-		regexp.MustCompile(`(?i)(?:;|\||&&|\|\||&)\s*(id|whoami|ls|cat|uname|wget|curl|nc|ncat|netcat|python|perl|ruby|php|bash|sh|cmd|powershell|pwsh)\b`),
+		regexp.MustCompile(`(?i)(?:;|\||&&|\|\||&)\s*(id|whoami|ls|cat|uname|wget|curl|nc|ncat|netcat|python|perl|ruby|php|bash|sh|cmd|powershell|pwsh|echo|sleep)\b`),
 		regexp.MustCompile(`\$\{IFS\}`),
 	}
 }

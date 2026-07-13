@@ -8,21 +8,22 @@ REM    - gera certificado TLS auto-assinado (SAN p/ todos os hosts do lab)
 REM    - baixa (pull) e constroi (build) TODAS as imagens necessarias
 REM    - sobe o DVWA, cria o banco, faz login (admin/password),
 REM      define DVWA Security = "low" e CAPTURA O COOKIE de sessao
-REM    - salva o cookie em lab_scripts\dvwa_cookie.txt (usado pelas ferramentas)
-REM    - escreve lab_results\METODOLOGIA.txt
+REM    - salva o cookie em helpers\dvwa_cookie.txt (usado pelas ferramentas)
+REM    - escreve results\METODOLOGIA.txt
 REM
 REM  Rode este .bat PRIMEIRO. Depois: lab_01_subir.bat e as ferramentas.
 REM ============================================================================
 
 setlocal enableextensions enabledelayedexpansion
 
-set "ROOT=%~dp0"
-if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+set "SCRIPT_DIR=%~dp0"
+if "%SCRIPT_DIR:~-1%"=="\" set "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
+for %%I in ("%SCRIPT_DIR%\..") do set "ROOT=%%~fI"
 
 set "COMPOSE=%ROOT%\docker-compose.lab.yml"
 set "CERT_DIR=%ROOT%\certs"
-set "SCRIPTS_DIR=%ROOT%\lab_scripts"
-set "RESULTS=%ROOT%\lab_results"
+set "SCRIPTS_DIR=%ROOT%\helpers"
+set "RESULTS=%ROOT%\results"
 set "NET=dobotshield_waflab"
 
 set "CERT_FWD=%CERT_DIR:\=/%"
@@ -100,6 +101,10 @@ if not defined IP_DVWA (
     docker compose -f "%COMPOSE%" ps
     exit /b 33
 )
+REM A imagem historica do DVWA pode deixar apenas o tail ativo se o Apache
+REM perder a corrida de inicializacao com o banco. Garante o servico antes
+REM da sondagem sem reiniciar um Apache que ja esteja saudavel.
+docker exec lab_dvwa sh -c "pidof apache2 >/dev/null 2>&1 || service apache2 start" >nul 2>&1
 call :wait_target "http://!IP_DVWA!:80" "DVWA HTTP"
 
 REM --------------------------------------------------------------------------
@@ -174,7 +179,7 @@ call :step "Registrando METODOLOGIA.txt"
 if not exist "%RESULTS%" mkdir "%RESULTS%"
 > "%RESULTS%\METODOLOGIA.txt" echo # Rodada gerada em %DATE% %TIME%
 >> "%RESULTS%\METODOLOGIA.txt" echo.
-type "%ROOT%\lab_METODOLOGIA.txt" >> "%RESULTS%\METODOLOGIA.txt" 2>nul
+type "%ROOT%\docs\METODOLOGIA.txt" >> "%RESULTS%\METODOLOGIA.txt" 2>nul
 echo   OK: %RESULTS%\METODOLOGIA.txt
 
 echo.
