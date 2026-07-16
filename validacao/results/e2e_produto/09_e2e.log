@@ -1,7 +1,0 @@
-﻿E2E_PRODUTO=OK
-CONFIG_VARIAVEIS=23
-PROBES=7
-EVENTOS_TREINAMENTO=3
-XFF_BACKEND=172.23.0.1
-X_FORWARDED_PROTO=http
-RELATORIO=C:\Users\yuri\OneDrive\Documents\New project\work\repo\Dobotshield-fix-rename-dobotshield\validacao\results\e2e_produto\e2e-report.html
