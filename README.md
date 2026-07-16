@@ -123,19 +123,19 @@ Em vez de digitar as variáveis manualmente, abra `admin-config/index.html` em q
                        |
                        | HTTPS (produção) / HTTP (laboratório)
                        v
-              +------------------+
+              --------------------
               |   DoBotShield    |  <- sistema analisado
               |  (proxy reverso  |
               |   com WAF)       |
-              +------------------+
+              --------------------
                        |
                        | HTTP interno
                        v
-              +------------------+
+              --------------------
               |  Aplicação Web   |
               |  (legado: DVWA,  |
               |   XVWA etc.)     |
-              +------------------+
+              --------------------
 ```
 
 **DoBotShield** recebe todo o tráfego externo, aplica as políticas de segurança e encaminha apenas as requisições válidas para o sistema legado. A aplicação protegida não precisa ser alterada.
@@ -151,10 +151,10 @@ mesmo processo. A Admin UI, o log JSON Lines e o gerador de relatório são
 artefatos de apoio e não participam do encaminhamento de requisições.
 
 ```text
-+------------------------------------------------------------------------+
+--------------------------------------------------------------------------
 |                           DoBotShield                                  |
 |                                                                        |
-|   +----------------+   +------------------+   +--------------------+   |
+|   ------------------   --------------------   ----------------------   |
 |   |   WAF          |   |  Rate Limiter    |   |  Reverse Proxy     |   |
 |   | (waf/)         |   | (ratelimit/)     |   | (middleware/)      |   |
 |   |                |   |                  |   |                    |   |
@@ -162,17 +162,17 @@ artefatos de apoio e não participam do encaminhamento de requisições.
 |   | requisições e  |   | por IP com LRU   |   | Proxy com TLS      |   |
 |   | respostas por  |   | e persistência   |   | e headers de       |   |
 |   | regex          |   | opcional         |   | segurança          |   |
-|   +----------------+   +------------------+   +--------------------+   |
+|   ------------------   --------------------   ----------------------   |
 |                                                                        |
-|   +----------------+   +------------------+   +--------------------+   |
+|   ------------------   --------------------   ----------------------   |
 |   |  Blocklist     |   |  Config          |   |  Admin UI          |   |
 |   | (blocklist/)   |   | (config/)        |   | (admin-config/)    |   |
 |   |                |   |                  |   |                    |   |
 |   | IPs/CIDRs      |   | Leitura de env   |   | Interface HTML     |   |
 |   | bloqueados     |   | vars com         |   | estática para      |   |
 |   | antes do WAF   |   | defaults         |   | gerar comandos     |   |
-|   +----------------+   +------------------+   +--------------------+   |
-+------------------------------------------------------------------------+
+|   ------------------   --------------------   ----------------------   |
+--------------------------------------------------------------------------
             |                                           |
             v                                           v
      Aplicação legada                           Operador humano
@@ -184,7 +184,7 @@ artefatos de apoio e não participam do encaminhamento de requisições.
 ### Nível 3 — Componentes do WAF
 
 ```text
-+--------------------------------------------------+
+----------------------------------------------------
 |                   waf/                           |
 |                                                  |
 |  CheckRequest(r, body)                           |
@@ -217,7 +217,7 @@ artefatos de apoio e não participam do encaminhamento de requisições.
 |    - RESPONSE_STACK_TRACE                        |
 |    - RESPONSE_XSS_PATTERN                        |
 |    - RESPONSE_FILE_LEAK                          |
-+--------------------------------------------------+
+----------------------------------------------------
 ```
 
 ---
