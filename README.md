@@ -478,7 +478,6 @@ JSON Lines que o originou.
 |   |   |-- render.js
 |   |   |-- storage.js
 |   |   `-- validators.js
-|   |-- tests/                 Teste automatizado dos 23 campos exportados
 |   `-- styles/
 |       |-- tokens.css         Design tokens
 |       |-- base.css           Estilos base
