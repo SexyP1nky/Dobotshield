@@ -120,6 +120,7 @@ func MakeSecureHandler(proxy *httputil.ReverseProxy, fw *ratelimit.Manager, bl *
 		injectForwardedHeaders(r, clientIP, directIP, directTrusted)
 
 		log.Printf("[ACCESS] request_id:%s | %s %s from %s", requestID, r.Method, r.URL.Path, clientIP)
+		w.Header().Del("X-Request-ID")
 		proxy.ServeHTTP(w, r)
 	}
 }
