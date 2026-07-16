@@ -1,7 +1,7 @@
-=== health_probe  06/06/2026 18:01:24,91 ===
-URL: http://172.18.0.2:80
-probe 1  code=302  time=0.001291s  bytes=0
-probe 2  code=302  time=0.001350s  bytes=0
-probe 3  code=302  time=0.001165s  bytes=0
-probe 4  code=302  time=0.001057s  bytes=0
-probe 5  code=302  time=0.001996s  bytes=0
+=== health_probe  14/07/2026 22:31:04,87 ===
+URL: http://172.23.0.5:80
+probe 1  code=302  time=0.002839s  bytes=0
+probe 2  code=302  time=0.002195s  bytes=0
+probe 3  code=302  time=0.004264s  bytes=0
+probe 4  code=302  time=0.006955s  bytes=0
+probe 5  code=302  time=0.001489s  bytes=0

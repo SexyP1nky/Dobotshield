@@ -1,5 +1,5 @@
-=== XSStrike | dvwa/coraza | https://172.18.0.7:443/vulnerabilities/xss_r/?name=test | 06/06/2026 18:26:47,64 ===
-CMD: xsstrike.py -u "https://172.18.0.7:443/vulnerabilities/xss_r/?name=test" -t 10 --skip --skip-dom --headers "Cookie: PHPSESSID=80p11cuiqrv2r0qv5c9v90gl71;security=low"
+=== XSStrike | dvwa/coraza | https://172.23.0.10:443/vulnerabilities/xss_r/?name=test | 14/07/2026 22:51:38,55 ===
+CMD: xsstrike.py -u "https://172.23.0.10:443/vulnerabilities/xss_r/?name=test" -t 10 --skip --skip-dom --headers "User-Agent: DoBotShield-TCC-Validation/1.0\nCookie: PHPSESSID=6i45bps85sncbbb7ph6ecpble6;security=low"
 ----------------------------------------------------------------
 [91m
 	XSStrike [97mv3.1.5

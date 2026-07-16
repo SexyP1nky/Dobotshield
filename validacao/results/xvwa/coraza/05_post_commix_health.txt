@@ -1,7 +1,7 @@
-=== health_probe  06/06/2026 18:38:14,98 ===
-URL: https://172.18.0.9:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1
-probe 1  code=200  time=2.102720s  bytes=8946
-probe 2  code=200  time=2.109729s  bytes=8946
-probe 3  code=200  time=2.093484s  bytes=8946
-probe 4  code=200  time=2.079432s  bytes=8946
-probe 5  code=200  time=2.082889s  bytes=8946
+=== health_probe  15/07/2026  8:25:45,23 ===
+URL: https://172.23.0.8:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1
+probe 1  code=200  time=2.070699s  bytes=8946
+probe 2  code=200  time=2.089212s  bytes=8946
+probe 3  code=200  time=2.079956s  bytes=8946
+probe 4  code=200  time=2.087709s  bytes=8946
+probe 5  code=200  time=2.079153s  bytes=8946

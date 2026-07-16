@@ -192,6 +192,12 @@ td {
 .alwayswhite {
 	color: white
 }
+
+.script-diagnostic-screenshot {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
 </style>
 </head>
 <body>
@@ -208,11 +214,11 @@ td {
 	<h2>
 		
 		
-		Sites: https://172.18.0.4 http://172.18.0.4
+		Sites: https://172.23.0.3 http://172.23.0.3
 	</h2>
 
 	<h3>
-		Generated on Sun, 7 Jun 2026 03:10:44
+		Generated on Wed, 15 Jul 2026 01:10:29
 	</h3>
 
 	<h3>
@@ -237,7 +243,7 @@ td {
 					<div>High</div>
 				</td>
 				<td align="center">
-					<div>6</div>
+					<div>5</div>
 				</td>
 			</tr>
 			<tr>
@@ -253,7 +259,7 @@ td {
 					<div>Low</div>
 				</td>
 				<td align="center">
-					<div>11</div>
+					<div>9</div>
 				</td>
 			</tr>
 			<tr>
@@ -261,7 +267,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td align="center">
-					<div>7</div>
+					<div>6</div>
 				</td>
 			</tr>
 			<tr>
@@ -278,6 +284,7 @@ td {
 	
 	
 		<h3 class="left-header">Insights</h3>
+		
 		<table class="summary100">
 			<tr>
 				<th height="24">Level</th>
@@ -298,10 +305,28 @@ td {
 					<div></div>
 				</td>
 				<td>
+					<div>ZAP errors logged - see the zap.log file for details</div>
+				</td>
+				<td align="center">
+					<div>2   </div>
+				</td>
+				</tr>
+			
+				<tr>
+				<td class="risk-1">
+					<div>Low</div>
+				</td>
+				<td>
+					<div>Warning</div>
+				</td>
+				<td>
+					<div></div>
+				</td>
+				<td>
 					<div>ZAP warnings logged - see the zap.log file for details</div>
 				</td>
 				<td align="center">
-					<div>10   </div>
+					<div>38   </div>
 				</td>
 				</tr>
 			
@@ -331,13 +356,13 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://172.18.0.4</div>
+					<div>http://172.23.0.3</div>
 				</td>
 				<td>
 					<div>Percentage of responses with status code 2xx</div>
 				</td>
 				<td align="center">
-					<div>52 %</div>
+					<div>55 %</div>
 				</td>
 				</tr>
 			
@@ -349,13 +374,13 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://172.18.0.4</div>
+					<div>http://172.23.0.3</div>
 				</td>
 				<td>
 					<div>Percentage of responses with status code 3xx</div>
 				</td>
 				<td align="center">
-					<div>14 %</div>
+					<div>24 %</div>
 				</td>
 				</tr>
 			
@@ -367,13 +392,13 @@ td {
 					<div>Exceeded Low</div>
 				</td>
 				<td>
-					<div>http://172.18.0.4</div>
+					<div>http://172.23.0.3</div>
 				</td>
 				<td>
 					<div>Percentage of responses with status code 4xx</div>
 				</td>
 				<td align="center">
-					<div>32 %</div>
+					<div>18 %</div>
 				</td>
 				</tr>
 			
@@ -385,7 +410,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://172.18.0.4</div>
+					<div>http://172.23.0.3</div>
 				</td>
 				<td>
 					<div>Percentage of endpoints with content type text/html</div>
@@ -403,7 +428,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://172.18.0.4</div>
+					<div>http://172.23.0.3</div>
 				</td>
 				<td>
 					<div>Percentage of endpoints with method GET</div>
@@ -421,13 +446,13 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://172.18.0.4</div>
+					<div>http://172.23.0.3</div>
 				</td>
 				<td>
 					<div>Count of total endpoints</div>
 				</td>
 				<td align="center">
-					<div>32   </div>
+					<div>31   </div>
 				</td>
 				</tr>
 			
@@ -436,16 +461,16 @@ td {
 					<div>Info</div>
 				</td>
 				<td>
-					<div>Informational</div>
+					<div>Exceeded Low</div>
 				</td>
 				<td>
-					<div>http://172.18.0.4</div>
+					<div>http://172.23.0.3</div>
 				</td>
 				<td>
 					<div>Percentage of slow responses</div>
 				</td>
 				<td align="center">
-					<div>1 %</div>
+					<div>16 %</div>
 				</td>
 				</tr>
 			
@@ -457,43 +482,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://www.gnu.org</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>http://www.gnu.org</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.4</div>
+					<div>https://172.23.0.3</div>
 				</td>
 				<td>
 					<div>Percentage of endpoints with method GET</div>
@@ -511,7 +500,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>https://172.18.0.4</div>
+					<div>https://172.23.0.3</div>
 				</td>
 				<td>
 					<div>Count of total endpoints</div>
@@ -521,530 +510,10 @@ td {
 				</td>
 				</tr>
 			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://api.github.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://api.github.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://apis.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://apis.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>40 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://buttons.github.io</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://buttons.github.io</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>50 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://calendar.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://calendar.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://clients6.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://clients6.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://csi.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://csi.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://csp.withgoogle.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://csp.withgoogle.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://fonts.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://fonts.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>50 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://play.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://play.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.gnu.org</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.gnu.org</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.google-analytics.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.google-analytics.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>63 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.googletagmanager.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.googletagmanager.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>8 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.owasp.org</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>30 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.owasp.org</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 4xx</div>
-				</td>
-				<td align="center">
-					<div>69 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.owasp.org</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
 		</table>
 		<div class="spacer-lg"></div>
+	
+
 	
 
 	
@@ -1067,14 +536,6 @@ td {
 					align="center">Risk Level</th>
 				<th width="20%"
 					align="center">Number of Instances</th>
-			</tr>
-			<tr>
-				<td><a href="#40026">Cross Site Scripting (DOM Based)</a></td>
-				<td align="center" class="risk-3">High</td>
-				
-				
-				<td align="center">6</td>
-				
 			</tr>
 			<tr>
 				<td><a href="#40012">Cross Site Scripting (Reflected)</a></td>
@@ -1181,22 +642,6 @@ td {
 				
 			</tr>
 			<tr>
-				<td><a href="#10010">Cookie No HttpOnly Flag</a></td>
-				<td align="center" class="risk-1">Low</td>
-				
-				<td align="center">Systemic</td>
-				
-				
-			</tr>
-			<tr>
-				<td><a href="#10054">Cookie without SameSite Attribute</a></td>
-				<td align="center" class="risk-1">Low</td>
-				
-				<td align="center">Systemic</td>
-				
-				
-			</tr>
-			<tr>
 				<td><a href="#10017">Cross-Domain JavaScript Source File Inclusion</a></td>
 				<td align="center" class="risk-1">Low</td>
 				
@@ -1293,14 +738,6 @@ td {
 				
 			</tr>
 			<tr>
-				<td><a href="#10112">Session Management Response Identified</a></td>
-				<td align="center" class="risk-0">Informational</td>
-				
-				
-				<td align="center">22</td>
-				
-			</tr>
-			<tr>
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
 				
@@ -1330,611 +767,6 @@ td {
 
 	
 		<h3>Alert Detail</h3>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-3"><a
-						id="40026"></a>
-						<div>High</div></th>
-					<th class="risk-3">Cross Site Scripting (DOM Based)</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user&#39;s browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.</div>
-							<br />
-						
-							<div>When an attacker gets a user&#39;s browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.</div>
-							<br />
-						
-							<div>There are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.</div>
-							<br />
-						
-							<div>Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim&#39;s knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user&#39;s browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.</div>
-							<br />
-						
-							<div>Persistent attacks occur when the malicious code is submitted to a web site where it&#39;s stored for a period of time. Examples of an attacker&#39;s favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The following steps were done to trigger the DOM XSS:</div>
-							<br />
-						
-							<div>With &lt;PAYLOAD_0&gt; as: #jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[1]/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/ (item)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The following steps were done to trigger the DOM XSS:</div>
-							<br />
-						
-							<div>With &lt;PAYLOAD_0&gt; as: #jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[1]/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e">http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssrf_xspa/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The following steps were done to trigger the DOM XSS:</div>
-							<br />
-						
-							<div>With &lt;PAYLOAD_0&gt; as: #jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[1]/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssti/#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e">http://172.18.0.4:80/xvwa/vulnerabilities/ssti/#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssti/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The following steps were done to trigger the DOM XSS:</div>
-							<br />
-						
-							<div>With &lt;PAYLOAD_0&gt; as: #jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[1]/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e">http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssti/ (name)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The following steps were done to trigger the DOM XSS:</div>
-							<br />
-						
-							<div>With &lt;PAYLOAD_0&gt; as: #jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[1]/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/xpath/#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e">http://172.18.0.4:80/xvwa/vulnerabilities/xpath/#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/xpath/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">#jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The following steps were done to trigger the DOM XSS:</div>
-							<br />
-						
-							<div>With &lt;PAYLOAD_0&gt; as: #jaVasCript:/*-/*`/*\`/*&#39;/*&quot;/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert(5397)//&gt;\x3e</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: &lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[1]/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button</div>
-							<br />
-						
-							<div>Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/&lt;PAYLOAD_0&gt;</div>
-							<br />
-						
-							<div>Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button</div>
-							
-						</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">6</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Phase: Architecture and Design</div>
-							<br />
-						
-							<div>Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.</div>
-							<br />
-						
-							<div>Examples of libraries and frameworks that make it easier to generate properly encoded output include Microsoft&#39;s Anti-XSS library, the OWASP ESAPI Encoding module, and Apache Wicket.</div>
-							<br />
-						
-							<div>Phases: Implementation; Architecture and Design</div>
-							<br />
-						
-							<div>Understand the context in which your data will be used and the encoding that will be expected. This is especially important when transmitting data between different components, or when generating outputs that can contain multiple encodings at the same time, such as web pages or multi-part mail messages. Study all expected communication protocols and data representations to determine the required encoding strategies.</div>
-							<br />
-						
-							<div>For any data that will be output to another web page, especially any data that was received from external inputs, use the appropriate encoding on all non-alphanumeric characters.</div>
-							<br />
-						
-							<div>Consult the XSS Prevention Cheat Sheet for more details on the types of encoding and escaping that are needed.</div>
-							<br />
-						
-							<div>Phase: Architecture and Design</div>
-							<br />
-						
-							<div>For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.</div>
-							<br />
-						
-							<div>If available, use structured mechanisms that automatically enforce the separation between data and code. These mechanisms may be able to provide the relevant quoting, encoding, and validation automatically, instead of relying on the developer to provide this capability at every point where output is generated.</div>
-							<br />
-						
-							<div>Phase: Implementation</div>
-							<br />
-						
-							<div>For every web page that is generated, use and specify a character encoding such as ISO-8859-1 or UTF-8. When an encoding is not specified, the web browser may choose a different encoding by guessing which encoding is actually being used by the web page. This can cause the web browser to treat certain sequences as special, opening up the client to subtle XSS attacks. See CWE-116 for more mitigations related to encoding/escaping.</div>
-							<br />
-						
-							<div>To help mitigate XSS attacks against the user&#39;s session cookie, set the session cookie to be HttpOnly. In browsers that support the HttpOnly feature (such as more recent versions of Internet Explorer and Firefox), this attribute can prevent the user&#39;s session cookie from being accessible to malicious client-side scripts that use document.cookie. This is not a complete solution, since HttpOnly is not supported by all browsers. More importantly, XMLHTTPRequest and other powerful browser technologies provide read access to HTTP headers, including the Set-Cookie header in which the HttpOnly flag is set.</div>
-							<br />
-						
-							<div>Assume all input is malicious. Use an &quot;accept known good&quot; input validation strategy, i.e., use an allow list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a deny list). However, deny lists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.</div>
-							<br />
-						
-							<div>When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, &quot;boat&quot; may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as &quot;red&quot; or &quot;blue.&quot;</div>
-							<br />
-						
-							<div>Ensure that you perform input validation at well-defined interfaces within the application. This will help protect the application even if a component is reused or moved elsewhere.</div>
-							<br />
-						
-							<div>	</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://owasp.org/www-community/attacks/xss/">https://owasp.org/www-community/attacks/xss/</a>
-							<br />
-						
-							<a href="https://cwe.mitre.org/data/definitions/79.html">https://cwe.mitre.org/data/definitions/79.html</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/79.html">79</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">8</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/40026/">40026</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
 		
 			<table class="results">
 				<tr height="24">
@@ -1969,12 +801,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=%3C%2Fdiv%3E%3CscrIpt%3Ealert%281%29%3B%3C%2FscRipt%3E%3Cdiv%3E">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=%3C%2Fdiv%3E%3CscrIpt%3Ealert%281%29%3B%3C%2FscRipt%3E%3Cdiv%3E</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/?item=%3C%2Fdiv%3E%3CscrIpt%3Ealert%281%29%3B%3C%2FscRipt%3E%3Cdiv%3E">http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/?item=%3C%2Fdiv%3E%3CscrIpt%3Ealert%281%29%3B%3C%2FscRipt%3E%3Cdiv%3E</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/ (item)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/ (item)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2121,12 +953,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=%2Fetc%2Fpasswd">http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=%2Fetc%2Fpasswd</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=%2Fetc%2Fpasswd">http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=%2Fetc%2Fpasswd</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2261,12 +1093,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=http%3A%2F%2Fwww.google.com%2F">http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=http%3A%2F%2Fwww.google.com%2F</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=http%3A%2F%2Fwww.google.com%2F">http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=http%3A%2F%2Fwww.google.com%2F</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2410,12 +1242,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1%26cat+%2Fetc%2Fpasswd%26">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1%26cat+%2Fetc%2Fpasswd%26</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1%26cat+%2Fetc%2Fpasswd%26">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1%26cat+%2Fetc%2Fpasswd%26</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/ (target)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2553,12 +1385,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=test.php">http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=test.php</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=test.php">http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=test.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2584,16 +1416,16 @@ td {
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-							<div>Received out-of-band interaction [GET http://172.18.0.11:45205/173b205e-e21d-47e5-835b-1d9e88bc9b72 HTTP/1.0]</div>
+							<div>Received out-of-band interaction [GET http://172.23.0.4:40825/76400133-9714-40b7-a196-8e02a3432774 HTTP/1.0]</div>
 							<br />
 						
 							<div>Request</div>
 							<br />
 						
-							<div>GET http://172.18.0.11:45205/173b205e-e21d-47e5-835b-1d9e88bc9b72 HTTP/1.0</div>
+							<div>GET http://172.23.0.4:40825/76400133-9714-40b7-a196-8e02a3432774 HTTP/1.0</div>
 							<br />
 						
-							<div>Host: 172.18.0.11:45205</div>
+							<div>Host: 172.23.0.4:40825</div>
 							<br />
 						
 							<div>Connection: close</div>
@@ -2699,12 +1531,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/instruction.php">http://172.18.0.4:80/xvwa/instruction.php</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/instruction.php</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2738,12 +1570,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2777,51 +1609,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form method=&#39;post&#39; action=&#39;&#39; enctype=&quot;multipart/form-data&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 2: &quot;categ&quot; &quot;image&quot; &quot;item&quot; &quot;price&quot; ].</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2855,12 +1648,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2887,6 +1680,45 @@ td {
 							class="indent2">Other Info</td>
 						<td width="80%">
 							<div>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: &quot;password&quot; &quot;username&quot; ].</div>
+							
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form method=&#39;post&#39; action=&#39;&#39;&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+							<div>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 2: &quot;search&quot; ].</div>
 							
 						</td>
 					</tr>
@@ -2995,12 +1827,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=test.php">http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=test.php</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=test.php">http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=test.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3084,12 +1916,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/instruction.php">http://172.18.0.4:80/xvwa/instruction.php</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/instruction.php</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3120,12 +1952,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3156,12 +1988,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/">http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3192,12 +2024,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3228,12 +2060,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sqli/">http://172.18.0.4:80/xvwa/vulnerabilities/sqli/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sqli/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3338,12 +2170,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/xpath/">http://172.18.0.4:80/xvwa/vulnerabilities/xpath/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/xpath/">http://172.23.0.3:80/xvwa/vulnerabilities/xpath/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.4/xvwa/vulnerabilities/xpath/</td>
+						<td width="80%">https://172.23.0.3/xvwa/vulnerabilities/xpath/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3372,7 +2204,7 @@ td {
 							<div>Failed to connect.</div>
 							<br />
 						
-							<div>ZAP attempted to connect via: https://172.18.0.4/xvwa/vulnerabilities/xpath/</div>
+							<div>ZAP attempted to connect via: https://172.23.0.3/xvwa/vulnerabilities/xpath/</div>
 							
 						</td>
 					</tr>
@@ -3439,12 +2271,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/dom_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/dom_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/dom_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3475,12 +2307,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3511,12 +2343,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fileupload/">http://172.23.0.3:80/xvwa/vulnerabilities/fileupload/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fileupload/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3547,48 +2379,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">x-frame-options</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sqli/">http://172.18.0.4:80/xvwa/vulnerabilities/sqli/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sqli/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3678,12 +2474,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/?target=%00">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/?target=%00</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=%00">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=%00</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/ (target)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3714,12 +2510,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=">http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=">http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3803,12 +2599,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/instruction.php">http://172.18.0.4:80/xvwa/instruction.php</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/instruction.php/xse56/rcpqy</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php/i4g2x/7g67l</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3823,7 +2619,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">http://172.18.0.4:80/xvwa/instruction.php/xse56/rcpqy</td>
+						<td width="80%">http://172.23.0.3:80/xvwa/instruction.php/i4g2x/7g67l</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3925,12 +2721,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3961,12 +2757,120 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/">http://172.23.0.3:80/xvwa/vulnerabilities/idor/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/">http://172.23.0.3:80/xvwa/vulnerabilities/idor/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3987,114 +2891,6 @@ td {
 						<td width="20%"
 							class="indent2">Evidence</td>
 						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4119,7 +2915,7 @@ td {
 				<tr>
 					<td width="20%">Reference</td>
 					<td width="80%">
-							<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</a>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity</a>
 							
 						</td>
 				</tr>
@@ -4136,478 +2932,6 @@ td {
 					<td width="20%">Plugin Id</td>
 					<td width="80%"><a
 						href="https://www.zaproxy.org/docs/alerts/90003/">90003</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-1"><a
-						id="10010"></a>
-						<div>Low</div></th>
-					<th class="risk-1">Cookie No HttpOnly Flag</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/instruction.php">http://172.18.0.4:80/xvwa/instruction.php</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/instruction.php</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sqli/">http://172.18.0.4:80/xvwa/vulnerabilities/sqli/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sqli/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					<td width="80%">Systemic</td>
-					
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Ensure that the HttpOnly flag is set for all cookies.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://owasp.org/www-community/HttpOnly">https://owasp.org/www-community/HttpOnly</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/1004.html">1004</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">13</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10010/">10010</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-1"><a
-						id="10054"></a>
-						<div>Low</div></th>
-					<th class="risk-1">Cookie without SameSite Attribute</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a &#39;cross-site&#39; request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/instruction.php">http://172.18.0.4:80/xvwa/instruction.php</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/instruction.php</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sqli/">http://172.18.0.4:80/xvwa/vulnerabilities/sqli/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sqli/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Set-Cookie: PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					<td width="80%">Systemic</td>
-					
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Ensure that the SameSite attribute is set to either &#39;lax&#39; or ideally &#39;strict&#39; for all cookies.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site">https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/1275.html">1275</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">13</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10054/">10054</a></td>
 				</tr>
 			</table>
 			<div class="spacer"></div>
@@ -4633,12 +2957,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4669,12 +2993,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4705,12 +3029,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4741,48 +3065,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4803,6 +3091,42 @@ td {
 						<td width="20%"
 							class="indent2">Evidence</td>
 						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;script src=&quot;https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js&quot;&gt;&lt;/script&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4866,12 +3190,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4902,12 +3226,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/">http://172.18.0.4:80/xvwa/vulnerabilities/fi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4938,12 +3262,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/">http://172.23.0.3:80/xvwa/vulnerabilities/idor/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4974,12 +3298,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/">http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5010,12 +3334,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/">http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sqli_blind/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5105,12 +3429,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5141,12 +3465,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/">http://172.18.0.4:80/xvwa/vulnerabilities/fi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5177,12 +3501,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/">http://172.23.0.3:80/xvwa/vulnerabilities/idor/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5213,12 +3537,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/">http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5249,12 +3573,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/">http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sqli_blind/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5347,12 +3671,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5383,12 +3707,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5419,12 +3743,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/">http://172.23.0.3:80/xvwa/vulnerabilities/idor/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5455,12 +3779,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5491,12 +3815,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/">http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/ssrf_xspa/">http://172.23.0.3:80/xvwa/vulnerabilities/ssrf_xspa/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sqli_blind/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/ssrf_xspa/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5592,12 +3916,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/">http://172.18.0.4:80/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/">http://172.23.0.3:80/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/</td>
+						<td width="80%">http://172.23.0.3/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5631,12 +3955,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4/robots.txt">http://172.18.0.4/robots.txt</a></td>
+						<td width="80%"><a href="http://172.23.0.3/robots.txt">http://172.23.0.3/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/robots.txt</td>
+						<td width="80%">http://172.23.0.3/robots.txt</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5670,12 +3994,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4/sitemap.xml">http://172.18.0.4/sitemap.xml</a></td>
+						<td width="80%"><a href="http://172.23.0.3/sitemap.xml">http://172.23.0.3/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/sitemap.xml</td>
+						<td width="80%">http://172.23.0.3/sitemap.xml</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5771,12 +4095,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5807,12 +4131,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/">http://172.18.0.4:80/xvwa/vulnerabilities/fi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5843,12 +4167,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/">http://172.23.0.3:80/xvwa/vulnerabilities/idor/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5879,12 +4203,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/">http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5915,12 +4239,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6019,12 +4343,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6055,12 +4379,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6091,12 +4415,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/">http://172.23.0.3:80/xvwa/vulnerabilities/idor/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6127,12 +4451,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/">http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6163,12 +4487,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssti/">http://172.18.0.4:80/xvwa/vulnerabilities/ssti/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssti/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6258,12 +4582,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6294,12 +4618,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6330,12 +4654,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6366,12 +4690,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6402,12 +4726,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssti/">http://172.18.0.4:80/xvwa/vulnerabilities/ssti/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssti/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6500,12 +4824,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6542,12 +4866,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6584,12 +4908,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/">http://172.23.0.3:80/xvwa/vulnerabilities/idor/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6626,12 +4950,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/">http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6668,12 +4992,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sqli/">http://172.18.0.4:80/xvwa/vulnerabilities/sqli/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sqli/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6772,12 +5096,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/ssrf_xspa/">http://172.23.0.3:80/xvwa/vulnerabilities/ssrf_xspa/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/ (item)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/ssrf_xspa/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6809,7 +5133,7 @@ td {
 							<div>These cookies affected the response: </div>
 							<br />
 						
-							<div>These cookies did NOT affect the response: PHPSESSID</div>
+							<div>These cookies did NOT affect the response: security,PHPSESSID</div>
 							
 						</td>
 					</tr>
@@ -6817,12 +5141,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/">http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/ssti/">http://172.23.0.3:80/xvwa/vulnerabilities/ssti/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssrf_xspa/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/ssti/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6854,7 +5178,7 @@ td {
 							<div>These cookies affected the response: </div>
 							<br />
 						
-							<div>These cookies did NOT affect the response: PHPSESSID</div>
+							<div>These cookies did NOT affect the response: security,PHPSESSID</div>
 							
 						</td>
 					</tr>
@@ -6862,12 +5186,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssti/">http://172.18.0.4:80/xvwa/vulnerabilities/ssti/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/ssti/?name=test">http://172.23.0.3:80/xvwa/vulnerabilities/ssti/?name=test</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssti/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/ssti/ (name)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6899,7 +5223,7 @@ td {
 							<div>These cookies affected the response: </div>
 							<br />
 						
-							<div>These cookies did NOT affect the response: PHPSESSID</div>
+							<div>These cookies did NOT affect the response: security,PHPSESSID</div>
 							
 						</td>
 					</tr>
@@ -6907,12 +5231,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test">http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/stored_xss/">http://172.23.0.3:80/xvwa/vulnerabilities/stored_xss/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssti/ (name)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/stored_xss/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6944,7 +5268,7 @@ td {
 							<div>These cookies affected the response: </div>
 							<br />
 						
-							<div>These cookies did NOT affect the response: PHPSESSID</div>
+							<div>These cookies did NOT affect the response: security,PHPSESSID</div>
 							
 						</td>
 					</tr>
@@ -6952,12 +5276,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/xpath/">http://172.23.0.3:80/xvwa/vulnerabilities/xpath/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/stored_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/xpath/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6983,7 +5307,13 @@ td {
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-							<div>Dropping this cookie appears to have invalidated the session: [PHPSESSID] A follow-on request with all original cookies still had a different response than the original request.</div>
+							<div>Cookies that don&#39;t have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.</div>
+							<br />
+						
+							<div>These cookies affected the response: </div>
+							<br />
+						
+							<div>These cookies did NOT affect the response: security,PHPSESSID</div>
 							
 						</td>
 					</tr>
@@ -7033,7 +5363,7 @@ td {
 				<tr>
 					<td width="20%">Description</td>
 					<td width="80%">
-							<div>The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.</div>
+							<div>The application appears to be a modern web application. If you need to explore it automatically then the Client Spider may well be more effective than the standard one.</div>
 							
 						</td>
 				</tr>
@@ -7044,12 +5374,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7083,12 +5413,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7122,12 +5452,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7161,12 +5491,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7200,12 +5530,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssti/">http://172.18.0.4:80/xvwa/vulnerabilities/ssti/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssti/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7291,12 +5621,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/instruction.php">http://172.23.0.3:80/xvwa/instruction.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/instruction.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7327,12 +5657,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/">http://172.18.0.4:80/xvwa/vulnerabilities/fi/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/fi/">http://172.23.0.3:80/xvwa/vulnerabilities/fi/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/fi/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7363,12 +5693,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/">http://172.23.0.3:80/xvwa/vulnerabilities/idor/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7399,12 +5729,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/">http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7435,12 +5765,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/">http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7548,919 +5878,6 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-0"><a
-						id="10112"></a>
-						<div>Informational</div></th>
-					<th class="risk-0">Session Management Response Identified</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The given response has been identified as containing a session management token. The &#39;Other Info&#39; field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to &quot;Auto-Detect&quot; then this rule will change the session management to use the tokens identified.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/">http://172.18.0.4:80/xvwa/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/instruction.php">http://172.18.0.4:80/xvwa/instruction.php</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/instruction.php</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1">http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/cmdi/ (target)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/crypto/">http://172.18.0.4:80/xvwa/vulnerabilities/crypto/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/crypto/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/">http://172.18.0.4:80/xvwa/vulnerabilities/fi/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=test.php">http://172.18.0.4:80/xvwa/vulnerabilities/fi/?file=test.php</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/">http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/fileupload/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/formula_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/formula_injection/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/formula_injection/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/">http://172.18.0.4:80/xvwa/vulnerabilities/idor/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/?item=1">http://172.18.0.4:80/xvwa/vulnerabilities/idor/?item=1</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/ (item)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/missfunc/">http://172.18.0.4:80/xvwa/vulnerabilities/missfunc/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/missfunc/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/?r=test">http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/?r=test</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/ (r)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/redirect/">http://172.18.0.4:80/xvwa/vulnerabilities/redirect/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/redirect/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/redirect/?url=http://example.com">http://172.18.0.4:80/xvwa/vulnerabilities/redirect/?url=http://example.com</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/redirect/ (url)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test">http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/ (item)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sessionflaws/">http://172.18.0.4:80/xvwa/vulnerabilities/sessionflaws/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sessionflaws/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/">http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/sqli_blind/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test">http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/ssti/ (name)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/stored_xss/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/xpath/">http://172.18.0.4:80/xvwa/vulnerabilities/xpath/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/xpath/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">PHPSESSID</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>cookie:PHPSESSID</div>
-							
-						</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">22</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>This is an informational alert rather than a vulnerability and so there is nothing to fix.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10112/">10112</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-0"><a
 						id="10049"></a>
 						<div>Informational</div></th>
 					<th class="risk-0">Storable and Cacheable Content</th>
@@ -8479,12 +5896,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4/robots.txt">http://172.18.0.4/robots.txt</a></td>
+						<td width="80%"><a href="http://172.23.0.3/robots.txt">http://172.23.0.3/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/robots.txt</td>
+						<td width="80%">http://172.23.0.3/robots.txt</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8518,12 +5935,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4/sitemap.xml">http://172.18.0.4/sitemap.xml</a></td>
+						<td width="80%"><a href="http://172.23.0.3/sitemap.xml">http://172.23.0.3/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/sitemap.xml</td>
+						<td width="80%">http://172.23.0.3/sitemap.xml</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8631,48 +6048,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4/xvwa">http://172.18.0.4/xvwa</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Header User-Agent</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/stored_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8703,12 +6084,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/stored_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8739,12 +6120,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/stored_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8775,12 +6156,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/">http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/stored_xss/</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8796,6 +6177,42 @@ td {
 						<td width="20%"
 							class="indent2">Attack</td>
 						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1">http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Header User-Agent</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8863,12 +6280,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="http://172.18.0.4:80/xvwa/vulnerabilities/idor/?item=1">http://172.18.0.4:80/xvwa/vulnerabilities/idor/?item=1</a></td>
+						<td width="80%"><a href="http://172.23.0.3:80/xvwa/vulnerabilities/idor/?item=1">http://172.23.0.3:80/xvwa/vulnerabilities/idor/?item=1</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">http://172.18.0.4/xvwa/vulnerabilities/idor/ (item)</td>
+						<td width="80%">http://172.23.0.3/xvwa/vulnerabilities/idor/ (item)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8897,7 +6314,7 @@ td {
 							<div>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</div>
 							<br />
 						
-							<div>http://172.18.0.4:80/xvwa/vulnerabilities/idor/?item=1</div>
+							<div>http://172.23.0.3:80/xvwa/vulnerabilities/idor/?item=1</div>
 							<br />
 						
 							<div>appears to include user input in:</div>

@@ -37,7 +37,7 @@ var allGroups = []patternGroup{
 var responseGroups = []patternGroup{
 	{"RESPONSE_SQL_ERROR", responseSQLLeakPatterns},
 	{"RESPONSE_STACK_TRACE", responseStackTracePatterns},
-	{"RESPONSE_XSS_REFLECTION", responseXSSPatterns},
+	{"RESPONSE_XSS_PATTERN", responseXSSPatterns},
 	{"RESPONSE_FILE_LEAK", responseFileLeakPatterns},
 }
 

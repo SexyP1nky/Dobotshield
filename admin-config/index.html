@@ -56,6 +56,13 @@
             <small class="field-error" data-error-for="trustedProxies"></small>
           </label>
         </div>
+
+        <div class="toggle-grid">
+          <label class="toggle-field" for="httpMode">
+            <input id="httpMode" name="httpMode" type="checkbox">
+            <span>Usar HTTP puro na entrada</span>
+          </label>
+        </div>
       </section>
 
       <section class="form-section" aria-labelledby="limitsTitle">
@@ -142,6 +149,12 @@
             <small class="field-error" data-error-for="rateLimitStateFile"></small>
           </label>
         </div>
+
+        <label class="field" for="contentSecurityPolicy">
+          <span>Content-Security-Policy opcional</span>
+          <input id="contentSecurityPolicy" name="contentSecurityPolicy" type="text" placeholder="default-src 'self'">
+          <small class="field-error" data-error-for="contentSecurityPolicy"></small>
+        </label>
       </section>
 
       <section class="form-section" aria-labelledby="trainingTitle">

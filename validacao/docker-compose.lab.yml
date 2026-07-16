@@ -26,7 +26,7 @@ services:
   # =====================================================================
 
   dvwa:
-    image: vulnerables/web-dvwa
+    image: vulnerables/web-dvwa:latest@sha256:dae203fe11646a86937bf04db0079adef295f426da68a92b40e3b181f337daa7
     container_name: lab_dvwa
     networks: [waflab]
     ports:
@@ -50,7 +50,7 @@ services:
     restart: unless-stopped
 
   xvwa_db:
-    image: mysql:5.7
+    image: mysql:5.7@sha256:4bc6bc963e6d8443453676cae56536f4b8156d78bae03c0145cbe47c2aad73bb
     container_name: lab_xvwa_db
     networks: [waflab]
     environment:
@@ -64,7 +64,7 @@ services:
 
   dobot_dvwa:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile
     container_name: lab_dobot_dvwa
     networks: [waflab]
@@ -79,6 +79,8 @@ services:
       ENABLE_WAF:                 "true"
       WAF_MODE:                   "block"
       ENABLE_RESPONSE_INSPECTION: "true"
+      TRAINING_MODE:              "true"
+      TRAINING_LOG_FILE:          "/app/logs/training.jsonl"
       # Rate-limit LIGADO: e funcionalidade central do DoBotShield ("Shield").
       # Decisao metodologica do TCC: o DoBotShield e testado como em producao.
       # Valores explicitos = os defaults do produto (documentados em METODOLOGIA.txt).
@@ -89,12 +91,13 @@ services:
       INSECURE_SKIP_VERIFY:       "false"
     volumes:
       - ./certs:/app/certs:ro
+      - ./results/training/dvwa:/app/logs
     depends_on: [dvwa]
     restart: unless-stopped
 
   dobot_xvwa:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile
     container_name: lab_dobot_xvwa
     networks: [waflab]
@@ -109,6 +112,8 @@ services:
       ENABLE_WAF:                 "true"
       WAF_MODE:                   "block"
       ENABLE_RESPONSE_INSPECTION: "true"
+      TRAINING_MODE:              "true"
+      TRAINING_LOG_FILE:          "/app/logs/training.jsonl"
       # Rate-limit LIGADO (mesma decisao metodologica do dobot_dvwa).
       ENABLE_RATE_LIMIT:          "true"
       RATE_LIMIT:                 "10"
@@ -117,6 +122,7 @@ services:
       INSECURE_SKIP_VERIFY:       "false"
     volumes:
       - ./certs:/app/certs:ro
+      - ./results/training/xvwa:/app/logs
     depends_on: [xvwa]
     restart: unless-stopped
 
@@ -125,7 +131,7 @@ services:
   # =====================================================================
 
   modsec_dvwa:
-    image: owasp/modsecurity-crs:nginx
+    image: owasp/modsecurity-crs:nginx@sha256:f47ae0ce695417849663d4a2014aeef2ace989a632aa1f55923098a633722018
     container_name: lab_modsec_dvwa
     networks: [waflab]
     ports:
@@ -145,7 +151,7 @@ services:
     restart: unless-stopped
 
   modsec_xvwa:
-    image: owasp/modsecurity-crs:nginx
+    image: owasp/modsecurity-crs:nginx@sha256:f47ae0ce695417849663d4a2014aeef2ace989a632aa1f55923098a633722018
     container_name: lab_modsec_xvwa
     networks: [waflab]
     ports:

@@ -1,20 +1,17 @@
-=== OWASP ZAP | dvwa/coraza | https://172.18.0.7:443 | 06/06/2026 23:38:47,28 ===
-CMD: docker run -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest zap-full-scan.py -t https://172.18.0.7:443 -m 2 -T 5 -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
+=== OWASP ZAP | dvwa/coraza | https://172.23.0.2:443 | 14/07/2026 22:01:48,58 ===
+CMD: docker run --memory 3000m --memory-swap 3000m -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest@sha256:8d387b1a63e3425beef4846e39719f5af2a787753af2d8b6558c6257d7a577a2 zap-full-scan.py -t https://172.23.0.2:443 -m 2 -T 5 -c /zap/hooks/zap_rules.tsv -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10 -config network.connection.defaultUserAgent=DoBotShield-TCC-Validation/1.0" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
 ----------------------------------------------------------------
 [zap_hook] aplicando exclusoes de URL (logout/setup/security) ...
 [zap_hook] cookie de sessao DVWA injetado via Replacer (REQ_HEADER Cookie).
-Total of 63 URLs
+Total of 60 URLs
 PASS: Directory Browsing [0]
 PASS: Vulnerable JS Library (Powered by Retire.js) [10003]
-PASS: Swagger UI Secret & Vulnerability Detector [100043]
 PASS: In Page Banner Information Leak [10009]
 PASS: Cookie No HttpOnly Flag [10010]
 PASS: Cookie Without Secure Flag [10011]
 PASS: Re-examine Cache-control Directives [10015]
 PASS: Cross-Domain JavaScript Source File Inclusion [10017]
 PASS: Content-Type Header Missing [10019]
-PASS: Anti-clickjacking Header [10020]
-PASS: X-Content-Type-Options Header Missing [10021]
 PASS: Information Disclosure - Debug Error Messages [10023]
 PASS: Information Disclosure - Sensitive Information in URL [10024]
 PASS: Information Disclosure - Sensitive Information in HTTP Referrer Header [10025]
@@ -28,7 +25,6 @@ PASS: Viewstate [10032]
 PASS: Directory Browsing [10033]
 PASS: Heartbleed OpenSSL Vulnerability (Indicative) [10034]
 PASS: Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) [10037]
-PASS: Content Security Policy (CSP) Header Not Set [10038]
 PASS: X-Backend-Server Header Information Leak [10039]
 PASS: Secure Pages Include Mixed Content [10040]
 PASS: HTTP to HTTPS Insecure Transition in Form Post [10041]
@@ -93,7 +89,6 @@ PASS: SQL Injection - Hypersonic SQL (Time Based) [40020]
 PASS: SQL Injection - Oracle (Time Based) [40021]
 PASS: SQL Injection - PostgreSQL (Time Based) [40022]
 PASS: Possible Username Enumeration [40023]
-PASS: Cross Site Scripting (DOM Based) [40026]
 PASS: SQL Injection - MsSQL (Time Based) [40027]
 PASS: ELMAH Information Leak [40028]
 PASS: Trace.axd Information Leak [40029]
@@ -142,14 +137,21 @@ PASS: Server Side Template Injection [90035]
 PASS: Server Side Template Injection (Blind) [90036]
 PASS: Remote OS Command Injection (Time Based) [90037]
 PASS: NoSQL Injection - MongoDB (Time Based) [90039]
+SKIP: Cross Site Scripting (DOM Based) [40026]
+WARN-NEW: Missing Anti-clickjacking Header [10020] x 1 
+	https://172.23.0.2:443 (200 OK)
+WARN-NEW: X-Content-Type-Options Header Missing [10021] x 1 
+	https://172.23.0.2:443 (200 OK)
 WARN-NEW: Strict-Transport-Security Header Not Set [10035] x 1 
-	https://172.18.0.7:443 (200 OK)
+	https://172.23.0.2:443 (200 OK)
 WARN-NEW: Server Leaks Version Information via "Server" HTTP Response Header Field [10036] x 1 
-	https://172.18.0.7:443 (200 OK)
+	https://172.23.0.2:443 (200 OK)
+WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 1 
+	https://172.23.0.2:443 (200 OK)
 WARN-NEW: Permissions Policy Header Not Set [10063] x 1 
-	https://172.18.0.7:443 (200 OK)
+	https://172.23.0.2:443 (200 OK)
 WARN-NEW: Proxy Disclosure [40025] x 1 
-	https://172.18.0.7:443 (200 OK)
-FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 4	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 138
+	https://172.23.0.2:443 (200 OK)
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 7	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 133
 
 TOOL_RC=0

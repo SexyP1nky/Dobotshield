@@ -14,11 +14,12 @@ setlocal enableextensions enabledelayedexpansion
 
 set "ROOT=%~dp0"
 if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+for %%I in ("%ROOT%\..") do set "LAB_ROOT=%%~fI"
 set "NET=dobotshield_waflab"
-set "RESULTS=%ROOT%\lab_results"
+set "RESULTS=%LAB_ROOT%\results"
 set "LIB=%ROOT%\lab_lib.bat"
-set "IMG_CURL=curlimages/curl:latest"
-set "IMG_TESTSSL=drwetter/testssl.sh:latest"
+set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
+set "IMG_TESTSSL=drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce"
 set "FAIL=0"
 
 echo.

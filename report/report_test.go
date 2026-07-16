@@ -114,7 +114,7 @@ func TestGenerateEmpty(t *testing.T) {
 func TestGlossaryCoversRequestedCategories(t *testing.T) {
 	requested := []string{
 		"SQLi", "CMD_INJ", "JNDI", "NoSQLi", "OPEN_REDIRECT",
-		"PATH_TRAVERSAL", "RESPONSE_SQL_ERROR", "SSRF", "SSTI", "XSS",
+		"PATH_TRAVERSAL", "RESPONSE_SQL_ERROR", "RESPONSE_XSS_PATTERN", "SSRF", "SSTI", "XSS",
 	}
 	for _, cat := range requested {
 		info := lookupCategory(cat)

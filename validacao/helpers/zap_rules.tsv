@@ -1,0 +1,4 @@
+# Regra ativa de DOM XSS excluida nesta bancada: ela exige navegador e encerra
+# o processo Java do ZAP nos alvos HTTPS autoassinados. XSS refletido continua
+# coberto pelo proprio ZAP e, de forma focalizada, pelo XSStrike.
+40026	IGNORE	Cross Site Scripting (DOM Based)

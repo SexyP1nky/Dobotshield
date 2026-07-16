@@ -21,15 +21,16 @@ setlocal enableextensions enabledelayedexpansion
 
 set "ROOT=%~dp0"
 if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+for %%I in ("%ROOT%\..") do set "LAB_ROOT=%%~fI"
 set "NET=dobotshield_waflab"
-set "RESULTS=%ROOT%\lab_results"
+set "RESULTS=%LAB_ROOT%\results"
 set "LIB=%ROOT%\lab_lib.bat"
-set "IMG_CURL=curlimages/curl:latest"
+set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
 set "IMG_TOOLS=dobotshield/lab-tools:latest"
-set "IMG_PY=python:3-alpine"
-set "CERT_DIR=%ROOT%\certs"
+set "IMG_PY=python:3-alpine@sha256:26730869004e2b9c4b9ad09cab8625e81d256d1ce97e72df5520e806b1709f92"
+set "CERT_DIR=%LAB_ROOT%\certs"
 set "CERT_FWD=%CERT_DIR:\=/%"
-set "SCRIPTS_DIR=%ROOT%\lab_scripts"
+set "SCRIPTS_DIR=%LAB_ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
 set "COOKIE_FILE=%SCRIPTS_DIR%\dvwa_cookie.txt"
 set "FAIL=0"
@@ -46,7 +47,7 @@ echo ============================================================
 call "%LIB%" ensure_net || exit /b 2
 docker image inspect %IMG_TOOLS% >nul 2>&1 || (
     echo Imagem %IMG_TOOLS% ausente -- construindo...
-    docker build -t %IMG_TOOLS% "%ROOT%\docker\lab-tools" || ( echo [ERRO] build lab-tools falhou. & exit /b 3 )
+    docker build -t %IMG_TOOLS% "%LAB_ROOT%\docker\lab-tools" || ( echo [ERRO] build lab-tools falhou. & exit /b 3 )
 )
 
 REM --- Resolver IPs dos containers (IP:PORTA em vez de hostname) ---

@@ -225,14 +225,14 @@ func TestCheckResponseDetectsStackTrace(t *testing.T) {
 	}
 }
 
-func TestCheckResponseDetectsReflectedXSS(t *testing.T) {
+func TestCheckResponseDetectsActiveXSSPattern(t *testing.T) {
 	body := []byte(`<html><script>alert(1)</script></html>`)
 	malicious, details, _ := CheckResponse(nil, body)
 	if !malicious {
-		t.Fatalf("expected reflected XSS to be blocked")
+		t.Fatalf("expected active XSS pattern to be blocked")
 	}
-	if !strings.Contains(details, "RESPONSE_XSS_REFLECTION") {
-		t.Fatalf("expected RESPONSE_XSS_REFLECTION details, got %q", details)
+	if !strings.Contains(details, "RESPONSE_XSS_PATTERN") {
+		t.Fatalf("expected RESPONSE_XSS_PATTERN details, got %q", details)
 	}
 }
 

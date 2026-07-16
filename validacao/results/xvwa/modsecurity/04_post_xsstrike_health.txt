@@ -1,7 +1,7 @@
-=== health_probe  06/06/2026 18:29:19,93 ===
-URL: https://172.18.0.8:8443/xvwa/vulnerabilities/reflected_xss/?item=test
-probe 1  code=200  time=0.016630s  bytes=8868
-probe 2  code=200  time=0.014568s  bytes=8868
-probe 3  code=200  time=0.019371s  bytes=8868
-probe 4  code=200  time=0.015620s  bytes=8868
-probe 5  code=200  time=0.016119s  bytes=8868
+=== health_probe  14/07/2026 22:54:42,41 ===
+URL: https://172.23.0.9:8443/xvwa/vulnerabilities/reflected_xss/?item=test
+probe 1  code=200  time=0.016998s  bytes=8868
+probe 2  code=200  time=0.015940s  bytes=8868
+probe 3  code=200  time=0.034703s  bytes=8868
+probe 4  code=200  time=0.045090s  bytes=8868
+probe 5  code=200  time=0.043147s  bytes=8868

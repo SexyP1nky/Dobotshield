@@ -113,6 +113,13 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 - XSStrike: 10 threads, --skip-dom, sem --crawl; alvo no parametro refletido.
 
+- ZAP: full-scan autenticado no DVWA e com os mesmos parametros nos oito alvos.
+  Para evitar que uma limitacao de memoria da bancada interrompa o processo Java,
+  a regra ativa 40026 (DOM XSS) e marcada como IGNORE por zap_rules.tsv em TODOS
+  os cenarios. A exclusao e uniforme e nao altera nenhum WAF; XSS refletido segue
+  coberto pelo proprio ZAP e pelo XSStrike. Os alvos sao executados de forma
+  sequencial, mantendo ativos apenas o backend e o WAF do cenario corrente.
+
 - NOTA DE JUSTICA/EVASAO: o tamper (SQLMap) e os endpoints/payloads sao
   IDENTICOS no no_waf e nos 3 WAFs. Eles tornam o ataque mais realista (com
   ofuscacao leve) e sao aplicados igualmente -> a comparacao permanece justa;
@@ -121,7 +128,8 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 - Os --delay (SQLMap 0.3s; Commix 1s) NAO sao alterados entre cenarios.
 
 - wrk e, por definicao, um teste de carga/DoS: dispara sem delay (12 threads
-  x 400 conexoes x 30s), identico em todos os cenarios. Mede throughput e
+  x 400 conexoes x 30s), em 3 repeticoes por cenario e identico em todos os
+  cenarios. Mede throughput e
   resiliencia, nao deteccao de payload.
 
 - DVWA exige autenticacao. Faz-se login automatico (admin/password), define-se
@@ -168,7 +176,7 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 6. ESTRUTURA DOS RESULTADOS
 ---------------------------------------------------------------------------
-  lab_results/
+  validacao/results/
     METODOLOGIA.txt                  (este documento, com timestamp da rodada)
     <app>/<cenario>/
         01_testssl.log               saida da ferramenta (1 log por teste)
@@ -186,6 +194,10 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 Cada .log de ferramenta comeca com um cabecalho contendo o comando docker
 EXATO executado e o timestamp -- garantindo reprodutibilidade.
 
+Os resultados publicados correspondem somente a rodada consolidada de 48
+execucoes e ao E2E automatizado do produto. Tentativas interrompidas por falha
+de infraestrutura e artefatos temporarios nao fazem parte da entrega.
+
 
 7. COMO REPRODUZIR (ordem de execucao)
 ---------------------------------------------------------------------------
@@ -199,12 +211,15 @@ habilitado para o drive do projeto (padrao no backend WSL2).
                           saude de cada um e garante o banco do XVWA.
   3) Rode as ferramentas (cada uma cobre os 8 alvos):
         lab_02_testssl.bat
-        lab_03_zap.bat
+        lab_03_zap_isolado.bat
         lab_04_sqlmap.bat
         lab_05_xsstrike.bat
         lab_06_commix.bat
         lab_07_wrk.bat
-     (ou lab_run_tudo.bat para executar 1->2->todas as ferramentas em sequencia)
+     Rode lab_09_e2e_produto.bat para validar ponta a ponta a configuracao
+     exportada pela interface, o proxy/WAF, os headers, o treinamento e o relatorio.
+     (ou lab_run_tudo.bat para executar 1->2->todas as ferramentas e o E2E
+      automatizado em sequencia)
   9) lab_99_derrubar.bat  derruba e limpa o lab.
 
 As ferramentas sao independentes: podem ser rodadas em qualquer ordem,
@@ -213,7 +228,11 @@ desde que o lab esteja no ar (passos 1 e 2 concluidos).
 
 
 ============================================================================
- 8. ESTADO ATUAL DA BANCADA (ultima atualizacao: 2026-06-06, pos-bateria completa)
+ 8. HISTORICO TECNICO DA BANCADA (registro encerrado em 2026-06-06)
+ATENCAO: esta secao preserva o historico de diagnosticos da bancada anterior e
+nao deve ser usada como resultado da rodada de 14/07/2026. Para os numeros
+atuais, consulte validacao/docs/RELATORIO_RESULTADOS.md, ANALISE_RESULTADOS.json e os
+logs brutos da pasta results/.
 ============================================================================
 
 CORRECOES APLICADAS E VALIDADAS (OK):
@@ -364,7 +383,7 @@ REQUISITO "nao parar prematuramente por causa de input" -- estado por ferramenta
 FIX IMPLEMENTADO (Ponto 1) -- seed do XVWA no ZAP (zap_hook.py):
   Decisao do usuario: semear as URLs vulneraveis do XVWA, com INPUT IDENTICO nos
   4 cenarios do XVWA (so o host:porta muda), e o DVWA INTOCADO.
-  Implementacao 100% no lab_scripts/zap_hook.py (que ja e passado via --hook a
+  Implementacao 100% no validacao/helpers/zap_hook.py (que ja e passado via --hook a
   TODOS os scans). O hook detecta o XVWA pelo alvo ("/xvwa" na URL) e:
     (1) liga no spider postForm/processForm/handleParameters=USE_ALL/maxChildren=0
         -> o spider passa a SUBMETER os forms POST e descobrir params sozinho;

@@ -192,6 +192,12 @@ td {
 .alwayswhite {
 	color: white
 }
+
+.script-diagnostic-screenshot {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
 </style>
 </head>
 <body>
@@ -207,12 +213,12 @@ td {
 
 	<h2>
 		
-		Site: https://172.18.0.5:8443
+		Site: https://172.23.0.2:8443
 		
 	</h2>
 
 	<h3>
-		Generated on Sun, 7 Jun 2026 02:35:24
+		Generated on Wed, 15 Jul 2026 00:59:04
 	</h3>
 
 	<h3>
@@ -245,7 +251,7 @@ td {
 					<div>Medium</div>
 				</td>
 				<td align="center">
-					<div>15</div>
+					<div>12</div>
 				</td>
 			</tr>
 			<tr>
@@ -261,7 +267,7 @@ td {
 					<div>Informational</div>
 				</td>
 				<td align="center">
-					<div>10</div>
+					<div>9</div>
 				</td>
 			</tr>
 			<tr>
@@ -278,6 +284,7 @@ td {
 	
 	
 		<h3 class="left-header">Insights</h3>
+		
 		<table class="summary100">
 			<tr>
 				<th height="24">Level</th>
@@ -298,10 +305,10 @@ td {
 					<div></div>
 				</td>
 				<td>
-					<div>ZAP errors logged - see the zap.log file for details</div>
+					<div>ZAP warnings logged - see the zap.log file for details</div>
 				</td>
 				<td align="center">
-					<div>2   </div>
+					<div>419   </div>
 				</td>
 				</tr>
 			
@@ -310,16 +317,16 @@ td {
 					<div>Low</div>
 				</td>
 				<td>
-					<div>Warning</div>
+					<div>Exceeded Low</div>
 				</td>
 				<td>
 					<div></div>
 				</td>
 				<td>
-					<div>ZAP warnings logged - see the zap.log file for details</div>
+					<div>Percentage of network failures</div>
 				</td>
 				<td align="center">
-					<div>387   </div>
+					<div>5 %</div>
 				</td>
 				</tr>
 			
@@ -331,13 +338,13 @@ td {
 					<div>Exceeded High</div>
 				</td>
 				<td>
-					<div>https://172.18.0.5:8443</div>
+					<div>https://172.23.0.2:8443</div>
 				</td>
 				<td>
 					<div>Percentage of responses with status code 4xx</div>
 				</td>
 				<td align="center">
-					<div>54 %</div>
+					<div>51 %</div>
 				</td>
 				</tr>
 			
@@ -349,10 +356,64 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div></div>
+					<div>http://172.23.0.2:8443</div>
 				</td>
 				<td>
-					<div>Percentage of network failures</div>
+					<div>Percentage of responses with status code 4xx</div>
+				</td>
+				<td align="center">
+					<div>100 %</div>
+				</td>
+				</tr>
+			
+				<tr>
+				<td class="risk-0">
+					<div>Info</div>
+				</td>
+				<td>
+					<div>Informational</div>
+				</td>
+				<td>
+					<div>https://172.23.0.2:8443</div>
+				</td>
+				<td>
+					<div>Percentage of responses with status code 2xx</div>
+				</td>
+				<td align="center">
+					<div>31 %</div>
+				</td>
+				</tr>
+			
+				<tr>
+				<td class="risk-0">
+					<div>Info</div>
+				</td>
+				<td>
+					<div>Informational</div>
+				</td>
+				<td>
+					<div>https://172.23.0.2:8443</div>
+				</td>
+				<td>
+					<div>Percentage of responses with status code 3xx</div>
+				</td>
+				<td align="center">
+					<div>17 %</div>
+				</td>
+				</tr>
+			
+				<tr>
+				<td class="risk-0">
+					<div>Info</div>
+				</td>
+				<td>
+					<div>Informational</div>
+				</td>
+				<td>
+					<div>https://172.23.0.2:8443</div>
+				</td>
+				<td>
+					<div>Percentage of endpoints with content type application/javascript</div>
 				</td>
 				<td align="center">
 					<div>4 %</div>
@@ -367,13 +428,13 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://172.18.0.5:8443</div>
+					<div>https://172.23.0.2:8443</div>
 				</td>
 				<td>
-					<div>Percentage of responses with status code 4xx</div>
+					<div>Percentage of endpoints with content type application/pdf</div>
 				</td>
 				<td align="center">
-					<div>100 %</div>
+					<div>2 %</div>
 				</td>
 				</tr>
 			
@@ -385,13 +446,13 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://d1a6zytsvzb7ig.cloudfront.net</div>
+					<div>https://172.23.0.2:8443</div>
 				</td>
 				<td>
-					<div>Percentage of responses with status code 2xx</div>
+					<div>Percentage of endpoints with content type image/png</div>
 				</td>
 				<td align="center">
-					<div>100 %</div>
+					<div>2 %</div>
 				</td>
 				</tr>
 			
@@ -403,10 +464,82 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://d1a6zytsvzb7ig.cloudfront.net</div>
+					<div>https://172.23.0.2:8443</div>
 				</td>
 				<td>
-					<div>Percentage of slow responses</div>
+					<div>Percentage of endpoints with content type image/vnd.microsoft.icon</div>
+				</td>
+				<td align="center">
+					<div>2 %</div>
+				</td>
+				</tr>
+			
+				<tr>
+				<td class="risk-0">
+					<div>Info</div>
+				</td>
+				<td>
+					<div>Informational</div>
+				</td>
+				<td>
+					<div>https://172.23.0.2:8443</div>
+				</td>
+				<td>
+					<div>Percentage of endpoints with content type text/css</div>
+				</td>
+				<td align="center">
+					<div>2 %</div>
+				</td>
+				</tr>
+			
+				<tr>
+				<td class="risk-0">
+					<div>Info</div>
+				</td>
+				<td>
+					<div>Informational</div>
+				</td>
+				<td>
+					<div>https://172.23.0.2:8443</div>
+				</td>
+				<td>
+					<div>Percentage of endpoints with content type text/html</div>
+				</td>
+				<td align="center">
+					<div>84 %</div>
+				</td>
+				</tr>
+			
+				<tr>
+				<td class="risk-0">
+					<div>Info</div>
+				</td>
+				<td>
+					<div>Informational</div>
+				</td>
+				<td>
+					<div>https://172.23.0.2:8443</div>
+				</td>
+				<td>
+					<div>Percentage of endpoints with content type text/plain</div>
+				</td>
+				<td align="center">
+					<div>2 %</div>
+				</td>
+				</tr>
+			
+				<tr>
+				<td class="risk-0">
+					<div>Info</div>
+				</td>
+				<td>
+					<div>Informational</div>
+				</td>
+				<td>
+					<div>https://172.23.0.2:8443</div>
+				</td>
+				<td>
+					<div>Percentage of endpoints with method GET</div>
 				</td>
 				<td align="center">
 					<div>91 %</div>
@@ -421,514 +554,10 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>http://www.sillychicken.co.nz</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 4xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>http://www.sillychicken.co.nz</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>33 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 3xx</div>
-				</td>
-				<td align="center">
-					<div>11 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of endpoints with content type application/javascript</div>
-				</td>
-				<td align="center">
-					<div>3 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of endpoints with content type application/pdf</div>
-				</td>
-				<td align="center">
-					<div>1 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of endpoints with content type image/png</div>
-				</td>
-				<td align="center">
-					<div>1 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of endpoints with content type image/vnd.microsoft.icon</div>
-				</td>
-				<td align="center">
-					<div>1 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of endpoints with content type text/css</div>
-				</td>
-				<td align="center">
-					<div>1 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of endpoints with content type text/html</div>
-				</td>
-				<td align="center">
-					<div>87 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of endpoints with content type text/plain</div>
-				</td>
-				<td align="center">
-					<div>1 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of endpoints with method GET</div>
-				</td>
-				<td align="center">
-					<div>86 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
+					<div>https://172.23.0.2:8443</div>
 				</td>
 				<td>
 					<div>Percentage of endpoints with method POST</div>
-				</td>
-				<td align="center">
-					<div>13 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Count of total endpoints</div>
-				</td>
-				<td align="center">
-					<div>58   </div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Exceeded Low</div>
-				</td>
-				<td>
-					<div>https://172.18.0.5:8443</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>18 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://accounts.youtube.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://accounts.youtube.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://api.github.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://api.github.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://avatars.githubusercontent.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://avatars.githubusercontent.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>50 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://collector.github.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://collector.github.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://fonts.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://fonts.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>50 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://github.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://github.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>33 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://github.githubassets.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://github.githubassets.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
 				</td>
 				<td align="center">
 					<div>8 %</div>
@@ -943,13 +572,13 @@ td {
 					<div>Informational</div>
 				</td>
 				<td>
-					<div>https://model-hub.mozilla.org</div>
+					<div>https://172.23.0.2:8443</div>
 				</td>
 				<td>
-					<div>Percentage of responses with status code 2xx</div>
+					<div>Count of total endpoints</div>
 				</td>
 				<td align="center">
-					<div>100 %</div>
+					<div>46   </div>
 				</td>
 				</tr>
 			
@@ -958,183 +587,23 @@ td {
 					<div>Info</div>
 				</td>
 				<td>
-					<div>Informational</div>
+					<div>Exceeded Low</div>
 				</td>
 				<td>
-					<div>https://model-hub.mozilla.org</div>
+					<div>https://172.23.0.2:8443</div>
 				</td>
 				<td>
 					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>80 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://play.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://play.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
 				</td>
 				<td align="center">
 					<div>9 %</div>
 				</td>
 				</tr>
 			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 4xx</div>
-				</td>
-				<td align="center">
-					<div>90 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.google.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>99 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 2xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.gstatic.com</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>16 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.sillychicken.co.nz</div>
-				</td>
-				<td>
-					<div>Percentage of responses with status code 4xx</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
-				<tr>
-				<td class="risk-0">
-					<div>Info</div>
-				</td>
-				<td>
-					<div>Informational</div>
-				</td>
-				<td>
-					<div>https://www.sillychicken.co.nz</div>
-				</td>
-				<td>
-					<div>Percentage of slow responses</div>
-				</td>
-				<td align="center">
-					<div>100 %</div>
-				</td>
-				</tr>
-			
 		</table>
 		<div class="spacer-lg"></div>
+	
+
 	
 
 	
@@ -1159,11 +628,11 @@ td {
 					align="center">Number of Instances</th>
 			</tr>
 			<tr>
-				<td><a href="#40018">SQL Injection - MySQL</a></td>
+				<td><a href="#40018">SQL Injection</a></td>
 				<td align="center" class="risk-3">High</td>
 				
 				
-				<td align="center">2</td>
+				<td align="center">1</td>
 				
 			</tr>
 			<tr>
@@ -1178,24 +647,8 @@ td {
 				<td><a href="#20012">Anti-CSRF Tokens Check</a></td>
 				<td align="center" class="risk-2">Medium</td>
 				
-				<td align="center">Systemic</td>
 				
-				
-			</tr>
-			<tr>
-				<td><a href="#40038">Bypassing 403</a></td>
-				<td align="center" class="risk-2">Medium</td>
-				
-				
-				<td align="center">1</td>
-				
-			</tr>
-			<tr>
-				<td><a href="#40040">CORS Misconfiguration</a></td>
-				<td align="center" class="risk-2">Medium</td>
-				
-				
-				<td align="center">1</td>
+				<td align="center">4</td>
 				
 			</tr>
 			<tr>
@@ -1203,7 +656,7 @@ td {
 				<td align="center" class="risk-2">Medium</td>
 				
 				
-				<td align="center">2</td>
+				<td align="center">1</td>
 				
 			</tr>
 			<tr>
@@ -1211,7 +664,7 @@ td {
 				<td align="center" class="risk-2">Medium</td>
 				
 				
-				<td align="center">2</td>
+				<td align="center">1</td>
 				
 			</tr>
 			<tr>
@@ -1219,7 +672,7 @@ td {
 				<td align="center" class="risk-2">Medium</td>
 				
 				
-				<td align="center">2</td>
+				<td align="center">1</td>
 				
 			</tr>
 			<tr>
@@ -1228,14 +681,6 @@ td {
 				
 				<td align="center">Systemic</td>
 				
-				
-			</tr>
-			<tr>
-				<td><a href="#10098">Cross-Domain Misconfiguration</a></td>
-				<td align="center" class="risk-2">Medium</td>
-				
-				
-				<td align="center">1</td>
 				
 			</tr>
 			<tr>
@@ -1267,7 +712,7 @@ td {
 				<td align="center" class="risk-2">Medium</td>
 				
 				
-				<td align="center">3</td>
+				<td align="center">4</td>
 				
 			</tr>
 			<tr>
@@ -1283,7 +728,7 @@ td {
 				<td align="center" class="risk-2">Medium</td>
 				
 				
-				<td align="center">2</td>
+				<td align="center">1</td>
 				
 			</tr>
 			<tr>
@@ -1315,7 +760,7 @@ td {
 				<td align="center" class="risk-1">Low</td>
 				
 				
-				<td align="center">2</td>
+				<td align="center">1</td>
 				
 			</tr>
 			<tr>
@@ -1399,14 +844,6 @@ td {
 				
 			</tr>
 			<tr>
-				<td><a href="#10111">Authentication Request Identified</a></td>
-				<td align="center" class="risk-0">Informational</td>
-				
-				
-				<td align="center">1</td>
-				
-			</tr>
-			<tr>
 				<td><a href="#90027">Cookie Slack Detector</a></td>
 				<td align="center" class="risk-0">Informational</td>
 				
@@ -1419,15 +856,7 @@ td {
 				<td align="center" class="risk-0">Informational</td>
 				
 				
-				<td align="center">8</td>
-				
-			</tr>
-			<tr>
-				<td><a href="#10024">Information Disclosure - Sensitive Information in URL</a></td>
-				<td align="center" class="risk-0">Informational</td>
-				
-				
-				<td align="center">2</td>
+				<td align="center">4</td>
 				
 			</tr>
 			<tr>
@@ -1435,7 +864,15 @@ td {
 				<td align="center" class="risk-0">Informational</td>
 				
 				
-				<td align="center">2</td>
+				<td align="center">1</td>
+				
+			</tr>
+			<tr>
+				<td><a href="#10109">Modern Web Application</a></td>
+				<td align="center" class="risk-0">Informational</td>
+				
+				
+				<td align="center">1</td>
 				
 			</tr>
 			<tr>
@@ -1450,16 +887,16 @@ td {
 				<td><a href="#10049">Storable and Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
 				
-				<td align="center">Systemic</td>
 				
+				<td align="center">2</td>
 				
 			</tr>
 			<tr>
 				<td><a href="#10049">Storable but Non-Cacheable Content</a></td>
 				<td align="center" class="risk-0">Informational</td>
 				
+				<td align="center">Systemic</td>
 				
-				<td align="center">5</td>
 				
 			</tr>
 			<tr>
@@ -1475,7 +912,7 @@ td {
 				<td align="center" class="risk-0">Informational</td>
 				
 				
-				<td align="center">8</td>
+				<td align="center">4</td>
 				
 			</tr>
 		</table>
@@ -1490,7 +927,7 @@ td {
 					<th width="20%" class="risk-3"><a
 						id="40018"></a>
 						<div>High</div></th>
-					<th class="risk-3">SQL Injection - MySQL</th>
+					<th class="risk-3">SQL Injection</th>
 				</tr>
 				<tr>
 					<td width="20%">Description</td>
@@ -1506,83 +943,47 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=%27">https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=%27</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/ (Login,password,username)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Method</td>
-						<td width="80%">GET</td>
+						<td width="80%">POST</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Parameter</td>
-						<td width="80%">username</td>
+						<td width="80%">btnSign</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">&#39;</td>
+						<td width="80%">Sign Guestbook OR 1=1 -- </td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">You have an error in your SQL syntax</td>
+						<td width="80%"></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-							<div>RDBMS [MySQL] likely, given error message regular expression [\QYou have an error in your SQL syntax\E] matched by the HTML results.</div>
+							<div>The page results were successfully manipulated using the boolean conditions [Sign Guestbook AND 1=1 -- ] and [Sign Guestbook OR 1=1 -- ]</div>
 							<br />
 						
-							<div>The vulnerability was detected by manipulating the parameter to cause a database error message to be returned and recognised.</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/sqli/?Submit=Submit&amp;id=%27">https://172.18.0.5:8443/vulnerabilities/sqli/?Submit=Submit&amp;id=%27</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/sqli/ (Submit,id)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">id</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">&#39;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">You have an error in your SQL syntax</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>RDBMS [MySQL] likely, given error message regular expression [\QYou have an error in your SQL syntax\E] matched by the HTML results.</div>
+							<div>The parameter value being modified was stripped from the HTML output for the purposes of the comparison.</div>
 							<br />
 						
-							<div>The vulnerability was detected by manipulating the parameter to cause a database error message to be returned and recognised.</div>
+							<div>Data was NOT returned for the original parameter.</div>
+							<br />
+						
+							<div>The vulnerability was detected by successfully retrieving more data than originally returned, by manipulating the parameter.</div>
 							
 						</td>
 					</tr>
@@ -1591,7 +992,7 @@ td {
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">2</td>
+					<td width="80%">1</td>
 					
 				</tr>
 				<tr>
@@ -1697,51 +1098,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/captcha/">https://172.18.0.5:8443/vulnerabilities/captcha/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/csp/">https://172.23.0.2:8443/vulnerabilities/csp/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/captcha/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form action=&quot;#&quot; method=&quot;POST&quot; style=&quot;display:none;&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: &quot;Change&quot; &quot;password_conf&quot; &quot;password_new&quot; &quot;step&quot; ].</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/csp/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1775,12 +1137,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/exec/">https://172.18.0.5:8443/vulnerabilities/exec/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/exec/">https://172.23.0.2:8443/vulnerabilities/exec/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/exec/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/exec/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1814,12 +1176,51 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/upload/">https://172.18.0.5:8443/vulnerabilities/upload/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/javascript/">https://172.23.0.2:8443/vulnerabilities/javascript/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/upload/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/javascript/</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form name=&quot;low_js&quot; method=&quot;post&quot;&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+							<div>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: &quot;phrase&quot; &quot;send&quot; &quot;token&quot; ].</div>
+							
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/upload/">https://172.23.0.2:8443/vulnerabilities/upload/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/upload/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1853,12 +1254,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_s/">https://172.18.0.5:8443/vulnerabilities/xss_s/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/weak_id/">https://172.23.0.2:8443/vulnerabilities/weak_id/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_s/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/weak_id/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -1878,13 +1279,13 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">&lt;form method=&quot;post&quot; name=&quot;guestform&quot; &quot;&gt;</td>
+						<td width="80%">&lt;form method=&quot;post&quot;&gt;</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-							<div>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: &quot;btnClear&quot; &quot;btnSign&quot; &quot;txtName&quot; ].</div>
+							<div>No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: &quot;&quot; ].</div>
 							
 						</td>
 					</tr>
@@ -2008,120 +1409,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/captcha/">https://172.18.0.5:8443/vulnerabilities/captcha/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/upload/">https://172.23.0.2:8443/vulnerabilities/upload/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/captcha/ ()(Change,password_conf,password_new,step)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form action=&quot;#&quot; method=&quot;POST&quot; style=&quot;display:none;&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/ ()(include)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form name=&quot;csp&quot; method=&quot;POST&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/exec/">https://172.18.0.5:8443/vulnerabilities/exec/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/exec/ ()(Submit,ip)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;form name=&quot;ping&quot; action=&quot;#&quot; method=&quot;post&quot;&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/upload/">https://172.18.0.5:8443/vulnerabilities/upload/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2152,12 +1445,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/weak_id/">https://172.18.0.5:8443/vulnerabilities/weak_id/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/weak_id/">https://172.23.0.2:8443/vulnerabilities/weak_id/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/weak_id/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/weak_id/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2185,11 +1478,83 @@ td {
 						<td width="80%"></td>
 					</tr>
 				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ ()(btnClear,mtxMessage,txtName)</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form method=&quot;post&quot; name=&quot;guestform&quot; &quot;&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;form method=&quot;post&quot; name=&quot;guestform&quot; &quot;&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
 				<tr>
 					<td width="20%">Instances</td>
 					
-					<td width="80%">Systemic</td>
 					
+					<td width="80%">4</td>
 					
 				</tr>
 				<tr>
@@ -2271,205 +1636,6 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-2"><a
-						id="40038"></a>
-						<div>Medium</div></th>
-					<th class="risk-2">Bypassing 403</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>Bypassing 403 endpoints may be possible, the scan rule sent a payload that caused the response to be accessible (status code 200).</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">x-original-url: /phpinfo.php</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>https://172.18.0.5:8443/phpinfo.php</div>
-							
-						</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">1</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/">https://www.acunetix.com/blog/articles/a-fresh-look-on-reverse-proxy-related-attacks/</a>
-							<br />
-						
-							<a href="https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf">https://i.blackhat.com/us-18/Wed-August-8/us-18-Orange-Tsai-Breaking-Parser-Logic-Take-Your-Path-Normalization-Off-And-Pop-0days-Out-2.pdf</a>
-							<br />
-						
-							<a href="https://seclists.org/fulldisclosure/2011/Oct/273">https://seclists.org/fulldisclosure/2011/Oct/273</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/348.html">348</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/40038/">40038</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-2"><a
-						id="40040"></a>
-						<div>Medium</div></th>
-					<th class="risk-2">CORS Misconfiguration</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>This CORS misconfiguration could allow an attacker to perform AJAX queries to the vulnerable website from a malicious page loaded by the victim&#39;s user agent.</div>
-							<br />
-						
-							<div>In order to perform authenticated AJAX queries, the server must specify the header &quot;Access-Control-Allow-Credentials: true&quot; and the &quot;Access-Control-Allow-Origin&quot; header must be set to null or the malicious page&#39;s domain. Even if this misconfiguration doesn&#39;t allow authenticated AJAX requests, unauthenticated sensitive content can still be accessed (e.g intranet websites).</div>
-							<br />
-						
-							<div>A malicious page can belong to a malicious website but also a trusted website with flaws (e.g XSS, support of HTTP without TLS allowing code injection through MITM, etc).</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/phpinfo.php">https://172.18.0.5:8443/phpinfo.php</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/phpinfo.php</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">origin: https://IUll09Se.com</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">1</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>If a web resource contains sensitive information, the origin should be properly specified in the Access-Control-Allow-Origin header. Only trusted websites needing this resource should be specified in this header, with the most secured protocol supported.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS</a>
-							<br />
-						
-							<a href="https://portswigger.net/web-security/cors">https://portswigger.net/web-security/cors</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/942.html">942</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">14</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/40040/">40040</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-2"><a
 						id="10055"></a>
 						<div>Medium</div></th>
 					<th class="risk-2">CSP: Failure to Define Directive with No Fallback</th>
@@ -2488,12 +1654,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/csp/">https://172.23.0.2:8443/vulnerabilities/csp/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/csp/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2524,50 +1690,11 @@ td {
 						</td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/ ()(include)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Content-Security-Policy</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">script-src &#39;self&#39; https://pastebin.com  example.com code.jquery.com https://ssl.google-analytics.com ;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The directive(s): frame-ancestors, form-action is/are among the directives that do not fallback to default-src.</div>
-							
-						</td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">2</td>
+					<td width="80%">1</td>
 					
 				</tr>
 				<tr>
@@ -2634,12 +1761,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/csp/">https://172.23.0.2:8443/vulnerabilities/csp/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/csp/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2673,53 +1800,11 @@ td {
 						</td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/ ()(include)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Content-Security-Policy</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">script-src &#39;self&#39; https://pastebin.com  example.com code.jquery.com https://ssl.google-analytics.com ;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined:</div>
-							<br />
-						
-							<div>style-src, img-src, connect-src, frame-src, font-src, media-src, object-src, manifest-src</div>
-							
-						</td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">2</td>
+					<td width="80%">1</td>
 					
 				</tr>
 				<tr>
@@ -2786,12 +1871,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/csp/">https://172.23.0.2:8443/vulnerabilities/csp/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/csp/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2822,50 +1907,11 @@ td {
 						</td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/ ()(include)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Content-Security-Policy</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">script-src &#39;self&#39; https://pastebin.com  example.com code.jquery.com https://ssl.google-analytics.com ;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>style-src includes unsafe-inline.</div>
-							
-						</td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">2</td>
+					<td width="80%">1</td>
 					
 				</tr>
 				<tr>
@@ -2932,12 +1978,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443">https://172.18.0.5:8443</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443">https://172.23.0.2:8443</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443</td>
+						<td width="80%">https://172.23.0.2:8443</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -2968,12 +2014,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/">https://172.23.0.2:8443/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
+						<td width="80%">https://172.23.0.2:8443/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3004,12 +2050,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/sitemap.xml">https://172.18.0.5:8443/sitemap.xml</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/sitemap.xml">https://172.23.0.2:8443/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/sitemap.xml</td>
+						<td width="80%">https://172.23.0.2:8443/sitemap.xml</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3040,12 +2086,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/">https://172.18.0.5:8443/vulnerabilities/brute/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/brute/">https://172.23.0.2:8443/vulnerabilities/brute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/brute/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3076,12 +2122,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/exec/">https://172.18.0.5:8443/vulnerabilities/exec/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/exec/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3168,104 +2214,6 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-2"><a
-						id="10098"></a>
-						<div>Medium</div></th>
-					<th class="risk-2">Cross-Domain Misconfiguration</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>Web browser data loading may be possible, due to a Cross Origin Resource Sharing (CORS) misconfiguration on the web server.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/phpinfo.php">https://172.18.0.5:8443/phpinfo.php</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/phpinfo.php</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">Access-Control-Allow-Origin: *</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The CORS misconfiguration on the web server permits cross-domain read requests from arbitrary third party domains, using unauthenticated APIs on this domain. Web browser implementations do not permit arbitrary third parties to read the response from authenticated APIs, however. This reduces the risk somewhat. This misconfiguration could be used by an attacker to access data that is available in an unauthenticated manner, but which uses some other form of security, such as IP address white-listing.</div>
-							
-						</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">1</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Ensure that sensitive data is not available in an unauthenticated manner (using IP address white-listing, for instance).</div>
-							<br />
-						
-							<div>Configure the &quot;Access-Control-Allow-Origin&quot; HTTP header to a more restrictive set of domains, or remove all CORS headers entirely, to allow the web browser to enforce the Same Origin Policy (SOP) in a more restrictive manner.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://vulncat.fortify.com/en/detail?category=HTML5&amp;subcategory=Overly%20Permissive%20CORS%20Policy">https://vulncat.fortify.com/en/detail?category=HTML5&amp;subcategory=Overly%20Permissive%20CORS%20Policy</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/264.html">264</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">14</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10098/">10098</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-2"><a
 						id="0"></a>
 						<div>Medium</div></th>
 					<th class="risk-2">Directory Browsing</th>
@@ -3284,12 +2232,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/docs/">https://172.18.0.5:8443/docs/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/docs/">https://172.23.0.2:8443/docs/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/docs/</td>
+						<td width="80%">https://172.23.0.2:8443/docs/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3304,7 +2252,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">https://172.18.0.5:8443/docs/</td>
+						<td width="80%">https://172.23.0.2:8443/docs/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3320,12 +2268,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/">https://172.18.0.5:8443/dvwa/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/dvwa/">https://172.23.0.2:8443/dvwa/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/</td>
+						<td width="80%">https://172.23.0.2:8443/dvwa/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3340,7 +2288,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/</td>
+						<td width="80%">https://172.23.0.2:8443/dvwa/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3356,12 +2304,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/css/">https://172.18.0.5:8443/dvwa/css/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/dvwa/css/">https://172.23.0.2:8443/dvwa/css/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/css/</td>
+						<td width="80%">https://172.23.0.2:8443/dvwa/css/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3376,7 +2324,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/css/</td>
+						<td width="80%">https://172.23.0.2:8443/dvwa/css/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3392,12 +2340,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/images/">https://172.18.0.5:8443/dvwa/images/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/dvwa/images/">https://172.23.0.2:8443/dvwa/images/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/images/</td>
+						<td width="80%">https://172.23.0.2:8443/dvwa/images/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3412,7 +2360,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/images/</td>
+						<td width="80%">https://172.23.0.2:8443/dvwa/images/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3428,12 +2376,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/js/">https://172.18.0.5:8443/dvwa/js/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/dvwa/js/">https://172.23.0.2:8443/dvwa/js/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/js/</td>
+						<td width="80%">https://172.23.0.2:8443/dvwa/js/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3448,7 +2396,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/js/</td>
+						<td width="80%">https://172.23.0.2:8443/dvwa/js/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3520,12 +2468,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443">https://172.18.0.5:8443</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443">https://172.23.0.2:8443</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443</td>
+						<td width="80%">https://172.23.0.2:8443</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3556,12 +2504,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/">https://172.23.0.2:8443/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
+						<td width="80%">https://172.23.0.2:8443/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3592,12 +2540,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/instructions.php">https://172.18.0.5:8443/instructions.php</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/instructions.php">https://172.23.0.2:8443/instructions.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/instructions.php</td>
+						<td width="80%">https://172.23.0.2:8443/instructions.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3628,12 +2576,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/">https://172.18.0.5:8443/vulnerabilities/brute/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/brute/">https://172.23.0.2:8443/vulnerabilities/brute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/brute/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3664,12 +2612,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/exec/">https://172.18.0.5:8443/vulnerabilities/exec/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/exec/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3768,12 +2716,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_d/">https://172.18.0.5:8443/vulnerabilities/xss_d/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/upload/">https://172.23.0.2:8443/vulnerabilities/upload/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_d/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/upload/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3816,12 +2764,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_r/">https://172.18.0.5:8443/vulnerabilities/xss_r/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/weak_id/">https://172.23.0.2:8443/vulnerabilities/weak_id/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_r/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/weak_id/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3864,17 +2812,17 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_d/">https://172.23.0.2:8443/vulnerabilities/xss_d/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/ ()(include)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_d/</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Method</td>
-						<td width="80%">POST</td>
+						<td width="80%">GET</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3912,17 +2860,17 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/upload/">https://172.18.0.5:8443/vulnerabilities/upload/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Method</td>
-						<td width="80%">POST</td>
+						<td width="80%">GET</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -3960,17 +2908,17 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_s/">https://172.18.0.5:8443/vulnerabilities/xss_s/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_s/ ()(btnClear,mtxMessage,txtName)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Method</td>
-						<td width="80%">POST</td>
+						<td width="80%">GET</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4073,12 +3021,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/about.php">https://172.18.0.5:8443/about.php</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/about.php">https://172.23.0.2:8443/about.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/about.php/ax2ca/49j8z</td>
+						<td width="80%">https://172.23.0.2:8443/about.php/d0qdh/o6gmj</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4093,7 +3041,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">https://172.18.0.5:8443/about.php/ax2ca/49j8z</td>
+						<td width="80%">https://172.23.0.2:8443/about.php/d0qdh/o6gmj</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4118,12 +3066,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/instructions.php">https://172.18.0.5:8443/instructions.php</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/instructions.php">https://172.23.0.2:8443/instructions.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/instructions.php/ax2ca/49j8z</td>
+						<td width="80%">https://172.23.0.2:8443/instructions.php/d0qdh/o6gmj</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4138,7 +3086,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">https://172.18.0.5:8443/instructions.php/ax2ca/49j8z</td>
+						<td width="80%">https://172.23.0.2:8443/instructions.php/d0qdh/o6gmj</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4163,12 +3111,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/instructions.php?doc=copying">https://172.18.0.5:8443/instructions.php?doc=copying</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/instructions.php?doc=readme">https://172.23.0.2:8443/instructions.php?doc=readme</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/instructions.php/ax2ca/49j8z (doc)</td>
+						<td width="80%">https://172.23.0.2:8443/instructions.php/d0qdh/o6gmj (doc)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4183,7 +3131,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">https://172.18.0.5:8443/instructions.php/ax2ca/49j8z?doc=copying</td>
+						<td width="80%">https://172.23.0.2:8443/instructions.php/d0qdh/o6gmj?doc=readme</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4201,6 +3149,51 @@ td {
 							<br />
 						
 							<div>Quirks Mode is implicitly enabled via the use of an old DOCTYPE with PUBLIC id &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;, allowing the specified Content Type to be bypassed in some web browsers.</div>
+							
+						</td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://172.23.0.2:8443/phpinfo.php">https://172.23.0.2:8443/phpinfo.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">https://172.23.0.2:8443/phpinfo.php/d0qdh/o6gmj</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%">https://172.23.0.2:8443/phpinfo.php/d0qdh/o6gmj</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;img border=&quot;0&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAABACAYAAAA+j9gsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAD4BJREFUeNrsnXtwXFUdx8/dBGihmE21QCrQDY6oZZykon/gY5qizjgM2KQMfzFAOioOA5KEh+j4R9oZH7zT6MAMKrNphZFSQreKHRgZmspLHSCJ2Co6tBtJk7Zps7tJs5t95F5/33PvWU4293F29ybdlPzaM3df2XPv+Zzf4/zOuWc1tkjl+T0HQ3SQC6SBSlD6WKN4rusGm9F1ps/o5mPriOf8dd0YoNfi0nt4ntB1PT4zYwzQkf3kR9/sW4xtpS0CmE0SyPUFUJXFMIxZcM0jAZ4xrKMudQT7963HBF0n6EaUjkP0vI9K9OEHWqJLkNW1s8mC2WgVTwGAqWTafJzTWTKZmQuZ/k1MpAi2+eys6mpWfVaAPzcILu8EVKoCAaYFtPxrAXo8qyNwzZc7gSgzgN9Hx0Ecn3j8xr4lyHOhNrlpaJIgptM5DjCdzrJ0Jmce6bWFkOpqs0MErA4gXIBuAmY53gFmOPCcdaTXCbq+n16PPLXjewMfGcgEttECeouTpk5MplhyKsPBTiXNYyULtwIW7Cx1vlwuJyDLR9L0mQiVPb27fhA54yBbGttMpc1OWwF1cmKaH2FSF7vAjGezOZZJZ9j0dIZlMhnuRiToMO0c+N4X7oksasgEt9XS2KZCHzoem2Ixq5zpAuDTqTR14FMslZyepeEI4Ogj26n0vLj33uiigExgMWRpt+CGCsEePZqoePM738BPTaJzT7CpU0nu1yXpAXCC3VeRkCW4bfJYFZo6dmJyQTW2tvZc1nb719iyZWc5fmZ6Osu6H3uVzit52oBnMll2YizGxk8muFZLAshb/YKtzQdcaO3Y2CQ7eiy+YNGvLN+4+nJetm3bxhKJxJz316xZw1pbW9kLew+w1944XBEaPj6eYCeOx1gqNe07bK1MwIDbKcOFOR49GuePT5fcfOMX2drPXcQ0zf7y2tvbWVdXF/v1k2+yQ4dPVpQ5P0Um/NjoCX6UBMFZR6k+u7qMYVBYDIEqBW7eXAfPZX19zp2/oaGBHysNMGTFinPZik9fWggbI5Omb13zUDeB3lLsdwaK/YPeyAFU0i8Aw9/2Dwyx4SPjFQEYUlf3MTYw4Jx7CIVCbHR0oqIDNMD+FMG+ZE0dO/tsHlvAWnYS6H4qjfMC+Zld/wg92/tuv2WeeYT87j+H2aFDxysGLuSy+o/z49DQkONnmpqa2MjRyoYsZOXKGnb5Z+vZqlUrxUsAvI9At/oK+elnBpoNw+Dai9TekSMxDrgSh0KrSYshTprc2NhoRf1JtlikqirAVl98AddsSavDBDrsC+QdT7/TSoB344tzOZ39+70RbporVerqasyw1MEnC8iV6I9VTDi0uqbmfPFSq2W+gyUHXuEdb3WR5rab5jnD3i/BNMN8ChNaqsTiKa55KmBWX+Tuj0XQdQVF307nhTH0CPls+O0UPbaT5TQG/8qX68u6LpV67LQ6dNknaYgaYyPDx2TzvYGCsnhRkH8b/rsF2GDj1MCInkvxvRjOuCUlipWD/zrKx7ZOwBF0vfSSM2ShyaqAAOC1Nw+zt9/5YNbrN1zfwIdpfgnqebv/A6pnWAn4qlW1HPgHQ6OeoG3N9RO/+StMdDtmV2LxJPfBpQCGfwTgrVu38jFrKaW2tpZt2LCBdXR0sEgkwhv21u9cxQsyW3ZB1+DgoOM54btU6tu8eTPr6elhy5fr7IZNDey+e76e9/fCLcAllHpdKKinpaUlX8+111xB9VzNrYxqUAY/XVVVJYMOekLu2fFGM8VWYQRYiYkU9bD4vPlHFYnH4/zvkb1CgwACHgMoUpdyw3sFXcXUh4YHaNSHDqaxdL5jwVTXBpeXVY9oF3RcUQ+O09NT7Cayfld+4RJlP42gTIq8w66Qf/X4a6FTSSMMDcaE/NhYecMM+MdyG90OAhodWoAGkTUaSZByO5WdiA4GqwStrrM6k5vFKEXQserr63l7oR5V0NBojKctaSZtbneErOtGmFxwkGewjk0UzpCUlJSIRqMcjN8CkHLDqyRByq0PEGBBhDmdj7rQVujAaLfrrlk7xyW5gUaxpEtOmOQDr0e799NYmDVBi0+OT7FcbsaXxEQk8qprEBQMBm0vVKUBRcNjskFE8W71lSt79uzhda1d6w4ZGTUUp3NWAQ3TvW/fPvbVq+rZH/ceULOcF1/I06CY3QJohCCzNJnYdgEwwvpUKuNbUsLNpO3evZtfSGHp7+/nS2pw3LLFPVWLoA5yHQUtXvXFYjH+vU4F5yOibzsRUL38MTqC3XWh8GCWziMcDjt2BNEZUIfoUOpJkwvziT3S5ua8Jj/4yD5E0yERbPkhKv4RF4mhkN1wCMHN2rWfYZ2dnWz9+vXchNkJzBoaQ8Bxqg91wWo41YdO2dzczD+3bt06Rw0rBG4nOF8oi9M0Jsw9OgLqQ124BifLgeuHyVbN0NXUrODBmDWxgRR0pNrUYqMNgDOZGZbNzvgCuc4j0kX+GPJ2//CcMagQmKkbrm/knwVEp++SIXulM1+nhj9AY207QRDnpsnye24WA59DkuPlV/5j+z5eB2hE0W1tbTyQdNJmDpksRzFp2E9csFJAboRvDvz8gZdJgw2ek55KZphfAv+Inu8UdKnmkEUHQK93EjEZ4Rbkifq8JiactEpYAy9Nli2Gm6CjIZPn1qlKFWizleOG3BIwdKNZ+KRMxr9VHKvr1NKLXo2BhlAVFRPq1qlWW6MBr3NWyY2rTGXO5ySJlN9uDuiGsV7XTVPtl8CHYGizf/9+V5Om0hAwVV4ahuU8qia03HP26kyqFkMOTudDzjs/P/QKBUiBYa5ZNucfZJUkCG/0IhpCxYyqBF3lnLOII8q1GKqdStQ3rTh5MStwXX5O/nE1metGQzPHUH6JatA1OppQ8u1eUbpX44tO4GY5vM5Z9sduFgOfG1GwUOK6VFzaSAmrWCSfzGCuuT/O+bi6QwRdTtqXN2keJ4/ejgkJ5HedRARkbkGe6ARulgMWQ+Wc3cDAWohhoZdcue7ifJ7crfP6Me8dELd0Mv8U2begC2k9SHd3t+NnNm7cqKwRbiYUkykqvlZlmOYVLIq5bHRep46JzotOc9BhuFc0ZHGLph+CJIaXr1FZSIfxsdBiN1+LpALEK2By61Aqs0rwtV7DNBU3BMCYixYTLU6C8bM5hBwum0k1mesBpmPtlj+qXFenFsAgCVLon9DYeIxUnmh05HCdBIkCVRP6ussiepVZJZXIutCHwt2I0YGY2Kiz3AIyeG5aLNooVULQBbHy1/nAK2oEtEanheil+GO3aFg0FnwSilNC4q6OrXzywc0XCy1WMaFu/tgrCBLRuWpHuP+n1zqmRXFN0GAnwKgHeW1E1C/86UDJHFKptATZMPZTafbLXHtN3OPixKRC4ev4GwB2Gy6JxhQNEYul+KoKp79RMaGqKzy9ovzt27c7pidVZtYAGJMYOP7u6bdK1mLI1GQ+/ogSZBahwKuLO2jSZt0odw65xrUhAMNrZskLsGiIXz72F3bTjV+ixvtbWcMQr3NWCbog5VyXAIy63PLrqpJITIqHkcD9P7suSiYbG53wvTLKDbr8WBbjZqIF4F3PD3ItRn1eQd5CBF3lCM5RAIYfVp0/dgZ8SvbJ2/l8MmlvNw+8qJTjm+drWQwaAXO9KMuWncc1GBMXKkGeV/pU5ZxFIsTvzovOCu3HvDnOE7NTu3rLr+PE8fy6+IEX9947YM4n/+LbPT/88R8QqoYAuVSDrZLFKcYso2AcLBIeGDPu6h3M+yqvIE/4Y6w4LdUfi+jcr86L75KvC9+PcbVfd1hCi6U7Innwk1/+Q5rcoetsdyBg3s9aCmivBsNFifGfG9zCJUFiztmpEXAbqhMgr6SLWBPu9R1enRfm1ktrC6cVYWH+/Mqg43x6sYK1edaCex7vkRZHZkF+6P6NkXvvi/TpLNBUaqTtdcsoLtIrVTcem2EHDh7m2uq0ikMINBvafOmazzt+BkGMW9CF70DndPsOaJqb38Y1oXjdCYHOiqwbPofrKid6thMAlnxxPtMy6w4K0ubNhq73U5wd5PtVleCTd+50D2CEafLloqixyv0ufMcOGq64CVaMYN2119gfAdPpuscKOxWgCMDwxfm0pvzBhx9siRLoFt3ca7Ikf+x2yygaYzHdTSi7IT9y8fMJ2Lpdhg+ZCPA2+f05d1A88mBLHzQaoA1dL6ohVLJGi+1uQj8XQMyHIMgaGT6eDxuozMkD294LRaB7CPI27DLHQSskSFRvGa30O/zndF4fF0DMhwa//9//iZ2DcILqN7xBHn1oUweNn7eJ3WO9QHvdMlrMsphKEj8XQPgpuHVVMtGOgF0hC9CGTqbb2kHOzXx73aKiuiymEv2x22ICMYYeWSALBQ7RQ0fkoZIr4DnRtS3ohzf1dNzTG9d0PcwMLahZO8UyKTMm38wteratSVtkplq4oWj0PcfrEinPhYg14H+hvdIwCVs1bvb6O+UBMYFGl90d0LRGLRDgoHEUwYnXDniQStocTVUwfPLaKQGA/RoWOmkvtnsaG8unK+PWMKlH5e+Lznp03N27RdO0TkxmYNZKszYBlyfI3RpjsQkmMOo8ls4Wsx1EKcEVAEvayyNoeRzsO2RI+93PNRLesGYtNpBhL4l/prlgZz5ob0mbtZVFhWC301d0EuQgAHPgS7D9hssTHKyMbRfLptF213NBDRuoaqxNA2yh2VUBDnxJ1M1yRW6gOgt2x64gqXK7ht1yOWyW1+wl7bYXvhUygQXgit4KuVDuBGzSbA2bmmtayNzpRgJOGu7XosHFChZzvrGTiUKt5UMiVsmbmtsCb3+2lZmwm3hFNsA/CiYdKyfhYx3Aws8urp8nsJM72naGCG8zYwZMecjk/WHVVRbsMwU6tBVQsWJS2sNDlrgVTO0RE/vzKQtuN2+/85k5PxlUaL75D3BZwKss+JUqSFRAO/F7Eqlkmj+2gbrgYE8rZFluu+P3pOGsyWCG/Y9/GR8exC+vYfc5flxgzRdDGsDEz/8AJsxwQcBUKPCtmKOMFJO8OKMgF8r3b3sKkAm69TN+2OZCAm5ID/g9XPypwX29ufWgudq0urrKes/8nPkxgy1bdg6z/or/SFc2mzV/xs+6HwySTmdYJp2dpaWKEregYrVfn9/B0xkD2U6+e+sOaHqImTfLrycUOIZM1hJwC3oemPXbi/y5PnsrJ136bUa8pxu69BklmANWwDRkgR1wmwVaglyi3Nz6JLQ+ZG5NxQsgNdAhmIfJN7wxgoWg9fxzPQ+c/g9YAIXgeUKCyipJO4uR/wswAOIwB/5IgxvbAAAAAElFTkSuQmCC&quot; alt=&quot;PHP logo&quot;&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+							<div>No &lt;base&gt; tag was specified in the HTML &lt;head&gt; tag to define the location for relative URLs.</div>
+							<br />
+						
+							<div>A Content Type of &quot;text/html; charset=UTF-8&quot; was specified. If the web browser is employing strict parsing rules, this will prevent cross-content attacks from succeeding. Quirks Mode in the web browser would disable strict parsing.</div>
+							<br />
+						
+							<div>Quirks Mode is implicitly enabled via the use of an old DOCTYPE with PUBLIC id &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;, allowing the specified Content Type to be bypassed in some web browsers.</div>
 							
 						</td>
 					</tr>
@@ -4209,7 +3202,7 @@ td {
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">3</td>
+					<td width="80%">4</td>
 					
 				</tr>
 				<tr>
@@ -4285,12 +3278,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/instructions.php">https://172.18.0.5:8443/instructions.php</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/instructions.php">https://172.23.0.2:8443/instructions.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/instructions.php</td>
+						<td width="80%">https://172.23.0.2:8443/instructions.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4321,12 +3314,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/instructions.php?doc=readme">https://172.18.0.5:8443/instructions.php?doc=readme</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/instructions.php?doc=readme">https://172.23.0.2:8443/instructions.php?doc=readme</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/instructions.php (doc)</td>
+						<td width="80%">https://172.23.0.2:8443/instructions.php (doc)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4413,12 +3406,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/captcha/">https://172.18.0.5:8443/vulnerabilities/captcha/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/captcha/">https://172.23.0.2:8443/vulnerabilities/captcha/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/captcha/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/captcha/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4446,47 +3439,11 @@ td {
 						<td width="80%"></td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/captcha/">https://172.18.0.5:8443/vulnerabilities/captcha/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/captcha/ ()(Change,password_conf,password_new,step)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&#39;https://www.google.com/recaptcha/api.js&#39;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">2</td>
+					<td width="80%">1</td>
 					
 				</tr>
 				<tr>
@@ -4499,7 +3456,7 @@ td {
 				<tr>
 					<td width="20%">Reference</td>
 					<td width="80%">
-							<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</a>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity</a>
 							
 						</td>
 				</tr>
@@ -4541,12 +3498,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/weak_id/">https://172.18.0.5:8443/vulnerabilities/weak_id/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/weak_id/">https://172.23.0.2:8443/vulnerabilities/weak_id/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/weak_id/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/weak_id/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4633,12 +3590,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/weak_id/">https://172.18.0.5:8443/vulnerabilities/weak_id/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/weak_id/">https://172.23.0.2:8443/vulnerabilities/weak_id/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/weak_id/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/weak_id/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4725,12 +3682,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/weak_id/">https://172.18.0.5:8443/vulnerabilities/weak_id/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/weak_id/">https://172.23.0.2:8443/vulnerabilities/weak_id/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/weak_id/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/weak_id/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4817,12 +3774,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/captcha/">https://172.18.0.5:8443/vulnerabilities/captcha/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/captcha/">https://172.23.0.2:8443/vulnerabilities/captcha/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/captcha/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/captcha/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4850,47 +3807,11 @@ td {
 						<td width="80%"></td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/captcha/">https://172.18.0.5:8443/vulnerabilities/captcha/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/captcha/ ()(Change,password_conf,password_new,step)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">https://www.google.com/recaptcha/api.js</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">&lt;script src=&#39;https://www.google.com/recaptcha/api.js&#39;&gt;&lt;/script&gt;</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">2</td>
+					<td width="80%">1</td>
 					
 				</tr>
 				<tr>
@@ -4942,12 +3863,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443">https://172.18.0.5:8443</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443">https://172.23.0.2:8443</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443</td>
+						<td width="80%">https://172.23.0.2:8443</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -4978,12 +3899,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/">https://172.23.0.2:8443/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
+						<td width="80%">https://172.23.0.2:8443/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5014,12 +3935,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/">https://172.18.0.5:8443/vulnerabilities/brute/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/brute/">https://172.23.0.2:8443/vulnerabilities/brute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/brute/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5050,12 +3971,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/exec/">https://172.18.0.5:8443/vulnerabilities/exec/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/exec/">https://172.23.0.2:8443/vulnerabilities/exec/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/exec/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/exec/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5086,12 +4007,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/sqli/">https://172.18.0.5:8443/vulnerabilities/sqli/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/sqli/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5181,12 +4102,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443">https://172.18.0.5:8443</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443">https://172.23.0.2:8443</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443</td>
+						<td width="80%">https://172.23.0.2:8443</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5217,12 +4138,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/">https://172.23.0.2:8443/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
+						<td width="80%">https://172.23.0.2:8443/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5253,12 +4174,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/">https://172.18.0.5:8443/vulnerabilities/brute/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/brute/">https://172.23.0.2:8443/vulnerabilities/brute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/brute/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5289,12 +4210,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/exec/">https://172.18.0.5:8443/vulnerabilities/exec/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/exec/">https://172.23.0.2:8443/vulnerabilities/exec/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/exec/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/exec/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5325,12 +4246,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/sqli/">https://172.18.0.5:8443/vulnerabilities/sqli/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/sqli/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5423,12 +4344,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/js/dvwaPage.js">https://172.18.0.5:8443/dvwa/js/dvwaPage.js</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/dvwa/js/dvwaPage.js">https://172.23.0.2:8443/dvwa/js/dvwaPage.js</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/js/dvwaPage.js</td>
+						<td width="80%">https://172.23.0.2:8443/dvwa/js/dvwaPage.js</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5515,12 +4436,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/sitemap.xml">https://172.18.0.5:8443/sitemap.xml</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/DTD/xhtml1-transitional.dtd">https://172.23.0.2:8443/DTD/xhtml1-transitional.dtd</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/sitemap.xml</td>
+						<td width="80%">https://172.23.0.2:8443/DTD/xhtml1-transitional.dtd</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5554,12 +4475,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/ZAP">https://172.18.0.5:8443/vulnerabilities/csp/ZAP</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/sitemap.xml">https://172.23.0.2:8443/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/ZAP</td>
+						<td width="80%">https://172.23.0.2:8443/sitemap.xml</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5655,12 +4576,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/instructions.php">https://172.18.0.5:8443/instructions.php</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/instructions.php">https://172.23.0.2:8443/instructions.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/instructions.php</td>
+						<td width="80%">https://172.23.0.2:8443/instructions.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5691,12 +4612,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/instructions.php?doc=readme">https://172.18.0.5:8443/instructions.php?doc=readme</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/instructions.php?doc=readme">https://172.23.0.2:8443/instructions.php?doc=readme</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/instructions.php (doc)</td>
+						<td width="80%">https://172.23.0.2:8443/instructions.php (doc)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5780,12 +4701,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443">https://172.18.0.5:8443</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443">https://172.23.0.2:8443</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443</td>
+						<td width="80%">https://172.23.0.2:8443</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5816,12 +4737,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/">https://172.23.0.2:8443/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
+						<td width="80%">https://172.23.0.2:8443/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5852,12 +4773,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/js/add_event_listeners.js">https://172.18.0.5:8443/dvwa/js/add_event_listeners.js</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/sitemap.xml">https://172.23.0.2:8443/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/js/add_event_listeners.js</td>
+						<td width="80%">https://172.23.0.2:8443/sitemap.xml</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5888,12 +4809,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/sitemap.xml">https://172.18.0.5:8443/sitemap.xml</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/brute/">https://172.23.0.2:8443/vulnerabilities/brute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/sitemap.xml</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/brute/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -5924,12 +4845,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/">https://172.18.0.5:8443/vulnerabilities/brute/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6028,12 +4949,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/fi/?page=file3.php">https://172.18.0.5:8443/vulnerabilities/fi/?page=file3.php</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/phpinfo.php">https://172.23.0.2:8443/phpinfo.php</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/fi/ (page)</td>
+						<td width="80%">https://172.23.0.2:8443/phpinfo.php</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6053,13 +4974,37 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">172.18.0.11</td>
+						<td width="80%">172.23.0.5:80</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Other Info</td>
 						<td width="80%">
-							<div>172.18.0.11</div>
+							<div>172.23.0.5:80</div>
+							<br />
+						
+							<div>172.23.0.3</div>
+							<br />
+						
+							<div>172.23.0.3</div>
+							<br />
+						
+							<div>172.23.0.5</div>
+							<br />
+						
+							<div>172.23.0.3</div>
+							<br />
+						
+							<div>172.23.0.3</div>
+							<br />
+						
+							<div>172.23.0.3</div>
+							<br />
+						
+							<div>172.23.0.3</div>
+							<br />
+						
+							<div>172.23.0.5</div>
 							
 						</td>
 					</tr>
@@ -6123,12 +5068,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443">https://172.23.0.2:8443</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
+						<td width="80%">https://172.23.0.2:8443</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6159,12 +5104,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/css/main.css">https://172.18.0.5:8443/dvwa/css/main.css</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/">https://172.23.0.2:8443/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/css/main.css</td>
+						<td width="80%">https://172.23.0.2:8443/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6195,12 +5140,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/images/logo.png">https://172.18.0.5:8443/dvwa/images/logo.png</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/robots.txt">https://172.23.0.2:8443/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/images/logo.png</td>
+						<td width="80%">https://172.23.0.2:8443/robots.txt</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6231,12 +5176,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/robots.txt">https://172.18.0.5:8443/robots.txt</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/sitemap.xml">https://172.23.0.2:8443/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/robots.txt</td>
+						<td width="80%">https://172.23.0.2:8443/sitemap.xml</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6267,12 +5212,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/sitemap.xml">https://172.18.0.5:8443/sitemap.xml</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/sitemap.xml</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6371,12 +5316,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/javascript/">https://172.23.0.2:8443/vulnerabilities/javascript/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/javascript/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6410,12 +5355,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/javascript/">https://172.23.0.2:8443/vulnerabilities/javascript/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/javascript/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6449,12 +5394,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/javascript/">https://172.23.0.2:8443/vulnerabilities/javascript/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/javascript/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6488,12 +5433,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/javascript/">https://172.23.0.2:8443/vulnerabilities/javascript/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/javascript/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6527,12 +5472,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/javascript/">https://172.23.0.2:8443/vulnerabilities/javascript/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/javascript/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6622,12 +5567,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443">https://172.18.0.5:8443</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443">https://172.23.0.2:8443</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443</td>
+						<td width="80%">https://172.23.0.2:8443</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6664,12 +5609,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/">https://172.23.0.2:8443/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
+						<td width="80%">https://172.23.0.2:8443/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6706,12 +5651,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/css/main.css">https://172.18.0.5:8443/dvwa/css/main.css</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/robots.txt">https://172.23.0.2:8443/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/css/main.css</td>
+						<td width="80%">https://172.23.0.2:8443/robots.txt</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6748,12 +5693,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/images/logo.png">https://172.18.0.5:8443/dvwa/images/logo.png</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/brute/">https://172.23.0.2:8443/vulnerabilities/brute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/images/logo.png</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/brute/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6790,12 +5735,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/robots.txt">https://172.18.0.5:8443/robots.txt</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/robots.txt</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -6876,109 +5821,6 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-0"><a
-						id="10111"></a>
-						<div>Informational</div></th>
-					<th class="risk-0">Authentication Request Identified</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The given request has been identified as an authentication request. The &#39;Other Info&#39; field contains a set of key=value lines which identify any relevant fields. If the request is in a context which has an Authentication Method set to &quot;Auto-Detect&quot; then this rule will change the authentication to match the request identified.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=ZAP">https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=ZAP</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/ (Login,password,username)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Login</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">password</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>userParam=Login</div>
-							<br />
-						
-							<div>userValue=Login</div>
-							<br />
-						
-							<div>passwordParam=password</div>
-							<br />
-						
-							<div>referer=https://172.18.0.5:8443/vulnerabilities/brute/</div>
-							
-						</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">1</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>This is an informational alert rather than a vulnerability and so there is nothing to fix.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%">
-							<a href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</a>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10111/">10111</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-0"><a
 						id="90027"></a>
 						<div>Informational</div></th>
 					<th class="risk-0">Cookie Slack Detector</th>
@@ -6997,12 +5839,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/docs">https://172.18.0.5:8443/docs</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/DTD">https://172.23.0.2:8443/DTD</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/docs</td>
+						<td width="80%">https://172.23.0.2:8443/DTD</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7042,12 +5884,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/docs/DVWA_v1.3.pdf">https://172.18.0.5:8443/docs/DVWA_v1.3.pdf</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/DTD/xhtml1-transitional.dtd">https://172.23.0.2:8443/DTD/xhtml1-transitional.dtd</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/docs/DVWA_v1.3.pdf</td>
+						<td width="80%">https://172.23.0.2:8443/DTD/xhtml1-transitional.dtd</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7087,12 +5929,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa">https://172.18.0.5:8443/dvwa</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7132,12 +5974,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/css">https://172.18.0.5:8443/dvwa/css</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/?name=ZAP">https://172.23.0.2:8443/vulnerabilities/xss_r/?name=ZAP</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/css</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/ (name)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7177,17 +6019,17 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_s/">https://172.18.0.5:8443/vulnerabilities/xss_s/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_s/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Method</td>
-						<td width="80%">GET</td>
+						<td width="80%">POST</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7269,12 +6111,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/captcha/">https://172.18.0.5:8443/vulnerabilities/captcha/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/upload/">https://172.23.0.2:8443/vulnerabilities/upload/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/captcha/ (Change,password_conf,password_new,step)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/upload/ (MAX_FILE_SIZE,Upload,uploaded)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7294,7 +6136,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">GET https://172.18.0.5:8443/vulnerabilities/captcha/?Change=Change&amp;password_conf=ZAP&amp;password_new=ZAP&amp;step=1 HTTP/1.1</td>
+						<td width="80%">GET https://172.23.0.2:8443/vulnerabilities/upload/?MAX_FILE_SIZE=100000&amp;Upload=Upload&amp;uploaded=test_file.txt HTTP/1.1</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7305,12 +6147,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/weak_id/">https://172.23.0.2:8443/vulnerabilities/weak_id/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/ (include)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/weak_id/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7330,7 +6172,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">GET https://172.18.0.5:8443/vulnerabilities/csp/?include=ZAP HTTP/1.1</td>
+						<td width="80%">GET https://172.23.0.2:8443/vulnerabilities/weak_id/ HTTP/1.1</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7341,12 +6183,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/exec/">https://172.18.0.5:8443/vulnerabilities/exec/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/exec/ (Submit,ip)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ (btnClear,mtxMessage,txtName)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7366,7 +6208,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">GET https://172.18.0.5:8443/vulnerabilities/exec/?Submit=Submit&amp;ip=ZAP HTTP/1.1</td>
+						<td width="80%">GET https://172.23.0.2:8443/vulnerabilities/xss_s/?btnClear=Clear%20Guestbook&amp;mtxMessage=&amp;txtName=ZAP HTTP/1.1</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7377,12 +6219,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/ (phrase,send,token)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ (btnSign,mtxMessage,txtName)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7402,151 +6244,7 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent2">Evidence</td>
-						<td width="80%">GET https://172.18.0.5:8443/vulnerabilities/javascript/?phrase=ChangeMe&amp;send=Submit&amp;token= HTTP/1.1</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/upload/">https://172.18.0.5:8443/vulnerabilities/upload/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/upload/ (MAX_FILE_SIZE,Upload,uploaded)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">GET https://172.18.0.5:8443/vulnerabilities/upload/?MAX_FILE_SIZE=100000&amp;Upload=Upload&amp;uploaded=test_file.txt HTTP/1.1</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/weak_id/">https://172.18.0.5:8443/vulnerabilities/weak_id/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/weak_id/</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">GET https://172.18.0.5:8443/vulnerabilities/weak_id/ HTTP/1.1</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_s/">https://172.18.0.5:8443/vulnerabilities/xss_s/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_s/ (btnClear,mtxMessage,txtName)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">GET https://172.18.0.5:8443/vulnerabilities/xss_s/?btnClear=Clear%20Guestbook&amp;mtxMessage=&amp;txtName=ZAP HTTP/1.1</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_s/">https://172.18.0.5:8443/vulnerabilities/xss_s/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_s/ (btnSign,mtxMessage,txtName)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">GET https://172.18.0.5:8443/vulnerabilities/xss_s/?btnSign=Sign%20Guestbook&amp;mtxMessage=&amp;txtName=ZAP HTTP/1.1</td>
+						<td width="80%">GET https://172.23.0.2:8443/vulnerabilities/xss_s/?btnSign=Sign%20Guestbook&amp;mtxMessage=&amp;txtName=ZAP HTTP/1.1</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7558,7 +6256,7 @@ td {
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">8</td>
+					<td width="80%">4</td>
 					
 				</tr>
 				<tr>
@@ -7592,143 +6290,6 @@ td {
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-0"><a
-						id="10024"></a>
-						<div>Informational</div></th>
-					<th class="risk-0">Information Disclosure - Sensitive Information in URL</th>
-				</tr>
-				<tr>
-					<td width="20%">Description</td>
-					<td width="80%">
-							<div>The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.</div>
-							
-						</td>
-				</tr>
-				<TR vAlign="top">
-					<TD colspan="2"></TD>
-				</TR>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=ZAP">https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=ZAP</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/ (Login,password,username)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">password</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">password</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The URL contains potentially sensitive information. The following string was found via the pattern: pass</div>
-							<br />
-						
-							<div>password</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=ZAP">https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=ZAP</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/ (Login,password,username)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">username</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">username</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The URL contains potentially sensitive information. The following string was found via the pattern: user</div>
-							<br />
-						
-							<div>username</div>
-							
-						</td>
-					</tr>
-				
-				<tr>
-					<td width="20%">Instances</td>
-					
-					
-					<td width="80%">2</td>
-					
-				</tr>
-				<tr>
-					<td width="20%">Solution</td>
-					<td width="80%">
-							<div>Do not pass sensitive information in URIs.</div>
-							
-						</td>
-				</tr>
-				<tr>
-					<td width="20%">Reference</td>
-					<td width="80%"></td>
-				</tr>
-				<tr>
-					<td width="20%">CWE Id</td>
-					<td width="80%"><a
-						href="https://cwe.mitre.org/data/definitions/598.html">598</a></td>
-				</tr>
-				<tr>
-					<td width="20%">WASC Id</td>
-					<td width="80%">13</td>
-				</tr>
-				<tr>
-					<td width="20%">Plugin Id</td>
-					<td width="80%"><a
-						href="https://www.zaproxy.org/docs/alerts/10024/">10024</a></td>
-				</tr>
-			</table>
-			<div class="spacer"></div>
-		
-			<table class="results">
-				<tr height="24">
-					<th width="20%" class="risk-0"><a
 						id="10027"></a>
 						<div>Informational</div></th>
 					<th class="risk-0">Information Disclosure - Suspicious Comments</th>
@@ -7747,12 +6308,12 @@ td {
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/javascript/">https://172.23.0.2:8443/vulnerabilities/javascript/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/javascript/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7794,61 +6355,11 @@ https://github</td>
 						</td>
 					</tr>
 				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/ ()(phrase,send,token)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%">/*
-MD5 code from here
-https://github</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>The following pattern was used: \bFROM\b and was detected in likely comment: &quot;/*</div>
-							<br />
-						
-							<div>MD5 code from here</div>
-							<br />
-						
-							<div>https://github.com/blueimp/JavaScript-MD5</div>
-							<br />
-						
-							<div>*/&quot;, see evidence field for the suspicious comment/snippet.</div>
-							
-						</td>
-					</tr>
-				
 				<tr>
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">2</td>
+					<td width="80%">1</td>
 					
 				</tr>
 				<tr>
@@ -7882,6 +6393,97 @@ https://github</td>
 			<table class="results">
 				<tr height="24">
 					<th width="20%" class="risk-0"><a
+						id="10109"></a>
+						<div>Informational</div></th>
+					<th class="risk-0">Modern Web Application</th>
+				</tr>
+				<tr>
+					<td width="20%">Description</td>
+					<td width="80%">
+							<div>The application appears to be a modern web application. If you need to explore it automatically then the Client Spider may well be more effective than the standard one.</div>
+							
+						</td>
+				</tr>
+				<TR vAlign="top">
+					<TD colspan="2"></TD>
+				</TR>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://172.23.0.2:8443/phpinfo.php">https://172.23.0.2:8443/phpinfo.php</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">https://172.23.0.2:8443/phpinfo.php</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">GET</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%">&lt;a name=&quot;module_apache2handler&quot;&gt;apache2handler&lt;/a&gt;</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%">
+							<div>Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.</div>
+							
+						</td>
+					</tr>
+				
+				<tr>
+					<td width="20%">Instances</td>
+					
+					
+					<td width="80%">1</td>
+					
+				</tr>
+				<tr>
+					<td width="20%">Solution</td>
+					<td width="80%">
+							<div>This is an informational alert and so no changes are required.</div>
+							
+						</td>
+				</tr>
+				<tr>
+					<td width="20%">Reference</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">CWE Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">WASC Id</td>
+					<td width="80%"></td>
+				</tr>
+				<tr>
+					<td width="20%">Plugin Id</td>
+					<td width="80%"><a
+						href="https://www.zaproxy.org/docs/alerts/10109/">10109</a></td>
+				</tr>
+			</table>
+			<div class="spacer"></div>
+		
+			<table class="results">
+				<tr height="24">
+					<th width="20%" class="risk-0"><a
 						id="10015"></a>
 						<div>Informational</div></th>
 					<th class="risk-0">Re-examine Cache-control Directives</th>
@@ -7900,12 +6502,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443">https://172.18.0.5:8443</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443">https://172.23.0.2:8443</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443</td>
+						<td width="80%">https://172.23.0.2:8443</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7936,12 +6538,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/">https://172.23.0.2:8443/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
+						<td width="80%">https://172.23.0.2:8443/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -7972,12 +6574,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/robots.txt">https://172.18.0.5:8443/robots.txt</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/robots.txt">https://172.23.0.2:8443/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/robots.txt</td>
+						<td width="80%">https://172.23.0.2:8443/robots.txt</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8008,12 +6610,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/">https://172.18.0.5:8443/vulnerabilities/brute/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/csp/">https://172.23.0.2:8443/vulnerabilities/csp/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/csp/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8044,12 +6646,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/exec/">https://172.18.0.5:8443/vulnerabilities/exec/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/exec/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8142,12 +6744,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/css/main.css">https://172.18.0.5:8443/dvwa/css/main.css</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/robots.txt">https://172.23.0.2:8443/robots.txt</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/css/main.css</td>
+						<td width="80%">https://172.23.0.2:8443/robots.txt</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8181,129 +6783,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/images/logo.png">https://172.18.0.5:8443/dvwa/images/logo.png</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/sitemap.xml">https://172.23.0.2:8443/sitemap.xml</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/images/logo.png</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/dvwa/js/add_event_listeners.js">https://172.18.0.5:8443/dvwa/js/add_event_listeners.js</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/dvwa/js/add_event_listeners.js</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/robots.txt">https://172.18.0.5:8443/robots.txt</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/robots.txt</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/sitemap.xml">https://172.18.0.5:8443/sitemap.xml</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/sitemap.xml</td>
+						<td width="80%">https://172.23.0.2:8443/sitemap.xml</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8337,8 +6822,8 @@ https://github</td>
 				<tr>
 					<td width="20%">Instances</td>
 					
-					<td width="80%">Systemic</td>
 					
+					<td width="80%">2</td>
 					
 				</tr>
 				<tr>
@@ -8411,12 +6896,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443">https://172.18.0.5:8443</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443">https://172.23.0.2:8443</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443</td>
+						<td width="80%">https://172.23.0.2:8443</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8447,12 +6932,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/">https://172.18.0.5:8443/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/">https://172.23.0.2:8443/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/</td>
+						<td width="80%">https://172.23.0.2:8443/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8483,12 +6968,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/">https://172.18.0.5:8443/vulnerabilities/brute/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/brute/">https://172.23.0.2:8443/vulnerabilities/brute/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/brute/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8519,12 +7004,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/exec/">https://172.18.0.5:8443/vulnerabilities/exec/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/exec/">https://172.23.0.2:8443/vulnerabilities/exec/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/exec/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/exec/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8555,12 +7040,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/sqli/">https://172.18.0.5:8443/vulnerabilities/sqli/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_r/">https://172.23.0.2:8443/vulnerabilities/xss_r/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/sqli/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_r/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8591,8 +7076,8 @@ https://github</td>
 				<tr>
 					<td width="20%">Instances</td>
 					
+					<td width="80%">Systemic</td>
 					
-					<td width="80%">5</td>
 					
 				</tr>
 				<tr>
@@ -8650,12 +7135,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/phpinfo.php">https://172.18.0.5:8443/phpinfo.php</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/phpinfo.php</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8670,7 +7155,7 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent2">Attack</td>
-						<td width="80%">Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko</td>
+						<td width="80%">Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8686,84 +7171,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/phpinfo.php">https://172.18.0.5:8443/phpinfo.php</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/phpinfo.php</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Header User-Agent</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/phpinfo.php">https://172.18.0.5:8443/phpinfo.php</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/phpinfo.php</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Header User-Agent</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%">msnbot/1.1 (+http://search.msn.com/msnbot.htm)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%"></td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/fi/?page=file3.php">https://172.18.0.5:8443/vulnerabilities/fi/?page=file3.php</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/fi/ (page)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8794,17 +7207,89 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_s/">https://172.18.0.5:8443/vulnerabilities/xss_s/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_s/</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)</td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Method</td>
-						<td width="80%">GET</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Header User-Agent</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%">Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Parameter</td>
+						<td width="80%">Header User-Agent</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Attack</td>
+						<td width="80%">Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Evidence</td>
+						<td width="80%"></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Other Info</td>
+						<td width="80%"></td>
+					</tr>
+				
+					<tr>
+						<td width="20%"
+							class="indent1">URL</td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Node Name</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)</td>
+					</tr>
+					<tr>
+						<td width="20%"
+							class="indent2">Method</td>
+						<td width="80%">POST</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -8882,252 +7367,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=ZAP">https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=ZAP</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/upload/">https://172.23.0.2:8443/vulnerabilities/upload/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/brute/ (Login,password,username)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">GET</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">Login</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</div>
-							<br />
-						
-							<div>https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&amp;password=ZAP&amp;username=ZAP</div>
-							<br />
-						
-							<div>appears to include user input in:</div>
-							<br />
-						
-							<div>a(n) [input] tag [value] attribute</div>
-							<br />
-						
-							<div>The user input found was:</div>
-							<br />
-						
-							<div>Login=Login</div>
-							<br />
-						
-							<div>The user-controlled value was:</div>
-							<br />
-						
-							<div>login</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/csp/">https://172.18.0.5:8443/vulnerabilities/csp/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/csp/ ()(include)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">include</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</div>
-							<br />
-						
-							<div>https://172.18.0.5:8443/vulnerabilities/csp/</div>
-							<br />
-						
-							<div>appears to include user input in:</div>
-							<br />
-						
-							<div>a(n) [script] tag [src] attribute</div>
-							<br />
-						
-							<div>The user input found was:</div>
-							<br />
-						
-							<div>include=ZAP</div>
-							<br />
-						
-							<div>The user-controlled value was:</div>
-							<br />
-						
-							<div>zap</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/ ()(phrase,send,token)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">phrase</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</div>
-							<br />
-						
-							<div>https://172.18.0.5:8443/vulnerabilities/javascript/</div>
-							<br />
-						
-							<div>appears to include user input in:</div>
-							<br />
-						
-							<div>a(n) [input] tag [value] attribute</div>
-							<br />
-						
-							<div>The user input found was:</div>
-							<br />
-						
-							<div>phrase=ChangeMe</div>
-							<br />
-						
-							<div>The user-controlled value was:</div>
-							<br />
-						
-							<div>changeme</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/javascript/">https://172.18.0.5:8443/vulnerabilities/javascript/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/javascript/ ()(phrase,send,token)</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Method</td>
-						<td width="80%">POST</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Parameter</td>
-						<td width="80%">send</td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Attack</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Evidence</td>
-						<td width="80%"></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Other Info</td>
-						<td width="80%">
-							<div>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</div>
-							<br />
-						
-							<div>https://172.18.0.5:8443/vulnerabilities/javascript/</div>
-							<br />
-						
-							<div>appears to include user input in:</div>
-							<br />
-						
-							<div>a(n) [input] tag [type] attribute</div>
-							<br />
-						
-							<div>The user input found was:</div>
-							<br />
-						
-							<div>send=Submit</div>
-							<br />
-						
-							<div>The user-controlled value was:</div>
-							<br />
-						
-							<div>submit</div>
-							
-						</td>
-					</tr>
-				
-					<tr>
-						<td width="20%"
-							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/upload/">https://172.18.0.5:8443/vulnerabilities/upload/</a></td>
-					</tr>
-					<tr>
-						<td width="20%"
-							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9156,7 +7401,7 @@ https://github</td>
 							<div>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</div>
 							<br />
 						
-							<div>https://172.18.0.5:8443/vulnerabilities/upload/</div>
+							<div>https://172.23.0.2:8443/vulnerabilities/upload/</div>
 							<br />
 						
 							<div>appears to include user input in:</div>
@@ -9182,12 +7427,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/upload/">https://172.18.0.5:8443/vulnerabilities/upload/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/upload/">https://172.23.0.2:8443/vulnerabilities/upload/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9216,7 +7461,7 @@ https://github</td>
 							<div>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</div>
 							<br />
 						
-							<div>https://172.18.0.5:8443/vulnerabilities/upload/</div>
+							<div>https://172.23.0.2:8443/vulnerabilities/upload/</div>
 							<br />
 						
 							<div>appears to include user input in:</div>
@@ -9242,12 +7487,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_s/">https://172.18.0.5:8443/vulnerabilities/xss_s/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_s/ ()(btnClear,mtxMessage,txtName)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ ()(btnClear,mtxMessage,txtName)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9276,7 +7521,7 @@ https://github</td>
 							<div>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</div>
 							<br />
 						
-							<div>https://172.18.0.5:8443/vulnerabilities/xss_s/</div>
+							<div>https://172.23.0.2:8443/vulnerabilities/xss_s/</div>
 							<br />
 						
 							<div>appears to include user input in:</div>
@@ -9302,12 +7547,12 @@ https://github</td>
 					<tr>
 						<td width="20%"
 							class="indent1">URL</td>
-						<td width="80%"><a href="https://172.18.0.5:8443/vulnerabilities/xss_s/">https://172.18.0.5:8443/vulnerabilities/xss_s/</a></td>
+						<td width="80%"><a href="https://172.23.0.2:8443/vulnerabilities/xss_s/">https://172.23.0.2:8443/vulnerabilities/xss_s/</a></td>
 					</tr>
 					<tr>
 						<td width="20%"
 							class="indent2">Node Name</td>
-						<td width="80%">https://172.18.0.5:8443/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)</td>
+						<td width="80%">https://172.23.0.2:8443/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)</td>
 					</tr>
 					<tr>
 						<td width="20%"
@@ -9336,7 +7581,7 @@ https://github</td>
 							<div>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</div>
 							<br />
 						
-							<div>https://172.18.0.5:8443/vulnerabilities/xss_s/</div>
+							<div>https://172.23.0.2:8443/vulnerabilities/xss_s/</div>
 							<br />
 						
 							<div>appears to include user input in:</div>
@@ -9363,7 +7608,7 @@ https://github</td>
 					<td width="20%">Instances</td>
 					
 					
-					<td width="80%">8</td>
+					<td width="80%">4</td>
 					
 				</tr>
 				<tr>

@@ -6,7 +6,8 @@ REM  Roda wrk contra os 8 alvos. Input IDENTICO em todos; so a URL muda.
 REM
 REM  Configuracao (agressiva, identica para todos -- e um teste de carga,
 REM  nao de payload; por isso NAO usa delay nem cookie):
-REM    - 12 threads, 400 conexoes concorrentes, 30s, timeout 5s, --latency.
+REM    - 3 repeticoes por cenario; em cada uma: 12 threads, 400 conexoes,
+REM      30s, timeout 5s, --latency e o mesmo User-Agent fixo.
 REM
 REM  Mede throughput/resiliencia. Contra o DoBotShield (rate-limit LIGADO),
 REM  espera-se estrangulamento do flood (HTTP 429 / conexoes recusadas) --
@@ -17,22 +18,23 @@ setlocal enableextensions enabledelayedexpansion
 
 set "ROOT=%~dp0"
 if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+for %%I in ("%ROOT%\..") do set "LAB_ROOT=%%~fI"
 set "NET=dobotshield_waflab"
-set "RESULTS=%ROOT%\lab_results"
+set "RESULTS=%LAB_ROOT%\results"
 set "LIB=%ROOT%\lab_lib.bat"
-set "IMG_CURL=curlimages/curl:latest"
+set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
 set "IMG_WRK=dobotshield/wrk:latest"
 set "FAIL=0"
 
 echo.
 echo ============================================================
-echo   FERRAMENTA: wrk (carga 12t x 400c x 30s)  --  %DATE% %TIME%
+echo   FERRAMENTA: wrk (3 x carga 12t x 400c x 30s)  --  %DATE% %TIME%
 echo ============================================================
 
 call "%LIB%" ensure_net || exit /b 2
 docker image inspect %IMG_WRK% >nul 2>&1 || (
     echo Imagem %IMG_WRK% ausente -- construindo...
-    docker build -t %IMG_WRK% "%ROOT%\docker\wrk" || ( echo [ERRO] build wrk falhou. & exit /b 3 )
+    docker build -t %IMG_WRK% "%LAB_ROOT%\docker\wrk" || ( echo [ERRO] build wrk falhou. & exit /b 3 )
 )
 
 REM --- Resolver IPs dos containers (IP:PORTA em vez de hostname) ---

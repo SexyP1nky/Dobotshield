@@ -11,7 +11,7 @@ REM        scan e injetado via ZAP Replacer em TODA requisicao, para varrer as
 REM        paginas autenticadas. Alvo = raiz (/).
 REM  XVWA: nao exige login (modulos abertos). Alvo = /xvwa/ (sem cookie).
 REM
-REM  Hook (lab_scripts/zap_hook.py via --hook) exclui logout/setup/security do
+REM  Hook (validacao/helpers/zap_hook.py via --hook) exclui logout/setup/security do
 REM  scan: evita deslogar o DVWA e evita resetar o banco do XVWA (/xvwa/setup/).
 REM  Se ainda assim o scan quebrar, o relatorio e gerado mesmo assim (-I).
 REM  Relatorios HTML/JSON/MD salvos em <app>\<cenario>\zap\.
@@ -21,15 +21,16 @@ setlocal enableextensions enabledelayedexpansion
 
 set "ROOT=%~dp0"
 if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+for %%I in ("%ROOT%\..") do set "LAB_ROOT=%%~fI"
 set "NET=dobotshield_waflab"
-set "RESULTS=%ROOT%\lab_results"
+set "RESULTS=%LAB_ROOT%\results"
 set "LIB=%ROOT%\lab_lib.bat"
-set "IMG_CURL=curlimages/curl:latest"
-set "IMG_ZAP=zaproxy/zap-stable:latest"
-set "IMG_PY=python:3-alpine"
-set "SCRIPTS_DIR=%ROOT%\lab_scripts"
+set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
+set "IMG_ZAP=zaproxy/zap-stable:latest@sha256:8d387b1a63e3425beef4846e39719f5af2a787753af2d8b6558c6257d7a577a2"
+set "IMG_PY=python:3-alpine@sha256:26730869004e2b9c4b9ad09cab8625e81d256d1ce97e72df5520e806b1709f92"
+set "SCRIPTS_DIR=%LAB_ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
-set "COOKIE_FILE=%ROOT%\lab_scripts\dvwa_cookie.txt"
+set "COOKIE_FILE=%SCRIPTS_DIR%\dvwa_cookie.txt"
 set "FAIL=0"
 
 set "DVWA_COOKIE="

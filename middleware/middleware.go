@@ -29,11 +29,22 @@ func BuildProxy(cfg config.Config) (*httputil.ReverseProxy, error) {
 	}
 
 	proxy := httputil.NewSingleHostReverseProxy(target)
-	originalDirector := proxy.Director
-	proxy.Director = func(req *http.Request) {
-		originalDirector(req)
+	proxy.Director = nil
+	proxy.Rewrite = func(proxyReq *httputil.ProxyRequest) {
+		proxyReq.SetURL(target)
+		proxyReq.Out.Host = proxyReq.In.Host
+
+		// ReverseProxy removes forwarding headers before Rewrite. Restore only
+		// the sanitized values produced by injectForwardedHeaders; unlike the
+		// legacy Director path, Rewrite does not append RemoteAddr a second time.
+		for _, header := range []string{"X-Forwarded-For", "X-Forwarded-Host", "X-Forwarded-Proto"} {
+			if values := proxyReq.In.Header.Values(header); len(values) > 0 {
+				proxyReq.Out.Header[header] = append([]string(nil), values...)
+			}
+		}
+
 		if cfg.ResponseWAFEnabled() {
-			req.Header.Del("Accept-Encoding")
+			proxyReq.Out.Header.Del("Accept-Encoding")
 		}
 	}
 
@@ -394,7 +405,11 @@ func injectForwardedHeaders(r *http.Request, clientIP, directIP string, directTr
 
 	r.Header.Set("X-Real-IP", clientIP)
 	r.Header.Set("X-DoBotShield-Request-ID", r.Header.Get("X-Request-ID"))
-	r.Header.Set("X-Forwarded-Proto", "https")
+	forwardedProto := "http"
+	if r.TLS != nil {
+		forwardedProto = "https"
+	}
+	r.Header.Set("X-Forwarded-Proto", forwardedProto)
 	r.Header.Set("X-Forwarded-Host", r.Host)
 }
 

@@ -9,7 +9,7 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 | --- | --- |
 | High | 0 |
 | Medium | 11 |
-| Low | 15 |
+| Low | 14 |
 | Informational | 11 |
 
 
@@ -19,54 +19,27 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 
 | Level | Reason | Site | Description | Statistic |
 | --- | --- | --- | --- | --- |
-| Low | Warning |  | ZAP errors logged - see the zap.log file for details | 2    |
-| Low | Warning |  | ZAP warnings logged - see the zap.log file for details | 26    |
-| Low | Exceeded High | https://172.18.0.7 | Percentage of responses with status code 4xx | 54 % |
+| Low | Warning |  | ZAP warnings logged - see the zap.log file for details | 1    |
+| Low | Exceeded High | https://172.23.0.2 | Percentage of responses with status code 4xx | 56 % |
 | Info | Informational |  | Percentage of network failures | 1 % |
-| Info | Informational | http://172.18.0.7 | Percentage of responses with status code 3xx | 100 % |
-| Info | Informational | http://172.18.0.7:443 | Percentage of responses with status code 4xx | 100 % |
-| Info | Informational | http://d1a6zytsvzb7ig.cloudfront.net | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | http://d1a6zytsvzb7ig.cloudfront.net | Percentage of slow responses | 83 % |
-| Info | Informational | http://www.sillychicken.co.nz | Percentage of responses with status code 4xx | 100 % |
-| Info | Informational | http://www.sillychicken.co.nz | Percentage of slow responses | 100 % |
-| Info | Informational | https://172.18.0.7 | Percentage of responses with status code 2xx | 34 % |
-| Info | Informational | https://172.18.0.7 | Percentage of responses with status code 3xx | 10 % |
-| Info | Informational | https://172.18.0.7 | Percentage of endpoints with content type application/javascript | 3 % |
-| Info | Informational | https://172.18.0.7 | Percentage of endpoints with content type application/pdf | 1 % |
-| Info | Informational | https://172.18.0.7 | Percentage of endpoints with content type image/png | 1 % |
-| Info | Informational | https://172.18.0.7 | Percentage of endpoints with content type image/vnd.microsoft.icon | 1 % |
-| Info | Informational | https://172.18.0.7 | Percentage of endpoints with content type text/css | 1 % |
-| Info | Informational | https://172.18.0.7 | Percentage of endpoints with content type text/html | 80 % |
-| Info | Informational | https://172.18.0.7 | Percentage of endpoints with content type text/plain | 1 % |
-| Info | Informational | https://172.18.0.7 | Percentage of endpoints with method GET | 84 % |
-| Info | Informational | https://172.18.0.7 | Percentage of endpoints with method POST | 15 % |
-| Info | Informational | https://172.18.0.7 | Count of total endpoints | 52    |
-| Info | Exceeded Low | https://172.18.0.7 | Percentage of slow responses | 17 % |
-| Info | Informational | https://accounts.youtube.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://accounts.youtube.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://api.github.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://api.github.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://avatars.githubusercontent.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://avatars.githubusercontent.com | Percentage of slow responses | 50 % |
-| Info | Informational | https://collector.github.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://collector.github.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://fonts.gstatic.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://fonts.gstatic.com | Percentage of slow responses | 40 % |
-| Info | Informational | https://github.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://github.com | Percentage of slow responses | 37 % |
-| Info | Informational | https://github.githubassets.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://github.githubassets.com | Percentage of slow responses | 7 % |
-| Info | Informational | https://model-hub.mozilla.org | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://model-hub.mozilla.org | Percentage of slow responses | 80 % |
-| Info | Informational | https://play.google.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://play.google.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://www.google.com | Percentage of responses with status code 2xx | 9 % |
-| Info | Informational | https://www.google.com | Percentage of responses with status code 4xx | 90 % |
-| Info | Informational | https://www.google.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://www.gstatic.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://www.gstatic.com | Percentage of slow responses | 15 % |
-| Info | Informational | https://www.sillychicken.co.nz | Percentage of responses with status code 4xx | 100 % |
-| Info | Informational | https://www.sillychicken.co.nz | Percentage of slow responses | 100 % |
+| Info | Informational | http://172.23.0.2 | Percentage of responses with status code 3xx | 100 % |
+| Info | Informational | http://172.23.0.2:443 | Percentage of responses with status code 4xx | 100 % |
+| Info | Informational | https://172.23.0.2 | Percentage of responses with status code 2xx | 30 % |
+| Info | Informational | https://172.23.0.2 | Percentage of responses with status code 3xx | 13 % |
+| Info | Informational | https://172.23.0.2 | Percentage of endpoints with content type application/javascript | 4 % |
+| Info | Informational | https://172.23.0.2 | Percentage of endpoints with content type application/pdf | 2 % |
+| Info | Informational | https://172.23.0.2 | Percentage of endpoints with content type image/png | 2 % |
+| Info | Informational | https://172.23.0.2 | Percentage of endpoints with content type image/vnd.microsoft.icon | 2 % |
+| Info | Informational | https://172.23.0.2 | Percentage of endpoints with content type text/css | 2 % |
+| Info | Informational | https://172.23.0.2 | Percentage of endpoints with content type text/html | 73 % |
+| Info | Informational | https://172.23.0.2 | Percentage of endpoints with content type text/plain | 2 % |
+| Info | Informational | https://172.23.0.2 | Percentage of endpoints with method GET | 89 % |
+| Info | Informational | https://172.23.0.2 | Percentage of endpoints with method POST | 10 % |
+| Info | Informational | https://172.23.0.2 | Count of total endpoints | 46    |
+| Info | Exceeded Low | https://172.23.0.2 | Percentage of slow responses | 13 % |
+
+
+
 
 
 
@@ -76,8 +49,8 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 | Name | Risk Level | Number of Instances |
 | --- | --- | --- |
 | Absence of Anti-CSRF Tokens | Medium | Systemic |
-| Anti-CSRF Tokens Check | Medium | Systemic |
-| Bypassing 403 | Medium | 7 |
+| Anti-CSRF Tokens Check | Medium | 5 |
+| Bypassing 403 | Medium | 8 |
 | CSP: Failure to Define Directive with No Fallback | Medium | 2 |
 | CSP: Wildcard Directive | Medium | 2 |
 | CSP: style-src unsafe-inline | Medium | 2 |
@@ -85,33 +58,32 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 | Missing Anti-clickjacking Header | Medium | Systemic |
 | Proxy Disclosure | Medium | Systemic |
 | Relative Path Confusion | Medium | 2 |
-| Sub Resource Integrity Attribute Missing | Medium | 2 |
+| Sub Resource Integrity Attribute Missing | Medium | 1 |
 | Cookie No HttpOnly Flag | Low | 1 |
 | Cookie Without Secure Flag | Low | 1 |
 | Cookie without SameSite Attribute | Low | 1 |
-| Cross-Domain JavaScript Source File Inclusion | Low | 2 |
-| Cross-Origin-Embedder-Policy Header Missing or Invalid | Low | 5 |
-| Cross-Origin-Opener-Policy Header Missing or Invalid | Low | 5 |
-| Cross-Origin-Resource-Policy Header Missing or Invalid | Low | Systemic |
+| Cross-Domain JavaScript Source File Inclusion | Low | 1 |
+| Cross-Origin-Embedder-Policy Header Missing or Invalid | Low | 2 |
+| Cross-Origin-Opener-Policy Header Missing or Invalid | Low | 2 |
+| Cross-Origin-Resource-Policy Header Missing or Invalid | Low | 5 |
 | Dangerous JS Functions | Low | 1 |
 | In Page Banner Information Leak | Low | 2 |
 | Permissions Policy Header Not Set | Low | Systemic |
-| Private IP Disclosure | Low | 1 |
 | Server Leaks Version Information via "Server" HTTP Response Header Field | Low | Systemic |
 | Strict-Transport-Security Header Not Set | Low | Systemic |
 | Timestamp Disclosure - Unix | Low | Systemic |
 | X-Content-Type-Options Header Missing | Low | Systemic |
 | Authentication Request Identified | Informational | 1 |
 | Cookie Slack Detector | Informational | Systemic |
-| GET for POST | Informational | 8 |
+| GET for POST | Informational | 5 |
 | Information Disclosure - Sensitive Information in URL | Informational | 2 |
 | Information Disclosure - Suspicious Comments | Informational | 2 |
 | Non-Storable Content | Informational | 1 |
 | Re-examine Cache-control Directives | Informational | Systemic |
-| Storable and Cacheable Content | Informational | 4 |
-| Storable but Non-Cacheable Content | Informational | Systemic |
+| Storable and Cacheable Content | Informational | 5 |
+| Storable but Non-Cacheable Content | Informational | 5 |
 | User Agent Fuzzer | Informational | Systemic |
-| User Controllable HTML Element Attribute (Potential XSS) | Informational | 7 |
+| User Controllable HTML Element Attribute (Potential XSS) | Informational | 8 |
 
 
 
@@ -138,36 +110,36 @@ CSRF attacks are effective in a number of situations, including:
 
 CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.
 
-* URL: https://172.18.0.7/vulnerabilities/captcha/
-  * Node Name: `https://172.18.0.7/vulnerabilities/captcha/`
+* URL: https://172.23.0.2/vulnerabilities/captcha/
+  * Node Name: `https://172.23.0.2/vulnerabilities/captcha/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form action="#" method="POST" style="display:none;">`
   * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: "Change" "password_conf" "password_new" "step" ].`
-* URL: https://172.18.0.7/vulnerabilities/exec/
-  * Node Name: `https://172.18.0.7/vulnerabilities/exec/`
+* URL: https://172.23.0.2/vulnerabilities/exec/
+  * Node Name: `https://172.23.0.2/vulnerabilities/exec/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form name="ping" action="#" method="post">`
   * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: "ip" "Submit" ].`
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form name="low_js" method="post">`
   * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: "phrase" "send" "token" ].`
-* URL: https://172.18.0.7/vulnerabilities/upload/
-  * Node Name: `https://172.18.0.7/vulnerabilities/upload/`
+* URL: https://172.23.0.2/vulnerabilities/upload/
+  * Node Name: `https://172.23.0.2/vulnerabilities/upload/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form enctype="multipart/form-data" action="#" method="POST">`
   * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: "MAX_FILE_SIZE" "Upload" "uploaded" ].`
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/xss_s/
+  * Node Name: `https://172.23.0.2/vulnerabilities/xss_s/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -232,44 +204,44 @@ CSRF attacks are effective in a number of situations, including:
 
 CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.
 
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/ ()(include)`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/ ()(include)`
   * Method: `POST`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form name="csp" method="POST">`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/exec/
-  * Node Name: `https://172.18.0.7/vulnerabilities/exec/ ()(Submit,ip)`
-  * Method: `POST`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `<form name="ping" action="#" method="post">`
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/ ()(phrase,send,token)`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/ ()(phrase,send,token)`
   * Method: `POST`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form name="low_js" method="post">`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/upload/
-  * Node Name: `https://172.18.0.7/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)`
+* URL: https://172.23.0.2/vulnerabilities/upload/
+  * Node Name: `https://172.23.0.2/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)`
   * Method: `POST`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form enctype="multipart/form-data" action="#" method="POST">`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/weak_id/
-  * Node Name: `https://172.18.0.7/vulnerabilities/weak_id/`
+* URL: https://172.23.0.2/vulnerabilities/weak_id/
+  * Node Name: `https://172.23.0.2/vulnerabilities/weak_id/`
   * Method: `POST`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form method="post">`
   * Other Info: ``
+* URL: https://172.23.0.2/vulnerabilities/xss_s/
+  * Node Name: `https://172.23.0.2/vulnerabilities/xss_s/ ()(btnClear,mtxMessage,txtName)`
+  * Method: `POST`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: `<form method="post" name="guestform" ">`
+  * Other Info: ``
 
-Instances: Systemic
 
+Instances: 5
 
 ### Solution
 
@@ -319,58 +291,65 @@ Check the HTTP Referer header to see if the request originated from an expected 
 
 Bypassing 403 endpoints may be possible, the scan rule sent a payload that caused the response to be accessible (status code 200).
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: `x-original-url: /docs`
   * Evidence: ``
-  * Other Info: `https://172.18.0.7/docs`
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+  * Other Info: `https://172.23.0.2/docs`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: `x-original-url: /dvwa`
   * Evidence: ``
-  * Other Info: `https://172.18.0.7/dvwa`
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+  * Other Info: `https://172.23.0.2/dvwa`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: `x-original-url: /dvwa/css`
   * Evidence: ``
-  * Other Info: `https://172.18.0.7/dvwa/css`
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+  * Other Info: `https://172.23.0.2/dvwa/css`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: `x-original-url: /dvwa/images`
   * Evidence: ``
-  * Other Info: `https://172.18.0.7/dvwa/images`
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+  * Other Info: `https://172.23.0.2/dvwa/images`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: `x-original-url: /dvwa/js`
   * Evidence: ``
-  * Other Info: `https://172.18.0.7/dvwa/js`
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+  * Other Info: `https://172.23.0.2/dvwa/js`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: `x-original-url: /instructions.php`
+  * Evidence: ``
+  * Other Info: `https://172.23.0.2/instructions.php`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: `x-original-url: /phpinfo.php`
   * Evidence: ``
-  * Other Info: `https://172.18.0.7/phpinfo.php`
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+  * Other Info: `https://172.23.0.2/phpinfo.php`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: `x-original-url: /vulnerabilities`
   * Evidence: ``
-  * Other Info: `https://172.18.0.7/vulnerabilities`
+  * Other Info: `https://172.23.0.2/vulnerabilities`
 
 
-Instances: 7
+Instances: 8
 
 ### Solution
 
@@ -399,15 +378,15 @@ Instances: 7
 
 The Content Security Policy fails to define one of the directives that has no fallback. Missing/excluding them is the same as allowing anything.
 
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/`
   * Method: `GET`
   * Parameter: `Content-Security-Policy`
   * Attack: ``
   * Evidence: `script-src 'self' https://pastebin.com  example.com code.jquery.com https://ssl.google-analytics.com ;`
   * Other Info: `The directive(s): frame-ancestors, form-action is/are among the directives that do not fallback to default-src.`
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/ ()(include)`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/ ()(include)`
   * Method: `POST`
   * Parameter: `Content-Security-Policy`
   * Attack: ``
@@ -448,16 +427,16 @@ Ensure that your web server, application server, load balancer, etc. is properly
 
 Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.
 
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/`
   * Method: `GET`
   * Parameter: `Content-Security-Policy`
   * Attack: ``
   * Evidence: `script-src 'self' https://pastebin.com  example.com code.jquery.com https://ssl.google-analytics.com ;`
   * Other Info: `The following directives either allow wildcard sources (or ancestors), are not defined, or are overly broadly defined:
 style-src, img-src, connect-src, frame-src, font-src, media-src, object-src, manifest-src`
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/ ()(include)`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/ ()(include)`
   * Method: `POST`
   * Parameter: `Content-Security-Policy`
   * Attack: ``
@@ -499,15 +478,15 @@ Ensure that your web server, application server, load balancer, etc. is properly
 
 Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks. Including (but not limited to) Cross Site Scripting (XSS), and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.
 
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/`
   * Method: `GET`
   * Parameter: `Content-Security-Policy`
   * Attack: ``
   * Evidence: `script-src 'self' https://pastebin.com  example.com code.jquery.com https://ssl.google-analytics.com ;`
   * Other Info: `style-src includes unsafe-inline.`
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/ ()(include)`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/ ()(include)`
   * Method: `POST`
   * Parameter: `Content-Security-Policy`
   * Attack: ``
@@ -548,36 +527,36 @@ Ensure that your web server, application server, load balancer, etc. is properly
 
 Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2
+  * Node Name: `https://172.23.0.2`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/sitemap.xml
-  * Node Name: `https://172.18.0.7/sitemap.xml`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
+* URL: https://172.23.0.2/sitemap.xml
+  * Node Name: `https://172.23.0.2/sitemap.xml`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/captcha/
-  * Node Name: `https://172.18.0.7/vulnerabilities/captcha/`
+* URL: https://172.23.0.2/vulnerabilities/brute/
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/fi/%3Fpage=include.php
+  * Node Name: `https://172.23.0.2/vulnerabilities/fi/ (page)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -620,36 +599,36 @@ Ensure that your web server, application server, load balancer, etc. is configur
 
 The response does not protect against 'ClickJacking' attacks. It should include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2:443
+  * Node Name: `https://172.23.0.2`
   * Method: `GET`
   * Parameter: `x-frame-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: `x-frame-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/captcha/
-  * Node Name: `https://172.18.0.7/vulnerabilities/captcha/`
+* URL: https://172.23.0.2/vulnerabilities/captcha/
+  * Node Name: `https://172.23.0.2/vulnerabilities/captcha/`
   * Method: `GET`
   * Parameter: `x-frame-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/sqli/
-  * Node Name: `https://172.18.0.7/vulnerabilities/sqli/`
+* URL: https://172.23.0.2/vulnerabilities/exec/
+  * Node Name: `https://172.23.0.2/vulnerabilities/exec/`
   * Method: `GET`
   * Parameter: `x-frame-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/upload/
+  * Node Name: `https://172.23.0.2/vulnerabilities/upload/`
   * Method: `GET`
   * Parameter: `x-frame-options`
   * Attack: ``
@@ -690,8 +669,41 @@ If you expect the page to be framed only by pages on your server (e.g. it's part
  - Potential vulnerabilities on the proxy servers that service the application.
  - The presence or absence of any proxy-based components that might cause attacks against the application to be detected, prevented, or mitigated.
 
-* URL: https://172.18.0.7/vulnerabilities/captcha/
-  * Node Name: `https://172.18.0.7/vulnerabilities/captcha/ ()(Change,password_conf,password_new,step)`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: `TRACE, OPTIONS methods with 'Max-Forwards' header. TRACK method.`
+  * Evidence: ``
+  * Other Info: `Using the TRACE, OPTIONS, and TRACK methods, the following proxy servers have been identified between ZAP and the application/web server:
+- Caddy
+The following web/application server has been identified:
+- Caddy
+`
+* URL: https://172.23.0.2/vulnerabilities/sqli/%3FSubmit=Submit&id=ZAP
+  * Node Name: `https://172.23.0.2/vulnerabilities/sqli/ (Submit,id)`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: `TRACE, OPTIONS methods with 'Max-Forwards' header. TRACK method.`
+  * Evidence: ``
+  * Other Info: `Using the TRACE, OPTIONS, and TRACK methods, the following proxy servers have been identified between ZAP and the application/web server:
+- Caddy
+The following web/application server has been identified:
+- Caddy
+`
+* URL: https://172.23.0.2/vulnerabilities/weak_id/
+  * Node Name: `https://172.23.0.2/vulnerabilities/weak_id/`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: `TRACE, OPTIONS methods with 'Max-Forwards' header. TRACK method.`
+  * Evidence: ``
+  * Other Info: `Using the TRACE, OPTIONS, and TRACK methods, the following proxy servers have been identified between ZAP and the application/web server:
+- Caddy
+The following web/application server has been identified:
+- Caddy
+`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/ ()(phrase,send,token)`
   * Method: `POST`
   * Parameter: ``
   * Attack: `TRACE, OPTIONS methods with 'Max-Forwards' header. TRACK method.`
@@ -701,41 +713,8 @@ If you expect the page to be framed only by pages on your server (e.g. it's part
 The following web/application server has been identified:
 - Caddy
 `
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/ ()(include)`
-  * Method: `POST`
-  * Parameter: ``
-  * Attack: `TRACE, OPTIONS methods with 'Max-Forwards' header. TRACK method.`
-  * Evidence: ``
-  * Other Info: `Using the TRACE, OPTIONS, and TRACK methods, the following proxy servers have been identified between ZAP and the application/web server:
-- Caddy
-The following web/application server has been identified:
-- Caddy
-`
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/ ()(phrase,send,token)`
-  * Method: `POST`
-  * Parameter: ``
-  * Attack: `TRACE, OPTIONS methods with 'Max-Forwards' header. TRACK method.`
-  * Evidence: ``
-  * Other Info: `Using the TRACE, OPTIONS, and TRACK methods, the following proxy servers have been identified between ZAP and the application/web server:
-- Caddy
-The following web/application server has been identified:
-- Caddy
-`
-* URL: https://172.18.0.7/vulnerabilities/upload/
-  * Node Name: `https://172.18.0.7/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)`
-  * Method: `POST`
-  * Parameter: ``
-  * Attack: `TRACE, OPTIONS methods with 'Max-Forwards' header. TRACK method.`
-  * Evidence: ``
-  * Other Info: `Using the TRACE, OPTIONS, and TRACK methods, the following proxy servers have been identified between ZAP and the application/web server:
-- Caddy
-The following web/application server has been identified:
-- Caddy
-`
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/ ()(btnClear,mtxMessage,txtName)`
+* URL: https://172.23.0.2/vulnerabilities/xss_s/
+  * Node Name: `https://172.23.0.2/vulnerabilities/xss_s/ ()(btnClear,mtxMessage,txtName)`
   * Method: `POST`
   * Parameter: ``
   * Attack: `TRACE, OPTIONS methods with 'Max-Forwards' header. TRACK method.`
@@ -780,20 +759,20 @@ Configure all proxies, application servers, and web servers to prevent disclosur
 
 The web server is configured to serve responses to ambiguous URLs in a manner that is likely to lead to confusion about the correct "relative path" for the URL. Resources (CSS, images, etc.) are also specified in the page response using relative, rather than absolute URLs. In an attack, if the web browser parses the "cross-content" response in a permissive manner, or can be tricked into permissively parsing the "cross-content" response, using techniques such as framing, then the web browser may be fooled into interpreting HTML as CSS (or other content types), leading to an XSS vulnerability.
 
-* URL: https://172.18.0.7/about.php
-  * Node Name: `https://172.18.0.7/about.php/ewg2w/ge8i2`
+* URL: https://172.23.0.2/about.php
+  * Node Name: `https://172.23.0.2/about.php/9037e/lxxka`
   * Method: `GET`
   * Parameter: ``
-  * Attack: `https://172.18.0.7/about.php/ewg2w/ge8i2`
+  * Attack: `https://172.23.0.2/about.php/9037e/lxxka`
   * Evidence: `<link rel="stylesheet" type="text/css" href="dvwa/css/main.css">`
   * Other Info: `No <base> tag was specified in the HTML <head> tag to define the location for relative URLs.
 A Content Type of "text/html;charset=utf-8" was specified. If the web browser is employing strict parsing rules, this will prevent cross-content attacks from succeeding. Quirks Mode in the web browser would disable strict parsing.
 Quirks Mode is implicitly enabled via the use of an old DOCTYPE with PUBLIC id "-//W3C//DTD XHTML 1.0 Strict//EN", allowing the specified Content Type to be bypassed in some web browsers.`
-* URL: https://172.18.0.7/instructions.php%3Fdoc=copying
-  * Node Name: `https://172.18.0.7/instructions.php/ewg2w/ge8i2 (doc)`
+* URL: https://172.23.0.2/instructions.php%3Fdoc=PHPIDS-license
+  * Node Name: `https://172.23.0.2/instructions.php/9037e/lxxka (doc)`
   * Method: `GET`
   * Parameter: ``
-  * Attack: `https://172.18.0.7/instructions.php/ewg2w/ge8i2?doc=copying`
+  * Attack: `https://172.23.0.2/instructions.php/9037e/lxxka?doc=PHPIDS-license`
   * Evidence: `<link rel="stylesheet" type="text/css" href="dvwa/css/main.css">`
   * Other Info: `No <base> tag was specified in the HTML <head> tag to define the location for relative URLs.
 A Content Type of "text/html;charset=utf-8" was specified. If the web browser is employing strict parsing rules, this will prevent cross-content attacks from succeeding. Quirks Mode in the web browser would disable strict parsing.
@@ -836,23 +815,16 @@ Specify the "X-Frame-Options" HTTP response header to prevent Quirks Mode from b
 
 The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content.
 
-* URL: https://172.18.0.7/vulnerabilities/captcha/
-  * Node Name: `https://172.18.0.7/vulnerabilities/captcha/`
+* URL: https://172.23.0.2/vulnerabilities/captcha/
+  * Node Name: `https://172.23.0.2/vulnerabilities/captcha/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<script src='https://www.google.com/recaptcha/api.js'></script>`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/captcha/
-  * Node Name: `https://172.18.0.7/vulnerabilities/captcha/ ()(Change,password_conf,password_new,step)`
-  * Method: `POST`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `<script src='https://www.google.com/recaptcha/api.js'></script>`
-  * Other Info: ``
 
 
-Instances: 2
+Instances: 1
 
 ### Solution
 
@@ -861,7 +833,7 @@ Provide a valid integrity attribute to the tag.
 ### Reference
 
 
-* [ https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity ](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity)
+* [ https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity ](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity)
 
 
 #### CWE Id: [ 345 ](https://cwe.mitre.org/data/definitions/345.html)
@@ -881,8 +853,8 @@ Provide a valid integrity attribute to the tag.
 
 A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
 
-* URL: https://172.18.0.7/vulnerabilities/weak_id/
-  * Node Name: `https://172.18.0.7/vulnerabilities/weak_id/`
+* URL: https://172.23.0.2/vulnerabilities/weak_id/
+  * Node Name: `https://172.23.0.2/vulnerabilities/weak_id/`
   * Method: `POST`
   * Parameter: `dvwaSession`
   * Attack: ``
@@ -919,8 +891,8 @@ Ensure that the HttpOnly flag is set for all cookies.
 
 A cookie has been set without the secure flag, which means that the cookie can be accessed via unencrypted connections.
 
-* URL: https://172.18.0.7/vulnerabilities/weak_id/
-  * Node Name: `https://172.18.0.7/vulnerabilities/weak_id/`
+* URL: https://172.23.0.2/vulnerabilities/weak_id/
+  * Node Name: `https://172.23.0.2/vulnerabilities/weak_id/`
   * Method: `POST`
   * Parameter: `dvwaSession`
   * Attack: ``
@@ -957,8 +929,8 @@ Whenever a cookie contains sensitive information or is a session token, then it 
 
 A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.
 
-* URL: https://172.18.0.7/vulnerabilities/weak_id/
-  * Node Name: `https://172.18.0.7/vulnerabilities/weak_id/`
+* URL: https://172.23.0.2/vulnerabilities/weak_id/
+  * Node Name: `https://172.23.0.2/vulnerabilities/weak_id/`
   * Method: `POST`
   * Parameter: `dvwaSession`
   * Attack: ``
@@ -995,23 +967,16 @@ Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' fo
 
 The page includes one or more script files from a third-party domain.
 
-* URL: https://172.18.0.7/vulnerabilities/captcha/
-  * Node Name: `https://172.18.0.7/vulnerabilities/captcha/`
+* URL: https://172.23.0.2/vulnerabilities/captcha/
+  * Node Name: `https://172.23.0.2/vulnerabilities/captcha/`
   * Method: `GET`
   * Parameter: `https://www.google.com/recaptcha/api.js`
   * Attack: ``
   * Evidence: `<script src='https://www.google.com/recaptcha/api.js'></script>`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/captcha/
-  * Node Name: `https://172.18.0.7/vulnerabilities/captcha/ ()(Change,password_conf,password_new,step)`
-  * Method: `POST`
-  * Parameter: `https://www.google.com/recaptcha/api.js`
-  * Attack: ``
-  * Evidence: `<script src='https://www.google.com/recaptcha/api.js'></script>`
-  * Other Info: ``
 
 
-Instances: 2
+Instances: 1
 
 ### Solution
 
@@ -1038,36 +1003,15 @@ Ensure JavaScript source files are loaded from only trusted sources, and the sou
 
 Cross-Origin-Embedder-Policy header is a response header that prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS).
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Embedder-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
-  * Method: `GET`
-  * Parameter: `Cross-Origin-Embedder-Policy`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/sqli/
-  * Node Name: `https://172.18.0.7/vulnerabilities/sqli/`
-  * Method: `GET`
-  * Parameter: `Cross-Origin-Embedder-Policy`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/sqli_blind/
-  * Node Name: `https://172.18.0.7/vulnerabilities/sqli_blind/`
-  * Method: `GET`
-  * Parameter: `Cross-Origin-Embedder-Policy`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/fi/%3Fpage=include.php
+  * Node Name: `https://172.23.0.2/vulnerabilities/fi/ (page)`
   * Method: `GET`
   * Parameter: `Cross-Origin-Embedder-Policy`
   * Attack: ``
@@ -1075,7 +1019,7 @@ Cross-Origin-Embedder-Policy header is a response header that prevents a documen
   * Other Info: ``
 
 
-Instances: 5
+Instances: 2
 
 ### Solution
 
@@ -1105,36 +1049,15 @@ If possible, ensure that the end user uses a standards-compliant and modern web 
 
 Cross-Origin-Opener-Policy header is a response header that allows a site to control if others included documents share the same browsing context. Sharing the same browsing context with untrusted documents might lead to data leak.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Opener-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
-  * Method: `GET`
-  * Parameter: `Cross-Origin-Opener-Policy`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/sqli/
-  * Node Name: `https://172.18.0.7/vulnerabilities/sqli/`
-  * Method: `GET`
-  * Parameter: `Cross-Origin-Opener-Policy`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/sqli_blind/
-  * Node Name: `https://172.18.0.7/vulnerabilities/sqli_blind/`
-  * Method: `GET`
-  * Parameter: `Cross-Origin-Opener-Policy`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/fi/%3Fpage=include.php
+  * Node Name: `https://172.23.0.2/vulnerabilities/fi/ (page)`
   * Method: `GET`
   * Parameter: `Cross-Origin-Opener-Policy`
   * Attack: ``
@@ -1142,7 +1065,7 @@ Cross-Origin-Opener-Policy header is a response header that allows a site to con
   * Other Info: ``
 
 
-Instances: 5
+Instances: 2
 
 ### Solution
 
@@ -1173,44 +1096,44 @@ If possible, ensure that the end user uses a standards-compliant and modern web 
 
 Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/favicon.ico
-  * Node Name: `https://172.18.0.7/favicon.ico`
+* URL: https://172.23.0.2/dvwa/images/logo.png
+  * Node Name: `https://172.23.0.2/dvwa/images/logo.png`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/robots.txt
-  * Node Name: `https://172.18.0.7/robots.txt`
+* URL: https://172.23.0.2/dvwa/js/add_event_listeners.js
+  * Node Name: `https://172.23.0.2/dvwa/js/add_event_listeners.js`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
+* URL: https://172.23.0.2/robots.txt
+  * Node Name: `https://172.23.0.2/robots.txt`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/fi/%3Fpage=include.php
+  * Node Name: `https://172.23.0.2/vulnerabilities/fi/ (page)`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
 
-Instances: Systemic
 
+Instances: 5
 
 ### Solution
 
@@ -1242,8 +1165,8 @@ If possible, ensure that the end user uses a standards-compliant and modern web 
 
 A dangerous JS function seems to be in use that would leave the site vulnerable.
 
-* URL: https://172.18.0.7/dvwa/js/dvwaPage.js
-  * Node Name: `https://172.18.0.7/dvwa/js/dvwaPage.js`
+* URL: https://172.23.0.2/dvwa/js/dvwaPage.js
+  * Node Name: `https://172.23.0.2/dvwa/js/dvwaPage.js`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1278,15 +1201,15 @@ See the references for security advice on the use of these functions.
 
 The server returned a version banner string in the response content. Such information leaks may allow attackers to further target specific issues impacting the product and version in use.
 
-* URL: https://172.18.0.7/sitemap.xml
-  * Node Name: `https://172.18.0.7/sitemap.xml`
+* URL: https://172.23.0.2/sitemap.xml
+  * Node Name: `https://172.23.0.2/sitemap.xml`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.25`
   * Other Info: `There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body.`
-* URL: https://172.18.0.7/vulnerabilities/csp/ZAP
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/ZAP`
+* URL: https://172.23.0.2/vulnerabilities/csp/ZAP
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/ZAP`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1325,36 +1248,36 @@ Under Apache this is done via the "ServerSignature" and "ServerTokens" directive
 
 Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/sitemap.xml
-  * Node Name: `https://172.18.0.7/sitemap.xml`
+* URL: https://172.23.0.2/dvwa/js/add_event_listeners.js
+  * Node Name: `https://172.23.0.2/dvwa/js/add_event_listeners.js`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
+* URL: https://172.23.0.2/sitemap.xml
+  * Node Name: `https://172.23.0.2/sitemap.xml`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/sqli/
-  * Node Name: `https://172.18.0.7/vulnerabilities/sqli/`
+* URL: https://172.23.0.2/vulnerabilities/brute/
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/fi/%3Fpage=include.php
+  * Node Name: `https://172.23.0.2/vulnerabilities/fi/ (page)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1385,45 +1308,6 @@ Ensure that your web server, application server, load balancer, etc. is configur
 
 #### Source ID: 3
 
-### [ Private IP Disclosure ](https://www.zaproxy.org/docs/alerts/2/)
-
-
-
-##### Low (Medium)
-
-### Description
-
-A private IP (such as 10.x.x.x, 172.x.x.x, 192.168.x.x) or an Amazon EC2 private hostname (for example, ip-10-0-56-78) has been found in the HTTP response body. This information might be helpful for further attacks targeting internal systems.
-
-* URL: https://172.18.0.7/vulnerabilities/fi/%3Fpage=file3.php
-  * Node Name: `https://172.18.0.7/vulnerabilities/fi/ (page)`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `172.18.0.11`
-  * Other Info: `172.18.0.11
-`
-
-
-Instances: 1
-
-### Solution
-
-Remove the private IP address from the HTTP response body. For comments, use JSP/ASP/PHP comment instead of HTML/JavaScript comment which can be seen by client browsers.
-
-### Reference
-
-
-* [ https://datatracker.ietf.org/doc/html/rfc1918 ](https://datatracker.ietf.org/doc/html/rfc1918)
-
-
-#### CWE Id: [ 497 ](https://cwe.mitre.org/data/definitions/497.html)
-
-
-#### WASC Id: 13
-
-#### Source ID: 3
-
 ### [ Server Leaks Version Information via "Server" HTTP Response Header Field ](https://www.zaproxy.org/docs/alerts/10036/)
 
 
@@ -1434,36 +1318,36 @@ Remove the private IP address from the HTTP response body. For comments, use JSP
 
 The web/application server is leaking version information via the "Server" HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2:443
+  * Node Name: `https://172.23.0.2`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.25 (Debian)`
   * Other Info: ``
-* URL: https://172.18.0.7/favicon.ico
-  * Node Name: `https://172.18.0.7/favicon.ico`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.25 (Debian)`
   * Other Info: ``
-* URL: https://172.18.0.7/robots.txt
-  * Node Name: `https://172.18.0.7/robots.txt`
+* URL: https://172.23.0.2/robots.txt
+  * Node Name: `https://172.23.0.2/robots.txt`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.25 (Debian)`
   * Other Info: ``
-* URL: https://172.18.0.7/sitemap.xml
-  * Node Name: `https://172.18.0.7/sitemap.xml`
+* URL: https://172.23.0.2/sitemap.xml
+  * Node Name: `https://172.23.0.2/sitemap.xml`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.25 (Debian)`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
+* URL: https://172.23.0.2/vulnerabilities/brute/
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1502,36 +1386,36 @@ Ensure that your web server, application server, load balancer, etc. is configur
 
 HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/favicon.ico
-  * Node Name: `https://172.18.0.7/favicon.ico`
+* URL: https://172.23.0.2/phpinfo.php
+  * Node Name: `https://172.23.0.2/phpinfo.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/robots.txt
-  * Node Name: `https://172.18.0.7/robots.txt`
+* URL: https://172.23.0.2/robots.txt
+  * Node Name: `https://172.23.0.2/robots.txt`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/sitemap.xml
-  * Node Name: `https://172.18.0.7/sitemap.xml`
+* URL: https://172.23.0.2/sitemap.xml
+  * Node Name: `https://172.23.0.2/sitemap.xml`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/brute/
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1572,36 +1456,36 @@ Ensure that your web server, application server, load balancer, etc. is configur
 
 A timestamp was disclosed by the application/web server. - Unix
 
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `1473231341`
   * Other Info: `1473231341, which evaluates to: 2016-09-07 06:55:41.`
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `1732584193`
   * Other Info: `1732584193, which evaluates to: 2024-11-26 01:23:13.`
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `1732584194`
   * Other Info: `1732584194, which evaluates to: 2024-11-26 01:23:14.`
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `1770035416`
   * Other Info: `1770035416, which evaluates to: 2026-02-02 12:30:16.`
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1638,40 +1522,40 @@ Manually confirm that the timestamp data is not sensitive, and that the data can
 
 The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2:443
+  * Node Name: `https://172.23.0.2`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://172.18.0.7/favicon.ico
-  * Node Name: `https://172.18.0.7/favicon.ico`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://172.18.0.7/robots.txt
-  * Node Name: `https://172.18.0.7/robots.txt`
+* URL: https://172.23.0.2/robots.txt
+  * Node Name: `https://172.23.0.2/robots.txt`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
+* URL: https://172.23.0.2/vulnerabilities/brute/
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/fi/%3Fpage=include.php
+  * Node Name: `https://172.23.0.2/vulnerabilities/fi/ (page)`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
@@ -1711,8 +1595,8 @@ If possible, ensure that the end user uses a standards-compliant and modern web 
 
 The given request has been identified as an authentication request. The 'Other Info' field contains a set of key=value lines which identify any relevant fields. If the request is in a context which has an Authentication Method set to "Auto-Detect" then this rule will change the authentication to match the request identified.
 
-* URL: https://172.18.0.7/vulnerabilities/brute/%3FLogin=Login&password=ZAP&username=ZAP
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/ (Login,password,username)`
+* URL: https://172.23.0.2/vulnerabilities/brute/%3FLogin=Login&password=ZAP&username=ZAP
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/ (Login,password,username)`
   * Method: `GET`
   * Parameter: `Login`
   * Attack: ``
@@ -1720,7 +1604,7 @@ The given request has been identified as an authentication request. The 'Other I
   * Other Info: `userParam=Login
 userValue=Login
 passwordParam=password
-referer=https://172.18.0.7/vulnerabilities/brute/`
+referer=https://172.23.0.2/vulnerabilities/brute/`
 
 
 Instances: 1
@@ -1748,8 +1632,8 @@ This is an informational alert rather than a vulnerability and so there is nothi
 
 Repeated GET requests: drop a different cookie each time, followed by normal request with all cookies to stabilize session, compare responses against original baseline GET. This can reveal areas where cookie based authentication/attributes are not actually enforced.
 
-* URL: https://172.18.0.7/docs
-  * Node Name: `https://172.18.0.7/docs`
+* URL: https://172.23.0.2/vulnerabilities/sqli/%3FSubmit=Submit&id=ZAP
+  * Node Name: `https://172.23.0.2/vulnerabilities/sqli/ (Submit,id)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1758,8 +1642,8 @@ Repeated GET requests: drop a different cookie each time, followed by normal req
 These cookies affected the response: 
 These cookies did NOT affect the response: security,PHPSESSID
 `
-* URL: https://172.18.0.7/dvwa
-  * Node Name: `https://172.18.0.7/dvwa`
+* URL: https://172.23.0.2/vulnerabilities/upload/
+  * Node Name: `https://172.23.0.2/vulnerabilities/upload/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1768,8 +1652,8 @@ These cookies did NOT affect the response: security,PHPSESSID
 These cookies affected the response: 
 These cookies did NOT affect the response: security,PHPSESSID
 `
-* URL: https://172.18.0.7/dvwa/css/main.css
-  * Node Name: `https://172.18.0.7/dvwa/css/main.css`
+* URL: https://172.23.0.2/vulnerabilities/xss_r/
+  * Node Name: `https://172.23.0.2/vulnerabilities/xss_r/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1778,8 +1662,8 @@ These cookies did NOT affect the response: security,PHPSESSID
 These cookies affected the response: 
 These cookies did NOT affect the response: security,PHPSESSID
 `
-* URL: https://172.18.0.7/dvwa/images
-  * Node Name: `https://172.18.0.7/dvwa/images`
+* URL: https://172.23.0.2/vulnerabilities/xss_r/%3Fname=ZAP
+  * Node Name: `https://172.23.0.2/vulnerabilities/xss_r/ (name)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1788,8 +1672,8 @@ These cookies did NOT affect the response: security,PHPSESSID
 These cookies affected the response: 
 These cookies did NOT affect the response: security,PHPSESSID
 `
-* URL: https://172.18.0.7/dvwa/images/logo.png
-  * Node Name: `https://172.18.0.7/dvwa/images/logo.png`
+* URL: https://172.23.0.2/vulnerabilities/xss_s/
+  * Node Name: `https://172.23.0.2/vulnerabilities/xss_s/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1829,65 +1713,44 @@ Instances: Systemic
 
 A request that was originally observed as a POST was also accepted as a GET. This issue does not represent a security weakness unto itself, however, it may facilitate simplification of other attacks. For example if the original POST is subject to Cross-Site Scripting (XSS), then this finding may indicate that a simplified (GET based) XSS may also be possible.
 
-* URL: https://172.18.0.7/vulnerabilities/captcha/
-  * Node Name: `https://172.18.0.7/vulnerabilities/captcha/ (Change,password_conf,password_new,step)`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/ (include)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `GET https://172.18.0.7/vulnerabilities/captcha/?Change=Change&password_conf=ZAP&password_new=ZAP&step=1 HTTP/1.1`
+  * Evidence: `GET https://172.23.0.2/vulnerabilities/csp/?include=ZAP HTTP/1.1`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/ (include)`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/ (phrase,send,token)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `GET https://172.18.0.7/vulnerabilities/csp/?include=ZAP HTTP/1.1`
+  * Evidence: `GET https://172.23.0.2/vulnerabilities/javascript/?phrase=ChangeMe&send=Submit&token= HTTP/1.1`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/exec/
-  * Node Name: `https://172.18.0.7/vulnerabilities/exec/ (Submit,ip)`
+* URL: https://172.23.0.2/vulnerabilities/upload/
+  * Node Name: `https://172.23.0.2/vulnerabilities/upload/ (MAX_FILE_SIZE,Upload,uploaded)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `GET https://172.18.0.7/vulnerabilities/exec/?Submit=Submit&ip=ZAP HTTP/1.1`
+  * Evidence: `GET https://172.23.0.2/vulnerabilities/upload/?MAX_FILE_SIZE=100000&Upload=Upload&uploaded=test_file.txt HTTP/1.1`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/ (phrase,send,token)`
+* URL: https://172.23.0.2/vulnerabilities/weak_id/
+  * Node Name: `https://172.23.0.2/vulnerabilities/weak_id/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `GET https://172.18.0.7/vulnerabilities/javascript/?phrase=ChangeMe&send=Submit&token= HTTP/1.1`
+  * Evidence: `GET https://172.23.0.2/vulnerabilities/weak_id/ HTTP/1.1`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/upload/
-  * Node Name: `https://172.18.0.7/vulnerabilities/upload/ (MAX_FILE_SIZE,Upload,uploaded)`
+* URL: https://172.23.0.2/vulnerabilities/xss_s/
+  * Node Name: `https://172.23.0.2/vulnerabilities/xss_s/ (btnClear,mtxMessage,txtName)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
-  * Evidence: `GET https://172.18.0.7/vulnerabilities/upload/?MAX_FILE_SIZE=100000&Upload=Upload&uploaded=test_file.txt HTTP/1.1`
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/weak_id/
-  * Node Name: `https://172.18.0.7/vulnerabilities/weak_id/`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `GET https://172.18.0.7/vulnerabilities/weak_id/ HTTP/1.1`
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/ (btnClear,mtxMessage,txtName)`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `GET https://172.18.0.7/vulnerabilities/xss_s/?btnClear=Clear%20Guestbook&mtxMessage=&txtName=ZAP HTTP/1.1`
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/ (btnSign,mtxMessage,txtName)`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `GET https://172.18.0.7/vulnerabilities/xss_s/?btnSign=Sign%20Guestbook&mtxMessage=&txtName=ZAP HTTP/1.1`
+  * Evidence: `GET https://172.23.0.2/vulnerabilities/xss_s/?btnClear=Clear%20Guestbook&mtxMessage=&txtName=ZAP HTTP/1.1`
   * Other Info: ``
 
 
-Instances: 8
+Instances: 5
 
 ### Solution
 
@@ -1914,16 +1777,16 @@ Ensure that only POST is accepted where POST is expected.
 
 The request appeared to contain sensitive information leaked in the URL. This can violate PCI and most organizational compliance policies. You can configure the list of strings for this check to add or remove values specific to your environment.
 
-* URL: https://172.18.0.7/vulnerabilities/brute/%3FLogin=Login&password=ZAP&username=ZAP
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/ (Login,password,username)`
+* URL: https://172.23.0.2/vulnerabilities/brute/%3FLogin=Login&password=ZAP&username=ZAP
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/ (Login,password,username)`
   * Method: `GET`
   * Parameter: `password`
   * Attack: ``
   * Evidence: `password`
   * Other Info: `The URL contains potentially sensitive information. The following string was found via the pattern: pass
 password`
-* URL: https://172.18.0.7/vulnerabilities/brute/%3FLogin=Login&password=ZAP&username=ZAP
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/ (Login,password,username)`
+* URL: https://172.23.0.2/vulnerabilities/brute/%3FLogin=Login&password=ZAP&username=ZAP
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/ (Login,password,username)`
   * Method: `GET`
   * Parameter: `username`
   * Attack: ``
@@ -1959,8 +1822,8 @@ Do not pass sensitive information in URIs.
 
 The response appears to contain suspicious comments which may help an attacker.
 
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1971,8 +1834,8 @@ https://github`
 MD5 code from here
 https://github.com/blueimp/JavaScript-MD5
 */", see evidence field for the suspicious comment/snippet.`
-* URL: https://172.18.0.7/vulnerabilities/javascript/
-  * Node Name: `https://172.18.0.7/vulnerabilities/javascript/ ()(phrase,send,token)`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/ ()(phrase,send,token)`
   * Method: `POST`
   * Parameter: ``
   * Attack: ``
@@ -2012,8 +1875,8 @@ Remove all comments that return information that may help an attacker and fix an
 
 The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.
 
-* URL: https://172.18.0.7/phpinfo.php
-  * Node Name: `https://172.18.0.7/phpinfo.php`
+* URL: https://172.23.0.2/phpinfo.php
+  * Node Name: `https://172.23.0.2/phpinfo.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -2063,36 +1926,36 @@ It must have a status code that is defined as cacheable by default (200, 203, 20
 
 The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2
+  * Node Name: `https://172.23.0.2`
   * Method: `GET`
   * Parameter: `cache-control`
   * Attack: ``
   * Evidence: `no-cache, must-revalidate`
   * Other Info: ``
-* URL: https://172.18.0.7/robots.txt
-  * Node Name: `https://172.18.0.7/robots.txt`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
+  * Method: `GET`
+  * Parameter: `cache-control`
+  * Attack: ``
+  * Evidence: `no-cache, must-revalidate`
+  * Other Info: ``
+* URL: https://172.23.0.2/robots.txt
+  * Node Name: `https://172.23.0.2/robots.txt`
   * Method: `GET`
   * Parameter: `cache-control`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
+* URL: https://172.23.0.2/vulnerabilities/brute/
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/`
   * Method: `GET`
   * Parameter: `cache-control`
   * Attack: ``
   * Evidence: `no-cache, must-revalidate`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/sqli/
-  * Node Name: `https://172.18.0.7/vulnerabilities/sqli/`
-  * Method: `GET`
-  * Parameter: `cache-control`
-  * Attack: ``
-  * Evidence: `no-cache, must-revalidate`
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/captcha/
+  * Node Name: `https://172.23.0.2/vulnerabilities/captcha/`
   * Method: `GET`
   * Parameter: `cache-control`
   * Attack: ``
@@ -2131,29 +1994,36 @@ For secure content, ensure the cache-control HTTP header is set with "no-cache, 
 
 The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where "shared" caching servers such as "proxy" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.
 
-* URL: https://172.18.0.7/dvwa/css/main.css
-  * Node Name: `https://172.18.0.7/dvwa/css/main.css`
+* URL: https://172.23.0.2/dvwa/css/main.css
+  * Node Name: `https://172.23.0.2/dvwa/css/main.css`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: `In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.`
-* URL: https://172.18.0.7/favicon.ico
-  * Node Name: `https://172.18.0.7/favicon.ico`
+* URL: https://172.23.0.2/dvwa/images/logo.png
+  * Node Name: `https://172.23.0.2/dvwa/images/logo.png`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: `In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.`
-* URL: https://172.18.0.7/robots.txt
-  * Node Name: `https://172.18.0.7/robots.txt`
+* URL: https://172.23.0.2/dvwa/js/add_event_listeners.js
+  * Node Name: `https://172.23.0.2/dvwa/js/add_event_listeners.js`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: `In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.`
-* URL: https://172.18.0.7/sitemap.xml
-  * Node Name: `https://172.18.0.7/sitemap.xml`
+* URL: https://172.23.0.2/robots.txt
+  * Node Name: `https://172.23.0.2/robots.txt`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: `In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.`
+* URL: https://172.23.0.2/sitemap.xml
+  * Node Name: `https://172.23.0.2/sitemap.xml`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -2161,7 +2031,7 @@ The response contents are storable by caching components such as proxy servers, 
   * Other Info: `In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.`
 
 
-Instances: 4
+Instances: 5
 
 ### Solution
 
@@ -2196,44 +2066,44 @@ This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers 
 
 The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users.
 
-* URL: https://172.18.0.7/
-  * Node Name: `https://172.18.0.7/`
+* URL: https://172.23.0.2:443
+  * Node Name: `https://172.23.0.2`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-cache`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/brute/
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/`
+* URL: https://172.23.0.2/
+  * Node Name: `https://172.23.0.2/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-cache`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/sqli/
-  * Node Name: `https://172.18.0.7/vulnerabilities/sqli/`
+* URL: https://172.23.0.2/vulnerabilities/brute/
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-cache`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/sqli_blind/
-  * Node Name: `https://172.18.0.7/vulnerabilities/sqli_blind/`
+* URL: https://172.23.0.2/vulnerabilities/fi/%3Fpage=include.php
+  * Node Name: `https://172.23.0.2/vulnerabilities/fi/ (page)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-cache`
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/vulnerabilities/upload/
+  * Node Name: `https://172.23.0.2/vulnerabilities/upload/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-cache`
   * Other Info: ``
 
-Instances: Systemic
 
+Instances: 5
 
 ### Solution
 
@@ -2264,37 +2134,37 @@ Instances: Systemic
 
 Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response.
 
-* URL: https://172.18.0.7/docs
-  * Node Name: `https://172.18.0.7/docs`
-  * Method: `GET`
-  * Parameter: `Header User-Agent`
-  * Attack: `Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)`
-  * Evidence: ``
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/fi/%3Fpage=file3.php
-  * Node Name: `https://172.18.0.7/vulnerabilities/fi/ (page)`
-  * Method: `GET`
-  * Parameter: `Header User-Agent`
-  * Attack: `Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)`
-  * Evidence: ``
-  * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/docs
+  * Node Name: `https://172.23.0.2/docs`
   * Method: `GET`
   * Parameter: `Header User-Agent`
   * Attack: `Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)`
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/`
+* URL: https://172.23.0.2/docs
+  * Node Name: `https://172.23.0.2/docs`
   * Method: `GET`
   * Parameter: `Header User-Agent`
   * Attack: `Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)`
   * Evidence: ``
   * Other Info: ``
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)`
-  * Method: `POST`
+* URL: https://172.23.0.2/dvwa
+  * Node Name: `https://172.23.0.2/dvwa`
+  * Method: `GET`
+  * Parameter: `Header User-Agent`
+  * Attack: `Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)`
+  * Evidence: ``
+  * Other Info: ``
+* URL: https://172.23.0.2/dvwa/css
+  * Node Name: `https://172.23.0.2/dvwa/css`
+  * Method: `GET`
+  * Parameter: `Header User-Agent`
+  * Attack: `Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)`
+  * Evidence: ``
+  * Other Info: ``
+* URL: https://172.23.0.2/dvwa/css
+  * Node Name: `https://172.23.0.2/dvwa/css`
+  * Method: `GET`
   * Parameter: `Header User-Agent`
   * Attack: `Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)`
   * Evidence: ``
@@ -2326,15 +2196,15 @@ Instances: Systemic
 
 This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.
 
-* URL: https://172.18.0.7/vulnerabilities/brute/%3FLogin=Login&password=ZAP&username=ZAP
-  * Node Name: `https://172.18.0.7/vulnerabilities/brute/ (Login,password,username)`
+* URL: https://172.23.0.2/vulnerabilities/brute/%3FLogin=Login&password=ZAP&username=ZAP
+  * Node Name: `https://172.23.0.2/vulnerabilities/brute/ (Login,password,username)`
   * Method: `GET`
   * Parameter: `Login`
   * Attack: ``
   * Evidence: ``
   * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://172.18.0.7/vulnerabilities/brute/?Login=Login&password=ZAP&username=ZAP
+https://172.23.0.2/vulnerabilities/brute/?Login=Login&password=ZAP&username=ZAP
 
 appears to include user input in:
 a(n) [input] tag [value] attribute
@@ -2344,33 +2214,15 @@ Login=Login
 
 The user-controlled value was:
 login`
-* URL: https://172.18.0.7/vulnerabilities/csp/
-  * Node Name: `https://172.18.0.7/vulnerabilities/csp/ ()(include)`
-  * Method: `POST`
-  * Parameter: `include`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://172.18.0.7/vulnerabilities/csp/
-
-appears to include user input in:
-a(n) [script] tag [src] attribute
-
-The user input found was:
-include=ZAP
-
-The user-controlled value was:
-zap`
-* URL: https://172.18.0.7/vulnerabilities/exec/
-  * Node Name: `https://172.18.0.7/vulnerabilities/exec/ ()(Submit,ip)`
-  * Method: `POST`
+* URL: https://172.23.0.2/vulnerabilities/sqli/%3FSubmit=Submit&id=ZAP
+  * Node Name: `https://172.23.0.2/vulnerabilities/sqli/ (Submit,id)`
+  * Method: `GET`
   * Parameter: `Submit`
   * Attack: ``
   * Evidence: ``
   * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://172.18.0.7/vulnerabilities/exec/
+https://172.23.0.2/vulnerabilities/sqli/?Submit=Submit&id=ZAP
 
 appears to include user input in:
 a(n) [input] tag [type] attribute
@@ -2380,15 +2232,69 @@ Submit=Submit
 
 The user-controlled value was:
 submit`
-* URL: https://172.18.0.7/vulnerabilities/upload/
-  * Node Name: `https://172.18.0.7/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)`
+* URL: https://172.23.0.2/vulnerabilities/csp/
+  * Node Name: `https://172.23.0.2/vulnerabilities/csp/ ()(include)`
+  * Method: `POST`
+  * Parameter: `include`
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://172.23.0.2/vulnerabilities/csp/
+
+appears to include user input in:
+a(n) [script] tag [src] attribute
+
+The user input found was:
+include=ZAP
+
+The user-controlled value was:
+zap`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/ ()(phrase,send,token)`
+  * Method: `POST`
+  * Parameter: `phrase`
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://172.23.0.2/vulnerabilities/javascript/
+
+appears to include user input in:
+a(n) [input] tag [value] attribute
+
+The user input found was:
+phrase=ChangeMe
+
+The user-controlled value was:
+changeme`
+* URL: https://172.23.0.2/vulnerabilities/javascript/
+  * Node Name: `https://172.23.0.2/vulnerabilities/javascript/ ()(phrase,send,token)`
+  * Method: `POST`
+  * Parameter: `send`
+  * Attack: ``
+  * Evidence: ``
+  * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
+
+https://172.23.0.2/vulnerabilities/javascript/
+
+appears to include user input in:
+a(n) [input] tag [type] attribute
+
+The user input found was:
+send=Submit
+
+The user-controlled value was:
+submit`
+* URL: https://172.23.0.2/vulnerabilities/upload/
+  * Node Name: `https://172.23.0.2/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)`
   * Method: `POST`
   * Parameter: `MAX_FILE_SIZE`
   * Attack: ``
   * Evidence: ``
   * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://172.18.0.7/vulnerabilities/upload/
+https://172.23.0.2/vulnerabilities/upload/
 
 appears to include user input in:
 a(n) [input] tag [value] attribute
@@ -2398,15 +2304,15 @@ MAX_FILE_SIZE=100000
 
 The user-controlled value was:
 100000`
-* URL: https://172.18.0.7/vulnerabilities/upload/
-  * Node Name: `https://172.18.0.7/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)`
+* URL: https://172.23.0.2/vulnerabilities/upload/
+  * Node Name: `https://172.23.0.2/vulnerabilities/upload/ ()(MAX_FILE_SIZE,Upload,uploaded)`
   * Method: `POST`
   * Parameter: `Upload`
   * Attack: ``
   * Evidence: ``
   * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://172.18.0.7/vulnerabilities/upload/
+https://172.23.0.2/vulnerabilities/upload/
 
 appears to include user input in:
 a(n) [input] tag [name] attribute
@@ -2416,15 +2322,15 @@ Upload=Upload
 
 The user-controlled value was:
 uploaded`
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/ ()(btnClear,mtxMessage,txtName)`
+* URL: https://172.23.0.2/vulnerabilities/xss_s/
+  * Node Name: `https://172.23.0.2/vulnerabilities/xss_s/ ()(btnClear,mtxMessage,txtName)`
   * Method: `POST`
   * Parameter: `btnClear`
   * Attack: ``
   * Evidence: ``
   * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-https://172.18.0.7/vulnerabilities/xss_s/
+https://172.23.0.2/vulnerabilities/xss_s/
 
 appears to include user input in:
 a(n) [input] tag [value] attribute
@@ -2434,27 +2340,9 @@ btnClear=Clear Guestbook
 
 The user-controlled value was:
 clear guestbook`
-* URL: https://172.18.0.7/vulnerabilities/xss_s/
-  * Node Name: `https://172.18.0.7/vulnerabilities/xss_s/ ()(btnSign,mtxMessage,txtName)`
-  * Method: `POST`
-  * Parameter: `btnSign`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
-
-https://172.18.0.7/vulnerabilities/xss_s/
-
-appears to include user input in:
-a(n) [input] tag [value] attribute
-
-The user input found was:
-btnSign=Sign Guestbook
-
-The user-controlled value was:
-sign guestbook`
 
 
-Instances: 7
+Instances: 8
 
 ### Solution
 

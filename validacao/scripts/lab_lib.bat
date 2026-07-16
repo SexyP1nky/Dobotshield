@@ -15,7 +15,7 @@ REM ============================================================================
 setlocal enableextensions enabledelayedexpansion
 
 if "%NET%"==""      set "NET=dobotshield_waflab"
-if "%IMG_CURL%"=="" set "IMG_CURL=curlimages/curl:latest"
+if "%IMG_CURL%"=="" set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
 
 set "LABFN=%~1"
 shift

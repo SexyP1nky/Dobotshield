@@ -5,6 +5,7 @@
     return {
       targetUrl: trimValue(config.targetUrl),
       proxyPort: trimValue(config.proxyPort),
+      httpMode: trimValue(config.httpMode),
       enableWaf: trimValue(config.enableWaf),
       wafMode: trimValue(config.wafMode),
       enableResponseInspection: trimValue(config.enableResponseInspection),
@@ -19,6 +20,7 @@
       keyFile: trimValue(config.keyFile),
       trustedProxies: global.DoBotAdmin.splitCsv(config.trustedProxies).join(","),
       insecureSkipVerify: trimValue(config.insecureSkipVerify),
+      contentSecurityPolicy: trimValue(config.contentSecurityPolicy),
       wafAllowlist: global.DoBotAdmin.splitCsv(config.wafAllowlist).join(","),
       blockedIps: global.DoBotAdmin.splitCsv(config.blockedIps).join(","),
       rateLimitStateFile: trimValue(config.rateLimitStateFile),
@@ -42,12 +44,13 @@
     });
   }
 
-  function buildAccessUrl(proxyPort) {
-    var addr = String(proxyPort || ":443").trim();
+  function buildAccessUrl(config) {
+    var addr = String(config.proxyPort || ":443").trim();
+    var scheme = config.httpMode === "true" ? "http" : "https";
     if (addr.charAt(0) === ":") {
       addr = "localhost" + addr;
     }
-    return "https://" + addr;
+    return scheme + "://" + addr;
   }
 
   function buildPowerShell(config) {
@@ -55,7 +58,7 @@
       return "$env:" + pair.key + " = " + quotePowerShell(pair.value);
     });
 
-    lines.unshift("# Acesso: " + buildAccessUrl(config.proxyPort));
+    lines.unshift("# Acesso: " + buildAccessUrl(config));
     lines.push("go build -o dobotshield.exe .");
     lines.push(".\\dobotshield.exe");
     return lines.join("\n");
@@ -66,14 +69,14 @@
       return "export " + pair.key + "=" + quoteBash(pair.value);
     });
 
-    lines.unshift("# Acesso: " + buildAccessUrl(config.proxyPort));
+    lines.unshift("# Acesso: " + buildAccessUrl(config));
     lines.push("go build -o dobotshield .");
     lines.push("./dobotshield");
     return lines.join("\n");
   }
 
   function buildDotEnv(config) {
-    var header = "# Acesso: " + buildAccessUrl(config.proxyPort);
+    var header = "# Acesso: " + buildAccessUrl(config);
     var body = toEnvPairs(config).map(function mapPair(pair) {
       return pair.key + "=" + quoteDotEnv(pair.value);
     }).join("\n");

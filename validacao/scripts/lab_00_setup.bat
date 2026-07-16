@@ -8,8 +8,8 @@ REM    - gera certificado TLS auto-assinado (SAN p/ todos os hosts do lab)
 REM    - baixa (pull) e constroi (build) TODAS as imagens necessarias
 REM    - sobe o DVWA, cria o banco, faz login (admin/password),
 REM      define DVWA Security = "low" e CAPTURA O COOKIE de sessao
-REM    - salva o cookie em lab_scripts\dvwa_cookie.txt (usado pelas ferramentas)
-REM    - escreve lab_results\METODOLOGIA.txt
+REM    - salva o cookie em validacao\helpers\dvwa_cookie.txt (usado pelas ferramentas)
+REM    - escreve validacao\results\METODOLOGIA.txt
 REM
 REM  Rode este .bat PRIMEIRO. Depois: lab_01_subir.bat e as ferramentas.
 REM ============================================================================
@@ -18,11 +18,12 @@ setlocal enableextensions enabledelayedexpansion
 
 set "ROOT=%~dp0"
 if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+for %%I in ("%ROOT%\..") do set "LAB_ROOT=%%~fI"
 
-set "COMPOSE=%ROOT%\docker-compose.lab.yml"
-set "CERT_DIR=%ROOT%\certs"
-set "SCRIPTS_DIR=%ROOT%\lab_scripts"
-set "RESULTS=%ROOT%\lab_results"
+set "COMPOSE=%LAB_ROOT%\docker-compose.lab.yml"
+set "CERT_DIR=%LAB_ROOT%\certs"
+set "SCRIPTS_DIR=%LAB_ROOT%\helpers"
+set "RESULTS=%LAB_ROOT%\results"
 set "NET=dobotshield_waflab"
 
 set "CERT_FWD=%CERT_DIR:\=/%"
@@ -33,10 +34,11 @@ REM Imagens construidas localmente (referenciadas pelos .bat de ferramenta)
 set "IMG_TOOLS=dobotshield/lab-tools:latest"
 set "IMG_WRK=dobotshield/wrk:latest"
 REM Imagens externas
-set "IMG_TESTSSL=drwetter/testssl.sh:latest"
-set "IMG_ZAP=zaproxy/zap-stable:latest"
-set "IMG_PY=python:3-alpine"
-set "IMG_CURL=curlimages/curl:latest"
+set "IMG_TESTSSL=drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce"
+set "IMG_ZAP=zaproxy/zap-stable:latest@sha256:8d387b1a63e3425beef4846e39719f5af2a787753af2d8b6558c6257d7a577a2"
+set "IMG_PY=python:3-alpine@sha256:26730869004e2b9c4b9ad09cab8625e81d256d1ce97e72df5520e806b1709f92"
+set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
+set "IMG_OPENSSL=alpine/openssl:latest@sha256:3da6a24cdaa2f2ac8ef4defb322249fae6159983104653a9e5312f5b75dac7af"
 
 set /a STEP=0
 
@@ -73,16 +75,16 @@ docker pull %IMG_CURL%    || echo   [AVISO] pull de %IMG_CURL% falhou.
 
 REM --------------------------------------------------------------------------
 call :step "Construindo imagem de ferramentas (sqlmap + XSStrike + commix)"
-docker build -t %IMG_TOOLS% "%ROOT%\docker\lab-tools" || ( echo [ERRO] build lab-tools falhou. & exit /b 20 )
+docker build -t %IMG_TOOLS% "%LAB_ROOT%\docker\lab-tools" || ( echo [ERRO] build lab-tools falhou. & exit /b 20 )
 
 call :step "Construindo imagem wrk"
-docker build -t %IMG_WRK% "%ROOT%\docker\wrk" || ( echo [ERRO] build wrk falhou. & exit /b 21 )
+docker build -t %IMG_WRK% "%LAB_ROOT%\docker\wrk" || ( echo [ERRO] build wrk falhou. & exit /b 21 )
 
 REM --------------------------------------------------------------------------
 call :step "Baixando imagens das aplicacoes e do ModSecurity"
-docker pull vulnerables/web-dvwa        || echo   [AVISO] pull do DVWA falhou.
-docker pull mysql:5.7                   || echo   [AVISO] pull do MySQL do XVWA falhou.
-docker pull owasp/modsecurity-crs:nginx || echo   [AVISO] pull do ModSecurity falhou.
+docker pull vulnerables/web-dvwa:latest@sha256:dae203fe11646a86937bf04db0079adef295f426da68a92b40e3b181f337daa7 || echo   [AVISO] pull do DVWA falhou.
+docker pull mysql:5.7@sha256:4bc6bc963e6d8443453676cae56536f4b8156d78bae03c0145cbe47c2aad73bb || echo   [AVISO] pull do MySQL do XVWA falhou.
+docker pull owasp/modsecurity-crs:nginx@sha256:f47ae0ce695417849663d4a2014aeef2ace989a632aa1f55923098a633722018 || echo   [AVISO] pull do ModSecurity falhou.
 
 call :step "Construindo imagens DoBotShield e Coraza (compose build)"
 docker compose -f "%COMPOSE%" build || ( echo [ERRO] compose build falhou. & exit /b 22 )
@@ -174,7 +176,7 @@ call :step "Registrando METODOLOGIA.txt"
 if not exist "%RESULTS%" mkdir "%RESULTS%"
 > "%RESULTS%\METODOLOGIA.txt" echo # Rodada gerada em %DATE% %TIME%
 >> "%RESULTS%\METODOLOGIA.txt" echo.
-type "%ROOT%\lab_METODOLOGIA.txt" >> "%RESULTS%\METODOLOGIA.txt" 2>nul
+type "%LAB_ROOT%\docs\METODOLOGIA.txt" >> "%RESULTS%\METODOLOGIA.txt" 2>nul
 echo   OK: %RESULTS%\METODOLOGIA.txt
 
 echo.
@@ -215,7 +217,7 @@ if %ERRORLEVEL%==0 (
     if exist "%CERT_DIR%\server.crt" ( echo   Certificado gerado via openssl local. & exit /b 0 )
 )
 echo   openssl ausente no host -- gerando via container alpine/openssl.
-docker run --rm -v "%CERT_FWD%:/certs" alpine/openssl ^
+docker run --rm -v "%CERT_FWD%:/certs" %IMG_OPENSSL% ^
     req -x509 -newkey rsa:2048 -nodes -days 365 ^
     -keyout /certs/server.key -out /certs/server.crt ^
     -subj "%SUBJ%" -addext "%SAN%"

@@ -1,0 +1,5 @@
+=== docker_stats  14/07/2026 22:50:20,39 ===
+NAME       CPU %     MEM USAGE / LIMIT     NET I/O           PIDS
+lab_dvwa   0.12%     122.4MiB / 3.673GiB   2.34MB / 6.77MB   41
+NAME             CPU %     MEM USAGE / LIMIT     NET I/O         PIDS
+lab_dobot_dvwa   0.00%     7.848MiB / 3.673GiB   201kB / 329kB   15

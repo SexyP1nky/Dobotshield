@@ -1,7 +1,7 @@
-=== health_probe  06/06/2026 18:25:34,37 ===
-URL: https://172.18.0.4:8443/vulnerabilities/xss_r/?name=test
-probe 1  code=302  time=0.009778s  bytes=0
-probe 2  code=302  time=0.010264s  bytes=0
-probe 3  code=302  time=0.009565s  bytes=0
-probe 4  code=302  time=0.014300s  bytes=0
-probe 5  code=302  time=0.010236s  bytes=0
+=== health_probe  14/07/2026 22:50:09,98 ===
+URL: https://172.23.0.8:8443/vulnerabilities/xss_r/?name=test
+probe 1  code=302  time=0.012523s  bytes=0
+probe 2  code=302  time=0.010170s  bytes=0
+probe 3  code=302  time=0.009640s  bytes=0
+probe 4  code=302  time=0.009306s  bytes=0
+probe 5  code=302  time=0.009174s  bytes=0

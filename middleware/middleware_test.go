@@ -49,6 +49,62 @@ func TestInjectForwardedHeadersRebuildsTrustedProxyChain(t *testing.T) {
 	}
 }
 
+func TestInjectForwardedHeadersUsesIncomingScheme(t *testing.T) {
+	for _, test := range []struct {
+		name string
+		url  string
+		want string
+	}{
+		{name: "http", url: "http://dobotshield.local/", want: "http"},
+		{name: "https", url: "https://dobotshield.local/", want: "https"},
+	} {
+		t.Run(test.name, func(t *testing.T) {
+			r := httptest.NewRequest(http.MethodGet, test.url, nil)
+			r.RemoteAddr = "203.0.113.10:49152"
+
+			injectForwardedHeaders(r, "203.0.113.10", "203.0.113.10", false)
+
+			if got := r.Header.Get("X-Forwarded-Proto"); got != test.want {
+				t.Fatalf("expected X-Forwarded-Proto=%q, got %q", test.want, got)
+			}
+		})
+	}
+}
+
+func TestSecureHandlerDoesNotDuplicateXForwardedForInReverseProxy(t *testing.T) {
+	forwardedFor := make(chan string, 1)
+	backend := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		forwardedFor <- r.Header.Get("X-Forwarded-For")
+		w.WriteHeader(http.StatusNoContent)
+	}))
+	defer backend.Close()
+
+	cfg := config.Config{
+		TargetURL:       backend.URL,
+		WAFMode:         "off",
+		MaxBodySize:     1 << 20,
+		EnableRateLimit: false,
+	}
+	proxy, err := BuildProxy(cfg)
+	if err != nil {
+		t.Fatalf("build proxy: %v", err)
+	}
+	handler := MakeSecureHandler(proxy, ratelimit.NewManager(100, 10, 20, 10), blocklist.New(nil), cfg)
+
+	req := httptest.NewRequest(http.MethodGet, "http://dobotshield.local/health", nil)
+	req.RemoteAddr = "203.0.113.10:49152"
+	req.Header.Set("X-Forwarded-For", "198.51.100.20")
+	rec := httptest.NewRecorder()
+	handler(rec, req)
+
+	if rec.Code != http.StatusNoContent {
+		t.Fatalf("expected backend status 204, got %d", rec.Code)
+	}
+	if got := <-forwardedFor; got != "203.0.113.10" {
+		t.Fatalf("expected one sanitized X-Forwarded-For value, got %q", got)
+	}
+}
+
 func TestWriteJSONErrorUsesGenericReason(t *testing.T) {
 	w := httptest.NewRecorder()
 
@@ -111,6 +167,7 @@ func TestBuildProxySetsConfiguredCSP(t *testing.T) {
 func TestBuildProxyBlocksBackendSQLLeak(t *testing.T) {
 	proxy, err := BuildProxy(config.Config{
 		TargetURL:                "http://localhost:4280",
+		EnableSanitizer:          true,
 		WAFMode:                  "block",
 		EnableResponseInspection: true,
 		ResponseInspectionLimit:  1024,
@@ -146,6 +203,7 @@ func TestBuildProxyBlocksBackendSQLLeak(t *testing.T) {
 func TestBuildProxyMonitorModeDoesNotBlockBackendLeak(t *testing.T) {
 	proxy, err := BuildProxy(config.Config{
 		TargetURL:                "http://localhost:4280",
+		EnableSanitizer:          true,
 		WAFMode:                  "monitor",
 		EnableResponseInspection: true,
 		ResponseInspectionLimit:  1024,

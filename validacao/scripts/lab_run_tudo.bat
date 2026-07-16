@@ -1,14 +1,15 @@
 @echo off
 REM ============================================================================
-REM  lab_run_tudo.bat  --  Executa a bancada completa sem interacao manual
+REM  lab_run_tudo.bat  --  Executa a bateria automatizada da bancada
 REM
 REM  Ordem:
 REM    1) lab_00_setup.bat
 REM    2) lab_01_subir.bat
 REM    3) lab_02_testssl.bat ... lab_07_wrk.bat
+REM    4) lab_09_e2e_produto.bat (produto e configuracao via HTML)
 REM
 REM  Alem dos logs individuais de cada ferramenta, grava:
-REM    - lab_results\run_<timestamp>.log
+REM    - validacao\results\run_<timestamp>.log
 REM    - 00_pre_battery_* e 99_post_battery_* por app/cenario
 REM    - 99_backend_full.log e 99_waf_full.log por app/cenario
 REM    - SUMMARY.txt por app/cenario
@@ -18,11 +19,12 @@ setlocal enableextensions enabledelayedexpansion
 
 set "ROOT=%~dp0"
 if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+for %%I in ("%ROOT%\..") do set "LAB_ROOT=%%~fI"
 
-set "RESULTS=%ROOT%\lab_results"
+set "RESULTS=%LAB_ROOT%\results"
 set "LIB=%ROOT%\lab_lib.bat"
 set "NET=dobotshield_waflab"
-set "IMG_CURL=curlimages/curl:latest"
+set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
 set "FAIL=0"
 
 if not exist "%RESULTS%" mkdir "%RESULTS%"
@@ -40,21 +42,27 @@ echo   DoBotShield Lab -- BATERIA COMPLETA
 echo   Log mestre: %RUN_LOG%
 echo ============================================================
 
-call :run_step "00_setup" "%ROOT%\lab_00_setup.bat" true
-if errorlevel 1 exit /b %ERRORLEVEL%
+if /i "%LAB_SKIP_BOOTSTRAP%"=="1" (
+    echo [INFO] setup/subida ja validados nesta rodada; mantendo os mesmos containers.
+    >> "%RUN_LOG%" echo [INFO] LAB_SKIP_BOOTSTRAP=1: setup/subida mantidos.
+) else (
+    call :run_step "00_setup" "%ROOT%\lab_00_setup.bat" true
+    if errorlevel 1 exit /b !ERRORLEVEL!
 
-call :run_step "01_subir" "%ROOT%\lab_01_subir.bat" true
-if errorlevel 1 exit /b %ERRORLEVEL%
+    call :run_step "01_subir" "%ROOT%\lab_01_subir.bat" true
+    if errorlevel 1 exit /b !ERRORLEVEL!
+)
 
 call :resolve_ips
 call :battery_snapshot "00_pre_battery"
 
 call :run_step "02_testssl"  "%ROOT%\lab_02_testssl.bat"  false
-call :run_step "03_zap"      "%ROOT%\lab_03_zap.bat"      false
+call :run_step "03_zap"      "%ROOT%\lab_03_zap_isolado.bat" false
 call :run_step "04_sqlmap"   "%ROOT%\lab_04_sqlmap.bat"   false
 call :run_step "05_xsstrike" "%ROOT%\lab_05_xsstrike.bat" false
 call :run_step "06_commix"   "%ROOT%\lab_06_commix.bat"   false
 call :run_step "07_wrk"      "%ROOT%\lab_07_wrk.bat"      false
+call :run_step "09_e2e_produto" "%ROOT%\lab_09_e2e_produto.bat" false
 
 call :resolve_ips
 call :battery_snapshot "99_post_battery"

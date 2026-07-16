@@ -1,10 +1,10 @@
-=== testssl.sh | dvwa/coraza | 172.18.0.7:443 | 06/06/2026 15:56:59,78 ===
-CMD: docker run --rm --network dobotshield_waflab drwetter/testssl.sh:latest --quiet --color 0 --warnings off --connect-timeout 10 --openssl-timeout 10 172.18.0.7:443
+=== testssl.sh | dvwa/coraza | 172.23.0.6:443 | 14/07/2026 19:26:47,25 ===
+CMD: docker run --rm --network dobotshield_waflab drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce --quiet --color 0 --warnings off --connect-timeout 10 --openssl-timeout 10 172.23.0.6:443
 ----------------------------------------------------------------
 
- Start 2026-06-06 18:57:02        -->> 172.18.0.7:443 (172.18.0.7) <<--
+ Start 2026-07-14 22:26:49        -->> 172.23.0.6:443 (172.23.0.6) <<--
 
- rDNS (172.18.0.7):      lab_coraza_dvwa.dobotshield_waflab.
+ rDNS (172.23.0.6):      lab_coraza_dvwa.dobotshield_waflab.
  Service detected:       HTTP
 
  Testing protocols via sockets except NPN+ALPN 
@@ -87,17 +87,17 @@ TLSv1.3 (no server order, thus listed by strength)
  Server key size              RSA 2048 bits (exponent is 65537)
  Server key usage             --
  Server extended key usage    --
- Serial                       3825342733CCA8FDE64A1FE5404E3A4D15A79EE0 (OK: length 20)
- Fingerprints                 SHA1 47EA277A276CAAAF52AE37B24767A0DBFF37C88D
-                              SHA256 6592D84671FD1B37708219F60353E560F3FF1A603873423A52A1EC5DE9A5FB2C
+ Serial                       7E58671B831E15C42C0B478ADD84EAA206109D81 (OK: length 20)
+ Fingerprints                 SHA1 30EB5C6FAE523C80301336E2E2301312E52856A9
+                              SHA256 E00402647DC8095A49C790801F28CBEFC616B24C54C30971BED8BED392269E27
  Common Name (CN)             localhost 
- subjectAltName (SAN)         localhost dvwa juiceshop dobot_dvwa dobot_juice
-                              coraza_dvwa coraza_juice modsec_dvwa modsec_juice
+ subjectAltName (SAN)         localhost dvwa xvwa dobot_dvwa dobot_xvwa
+                              coraza_dvwa coraza_xvwa modsec_dvwa modsec_xvwa
                               127.0.0.1 
  Trust (hostname)             certificate does not match supplied URI
  Chain of trust               NOT ok (self signed)
  EV cert (experimental)       no 
- Certificate Validity (UTC)   358 >= 60 days (2026-05-31 02:51 --> 2027-05-31 02:51)
+ Certificate Validity (UTC)   363 >= 60 days (2026-07-13 10:41 --> 2027-07-13 10:41)
  ETS/"eTLS", visibility info  not present
  Certificate Revocation List  --
  OCSP URI                     --
@@ -142,7 +142,7 @@ TLSv1.3 (no server order, thus listed by strength)
  FREAK (CVE-2015-0204)                     not vulnerable (OK)
  DROWN (CVE-2016-0800, CVE-2016-0703)      not vulnerable on this host and port (OK)
                                            make sure you don't use this certificate elsewhere with SSLv2 enabled services, see
-                                           https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=6592D84671FD1B37708219F60353E560F3FF1A603873423A52A1EC5DE9A5FB2C
+                                           https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=E00402647DC8095A49C790801F28CBEFC616B24C54C30971BED8BED392269E27
  LOGJAM (CVE-2015-4000), experimental      not vulnerable (OK): no DH EXPORT ciphers, no DH key detected with <= TLS 1.2
  BEAST (CVE-2011-3389)                     not vulnerable (OK), no SSL3 or TLS1
  LUCKY13 (CVE-2013-0169), experimental     not vulnerable (OK)
@@ -205,7 +205,7 @@ TLSv1.3 (no server order, thus listed by strength)
                               Grade capped to
                                 M. Domain name mismatch
 
- Done 2026-06-06 18:57:57 [  57s] -->> 172.18.0.7:443 (172.18.0.7) <<--
+ Done 2026-07-14 22:27:37 [  49s] -->> 172.23.0.6:443 (172.23.0.6) <<--
 
 
 

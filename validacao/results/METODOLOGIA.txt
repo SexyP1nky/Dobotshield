@@ -1,12 +1,10 @@
-# Rodada gerada em 06/06/2026 22:20:41,60
-
-
+============================================================================
  BANCADA COMPARATIVA DE WAFs  --  METODOLOGIA
  DoBotShield  vs  ModSecurity (CRS)  vs  Coraza (CRS)
-
+============================================================================
 
 1. OBJETIVO
-
+---------------------------------------------------------------------------
 Avaliar, de forma reproduzivel e padronizada, a eficacia de tres Web
 Application Firewalls protegendo duas aplicacoes propositalmente
 vulneraveis, comparando-os a um baseline SEM WAF. Os WAFs avaliados:
@@ -23,7 +21,7 @@ Aplicacoes-alvo (open source, propositalmente vulneraveis):
 
 
 2. MATRIZ DE TESTES
-
+---------------------------------------------------------------------------
 2 aplicacoes  x  4 cenarios de protecao  x  6 ferramentas  =  48 testes.
 
 Cenarios por aplicacao:
@@ -42,7 +40,7 @@ Ferramentas (todas open source, executadas em containers):
 
 
 3. MAPA DE PORTAS E ALVOS (rede interna Docker: dobotshield_waflab)
-
+---------------------------------------------------------------------------
 As FERRAMENTAS rodam como containers na MESMA rede dos alvos e os acessam
 por IP:porta interno dos containers, resolvido no inicio de cada .bat. As
 portas mapeadas no host servem apenas para inspecao manual via browser.
@@ -60,7 +58,7 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 
 4. PADRONIZACAO E JUSTICA EXPERIMENTAL
-
+---------------------------------------------------------------------------
 - Para CADA ferramenta, os parametros de ataque sao IDENTICOS nos quatro
   cenarios de uma mesma aplicacao. SO a URL de destino muda. Isso garante
   comparabilidade direta: nenhum cenario e "privilegiado".
@@ -115,6 +113,13 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 - XSStrike: 10 threads, --skip-dom, sem --crawl; alvo no parametro refletido.
 
+- ZAP: full-scan autenticado no DVWA e com os mesmos parametros nos oito alvos.
+  Para evitar que uma limitacao de memoria da bancada interrompa o processo Java,
+  a regra ativa 40026 (DOM XSS) e marcada como IGNORE por zap_rules.tsv em TODOS
+  os cenarios. A exclusao e uniforme e nao altera nenhum WAF; XSS refletido segue
+  coberto pelo proprio ZAP e pelo XSStrike. Os alvos sao executados de forma
+  sequencial, mantendo ativos apenas o backend e o WAF do cenario corrente.
+
 - NOTA DE JUSTICA/EVASAO: o tamper (SQLMap) e os endpoints/payloads sao
   IDENTICOS no no_waf e nos 3 WAFs. Eles tornam o ataque mais realista (com
   ofuscacao leve) e sao aplicados igualmente -> a comparacao permanece justa;
@@ -123,7 +128,8 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 - Os --delay (SQLMap 0.3s; Commix 1s) NAO sao alterados entre cenarios.
 
 - wrk e, por definicao, um teste de carga/DoS: dispara sem delay (12 threads
-  x 400 conexoes x 30s), identico em todos os cenarios. Mede throughput e
+  x 400 conexoes x 30s), em 3 repeticoes por cenario e identico em todos os
+  cenarios. Mede throughput e
   resiliencia, nao deteccao de payload.
 
 - DVWA exige autenticacao. Faz-se login automatico (admin/password), define-se
@@ -147,7 +153,7 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 
 5. CONFIGURACAO DOS WAFs
-
+---------------------------------------------------------------------------
 - ModSecurity / Coraza: OWASP CRS, paranoia 1, anomaly inbound 5 / outbound 4
   (CRS), modo bloqueio. TLS terminado pelo proprio WAF.
 
@@ -169,8 +175,8 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 
 6. ESTRUTURA DOS RESULTADOS
-
-  lab_results/
+---------------------------------------------------------------------------
+  validacao/results/
     METODOLOGIA.txt                  (este documento, com timestamp da rodada)
     <app>/<cenario>/
         01_testssl.log               saida da ferramenta (1 log por teste)
@@ -188,9 +194,13 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 Cada .log de ferramenta comeca com um cabecalho contendo o comando docker
 EXATO executado e o timestamp -- garantindo reprodutibilidade.
 
+Os resultados publicados correspondem somente a rodada consolidada de 48
+execucoes e ao E2E automatizado do produto. Tentativas interrompidas por falha
+de infraestrutura e artefatos temporarios nao fazem parte da entrega.
+
 
 7. COMO REPRODUZIR (ordem de execucao)
-
+---------------------------------------------------------------------------
 Pre-requisito: Docker Desktop em execucao, com compartilhamento de arquivos
 habilitado para o drive do projeto (padrao no backend WSL2).
 
@@ -201,22 +211,29 @@ habilitado para o drive do projeto (padrao no backend WSL2).
                           saude de cada um e garante o banco do XVWA.
   3) Rode as ferramentas (cada uma cobre os 8 alvos):
         lab_02_testssl.bat
-        lab_03_zap.bat
+        lab_03_zap_isolado.bat
         lab_04_sqlmap.bat
         lab_05_xsstrike.bat
         lab_06_commix.bat
         lab_07_wrk.bat
-     (ou lab_run_tudo.bat para executar 1->2->todas as ferramentas em sequencia)
+     Rode lab_09_e2e_produto.bat para validar ponta a ponta a configuracao
+     exportada pela interface, o proxy/WAF, os headers, o treinamento e o relatorio.
+     (ou lab_run_tudo.bat para executar 1->2->todas as ferramentas e o E2E
+      automatizado em sequencia)
   9) lab_99_derrubar.bat  derruba e limpa o lab.
 
 As ferramentas sao independentes: podem ser rodadas em qualquer ordem,
 desde que o lab esteja no ar (passos 1 e 2 concluidos).
+============================================================================
 
 
-
-
- 8. ESTADO ATUAL DA BANCADA (ultima atualizacao: 2026-06-06, pos-bateria completa)
-
+============================================================================
+ 8. HISTORICO TECNICO DA BANCADA (registro encerrado em 2026-06-06)
+ATENCAO: esta secao preserva o historico de diagnosticos da bancada anterior e
+nao deve ser usada como resultado da rodada de 14/07/2026. Para os numeros
+atuais, consulte validacao/docs/RELATORIO_RESULTADOS.md, ANALISE_RESULTADOS.json e os
+logs brutos da pasta results/.
+============================================================================
 
 CORRECOES APLICADAS E VALIDADAS (OK):
   [OK] XSStrike: adicionado --skip. Sem ele, rodando via "docker run" sem TTY,
@@ -302,9 +319,9 @@ LIMITACAO CONHECIDA:
     viavel para fazer XSStrike ou Commix falharem o DoBotShield mantendo input
     identico para todos.
 
-
+============================================================================
 ANALISE DOS RESULTADOS (revisao 2026-06-06) -- 4 pontos verificados
-
+============================================================================
 
 PONTO 1 -- ZAP no XVWA gera poucos alertas (e a comparacao com WAF):
   Contagem de TIPOS de alerta (e instancias) extraida dos zap_report.json:
@@ -366,7 +383,7 @@ REQUISITO "nao parar prematuramente por causa de input" -- estado por ferramenta
 FIX IMPLEMENTADO (Ponto 1) -- seed do XVWA no ZAP (zap_hook.py):
   Decisao do usuario: semear as URLs vulneraveis do XVWA, com INPUT IDENTICO nos
   4 cenarios do XVWA (so o host:porta muda), e o DVWA INTOCADO.
-  Implementacao 100% no lab_scripts/zap_hook.py (que ja e passado via --hook a
+  Implementacao 100% no validacao/helpers/zap_hook.py (que ja e passado via --hook a
   TODOS os scans). O hook detecta o XVWA pelo alvo ("/xvwa" na URL) e:
     (1) liga no spider postForm/processForm/handleParameters=USE_ALL/maxChildren=0
         -> o spider passa a SUBMETER os forms POST e descobrir params sozinho;
@@ -402,4 +419,146 @@ FIX IMPLEMENTADO (Ponto 1) -- seed do XVWA no ZAP (zap_hook.py):
     lab_03_zap_one.bat xvwa dobotshield "https://<ip_dobot>:443/xvwa/"     lab_xvwa lab_dobot_xvwa  ""
     lab_03_zap_one.bat xvwa coraza      "https://<ip_coraza>:443/xvwa/"    lab_xvwa lab_coraza_xvwa ""
   (IPs via docker inspect; e o trecho identico ao lab_03_zap.bat, so sem o DVWA.)
+============================================================================
 
+AUDITORIA HTML / RELATORIO DE TREINAMENTO (admin-config + training-report)
+----------------------------------------------------------------------------
+  PASTA DUPLICADA (Ponto 1): a versao atual e a RAIZ (main--). A pasta
+  aninhada DoBotshield-main\DoBotshield-main e a extracao crua do ZIP
+  (DoBotshield-main.zip), congelada em 30/05/2026. Provas:
+    - main.go raiz (4105 b, 02/06) tem a integracao do traininglog; o main.go
+      aninhado (3791 b, 30/05) NAO tem (diff confirma 3 blocos a mais na raiz).
+    - So a raiz tem lab_0X_*_one.bat, lab_METODOLOGIA, lab_RELATORIO, report/,
+      traininglog/, cmd/report. A aninhada ainda usa o monolitico
+      run_lab_tests.bat. => a aninhada pode ser ignorada/apagada.
+
+  COMO O RELATORIO E GERADO (cadeia):
+    logs\training.jsonl  (log JSON Lines do Modo de Treinamento)
+      -> cmd\report\main.go            (le -in, escreve -out)
+        -> report\report.go  Build()   (agrega cards/categorias/IPs/timeline)
+        -> report\glossary.go          (texto didatico por categoria)
+        -> report\template.go Execute() (HTML autocontido: CSS+JS embutidos)
+      -> training-report.html          (artefato na raiz)
+    O botao "Abrir relatorio" do index.html (linha 175) e so um link estatico
+    <a href="../training-report.html">: NAO regenera nada, apenas abre o
+    arquivo que ja existe.
+
+  POR QUE PARECE "RELATORIO EXEMPLO/ANTIGO" (Ponto 2):
+    1) O proprio logs\training.jsonl e SEMENTE/DEMO: 11 eventos com IPs de
+       documentacao RFC5737 (203.0.113.x, 198.51.100.x, 192.0.2.x), zero
+       trafego real do lab (172.18.0.x). O Modo de Treinamento nunca foi
+       rodado de fato contra o lab para capturar ataques reais.
+    2) O botao nunca regenera; mostra o HTML de 03/06 como esta.
+    => Para um relatorio "de verdade": subir o WAF com TRAINING_MODE=true,
+       gerar trafego de ataque, depois rodar gerar_relatorio.bat.
+
+  END-TO-END (executado, tudo OK):
+    - go vet (report, cmd/report, traininglog) = limpo; go test = ok (2 pacotes).
+    - go run ./cmd/report regenerou o HTML a partir do log atual sem erro:
+      11 eventos (10 bloqueados/1 detectado), 4 IPs, 10 regras. Conteudo
+      BYTE-IDENTICO ao training-report.html atual exceto a data de geracao
+      => pipeline integro; o "exemplo" vem 100% do log-semente, nao de bug.
+    - Formulario admin (servido em :8100, /admin-config/index.html): geracao
+      PowerShell/Bash/.env correta; validacao de URL invalida -> "Revisao
+      pendente" + erro no campo + classe invalid; retorno a "Pronto"; abas
+      trocam o formato; link "Abrir relatorio" resolve p/ /training-report.html.
+    - training-report.html renderizado: 7 cards (11/10/1/10/1/4/10), 14 barras
+      (todas com largura aplicada via JS), 10 itens de glossario, 11 eventos,
+      contador "11 de 11", busca "jndi" filtra p/ 1, filtro de categoria com
+      11 opcoes. Console sem erros. Nenhum campo fora do lugar.
+
+  ONDE ALTERAR O TEXTO DO training-report.html (Ponto 3) -- so a escrita, nao
+  a logica. NAO editar training-report.html (e regenerado e sobrescreve):
+    - report\template.go : textos fixos da pagina (titulo, subtitulo do
+      cabecalho, rotulos dos 7 cards, titulos das secoes "Entenda os ataques"
+      e "Linha do tempo", placeholders dos filtros, rodape).
+    - report\glossary.go : texto didatico por ameaca (Title, Summary, Attack,
+      Defense e os Subtypes Name/Explanation/Example/Reading de XSS, SQLi,
+      CMD_INJ, JNDI, etc.) -- e o defaultCategoryInfo.
+    Depois de editar qualquer um, rodar gerar_relatorio.bat para o texto novo
+    aparecer no HTML.
+
+  CSS DO RELATORIO (Ponto 4 - FEITO): o CSS NAO estava "solto" escrito a mao no
+  training-report.html; vivia embutido em report\template.go (const reportHTML,
+  bloco <style>). Abordagem escolhida pelo usuario: EXTERNO + MANTER AUTOCONTIDO.
+  Implementacao (gerador, nao toca o WAF):
+    - NOVO admin-config\styles\report.css : fonte unica do visual, organizado em
+      secoes comentadas. Regras/valores IDENTICOS aos antigos (so + comentarios
+      e espacos) -> zero mudanca visual.
+    - NOVO report\cssloader.go : loadReportCSS() le o report.css (via
+      runtime.Caller, robusto ao diretorio; fallback p/ cwd; e um estilo minimo
+      de seguranca se o arquivo sumir) e devolve template.CSS (seguro).
+    - report\report.go : campo Report.CSS (template.CSS), preenchido no Build()
+      com loadReportCSS(); import html/template.
+    - report\template.go : o bloco <style>...</style> virou <style>{{.CSS}}</style>.
+    Resultado: o training-report.html GERADO continua autocontido (CSS embutido,
+    0 <link> externo), so que o CSS agora vem do report.css. Editar o visual =
+    editar admin-config\styles\report.css e rodar gerar_relatorio.bat.
+  Validacao: go vet/build/test OK; prova de equivalencia (minify) = CSS antigo
+  embutido == report.css == HTML gerado, 8386 chars identicos; render no
+  navegador confirma tokens aplicados (--bg, --accent, radius, sombra) e
+  estrutura intacta (7 cards/14 barras/10 glossario/11 eventos), sem <link>.
+
+  E2E EXAUSTIVO POS-REFATORACAO (campo a campo, no navegador):
+    training-report.html (25 checagens, todas OK): 7 cards com valores certos;
+      busca por payload/regra/caminho/IP; filtro por categoria e por fase;
+      busca+filtro combinados; contador; no-results; payload XSS aparece como
+      TEXTO e NAO injeta <script> vivo (escape ok); <details> de glossario e de
+      "explicar por evento" abrem com ataque+defesa+exemplo; soma das barras de
+      categoria = 11. (Obs: busca por 203.0.113.55 retorna 2 - correto, esse IP
+      aparece em 2 eventos: JNDI + CMD_INJ.)
+    admin-config\index.html (45 checagens, todas OK): os 21 campos validam
+      certo - cada obrigatorio rejeita invalido com a mensagem correta e aceita
+      valido; opcionais (wafAllowlist/blockedIps/rateLimitStateFile/
+      trainingLogFile) nao acusam erro vazios; wafMode valida o enum; os 5
+      checkboxes entram no .env/localStorage/reset. Geracao reflete valores nas
+      3 abas (PowerShell/Bash/.env); .env com 21 chaves + header; PowerShell
+      escapa aspas; persistencia em localStorage; reset restaura default, limpa
+      erro/localStorage e volta a "Pronto"; status global vira revisao quando
+      invalido. Console sem erros.
+
+  INCONSISTENCIA min HTML x validacao JS - CORRIGIDA (sentido: apertar a
+  validacao para honrar/EXIBIR o minimo correto; nunca afrouxar o exibido):
+    Antes: validateInteger exigia so inteiro>=1 e validateDecimal so >0, entao
+    maxBodySize aceitava 512 (min=1024) e rateLimit aceitava 0.05 (min=0.1).
+    Correcao (3 arquivos, so admin-config, nao toca WAF):
+      - config-schema.js : o minimo virou metadado do campo (min) em
+        CONFIG_FIELDS -> rateLimit 0.1; burstLimit/maxConns/maxTrackedIps 1;
+        maxBodySize/responseInspectionLimit 1024. Fonte UNICA do minimo.
+      - validators.js : validateInteger/validateDecimal recebem o min (lido do
+        schema via fieldMin()) e rejeitam abaixo dele, com a mensagem exibindo
+        o valor ("... deve ser no minimo 1024." / "no minimo 0.1.").
+      - app.js : syncFieldConstraints() espelha esse min no atributo min de cada
+        input no init -> o numero exibido no formulario e o cobrado pela
+        validacao vem do MESMO lugar (impossivel divergir de novo).
+    OBS: rateLimit fracionario < 1 continua VALIDO (ex 0.5); o piso e 0.1, nao 1.
+    Validacao no navegador (24 + 9 checagens, todas OK): 512/1023 -> erro "no
+    minimo 1024"; 1024 -> ok; 0.05 -> erro "no minimo 0.1"; 0.1 e 0.5 -> ok;
+    0/abc -> erro; 1.5 -> "numero inteiro"; atributos min dos inputs espelham o
+    schema; default -> Pronto; regressao dos demais campos/.env/abas/reset OK;
+    console sem erros.
+
+  E2E FINAL DE FIDELIDADE (foco: relatorio nao pode embaralhar/inventar/omitir):
+    A) Relatorio x log REAL (logs\training.jsonl, 11 eventos): comparacao campo
+       a campo no DOM renderizado contra o JSON, casando por request_id -
+       11 eventos x 11 campos (request_id, category, phase, action, ip, method,
+       path, rule, location, payload, variants) = 121 comparacoes, ZERO
+       divergencia. Ordem identica ao log ordenado por timestamp; nenhum
+       request_id inventado/omitido. Os 7 cards, as barras de categoria e de IP,
+       o glossario e o dropdown de filtro recomputados do log batem 100% (XSS=1,
+       SQLi=2,... ; IPs 198.51.100.23=4/203.0.113.10=3/192.0.2.88=2/203.0.113.55=2).
+    B) Teste de CONTROLE (log sintetico com armadilhas, 4 eventos): timestamps
+       fora de ordem, IPs/payloads trocaveis e 1 categoria fora do glossario.
+       Resultado: ordenou por timestamp (idA,idB,idC,idD); cada evento manteve
+       seu proprio ip/payload/categoria/regra/metodo/acao/path (PAYLOAD_A ficou
+       com 10.0.0.1, PAYLOAD_B com 10.0.0.2 - sem troca); regras deduplicadas
+       (3, nao 4); categoria desconhecida FOO_BAR_CUSTOM caiu no fallback usando
+       o proprio nome como titulo (nao inventou); payload com <x> exibido como
+       texto (escape). 16/16 OK. (arquivos _fid.* removidos apos o teste.)
+    C) Admin index.html - matriz final consolidada: 52 checagens, 0 falha
+       (21 campos invalidos com a mensagem certa, validos sem erro, opcionais,
+       5 checkboxes, wafMode enum, mins espelhando o schema, geracao nas 3 abas,
+       .env 21 chaves, quoting PowerShell, persistencia, reset, status).
+    Conclusao: o relatorio reflete fielmente os ataques do log, sem embaralhar,
+    inventar ou omitir; todos os campos do admin corretos. Console sem erros.
+============================================================================

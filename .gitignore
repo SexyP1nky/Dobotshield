@@ -4,6 +4,12 @@ dobotshield.exe
 build/
 dist/
 
+# Evidências versionadas da validação do próprio DoBotShield
+!validacao/results/dvwa/dobotshield/
+!validacao/results/dvwa/dobotshield/**
+!validacao/results/xvwa/dobotshield/
+!validacao/results/xvwa/dobotshield/**
+
 # Material TLS — gerar localmente com certificado/gerar_cert.go
 *.crt
 *.key
@@ -12,16 +18,16 @@ dist/
 # Ambiente local
 .env
 *.env
+!validacao/results/e2e_produto/config-gerada.env
 
 # Cache e estado em tempo de execucao
 .gocache/
 state/
 ratelimit.json
 
-# Modo de Treinamento — log estruturado e relatorio gerado
+# Modo de Treinamento — logs locais de execução
 logs/training.jsonl
 logs/training/
-training-report.html
 
 # Ferramentas de seguranca baixadas localmente
 ferramentas/sqlmap/

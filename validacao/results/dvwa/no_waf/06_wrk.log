@@ -1,19 +1,57 @@
-=== wrk | dvwa/no_waf | http://172.18.0.2:80 | 06/06/2026 18:41:56,40 ===
-CMD: wrk -t12 -c400 -d30s --timeout 5s --latency http://172.18.0.2:80
+=== wrk | dvwa/no_waf | http://172.23.0.3:80 | 15/07/2026  8:26:12,04 ===
+REPETICOES: 3
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" http://172.23.0.3:80
 ----------------------------------------------------------------
-Running 30s test @ http://172.18.0.2:80
+
+=== REPETICAO 1/3 ===
+Running 30s test @ http://172.23.0.3:80
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   658.49ms    1.09s    5.00s    81.99%
-    Req/Sec     0.90k   679.93     6.87k    68.85%
+    Latency   428.64ms  912.79ms   4.98s    86.13%
+    Req/Sec     0.90k     1.07k   12.50k    87.49%
   Latency Distribution
-     50%   27.58ms
-     75%    1.05s 
-     90%    2.57s 
+     50%   20.30ms
+     75%   95.23ms
+     90%    1.90s 
+     99%    3.90s 
+  190147 requests in 30.10s, 76.74MB read
+  Socket errors: connect 0, read 0, write 0, timeout 661
+Requests/sec:   6317.88
+Transfer/sec:      2.55MB
+RUN_RC_1=0
+
+=== REPETICAO 2/3 ===
+Running 30s test @ http://172.23.0.3:80
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   425.49ms  895.99ms   5.00s    86.30%
+    Req/Sec   605.92    626.09     4.59k    82.14%
+  Latency Distribution
+     50%   22.06ms
+     75%  106.95ms
+     90%    1.82s 
      99%    3.93s 
-  216932 requests in 30.09s, 87.55MB read
-  Socket errors: connect 0, read 0, write 0, timeout 272
-Requests/sec:   7209.31
-Transfer/sec:      2.91MB
+  191981 requests in 30.09s, 77.48MB read
+  Socket errors: connect 0, read 0, write 0, timeout 517
+Requests/sec:   6379.55
+Transfer/sec:      2.57MB
+RUN_RC_2=0
+
+=== REPETICAO 3/3 ===
+Running 30s test @ http://172.23.0.3:80
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   418.07ms  886.10ms   5.00s    86.40%
+    Req/Sec   653.99    651.41     4.12k    80.63%
+  Latency Distribution
+     50%   22.17ms
+     75%  109.60ms
+     90%    1.79s 
+     99%    3.86s 
+  189920 requests in 30.10s, 76.65MB read
+  Socket errors: connect 0, read 0, write 0, timeout 539
+Requests/sec:   6310.13
+Transfer/sec:      2.55MB
+RUN_RC_3=0
 
 TOOL_RC=0

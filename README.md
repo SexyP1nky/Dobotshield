@@ -21,6 +21,7 @@ A ideia é simples: em vez de expor a aplicação diretamente na internet, os cl
 ## O que ele não faz
 
 - **Não substitui a validação no backend.** É uma camada adicional, baseada em regex. Ela reduz a superfície de ataque, mas não garante cobertura total; a aplicação continua precisando tratar suas próprias entradas.
+- **Não bloqueia todos os payloads possíveis.** Na bancada de 14 de julho de 2026, uma SQLi booleana com ofuscação leve continuou explorável através do DoBotShield. O resultado foi mantido como limitação real, sem ajuste de regra para ocultá-lo.
 
 ---
 
@@ -143,6 +144,12 @@ Em vez de digitar as variáveis manualmente, abra `admin-config/index.html` em q
 
 ### Nível 2 — Containers
 
+No sentido estrito do modelo C4, o caminho de rede do DoBotShield contém um
+único contêiner executável: o binário Go. Os blocos `waf/`, `ratelimit/`,
+`middleware/`, `blocklist/` e `config/` abaixo são componentes internos desse
+mesmo processo. A Admin UI, o log JSON Lines e o gerador de relatório são
+artefatos de apoio e não participam do encaminhamento de requisições.
+
 ```text
 +------------------------------------------------------------------------+
 |                           DoBotShield                                  |
@@ -208,7 +215,7 @@ Em vez de digitar as variáveis manualmente, abra `admin-config/index.html` em q
 |  CheckResponse(resp, body)                       |
 |    - RESPONSE_SQL_ERROR                          |
 |    - RESPONSE_STACK_TRACE                        |
-|    - RESPONSE_XSS_REFLECTION                     |
+|    - RESPONSE_XSS_PATTERN                        |
 |    - RESPONSE_FILE_LEAK                          |
 +--------------------------------------------------+
 ```
@@ -309,7 +316,7 @@ Resposta ao cliente
 | `TRAINING_MODE` | `true` | Registra cada bloqueio em JSON estruturado (Modo de Treinamento) |
 | `TRAINING_LOG_FILE` | `logs/training.jsonl` | Arquivo JSON Lines do Modo de Treinamento |
 
-Os valores booleanos aceitam `true`, `false`, `1`, `0`, `yes`, `no`, `on`, `off`, `enabled`, `disabled`, além de `t`/`f` e `y`/`n`. Campos numéricos com valor inválido ou menor/igual a zero retornam ao padrão. A única exceção é `HTTP_MODE`, que só é ativado pelo valor exato `true`.
+Os valores booleanos aceitam `true`, `false`, `1`, `0`, `yes`, `no`, `on`, `off`, `enabled`, `disabled`, além de `t`/`f` e `y`/`n`, inclusive em `HTTP_MODE`. Campos numéricos com valor inválido ou menor/igual a zero retornam ao padrão.
 
 ---
 
@@ -362,7 +369,7 @@ O registro é totalmente aditivo: nunca altera a decisão do WAF e, em caso de f
 
 **Requisição:** XSS, SQLi, CMD_INJ, PATH_TRAVERSAL, SSRF, XXE, JNDI, NoSQLi, SSTI, PROTOTYPE_POLLUTION, OPEN_REDIRECT, HTTP_HEADER_INJECTION
 
-**Resposta:** RESPONSE_SQL_ERROR, RESPONSE_STACK_TRACE, RESPONSE_XSS_REFLECTION, RESPONSE_FILE_LEAK
+**Resposta:** RESPONSE_SQL_ERROR, RESPONSE_STACK_TRACE, RESPONSE_XSS_PATTERN, RESPONSE_FILE_LEAK
 
 ---
 
@@ -375,7 +382,7 @@ Get-FileHash .\dobotshield.exe -Algorithm SHA256
 
 # Testes automatizados
 $env:GOCACHE = Join-Path (Get-Location) '.gocache'
-go test ./...
+go test -count=1 ./...
 ```
 
 ---
@@ -405,13 +412,25 @@ lab_00_setup.bat       # checa o Docker, gera o certificado, sobe o DVWA,
                        # captura o cookie e cria o banco do XVWA
 lab_01_subir.bat       # sobe todos os containers (aplicações + WAFs)
 lab_02_testssl.bat     # testssl.sh
-lab_03_zap.bat         # OWASP ZAP
+lab_03_zap_isolado.bat # OWASP ZAP, um alvo por vez
 lab_04_sqlmap.bat      # SQLMap
 lab_05_xsstrike.bat    # XSStrike
 lab_06_commix.bat      # Commix
 lab_07_wrk.bat         # wrk
+lab_09_e2e_produto.bat # configuração gerada pela UI + proxy/WAF/relatório ponta a ponta
 lab_99_derrubar.bat    # derruba o lab
 ```
+
+O ZAP usa a mesma política nos oito destinos e ignora uniformemente a regra
+ativa 40026 (DOM XSS), que encerrava o processo Java nesta bancada. XSS
+refletido continua coberto pelo ZAP e pelo XSStrike. O `wrk` executa três
+repetições por cenário. A entrega contém somente a rodada consolidada; tentativas
+interrompidas por falha de infraestrutura não fazem parte dos resultados.
+
+O E2E do produto usa um payload de injeção de comando coberto pelas regras
+(`;id`) e valida, além do bloqueio, as 23 variáveis exportadas pela interface,
+inspeção de resposta, treinamento, relatório, X-Forwarded-For e
+X-Forwarded-Proto.
 
 Os resultados ficam em `validacao/results/<app>/<cenario>/`, com um log por ferramenta, snapshots de saúde/recursos, relatórios do ZAP e logs dos WAFs. A entrega atual contém resultados para:
 
@@ -419,6 +438,22 @@ Os resultados ficam em `validacao/results/<app>/<cenario>/`, com um log por ferr
 - `xvwa/no_waf`, `xvwa/dobotshield`, `xvwa/modsecurity`, `xvwa/coraza`.
 
 O resumo interpretativo está em [validacao/docs/RELATORIO_RESULTADOS.md](validacao/docs/RELATORIO_RESULTADOS.md), e a metodologia completa está em [validacao/docs/METODOLOGIA.txt](validacao/docs/METODOLOGIA.txt).
+
+Para conferir os artefatos já publicados sem repetir as ferramentas de terceiros:
+
+```powershell
+python validacao/tools/audit_validation.py validacao/results
+python validacao/tools/audit_tool_inputs.py validacao/results
+python validacao/tools/audit_training_report.py `
+  validacao/results/e2e_produto/e2e-training.jsonl training-report.html
+node --test admin-config/tests/admin-config.test.mjs
+go test -count=1 ./...
+```
+
+As duas primeiras auditorias verificam os 48 logs, os oito JSONs do ZAP, os
+códigos de saída, as três repetições do `wrk` e a paridade dos comandos entre
+cenários. A terceira recalcula os indicadores do relatório HTML a partir do log
+JSON Lines que o originou.
 
 ---
 
@@ -443,6 +478,7 @@ O resumo interpretativo está em [validacao/docs/RELATORIO_RESULTADOS.md](valida
 |   |   |-- render.js
 |   |   |-- storage.js
 |   |   `-- validators.js
+|   |-- tests/                 Teste automatizado dos 23 campos exportados
 |   `-- styles/
 |       |-- tokens.css         Design tokens
 |       |-- base.css           Estilos base
@@ -450,7 +486,8 @@ O resumo interpretativo está em [validacao/docs/RELATORIO_RESULTADOS.md](valida
 |       `-- report.css         CSS do relatório de treinamento
 |
 |-- blocklist/
-|   `-- blocklist.go           Bloqueio por IP e CIDR
+|   |-- blocklist.go           Bloqueio por IP e CIDR
+|   `-- blocklist_test.go
 |
 |-- config/
 |   |-- config.go              Leitura de variáveis de ambiente
@@ -493,13 +530,9 @@ O resumo interpretativo está em [validacao/docs/RELATORIO_RESULTADOS.md](valida
 |-- certificado/
 |   `-- gerar_cert.go          Gerador de certificado autoassinado
 |
-|-- logs/                      Log estruturado do Modo de Treinamento
-|   `-- training.jsonl
-|
 |-- validacao/                 Bancada de comparação de WAFs (validação do TCC)
 |   |-- docker-compose.demo.yml  Lab de demonstração: DVWA + Mutillidae
 |   |-- docker-compose.lab.yml   Bancada de comparação: DVWA + XVWA, 4 cenários
-|   |-- certs/                   Certificado e chave usados no laboratório
 |   |-- docker/                  Dockerfiles da bancada
 |   |   |-- coraza/              Coraza + Caddy + CRS
 |   |   |-- lab-tools/           Imagem com SQLMap, XSStrike e Commix
@@ -511,22 +544,36 @@ O resumo interpretativo está em [validacao/docs/RELATORIO_RESULTADOS.md](valida
 |   |   `-- DOS_LOG_GUIDE.md     Guia do teste de carga/DoS
 |   |-- helpers/                 Scripts auxiliares (login DVWA, setup XVWA, hook ZAP)
 |   |-- results/                 Logs e evidências da bancada de validação
-|   |   |-- dvwa/
-|   |   `-- xvwa/
-|   `-- scripts/                 Scripts .bat do laboratório
-|       |-- lab_00_setup.bat
-|       |-- lab_01_subir.bat
-|       |-- lab_02_testssl.bat
-|       |-- lab_03_zap.bat
-|       |-- lab_04_sqlmap.bat
-|       |-- lab_05_xsstrike.bat
-|       |-- lab_06_commix.bat
-|       |-- lab_07_wrk.bat
-|       |-- lab_run_tudo.bat
-|       |-- lab_99_derrubar.bat
-|       `-- lab_lib.bat
+|   |   |-- dvwa/                4 cenários × 6 ferramentas
+|   |   |-- xvwa/                4 cenários × 6 ferramentas
+|   |   |-- e2e_produto/         Evidências do teste ponta a ponta
+|   |   |-- ANALISE_RESULTADOS.json
+|   |   |-- AUDITORIA_INPUTS.json
+|   |   |-- RESUMO_RESULTADOS.txt
+|   |   `-- 99_final_health.txt
+|   |-- scripts/                 Scripts .bat/.ps1 do laboratório
+|   |   |-- lab_00_setup.bat
+|   |   |-- lab_01_subir.bat
+|   |   |-- lab_02_testssl.bat
+|   |   |-- lab_03_zap_isolado.bat
+|   |   |-- lab_04_sqlmap.bat
+|   |   |-- lab_05_xsstrike.bat
+|   |   |-- lab_06_commix.bat
+|   |   |-- lab_07_wrk.bat
+|   |   |-- lab_09_e2e_produto.bat
+|   |   |-- lab_run_tudo.bat
+|   |   |-- lab_99_derrubar.bat
+|   |   `-- lab_lib.bat
+|   `-- tools/                   Auditorias reproduzíveis dos resultados
+|       |-- audit_validation.py
+|       |-- audit_tool_inputs.py
+|       |-- audit_training_report.py
+|       |-- analyze_validation_results.py
+|       |-- generate_validation_report.py
+|       `-- create_manifest.py
 |
 |-- gerar_relatorio.bat        Gera e abre o training-report.html
 |-- MODO_TREINAMENTO.md        Documentação do Modo de Treinamento
+|-- SHA256_MANIFEST.txt        Hash de todos os arquivos versionados da entrega
 `-- training-report.html       Relatório HTML gerado do Modo de Treinamento
 ```

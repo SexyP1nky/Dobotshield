@@ -126,6 +126,19 @@
     return createResult(true);
   }
 
+  function validateOptionalIpCsv(value) {
+    var items = splitCsv(value);
+    var invalidItems = items.filter(function findInvalidIp(item) {
+      return !isLikelyIp(item);
+    });
+
+    if (invalidItems.length > 0) {
+      return createResult(false, "Revise IPs: " + invalidItems.join(", "));
+    }
+
+    return createResult(true);
+  }
+
   function validateTrustedProxies(value) {
     var items = splitCsv(value);
 
@@ -193,6 +206,10 @@
         return false;
       }
 
+      if (part.length > 1 && part.charAt(0) === "0") {
+        return false;
+      }
+
       var numberValue = Number(part);
       return numberValue >= 0 && numberValue <= 255;
     });
@@ -200,13 +217,25 @@
 
   function isIPv6Candidate(value) {
     var cleanValue = String(value || "").trim();
-    return cleanValue.includes(":") && /^[0-9a-fA-F:]+$/.test(cleanValue) && cleanValue.length <= 45;
+    if (!cleanValue.includes(":") || cleanValue.includes("%") || cleanValue.length > 45) {
+      return false;
+    }
+
+    try {
+      var parsed = new URL("http://[" + cleanValue + "]/" );
+      return parsed.hostname.charAt(0) === "[" && parsed.hostname.charAt(parsed.hostname.length - 1) === "]";
+    } catch (error) {
+      return false;
+    }
   }
 
   function validateField(fieldId, value) {
     var validators = {
       targetUrl: validateTargetUrl,
       proxyPort: validateProxyPort,
+      httpMode: function validateHttpMode(valueToCheck) {
+        return validateBoolean(valueToCheck, "Modo HTTP");
+      },
       enableWaf: function validateEnableWaf(valueToCheck) {
         return validateBoolean(valueToCheck, "WAF ativo");
       },
@@ -245,8 +274,9 @@
       insecureSkipVerify: function validateInsecureSkipVerify(valueToCheck) {
         return validateBoolean(valueToCheck, "TLS inseguro do backend");
       },
+      contentSecurityPolicy: validateOptionalPath,
       wafAllowlist: validateOptionalCsv,
-      blockedIps: validateOptionalCsv,
+      blockedIps: validateOptionalIpCsv,
       rateLimitStateFile: validateOptionalPath,
       enableTraining: function validateEnableTraining(valueToCheck) {
         return validateBoolean(valueToCheck, "Modo de Treinamento");
@@ -266,6 +296,11 @@
         errors[field.id] = result.message;
       }
     });
+
+    if (config.httpMode === "true") {
+      delete errors.certFile;
+      delete errors.keyFile;
+    }
 
     return {
       isValid: Object.keys(errors).length === 0,

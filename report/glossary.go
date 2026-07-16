@@ -172,16 +172,16 @@ var categoryGlossary = map[string]CategoryInfo{
 				Explanation: "É a mesma subida de pastas, só que escrita em código, que é a forma como o navegador representa certos caracteres. Assim ela passa por filtros que só procuram ../.",
 				Example:     "..%2f..%2f..%2fetc/passwd",
 				Reading:     "O mesmo caminho proibido, escrito de um jeito cifrado para o filtro não reconhecer os atalhos.",
-				},
 			},
 		},
-		"SSRF": {
-			Title:   "Falsificação de Requisição no Servidor (SSRF)",
-			Summary: "O atacante faz o próprio servidor acessar endereços internos que só ele enxerga.",
-			Attack:  "Em vez de atacar de fora, o atacante convence o servidor a fazer uma conexão no lugar dele. Normalmente o alvo é um endereço interno, que só o servidor consegue acessar, onde costumam ficar chaves de acesso e painéis de administração.",
-			Defense: "O DoBot Shield reconhece quando o pedido aponta para endereços internos, privados ou de serviços de nuvem e recusa a requisição.",
-			Subtypes: []Subtype{
-				{
+	},
+	"SSRF": {
+		Title:   "Falsificação de Requisição no Servidor (SSRF)",
+		Summary: "O atacante faz o próprio servidor acessar endereços internos que só ele enxerga.",
+		Attack:  "Em vez de atacar de fora, o atacante convence o servidor a fazer uma conexão no lugar dele. Normalmente o alvo é um endereço interno, que só o servidor consegue acessar, onde costumam ficar chaves de acesso e painéis de administração.",
+		Defense: "O DoBot Shield reconhece quando o pedido aponta para endereços internos, privados ou de serviços de nuvem e recusa a requisição.",
+		Subtypes: []Subtype{
+			{
 				Name:        "Chaves secretas da nuvem",
 				Explanation: "Servidores hospedados em nuvem têm um endereço interno especial que guarda credenciais. O atacante faz o servidor consultar esse endereço e devolver as chaves.",
 				Example:     "http://169.254.169.254/latest/meta-data/",
@@ -277,11 +277,19 @@ var categoryGlossary = map[string]CategoryInfo{
 		Attack:  "Quando um programa quebra, ele pode imprimir um rastro detalhado do erro, com nomes de arquivos, linhas e funções internas. Entregue ao usuário, isso dá ao atacante um mapa de como o sistema foi construído.",
 		Defense: "O DoBot Shield reconhece esses rastros de erro na resposta e bloqueia a entrega, evitando expor o funcionamento interno do sistema.",
 	},
-	"RESPONSE_XSS_REFLECTION": {
-		Title:   "Script Refletido na Resposta",
-		Summary: "A resposta do site devolve um script ativo, sinal de que um ataque de XSS conseguiu passar.",
-		Attack:  "O site acaba devolvendo, na sua resposta, um script ativo. Esse é o sinal de que um ataque de XSS conseguiu passar e que ele seria executado no navegador da vítima.",
-		Defense: "O DoBot Shield examina a resposta do site, percebe o script ativo e impede que ele chegue ao navegador da pessoa.",
+	"RESPONSE_XSS_PATTERN": {
+		Title:   "Padrão de Script Ativo na Resposta",
+		Summary: "A resposta do site contém um padrão de script ativo; esta categoria não comprova que ele veio da requisição.",
+		Attack:  "A resposta do site contém uma construção de script potencialmente executável no navegador. A detecção é baseada apenas no corpo da resposta e não demonstra, por si só, reflexão de uma entrada do usuário.",
+		Defense: "O DoBot Shield examina a resposta, identifica o padrão ativo e impede que ele chegue ao navegador da pessoa.",
+		Subtypes: []Subtype{
+			{
+				Name:        "Construção de script na resposta",
+				Explanation: "A inspeção encontra uma marca ou chamada de script potencialmente ativa no corpo devolvido pelo backend, sem comparar esse trecho com a entrada recebida.",
+				Example:     "<script>alert(1)</script>",
+				Reading:     "O corpo contém um padrão de script; a origem desse padrão precisa ser confirmada por outra evidência.",
+			},
+		},
 	},
 	"RESPONSE_FILE_LEAK": {
 		Title:   "Vazamento de Arquivo Sensível (na resposta)",

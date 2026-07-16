@@ -1,14 +1,15 @@
-=== OWASP ZAP | xvwa/coraza | https://172.18.0.9:443/xvwa/ | 07/06/2026  0:20:17,50 ===
-CMD: docker run -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest zap-full-scan.py -t https://172.18.0.9:443/xvwa/ -m 2 -T 5 -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
+=== OWASP ZAP | xvwa/coraza | https://172.23.0.4:443/xvwa/ | 14/07/2026 22:17:56,27 ===
+CMD: docker run --memory 3000m --memory-swap 3000m -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest@sha256:8d387b1a63e3425beef4846e39719f5af2a787753af2d8b6558c6257d7a577a2 zap-full-scan.py -t https://172.23.0.4:443/xvwa/ -m 2 -T 5 -c /zap/hooks/zap_rules.tsv -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10 -config network.connection.defaultUserAgent=DoBotShield-TCC-Validation/1.0" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
 ----------------------------------------------------------------
 [zap_hook] aplicando exclusoes de URL (logout/setup/security) ...
-[zap_hook] DVWA_COOKIE vazio -> scan sem cookie (esperado no XVWA).
+[zap_hook] cookie de sessao DVWA injetado via Replacer (REQ_HEADER Cookie).
 [zap_hook] XVWA detectado -> ligando submissao de forms e semeando URLs vulneraveis.
 [zap_hook] XVWA: 26/26 URLs semeadas.
 Total of 59 URLs
 PASS: Directory Browsing [0]
 PASS: Vulnerable JS Library (Powered by Retire.js) [10003]
-PASS: Swagger UI Secret & Vulnerability Detector [100043]
+PASS: Cookie No HttpOnly Flag [10010]
+PASS: Cookie Without Secure Flag [10011]
 PASS: Re-examine Cache-control Directives [10015]
 PASS: Content-Type Header Missing [10019]
 PASS: Information Disclosure - Debug Error Messages [10023]
@@ -35,6 +36,7 @@ PASS: Remote Code Execution - Shell Shock [10048]
 PASS: Content Cacheability [10049]
 PASS: Retrieved from Cache [10050]
 PASS: X-ChromeLogger-Data (XCOLD) Header Information Leak [10052]
+PASS: Cookie without SameSite Attribute [10054]
 PASS: CSP [10055]
 PASS: X-Debug-Token Information Leak [10056]
 PASS: Username Hash Found [10057]
@@ -84,7 +86,6 @@ PASS: SQL Injection - Hypersonic SQL (Time Based) [40020]
 PASS: SQL Injection - Oracle (Time Based) [40021]
 PASS: SQL Injection - PostgreSQL (Time Based) [40022]
 PASS: Possible Username Enumeration [40023]
-PASS: Cross Site Scripting (DOM Based) [40026]
 PASS: SQL Injection - MsSQL (Time Based) [40027]
 PASS: ELMAH Information Leak [40028]
 PASS: Trace.axd Information Leak [40029]
@@ -129,104 +130,87 @@ PASS: Server Side Template Injection [90035]
 PASS: Server Side Template Injection (Blind) [90036]
 PASS: Remote OS Command Injection (Time Based) [90037]
 PASS: NoSQL Injection - MongoDB (Time Based) [90039]
+SKIP: Cross Site Scripting (DOM Based) [40026]
 WARN-NEW: In Page Banner Information Leak [10009] x 1 
-	https://172.18.0.9:443/ (403 Forbidden)
-WARN-NEW: Cookie No HttpOnly Flag [10010] x 25 
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/redirect/ (200 OK)
-WARN-NEW: Cookie Without Secure Flag [10011] x 25 
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/ (403 Forbidden)
 WARN-NEW: Cross-Domain JavaScript Source File Inclusion [10017] x 50 
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
 WARN-NEW: Missing Anti-clickjacking Header [10020] x 25 
-	https://172.18.0.9:443/xvwa/vulnerabilities/sqli/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/stored_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
 WARN-NEW: X-Content-Type-Options Header Missing [10021] x 25 
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/sqli/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/cmdi/ (200 OK)
 WARN-NEW: Strict-Transport-Security Header Not Set [10035] x 27 
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
 WARN-NEW: Server Leaks Version Information via "Server" HTTP Response Header Field [10036] x 26 
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
 WARN-NEW: Server Leaks Information via "X-Powered-By" HTTP Response Header Field(s) [10037] x 25 
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/sqli/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/cmdi/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
 WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 26 
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/redirect/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
 WARN-NEW: Relative Path Confusion [10051] x 1 
-	https://172.18.0.9:443/xvwa/instruction.php (200 OK)
-WARN-NEW: Cookie without SameSite Attribute [10054] x 25 
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
 WARN-NEW: Permissions Policy Header Not Set [10063] x 26 
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/sqli/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/cmdi/ (200 OK)
 WARN-NEW: Absence of Anti-CSRF Tokens [10202] x 32 
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
 WARN-NEW: Proxy Disclosure [40025] x 27 
-	https://172.18.0.9:443/ (403 Forbidden)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/?item=test (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/sessionflaws/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/redirect/?url=http://example.com (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/ssrf_xspa/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/stored_xss/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/redirect/ (200 OK)
 WARN-NEW: Bypassing 403 [40038] x 1 
-	https://172.18.0.9:443/%2e/xvwa/vulnerabilities/fi/ (200 OK)
+	https://172.23.0.4:443/%2e/xvwa/vulnerabilities/fi/ (200 OK)
 WARN-NEW: Remote File Inclusion [7] x 1 
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/?file=http%3A%2F%2Fwww.google.com%2F (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/fi/?file=http%3A%2F%2Fwww.google.com%2F (200 OK)
 WARN-NEW: Sub Resource Integrity Attribute Missing [90003] x 50 
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
 WARN-NEW: Cross-Origin-Resource-Policy Header Missing or Invalid [90004] x 75 
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.18.0.9:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
-FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 19	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 123
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 16	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 124
 
 TOOL_RC=0

@@ -7,10 +7,10 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 
 | Risk Level | Number of Alerts |
 | --- | --- |
-| High | 6 |
+| High | 5 |
 | Medium | 8 |
-| Low | 11 |
-| Informational | 7 |
+| Low | 9 |
+| Informational | 6 |
 
 
 
@@ -19,48 +19,21 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 
 | Level | Reason | Site | Description | Statistic |
 | --- | --- | --- | --- | --- |
-| Low | Warning |  | ZAP warnings logged - see the zap.log file for details | 10    |
+| Low | Warning |  | ZAP errors logged - see the zap.log file for details | 2    |
+| Low | Warning |  | ZAP warnings logged - see the zap.log file for details | 38    |
 | Info | Informational |  | Percentage of network failures | 1 % |
-| Info | Informational | http://172.18.0.4 | Percentage of responses with status code 2xx | 52 % |
-| Info | Informational | http://172.18.0.4 | Percentage of responses with status code 3xx | 14 % |
-| Info | Exceeded Low | http://172.18.0.4 | Percentage of responses with status code 4xx | 32 % |
-| Info | Informational | http://172.18.0.4 | Percentage of endpoints with content type text/html | 100 % |
-| Info | Informational | http://172.18.0.4 | Percentage of endpoints with method GET | 100 % |
-| Info | Informational | http://172.18.0.4 | Count of total endpoints | 32    |
-| Info | Informational | http://172.18.0.4 | Percentage of slow responses | 1 % |
-| Info | Informational | http://www.gnu.org | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | http://www.gnu.org | Percentage of slow responses | 100 % |
-| Info | Informational | https://172.18.0.4 | Percentage of endpoints with method GET | 100 % |
-| Info | Informational | https://172.18.0.4 | Count of total endpoints | 1    |
-| Info | Informational | https://api.github.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://api.github.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://apis.google.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://apis.google.com | Percentage of slow responses | 40 % |
-| Info | Informational | https://buttons.github.io | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://buttons.github.io | Percentage of slow responses | 50 % |
-| Info | Informational | https://calendar.google.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://calendar.google.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://clients6.google.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://clients6.google.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://csi.gstatic.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://csi.gstatic.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://csp.withgoogle.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://csp.withgoogle.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://fonts.gstatic.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://fonts.gstatic.com | Percentage of slow responses | 50 % |
-| Info | Informational | https://play.google.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://play.google.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://www.gnu.org | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://www.gnu.org | Percentage of slow responses | 100 % |
-| Info | Informational | https://www.google-analytics.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://www.google-analytics.com | Percentage of slow responses | 63 % |
-| Info | Informational | https://www.googletagmanager.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://www.googletagmanager.com | Percentage of slow responses | 100 % |
-| Info | Informational | https://www.gstatic.com | Percentage of responses with status code 2xx | 100 % |
-| Info | Informational | https://www.gstatic.com | Percentage of slow responses | 8 % |
-| Info | Informational | https://www.owasp.org | Percentage of responses with status code 2xx | 30 % |
-| Info | Informational | https://www.owasp.org | Percentage of responses with status code 4xx | 69 % |
-| Info | Informational | https://www.owasp.org | Percentage of slow responses | 100 % |
+| Info | Informational | http://172.23.0.3 | Percentage of responses with status code 2xx | 55 % |
+| Info | Informational | http://172.23.0.3 | Percentage of responses with status code 3xx | 24 % |
+| Info | Exceeded Low | http://172.23.0.3 | Percentage of responses with status code 4xx | 18 % |
+| Info | Informational | http://172.23.0.3 | Percentage of endpoints with content type text/html | 100 % |
+| Info | Informational | http://172.23.0.3 | Percentage of endpoints with method GET | 100 % |
+| Info | Informational | http://172.23.0.3 | Count of total endpoints | 31    |
+| Info | Exceeded Low | http://172.23.0.3 | Percentage of slow responses | 16 % |
+| Info | Informational | https://172.23.0.3 | Percentage of endpoints with method GET | 100 % |
+| Info | Informational | https://172.23.0.3 | Count of total endpoints | 1    |
+
+
+
 
 
 
@@ -69,7 +42,6 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 
 | Name | Risk Level | Number of Instances |
 | --- | --- | --- |
-| Cross Site Scripting (DOM Based) | High | 6 |
 | Cross Site Scripting (Reflected) | High | 1 |
 | Path Traversal | High | 1 |
 | Remote File Inclusion | High | 1 |
@@ -83,8 +55,6 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 | Parameter Tampering | Medium | 2 |
 | Relative Path Confusion | Medium | 1 |
 | Sub Resource Integrity Attribute Missing | Medium | Systemic |
-| Cookie No HttpOnly Flag | Low | Systemic |
-| Cookie without SameSite Attribute | Low | Systemic |
 | Cross-Domain JavaScript Source File Inclusion | Low | Systemic |
 | Cross-Origin-Embedder-Policy Header Missing or Invalid | Low | Systemic |
 | Cross-Origin-Opener-Policy Header Missing or Invalid | Low | Systemic |
@@ -97,7 +67,6 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 | Cookie Slack Detector | Informational | Systemic |
 | Modern Web Application | Informational | Systemic |
 | Non-Storable Content | Informational | Systemic |
-| Session Management Response Identified | Informational | 22 |
 | Storable and Cacheable Content | Informational | 2 |
 | User Agent Fuzzer | Informational | Systemic |
 | User Controllable HTML Element Attribute (Potential XSS) | Informational | 1 |
@@ -108,199 +77,6 @@ ZAP by [Checkmarx](https://checkmarx.com/).
 ## Alert Detail
 
 
-
-### [ Cross Site Scripting (DOM Based) ](https://www.zaproxy.org/docs/alerts/40026/)
-
-
-
-##### High (High)
-
-### Description
-
-Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.
-When an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.
-
-There are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.
-Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.
-Persistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code.
-
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/%23jaVasCript:/*-/*%60/*%5C%60/*'/*%22/**/(/*%20*/oNcliCk=alert(5397&29%20&29//%250D%250A%250d%250a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E%5Cx3csVg/%3CsVg/oNloAd=alert(5397&29//%3E%5Cx3e
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: `#jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e`
-  * Evidence: ``
-  * Other Info: `The following steps were done to trigger the DOM XSS:
-With <PAYLOAD_0> as: #jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/<PAYLOAD_0>
-Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: <PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[1]/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/<PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button
-`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/%3Fitem=test%23jaVasCript:/*-/*%60/*%5C%60/*'/*%22/**/(/*%20*/oNcliCk=alert(5397&29%20&29//%250D%250A%250d%250a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E%5Cx3csVg/%3CsVg/oNloAd=alert(5397&29//%3E%5Cx3e
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/ (item)`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: `#jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e`
-  * Evidence: ``
-  * Other Info: `The following steps were done to trigger the DOM XSS:
-With <PAYLOAD_0> as: #jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test<PAYLOAD_0>
-Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: <PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[1]/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/?item=test<PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button
-`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/%23jaVasCript:/*-/*%60/*%5C%60/*'/*%22/**/(/*%20*/oNcliCk=alert(5397&29%20&29//%250D%250A%250d%250a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E%5Cx3csVg/%3CsVg/oNloAd=alert(5397&29//%3E%5Cx3e
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssrf_xspa/`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: `#jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e`
-  * Evidence: ``
-  * Other Info: `The following steps were done to trigger the DOM XSS:
-With <PAYLOAD_0> as: #jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/<PAYLOAD_0>
-Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: <PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[1]/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/<PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button
-`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/%23jaVasCript:/*-/*%60/*%5C%60/*'/*%22/**/(/*%20*/oNcliCk=alert(5397&29%20&29//%250D%250A%250d%250a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E%5Cx3csVg/%3CsVg/oNloAd=alert(5397&29//%3E%5Cx3e
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssti/`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: `#jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e`
-  * Evidence: ``
-  * Other Info: `The following steps were done to trigger the DOM XSS:
-With <PAYLOAD_0> as: #jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/<PAYLOAD_0>
-Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: <PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[1]/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/<PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button
-`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/%3Fname=test%23jaVasCript:/*-/*%60/*%5C%60/*'/*%22/**/(/*%20*/oNcliCk=alert(5397&29%20&29//%250D%250A%250d%250a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E%5Cx3csVg/%3CsVg/oNloAd=alert(5397&29//%3E%5Cx3e
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssti/ (name)`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: `#jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e`
-  * Evidence: ``
-  * Other Info: `The following steps were done to trigger the DOM XSS:
-With <PAYLOAD_0> as: #jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test<PAYLOAD_0>
-Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: <PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[1]/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/?name=test<PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button
-`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/%23jaVasCript:/*-/*%60/*%5C%60/*'/*%22/**/(/*%20*/oNcliCk=alert(5397&29%20&29//%250D%250A%250d%250a//%3C/stYle/%3C/titLe/%3C/teXtarEa/%3C/scRipt/--!%3E%5Cx3csVg/%3CsVg/oNloAd=alert(5397&29//%3E%5Cx3e
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/xpath/`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: `#jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e`
-  * Evidence: ``
-  * Other Info: `The following steps were done to trigger the DOM XSS:
-With <PAYLOAD_0> as: #jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert(5397) )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert(5397)//>\x3e
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[1] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/<PAYLOAD_0>
-Write to /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/input[2] the value: <PAYLOAD_0>
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/<PAYLOAD_0>
-Write to /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input the value: <PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/input
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[1]/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/<PAYLOAD_0>
-Click element: /html/body/nav/div[1]/div[2]/ul/li[1]/div/form/button
-Access: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/<PAYLOAD_0>
-Click element: /html/body/div[5]/div[1]/div[4]/div[3]/div[1]/form/div[1]/div/button
-`
-
-
-Instances: 6
-
-### Solution
-
-Phase: Architecture and Design
-Use a vetted library or framework that does not allow this weakness to occur or provides constructs that make this weakness easier to avoid.
-Examples of libraries and frameworks that make it easier to generate properly encoded output include Microsoft's Anti-XSS library, the OWASP ESAPI Encoding module, and Apache Wicket.
-
-Phases: Implementation; Architecture and Design
-Understand the context in which your data will be used and the encoding that will be expected. This is especially important when transmitting data between different components, or when generating outputs that can contain multiple encodings at the same time, such as web pages or multi-part mail messages. Study all expected communication protocols and data representations to determine the required encoding strategies.
-For any data that will be output to another web page, especially any data that was received from external inputs, use the appropriate encoding on all non-alphanumeric characters.
-Consult the XSS Prevention Cheat Sheet for more details on the types of encoding and escaping that are needed.
-
-Phase: Architecture and Design
-For any security checks that are performed on the client side, ensure that these checks are duplicated on the server side, in order to avoid CWE-602. Attackers can bypass the client-side checks by modifying values after the checks have been performed, or by changing the client to remove the client-side checks entirely. Then, these modified values would be submitted to the server.
-
-If available, use structured mechanisms that automatically enforce the separation between data and code. These mechanisms may be able to provide the relevant quoting, encoding, and validation automatically, instead of relying on the developer to provide this capability at every point where output is generated.
-
-Phase: Implementation
-For every web page that is generated, use and specify a character encoding such as ISO-8859-1 or UTF-8. When an encoding is not specified, the web browser may choose a different encoding by guessing which encoding is actually being used by the web page. This can cause the web browser to treat certain sequences as special, opening up the client to subtle XSS attacks. See CWE-116 for more mitigations related to encoding/escaping.
-
-To help mitigate XSS attacks against the user's session cookie, set the session cookie to be HttpOnly. In browsers that support the HttpOnly feature (such as more recent versions of Internet Explorer and Firefox), this attribute can prevent the user's session cookie from being accessible to malicious client-side scripts that use document.cookie. This is not a complete solution, since HttpOnly is not supported by all browsers. More importantly, XMLHTTPRequest and other powerful browser technologies provide read access to HTTP headers, including the Set-Cookie header in which the HttpOnly flag is set.
-
-Assume all input is malicious. Use an "accept known good" input validation strategy, i.e., use an allow list of acceptable inputs that strictly conform to specifications. Reject any input that does not strictly conform to specifications, or transform it into something that does. Do not rely exclusively on looking for malicious or malformed inputs (i.e., do not rely on a deny list). However, deny lists can be useful for detecting potential attacks or determining which inputs are so malformed that they should be rejected outright.
-
-When performing input validation, consider all potentially relevant properties, including length, type of input, the full range of acceptable values, missing or extra inputs, syntax, consistency across related fields, and conformance to business rules. As an example of business rule logic, "boat" may be syntactically valid because it only contains alphanumeric characters, but it is not valid if you are expecting colors such as "red" or "blue."
-
-Ensure that you perform input validation at well-defined interfaces within the application. This will help protect the application even if a component is reused or moved elsewhere.
-	
-
-### Reference
-
-
-* [ https://owasp.org/www-community/attacks/xss/ ](https://owasp.org/www-community/attacks/xss/)
-* [ https://cwe.mitre.org/data/definitions/79.html ](https://cwe.mitre.org/data/definitions/79.html)
-
-
-#### CWE Id: [ 79 ](https://cwe.mitre.org/data/definitions/79.html)
-
-
-#### WASC Id: 8
-
-#### Source ID: 1
 
 ### [ Cross Site Scripting (Reflected) ](https://www.zaproxy.org/docs/alerts/40012/)
 
@@ -317,8 +93,8 @@ There are three types of Cross-site Scripting attacks: non-persistent, persisten
 Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.
 Persistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/%3Fitem=%253C%252Fdiv%253E%253CscrIpt%253Ealert%25281%2529%253B%253C%252FscRipt%253E%253Cdiv%253E
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/ (item)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/%3Fitem=%253C%252Fdiv%253E%253CscrIpt%253Ealert%25281%2529%253B%253C%252FscRipt%253E%253Cdiv%253E
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/ (item)`
   * Method: `GET`
   * Parameter: `item`
   * Attack: `</div><scrIpt>alert(1);</scRipt><div>`
@@ -386,8 +162,8 @@ The most basic Path Traversal attack uses the "../" special-character sequence t
 
 Even if the web server properly restricts Path Traversal attempts in the URL path, a web application itself may still be vulnerable due to improper handling of user-supplied input. This is a common problem of web applications that use template mechanisms or load static text from files. In variations of the attack, the original URL parameter value is substituted with the file name of one of the web application's dynamic scripts. Consequently, the results can reveal source code because the file is interpreted as text instead of an executable script. These techniques often employ additional special characters such as the dot (".") to reveal the listing of the current working directory, or "%00" NULL characters in order to bypass rudimentary file extension checks.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/%3Ffile=%252Fetc%252Fpasswd
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/%3Ffile=%252Fetc%252Fpasswd
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)`
   * Method: `GET`
   * Parameter: `file`
   * Attack: `/etc/passwd`
@@ -453,8 +229,8 @@ An attacker can use RFI for:
 
 PHP is particularly vulnerable to RFI attacks due to the extensive use of "file includes" in PHP programming and due to default server configurations that increase susceptibility to an RFI attack.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/%3Ffile=http%253A%252F%252Fwww.google.com%252F
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/%3Ffile=http%253A%252F%252Fwww.google.com%252F
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)`
   * Method: `GET`
   * Parameter: `file`
   * Attack: `http://www.google.com/`
@@ -514,8 +290,8 @@ Many file inclusion problems occur because the programmer assumed that certain i
 
 Attack technique used for unauthorized execution of operating system commands. This attack is possible when an application accepts untrusted input to build operating system commands in an insecure manner involving improper data sanitization, and/or improper calling of external programs.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/%3Ftarget=127.0.0.1%2526cat+%252Fetc%252Fpasswd%2526
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/ (target)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/%3Ftarget=127.0.0.1%2526cat+%252Fetc%252Fpasswd%2526
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)`
   * Method: `GET`
   * Parameter: `target`
   * Attack: `127.0.0.1&cat /etc/passwd&`
@@ -582,16 +358,16 @@ Even if you make a mistake in your validation (such as forgetting one out of 100
 
 The web server receives a remote address and retrieves the contents of this URL, but it does not sufficiently ensure that the request is being sent to the expected destination.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/%3Ffile=test.php
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/%3Ffile=test.php
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)`
   * Method: `GET`
   * Parameter: `file`
   * Attack: ``
   * Evidence: ``
-  * Other Info: `Received out-of-band interaction [GET http://172.18.0.11:45205/173b205e-e21d-47e5-835b-1d9e88bc9b72 HTTP/1.0]
+  * Other Info: `Received out-of-band interaction [GET http://172.23.0.4:40825/76400133-9714-40b7-a196-8e02a3432774 HTTP/1.0]
 Request
-GET http://172.18.0.11:45205/173b205e-e21d-47e5-835b-1d9e88bc9b72 HTTP/1.0
-Host: 172.18.0.11:45205
+GET http://172.23.0.4:40825/76400133-9714-40b7-a196-8e02a3432774 HTTP/1.0
+Host: 172.23.0.4:40825
 Connection: close
 
 
@@ -641,41 +417,41 @@ CSRF attacks are effective in a number of situations, including:
 
 CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.
 
-* URL: http://172.18.0.4:80/xvwa/instruction.php
-  * Node Name: `http://172.18.0.4/xvwa/instruction.php`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form class='form' method='POST' id='formLogin' action='/xvwa/login.php'>`
   * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: "password" "username" ].`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form class='form' method='POST' id='formLogin' action='/xvwa/login.php'>`
   * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: "password" "username" ].`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `<form method='post' action='' enctype="multipart/form-data">`
-  * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 2: "categ" "image" "item" "price" ].`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form class='form' method='POST' id='formLogin' action='/xvwa/login.php'>`
   * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: "password" "username" ].`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<form class='form' method='POST' id='formLogin' action='/xvwa/login.php'>`
   * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: "password" "username" ].`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: `<form method='post' action=''>`
+  * Other Info: `No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 2: "search" ].`
 
 Instances: Systemic
 
@@ -728,8 +504,8 @@ Check the HTTP Referer header to see if the request originated from an expected 
 
 This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/%3Ffile=test.php
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/%3Ffile=test.php
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -764,36 +540,36 @@ Review the source code of this page. Implement custom error pages. Consider impl
 
 Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.
 
-* URL: http://172.18.0.4:80/xvwa/instruction.php
-  * Node Name: `http://172.18.0.4/xvwa/instruction.php`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sqli/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sqli/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -836,14 +612,14 @@ Ensure that your web server, application server, load balancer, etc. is configur
 
 The site is only served under HTTP and not HTTPS.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/
-  * Node Name: `https://172.18.0.4/xvwa/vulnerabilities/xpath/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/xpath/
+  * Node Name: `https://172.23.0.3/xvwa/vulnerabilities/xpath/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: `Failed to connect.
-ZAP attempted to connect via: https://172.18.0.4/xvwa/vulnerabilities/xpath/`
+ZAP attempted to connect via: https://172.23.0.3/xvwa/vulnerabilities/xpath/`
 
 
 Instances: 1
@@ -876,36 +652,29 @@ Configure your web or application server to use SSL (https).
 
 The response does not protect against 'ClickJacking' attacks. It should include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/dom_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/dom_xss/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: `x-frame-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: `x-frame-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fileupload/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fileupload/`
   * Method: `GET`
   * Parameter: `x-frame-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
-  * Method: `GET`
-  * Parameter: `x-frame-options`
-  * Attack: ``
-  * Evidence: ``
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sqli/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sqli/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: `x-frame-options`
   * Attack: ``
@@ -943,15 +712,15 @@ If you expect the page to be framed only by pages on your server (e.g. it's part
 
 Parameter manipulation caused an error page or Java stack trace to be displayed. This indicated lack of exception handling and potential areas for further exploit.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/%3Ftarget=%2500
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/ (target)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/%3Ftarget=%2500
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)`
   * Method: `GET`
   * Parameter: `target`
   * Attack: ` `
   * Evidence: ` on line <b>`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/%3Ffile=
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/%3Ffile=
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/ (file)`
   * Method: `GET`
   * Parameter: `file`
   * Attack: ``
@@ -986,11 +755,11 @@ Identify the cause of the error and fix it. Do not trust client side input and e
 
 The web server is configured to serve responses to ambiguous URLs in a manner that is likely to lead to confusion about the correct "relative path" for the URL. Resources (CSS, images, etc.) are also specified in the page response using relative, rather than absolute URLs. In an attack, if the web browser parses the "cross-content" response in a permissive manner, or can be tricked into permissively parsing the "cross-content" response, using techniques such as framing, then the web browser may be fooled into interpreting HTML as CSS (or other content types), leading to an XSS vulnerability.
 
-* URL: http://172.18.0.4:80/xvwa/instruction.php
-  * Node Name: `http://172.18.0.4/xvwa/instruction.php/xse56/rcpqy`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php/i4g2x/7g67l`
   * Method: `GET`
   * Parameter: ``
-  * Attack: `http://172.18.0.4:80/xvwa/instruction.php/xse56/rcpqy`
+  * Attack: `http://172.23.0.3:80/xvwa/instruction.php/i4g2x/7g67l`
   * Evidence: `<link href="css/bootstrap.min.css" rel="stylesheet">`
   * Other Info: `No <base> tag was specified in the HTML <head> tag to define the location for relative URLs.
 A Content Type of "text/html; charset=UTF-8" was specified. If the web browser is employing strict parsing rules, this will prevent cross-content attacks from succeeding. Quirks Mode in the web browser would disable strict parsing.
@@ -1033,40 +802,40 @@ Specify the "X-Frame-Options" HTTP response header to prevent Quirks Mode from b
 
 The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
+  * Other Info: ``
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
+  * Other Info: ``
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/`
+  * Method: `GET`
+  * Parameter: ``
+  * Attack: ``
+  * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
+  * Other Info: ``
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
-  * Method: `GET`
-  * Parameter: ``
-  * Attack: ``
-  * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
   * Other Info: ``
 
 Instances: Systemic
@@ -1079,145 +848,13 @@ Provide a valid integrity attribute to the tag.
 ### Reference
 
 
-* [ https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity ](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity)
+* [ https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity ](https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity)
 
 
 #### CWE Id: [ 345 ](https://cwe.mitre.org/data/definitions/345.html)
 
 
 #### WASC Id: 15
-
-#### Source ID: 3
-
-### [ Cookie No HttpOnly Flag ](https://www.zaproxy.org/docs/alerts/10010/)
-
-
-
-##### Low (Medium)
-
-### Description
-
-A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.
-
-* URL: http://172.18.0.4:80/xvwa/instruction.php
-  * Node Name: `http://172.18.0.4/xvwa/instruction.php`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sqli/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sqli/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-
-Instances: Systemic
-
-
-### Solution
-
-Ensure that the HttpOnly flag is set for all cookies.
-
-### Reference
-
-
-* [ https://owasp.org/www-community/HttpOnly ](https://owasp.org/www-community/HttpOnly)
-
-
-#### CWE Id: [ 1004 ](https://cwe.mitre.org/data/definitions/1004.html)
-
-
-#### WASC Id: 13
-
-#### Source ID: 3
-
-### [ Cookie without SameSite Attribute ](https://www.zaproxy.org/docs/alerts/10054/)
-
-
-
-##### Low (Medium)
-
-### Description
-
-A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.
-
-* URL: http://172.18.0.4:80/xvwa/instruction.php
-  * Node Name: `http://172.18.0.4/xvwa/instruction.php`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sqli/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sqli/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `Set-Cookie: PHPSESSID`
-  * Other Info: ``
-
-Instances: Systemic
-
-
-### Solution
-
-Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.
-
-### Reference
-
-
-* [ https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site ](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site)
-
-
-#### CWE Id: [ 1275 ](https://cwe.mitre.org/data/definitions/1275.html)
-
-
-#### WASC Id: 13
 
 #### Source ID: 3
 
@@ -1231,40 +868,40 @@ Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' fo
 
 The page includes one or more script files from a third-party domain.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: `https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js`
   * Attack: ``
   * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: `https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js`
   * Attack: ``
   * Evidence: `<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli/`
   * Method: `GET`
   * Parameter: `https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js`
   * Attack: ``
   * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
-  * Method: `GET`
-  * Parameter: `https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js`
-  * Attack: ``
-  * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli/`
   * Method: `GET`
   * Parameter: `https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js`
   * Attack: ``
   * Evidence: `<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>`
+  * Other Info: ``
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
+  * Method: `GET`
+  * Parameter: `https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js`
+  * Attack: ``
+  * Evidence: `<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>`
   * Other Info: ``
 
 Instances: Systemic
@@ -1295,36 +932,36 @@ Ensure JavaScript source files are loaded from only trusted sources, and the sou
 
 Cross-Origin-Embedder-Policy header is a response header that prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS).
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: `Cross-Origin-Embedder-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Embedder-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Embedder-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Embedder-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sqli_blind/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Embedder-Policy`
   * Attack: ``
@@ -1362,36 +999,36 @@ If possible, ensure that the end user uses a standards-compliant and modern web 
 
 Cross-Origin-Opener-Policy header is a response header that allows a site to control if others included documents share the same browsing context. Sharing the same browsing context with untrusted documents might lead to data leak.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: `Cross-Origin-Opener-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Opener-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Opener-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Opener-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sqli_blind/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Opener-Policy`
   * Attack: ``
@@ -1430,36 +1067,36 @@ If possible, ensure that the end user uses a standards-compliant and modern web 
 
 Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sqli_blind/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/ssrf_xspa/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/ssrf_xspa/`
   * Method: `GET`
   * Parameter: `Cross-Origin-Resource-Policy`
   * Attack: ``
@@ -1499,22 +1136,22 @@ If possible, ensure that the end user uses a standards-compliant and modern web 
 
 The server returned a version banner string in the response content. Such information leaks may allow attackers to further target specific issues impacting the product and version in use.
 
-* URL: http://172.18.0.4:80/
-  * Node Name: `http://172.18.0.4/`
+* URL: http://172.23.0.3:80/
+  * Node Name: `http://172.23.0.3/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.54`
   * Other Info: `There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body.`
-* URL: http://172.18.0.4/robots.txt
-  * Node Name: `http://172.18.0.4/robots.txt`
+* URL: http://172.23.0.3/robots.txt
+  * Node Name: `http://172.23.0.3/robots.txt`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.54`
   * Other Info: `There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body.`
-* URL: http://172.18.0.4/sitemap.xml
-  * Node Name: `http://172.18.0.4/sitemap.xml`
+* URL: http://172.23.0.3/sitemap.xml
+  * Node Name: `http://172.23.0.3/sitemap.xml`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1553,36 +1190,36 @@ Under Apache this is done via the "ServerSignature" and "ServerTokens" directive
 
 Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1623,36 +1260,36 @@ Ensure that your web server, application server, load balancer, etc. is configur
 
 The web/application server is leaking information via one or more "X-Powered-By" HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `X-Powered-By: PHP/7.4.33`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `X-Powered-By: PHP/7.4.33`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `X-Powered-By: PHP/7.4.33`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `X-Powered-By: PHP/7.4.33`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssti/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1690,36 +1327,36 @@ Ensure that your web server, application server, load balancer, etc. is configur
 
 The web/application server is leaking version information via the "Server" HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.54 (Debian)`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.54 (Debian)`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.54 (Debian)`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `Apache/2.4.54 (Debian)`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssti/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1758,40 +1395,40 @@ Ensure that your web server, application server, load balancer, etc. is configur
 
 The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
   * Evidence: ``
   * Other Info: `This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.
 At "High" threshold this scan rule will not alert on client or server error responses.`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sqli/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sqli/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: `x-content-type-options`
   * Attack: ``
@@ -1831,53 +1468,55 @@ If possible, ensure that the end user uses a standards-compliant and modern web 
 
 Repeated GET requests: drop a different cookie each time, followed by normal request with all cookies to stabilize session, compare responses against original baseline GET. This can reveal areas where cookie based authentication/attributes are not actually enforced.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/%3Fitem=test
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/ (item)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/ssrf_xspa/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/ssrf_xspa/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: `Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.
 These cookies affected the response: 
-These cookies did NOT affect the response: PHPSESSID
+These cookies did NOT affect the response: security,PHPSESSID
 `
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssrf_xspa/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssrf_xspa/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/ssti/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/ssti/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: `Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.
 These cookies affected the response: 
-These cookies did NOT affect the response: PHPSESSID
+These cookies did NOT affect the response: security,PHPSESSID
 `
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssti/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/ssti/%3Fname=test
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/ssti/ (name)`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: `Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.
 These cookies affected the response: 
-These cookies did NOT affect the response: PHPSESSID
+These cookies did NOT affect the response: security,PHPSESSID
 `
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/%3Fname=test
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssti/ (name)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/stored_xss/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/stored_xss/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: `Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.
 These cookies affected the response: 
-These cookies did NOT affect the response: PHPSESSID
+These cookies did NOT affect the response: security,PHPSESSID
 `
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/stored_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/xpath/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/xpath/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
-  * Other Info: `Dropping this cookie appears to have invalidated the session: [PHPSESSID] A follow-on request with all original cookies still had a different response than the original request.
+  * Other Info: `Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.
+These cookies affected the response: 
+These cookies did NOT affect the response: security,PHPSESSID
 `
 
 Instances: Systemic
@@ -1908,38 +1547,38 @@ Instances: Systemic
 
 ### Description
 
-The application appears to be a modern web application. If you need to explore it automatically then the Ajax Spider may well be more effective than the standard one.
+The application appears to be a modern web application. If you need to explore it automatically then the Client Spider may well be more effective than the standard one.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<a class='dropdown-toggle' href='#' data-toggle='dropdown' id='navLogin'>Login</a>`
   * Other Info: `Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<a class='dropdown-toggle' href='#' data-toggle='dropdown' id='navLogin'>Login</a>`
   * Other Info: `Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<a class='dropdown-toggle' href='#' data-toggle='dropdown' id='navLogin'>Login</a>`
   * Other Info: `Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `<a class='dropdown-toggle' href='#' data-toggle='dropdown' id='navLogin'>Login</a>`
   * Other Info: `Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application.`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssti/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -1970,36 +1609,36 @@ This is an informational alert and so no changes are required.
 
 The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/`
+* URL: http://172.23.0.3:80/xvwa/instruction.php
+  * Node Name: `http://172.23.0.3/xvwa/instruction.php`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-store`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/fi/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/fi/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-store`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-store`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/reflected_xss/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: `no-store`
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/sqli_blind/`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -2039,187 +1678,6 @@ It must have a status code that is defined as cacheable by default (200, 203, 20
 
 #### Source ID: 3
 
-### [ Session Management Response Identified ](https://www.zaproxy.org/docs/alerts/10112/)
-
-
-
-##### Informational (Medium)
-
-### Description
-
-The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to "Auto-Detect" then this rule will change the session management to use the tokens identified.
-
-* URL: http://172.18.0.4:80/xvwa/
-  * Node Name: `http://172.18.0.4/xvwa/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/instruction.php
-  * Node Name: `http://172.18.0.4/xvwa/instruction.php`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/cmdi/%3Ftarget=127.0.0.1
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/cmdi/ (target)`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/crypto/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/crypto/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fi/%3Ffile=test.php
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fi/ (file)`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/fileupload/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/fileupload/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/formula_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/formula_injection/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/%3Fitem=1
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/ (item)`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/missfunc/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/missfunc/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/php_object_injection/%3Fr=test
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/php_object_injection/ (r)`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/redirect/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/redirect/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/redirect/%3Furl=http://example.com
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/redirect/ (url)`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/reflected_xss/%3Fitem=test
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/reflected_xss/ (item)`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sessionflaws/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sessionflaws/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/sqli_blind/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/sqli_blind/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/ssti/%3Fname=test
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/ssti/ (name)`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/stored_xss/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/xpath/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/xpath/`
-  * Method: `GET`
-  * Parameter: `PHPSESSID`
-  * Attack: ``
-  * Evidence: `PHPSESSID`
-  * Other Info: `cookie:PHPSESSID`
-
-
-Instances: 22
-
-### Solution
-
-This is an informational alert rather than a vulnerability and so there is nothing to fix.
-
-### Reference
-
-
-* [ https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/ ](https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/)
-
-
-
-#### Source ID: 3
-
 ### [ Storable and Cacheable Content ](https://www.zaproxy.org/docs/alerts/10049/)
 
 
@@ -2230,15 +1688,15 @@ This is an informational alert rather than a vulnerability and so there is nothi
 
 The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where "shared" caching servers such as "proxy" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.
 
-* URL: http://172.18.0.4/robots.txt
-  * Node Name: `http://172.18.0.4/robots.txt`
+* URL: http://172.23.0.3/robots.txt
+  * Node Name: `http://172.23.0.3/robots.txt`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
   * Evidence: ``
   * Other Info: `In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.`
-* URL: http://172.18.0.4/sitemap.xml
-  * Node Name: `http://172.18.0.4/sitemap.xml`
+* URL: http://172.23.0.3/sitemap.xml
+  * Node Name: `http://172.23.0.3/sitemap.xml`
   * Method: `GET`
   * Parameter: ``
   * Attack: ``
@@ -2281,39 +1739,39 @@ This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers 
 
 Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response.
 
-* URL: http://172.18.0.4/xvwa
-  * Node Name: `http://172.18.0.4/xvwa`
-  * Method: `GET`
-  * Parameter: `Header User-Agent`
-  * Attack: `Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)`
-  * Evidence: ``
-  * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/stored_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/%3Ftarget=127.0.0.1
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)`
   * Method: `GET`
   * Parameter: `Header User-Agent`
   * Attack: `Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)`
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/stored_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/%3Ftarget=127.0.0.1
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)`
   * Method: `GET`
   * Parameter: `Header User-Agent`
   * Attack: `Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)`
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/stored_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/%3Ftarget=127.0.0.1
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)`
   * Method: `GET`
   * Parameter: `Header User-Agent`
   * Attack: `Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)`
   * Evidence: ``
   * Other Info: ``
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/stored_xss/
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/stored_xss/`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/%3Ftarget=127.0.0.1
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)`
   * Method: `GET`
   * Parameter: `Header User-Agent`
   * Attack: `Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko`
+  * Evidence: ``
+  * Other Info: ``
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/%3Ftarget=127.0.0.1
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/cmdi/ (target)`
+  * Method: `GET`
+  * Parameter: `Header User-Agent`
+  * Attack: `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0`
   * Evidence: ``
   * Other Info: ``
 
@@ -2343,15 +1801,15 @@ Instances: Systemic
 
 This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.
 
-* URL: http://172.18.0.4:80/xvwa/vulnerabilities/idor/%3Fitem=1
-  * Node Name: `http://172.18.0.4/xvwa/vulnerabilities/idor/ (item)`
+* URL: http://172.23.0.3:80/xvwa/vulnerabilities/idor/%3Fitem=1
+  * Node Name: `http://172.23.0.3/xvwa/vulnerabilities/idor/ (item)`
   * Method: `GET`
   * Parameter: `item`
   * Attack: ``
   * Evidence: ``
   * Other Info: `User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:
 
-http://172.18.0.4:80/xvwa/vulnerabilities/idor/?item=1
+http://172.23.0.3:80/xvwa/vulnerabilities/idor/?item=1
 
 appears to include user input in:
 a(n) [meta] tag [content] attribute

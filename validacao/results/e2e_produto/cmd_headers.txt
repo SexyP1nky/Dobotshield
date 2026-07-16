@@ -1,0 +1,7 @@
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+X-Dobotshield-Action: Blocked-WAF
+X-Request-Id: e3f28c4ea82408ed2245e64ffb044d46
+Date: Wed, 15 Jul 2026 11:44:19 GMT
+Content-Length: 77
+

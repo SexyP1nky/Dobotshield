@@ -1,12 +1,11 @@
-=== OWASP ZAP | dvwa/no_waf | http://172.18.0.2:80 | 06/06/2026 22:21:45,09 ===
-CMD: docker run -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest zap-full-scan.py -t http://172.18.0.2:80 -m 2 -T 5 -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
+=== OWASP ZAP | dvwa/no_waf | http://172.23.0.5:80 | 14/07/2026 21:07:57,45 ===
+CMD: docker run --memory 3000m --memory-swap 3000m -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest@sha256:8d387b1a63e3425beef4846e39719f5af2a787753af2d8b6558c6257d7a577a2 zap-full-scan.py -t http://172.23.0.5:80 -m 2 -T 5 -c /zap/hooks/zap_rules.tsv -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10 -config network.connection.defaultUserAgent=DoBotShield-TCC-Validation/1.0" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
 ----------------------------------------------------------------
 [zap_hook] aplicando exclusoes de URL (logout/setup/security) ...
 [zap_hook] cookie de sessao DVWA injetado via Replacer (REQ_HEADER Cookie).
 Total of 77 URLs
 PASS: Directory Browsing [0]
 PASS: Vulnerable JS Library (Powered by Retire.js) [10003]
-PASS: Swagger UI Secret & Vulnerability Detector [100043]
 PASS: In Page Banner Information Leak [10009]
 PASS: Cookie No HttpOnly Flag [10010]
 PASS: Cookie Without Secure Flag [10011]
@@ -92,7 +91,6 @@ PASS: SQL Injection - Oracle (Time Based) [40021]
 PASS: SQL Injection - PostgreSQL (Time Based) [40022]
 PASS: Possible Username Enumeration [40023]
 PASS: Proxy Disclosure [40025]
-PASS: Cross Site Scripting (DOM Based) [40026]
 PASS: SQL Injection - MsSQL (Time Based) [40027]
 PASS: ELMAH Information Leak [40028]
 PASS: Trace.axd Information Leak [40029]
@@ -140,27 +138,28 @@ PASS: Server Side Template Injection [90035]
 PASS: Server Side Template Injection (Blind) [90036]
 PASS: Remote OS Command Injection (Time Based) [90037]
 PASS: NoSQL Injection - MongoDB (Time Based) [90039]
+SKIP: Cross Site Scripting (DOM Based) [40026]
 WARN-NEW: Missing Anti-clickjacking Header [10020] x 2 
-	http://172.18.0.2:80/ (200 OK)
-	http://172.18.0.2:80 (200 OK)
+	http://172.23.0.5:80/ (200 OK)
+	http://172.23.0.5:80 (200 OK)
 WARN-NEW: X-Content-Type-Options Header Missing [10021] x 2 
-	http://172.18.0.2:80/ (200 OK)
-	http://172.18.0.2:80 (200 OK)
+	http://172.23.0.5:80/ (200 OK)
+	http://172.23.0.5:80 (200 OK)
 WARN-NEW: Server Leaks Version Information via "Server" HTTP Response Header Field [10036] x 2 
-	http://172.18.0.2:80/ (200 OK)
-	http://172.18.0.2:80 (200 OK)
+	http://172.23.0.5:80/ (200 OK)
+	http://172.23.0.5:80 (200 OK)
 WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 2 
-	http://172.18.0.2:80/ (200 OK)
-	http://172.18.0.2:80 (200 OK)
+	http://172.23.0.5:80/ (200 OK)
+	http://172.23.0.5:80 (200 OK)
 WARN-NEW: Permissions Policy Header Not Set [10063] x 2 
-	http://172.18.0.2:80/ (200 OK)
-	http://172.18.0.2:80 (200 OK)
+	http://172.23.0.5:80/ (200 OK)
+	http://172.23.0.5:80 (200 OK)
 WARN-NEW: Cross-Origin-Resource-Policy Header Missing or Invalid [90004] x 6 
-	http://172.18.0.2:80/ (200 OK)
-	http://172.18.0.2:80/ (200 OK)
-	http://172.18.0.2:80/ (200 OK)
-	http://172.18.0.2:80 (200 OK)
-	http://172.18.0.2:80 (200 OK)
-FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 6	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 136
+	http://172.23.0.5:80/ (200 OK)
+	http://172.23.0.5:80/ (200 OK)
+	http://172.23.0.5:80/ (200 OK)
+	http://172.23.0.5:80 (200 OK)
+	http://172.23.0.5:80 (200 OK)
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 6	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 134
 
 TOOL_RC=0

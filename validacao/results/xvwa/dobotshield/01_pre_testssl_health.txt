@@ -1,0 +1,7 @@
+=== health_probe  14/07/2026 19:29:53,54 ===
+URL: https://172.23.0.10:443
+probe 1  code=403  time=0.012883s  bytes=276
+probe 2  code=403  time=0.010157s  bytes=276
+probe 3  code=403  time=0.016649s  bytes=276
+probe 4  code=403  time=0.013011s  bytes=276
+probe 5  code=403  time=0.009884s  bytes=276

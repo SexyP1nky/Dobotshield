@@ -2,6 +2,61 @@ package config
 
 import "testing"
 
+func TestLoadReadsEveryAdminConfigEnvironmentVariable(t *testing.T) {
+	t.Setenv("TARGET_URL", "https://backend.example:9443")
+	t.Setenv("PROXY_PORT", "127.0.0.1:8443")
+	t.Setenv("HTTP_MODE", "true")
+	t.Setenv("ENABLE_WAF", "true")
+	t.Setenv("WAF_MODE", "monitor")
+	t.Setenv("ENABLE_RESPONSE_INSPECTION", "false")
+	t.Setenv("ENABLE_RATE_LIMIT", "false")
+	t.Setenv("RATE_LIMIT", "12.5")
+	t.Setenv("BURST_LIMIT", "25")
+	t.Setenv("MAX_CONNS", "15")
+	t.Setenv("MAX_TRACKED_IPS", "750")
+	t.Setenv("MAX_BODY_SIZE", "2097152")
+	t.Setenv("RESPONSE_INSPECTION_LIMIT", "524288")
+	t.Setenv("CERT_FILE", "tls/cert.pem")
+	t.Setenv("KEY_FILE", "tls/key.pem")
+	t.Setenv("TRUSTED_PROXIES", "192.0.2.10,2001:db8::1")
+	t.Setenv("INSECURE_SKIP_VERIFY", "true")
+	t.Setenv("CONTENT_SECURITY_POLICY", "default-src 'self'")
+	t.Setenv("WAF_ALLOWLIST", "SQLi:/search")
+	t.Setenv("BLOCKED_IPS", "198.51.100.10,203.0.113.0/24")
+	t.Setenv("RATE_LIMIT_STATE_FILE", "state/rate.json")
+	t.Setenv("TRAINING_MODE", "false")
+	t.Setenv("TRAINING_LOG_FILE", "audit/events.jsonl")
+
+	cfg := Load()
+	if cfg.TargetURL != "https://backend.example:9443" || cfg.ProxyPort != "127.0.0.1:8443" || !cfg.HTTPMode {
+		t.Fatalf("target/proxy not loaded: %+v", cfg)
+	}
+	if !cfg.EnableSanitizer || cfg.WAFMode != "monitor" || cfg.EnableResponseInspection || cfg.EnableRateLimit {
+		t.Fatalf("WAF toggles not loaded: %+v", cfg)
+	}
+	if cfg.RateLimit != 12.5 || cfg.BurstLimit != 25 || cfg.MaxConnsPerIP != 15 || cfg.MaxTrackedIPs != 750 {
+		t.Fatalf("limits not loaded: %+v", cfg)
+	}
+	if cfg.MaxBodySize != 2097152 || cfg.ResponseInspectionLimit != 524288 {
+		t.Fatalf("inspection sizes not loaded: %+v", cfg)
+	}
+	if cfg.CertFile != "tls/cert.pem" || cfg.KeyFile != "tls/key.pem" || !cfg.InsecureSkipVerify {
+		t.Fatalf("TLS options not loaded: %+v", cfg)
+	}
+	if len(cfg.TrustedProxies) != 2 || cfg.TrustedProxies[1] != "2001:db8::1" {
+		t.Fatalf("trusted proxies not loaded: %#v", cfg.TrustedProxies)
+	}
+	if cfg.ContentSecurityPolicy != "default-src 'self'" || len(cfg.WAFAllowlist) != 1 {
+		t.Fatalf("WAF policy options not loaded: %+v", cfg)
+	}
+	if len(cfg.BlockedIPs) != 2 || cfg.BlockedIPs[1] != "203.0.113.0/24" {
+		t.Fatalf("blocked IPs not loaded: %#v", cfg.BlockedIPs)
+	}
+	if cfg.RateLimitStateFile != "state/rate.json" || cfg.TrainingMode || cfg.TrainingLogFile != "audit/events.jsonl" {
+		t.Fatalf("state/training options not loaded: %+v", cfg)
+	}
+}
+
 func TestLoadReadsSecurityTogglesFromEnv(t *testing.T) {
 	t.Setenv("ENABLE_WAF", "false")
 	t.Setenv("ENABLE_RATE_LIMIT", "off")
@@ -111,5 +166,26 @@ func TestLoadFallsBackForInvalidNumbers(t *testing.T) {
 	}
 	if cfg.MaxBodySize != 1024*1024 {
 		t.Fatalf("expected default body size, got %d", cfg.MaxBodySize)
+	}
+}
+
+func TestResponseInspectionRequiresWAFAndResponseToggle(t *testing.T) {
+	tests := []struct {
+		name string
+		cfg  Config
+		want bool
+	}{
+		{name: "enabled", cfg: Config{EnableSanitizer: true, EnableResponseInspection: true, WAFMode: "block"}, want: true},
+		{name: "waf disabled", cfg: Config{EnableSanitizer: false, EnableResponseInspection: true, WAFMode: "block"}, want: false},
+		{name: "response disabled", cfg: Config{EnableSanitizer: true, EnableResponseInspection: false, WAFMode: "block"}, want: false},
+		{name: "mode off", cfg: Config{EnableSanitizer: true, EnableResponseInspection: true, WAFMode: "off"}, want: false},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			if got := test.cfg.ResponseWAFEnabled(); got != test.want {
+				t.Fatalf("ResponseWAFEnabled() = %v, want %v", got, test.want)
+			}
+		})
 	}
 }

@@ -9,6 +9,7 @@ import (
 type Config struct {
 	TargetURL                string
 	ProxyPort                string
+	HTTPMode                 bool
 	RateLimit                float64
 	BurstLimit               int
 	MaxConnsPerIP            int
@@ -40,6 +41,7 @@ func Load() Config {
 	return Config{
 		TargetURL:                getEnv("TARGET_URL", "http://localhost:4280"),
 		ProxyPort:                getEnv("PROXY_PORT", ":443"),
+		HTTPMode:                 parseBool(getEnv("HTTP_MODE", "false"), false),
 		RateLimit:                parseFloat(getEnv("RATE_LIMIT", "10.0"), 10.0),
 		BurstLimit:               parseInt(getEnv("BURST_LIMIT", "20"), 20),
 		MaxConnsPerIP:            parseInt(getEnv("MAX_CONNS", "10"), 10),
@@ -74,7 +76,7 @@ func (c Config) RequestWAFEnabled() bool {
 }
 
 func (c Config) ResponseWAFEnabled() bool {
-	return c.EnableResponseInspection && c.WAFMode != "off"
+	return c.EnableSanitizer && c.EnableResponseInspection && c.WAFMode != "off"
 }
 
 func (c Config) WAFBlocks() bool {

@@ -16,12 +16,13 @@ setlocal enableextensions enabledelayedexpansion
 
 set "ROOT=%~dp0"
 if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
-set "COMPOSE=%ROOT%\docker-compose.lab.yml"
-set "CERT_DIR=%ROOT%\certs"
+for %%I in ("%ROOT%\..") do set "LAB_ROOT=%%~fI"
+set "COMPOSE=%LAB_ROOT%\docker-compose.lab.yml"
+set "CERT_DIR=%LAB_ROOT%\certs"
 set "NET=dobotshield_waflab"
-set "IMG_CURL=curlimages/curl:latest"
-set "IMG_PY=python:3-alpine"
-set "SCRIPTS_DIR=%ROOT%\lab_scripts"
+set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
+set "IMG_PY=python:3-alpine@sha256:26730869004e2b9c4b9ad09cab8625e81d256d1ce97e72df5520e806b1709f92"
+set "SCRIPTS_DIR=%LAB_ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
 
 echo.
@@ -40,9 +41,9 @@ where docker >nul 2>&1 || ( echo [ERRO] docker nao encontrado no PATH. & exit /b
 docker info >nul 2>&1 || ( echo [ERRO] Docker engine inacessivel. Abra o Docker Desktop. & exit /b 12 )
 
 echo.
-echo [1/2] Subindo containers (build se necessario)...
+echo [1/2] Subindo containers ja construidos no setup...
 echo --------------------------------------------------------
-docker compose -f "%COMPOSE%" up -d --build || ( echo [ERRO] docker compose up falhou. & exit /b 20 )
+docker compose -f "%COMPOSE%" up -d || ( echo [ERRO] docker compose up falhou. & exit /b 20 )
 
 echo.
 echo [2/2] Resolvendo IPs e aguardando disponibilidade dos 8 alvos (ate 180s cada)...

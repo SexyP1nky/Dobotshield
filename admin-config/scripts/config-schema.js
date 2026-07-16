@@ -4,6 +4,7 @@
   var DEFAULT_CONFIG = {
     targetUrl: "http://localhost:4280",
     proxyPort: ":443",
+    httpMode: "false",
     enableWaf: "true",
     wafMode: "block",
     enableResponseInspection: "true",
@@ -18,6 +19,7 @@
     keyFile: "server.key",
     trustedProxies: "127.0.0.1,::1",
     insecureSkipVerify: "false",
+    contentSecurityPolicy: "",
     wafAllowlist: "",
     blockedIps: "",
     rateLimitStateFile: "",
@@ -28,6 +30,7 @@
   var CONFIG_FIELDS = [
     { id: "targetUrl", env: "TARGET_URL", defaultValue: DEFAULT_CONFIG.targetUrl },
     { id: "proxyPort", env: "PROXY_PORT", defaultValue: DEFAULT_CONFIG.proxyPort },
+    { id: "httpMode", env: "HTTP_MODE", defaultValue: DEFAULT_CONFIG.httpMode },
     { id: "enableWaf", env: "ENABLE_WAF", defaultValue: DEFAULT_CONFIG.enableWaf },
     { id: "wafMode", env: "WAF_MODE", defaultValue: DEFAULT_CONFIG.wafMode },
     { id: "enableResponseInspection", env: "ENABLE_RESPONSE_INSPECTION", defaultValue: DEFAULT_CONFIG.enableResponseInspection },
@@ -42,6 +45,7 @@
     { id: "keyFile", env: "KEY_FILE", defaultValue: DEFAULT_CONFIG.keyFile },
     { id: "trustedProxies", env: "TRUSTED_PROXIES", defaultValue: DEFAULT_CONFIG.trustedProxies },
     { id: "insecureSkipVerify", env: "INSECURE_SKIP_VERIFY", defaultValue: DEFAULT_CONFIG.insecureSkipVerify },
+    { id: "contentSecurityPolicy", env: "CONTENT_SECURITY_POLICY", defaultValue: DEFAULT_CONFIG.contentSecurityPolicy },
     { id: "wafAllowlist", env: "WAF_ALLOWLIST", defaultValue: DEFAULT_CONFIG.wafAllowlist },
     { id: "blockedIps", env: "BLOCKED_IPS", defaultValue: DEFAULT_CONFIG.blockedIps },
     { id: "rateLimitStateFile", env: "RATE_LIMIT_STATE_FILE", defaultValue: DEFAULT_CONFIG.rateLimitStateFile },

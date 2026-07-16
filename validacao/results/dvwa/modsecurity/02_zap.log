@@ -1,11 +1,10 @@
-=== OWASP ZAP | dvwa/modsecurity | https://172.18.0.5:8443 | 06/06/2026 23:12:47,48 ===
-CMD: docker run -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest zap-full-scan.py -t https://172.18.0.5:8443 -m 2 -T 5 -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
+=== OWASP ZAP | dvwa/modsecurity | https://172.23.0.2:8443 | 14/07/2026 21:56:08,53 ===
+CMD: docker run --memory 3000m --memory-swap 3000m -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest@sha256:8d387b1a63e3425beef4846e39719f5af2a787753af2d8b6558c6257d7a577a2 zap-full-scan.py -t https://172.23.0.2:8443 -m 2 -T 5 -c /zap/hooks/zap_rules.tsv -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10 -config network.connection.defaultUserAgent=DoBotShield-TCC-Validation/1.0" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
 ----------------------------------------------------------------
 [zap_hook] aplicando exclusoes de URL (logout/setup/security) ...
 [zap_hook] cookie de sessao DVWA injetado via Replacer (REQ_HEADER Cookie).
-Total of 69 URLs
+Total of 65 URLs
 PASS: Vulnerable JS Library (Powered by Retire.js) [10003]
-PASS: Swagger UI Secret & Vulnerability Detector [100043]
 PASS: Re-examine Cache-control Directives [10015]
 PASS: Content-Type Header Missing [10019]
 PASS: Information Disclosure - Sensitive Information in URL [10024]
@@ -40,6 +39,7 @@ PASS: X-AspNet-Version Response Header [10061]
 PASS: PII Disclosure [10062]
 PASS: Backup File Disclosure [10095]
 PASS: Hash Disclosure [10097]
+PASS: Cross-Domain Misconfiguration [10098]
 PASS: User Agent Fuzzer [10104]
 PASS: Weak Authentication Method [10105]
 PASS: HTTP Only Site [10106]
@@ -74,7 +74,6 @@ PASS: SQL Injection - Hypersonic SQL (Time Based) [40020]
 PASS: SQL Injection - Oracle (Time Based) [40021]
 PASS: SQL Injection - PostgreSQL (Time Based) [40022]
 PASS: Possible Username Enumeration [40023]
-PASS: Cross Site Scripting (DOM Based) [40026]
 PASS: SQL Injection - MsSQL (Time Based) [40027]
 PASS: ELMAH Information Leak [40028]
 PASS: Trace.axd Information Leak [40029]
@@ -83,6 +82,8 @@ PASS: .htaccess Information Leak [40032]
 PASS: NoSQL Injection - MongoDB [40033]
 PASS: .env Information Leak [40034]
 PASS: Hidden File Finder [40035]
+PASS: Bypassing 403 [40038]
+PASS: CORS Header [40040]
 PASS: Spring Actuator Information Leak [40042]
 PASS: Log4Shell [40043]
 PASS: Exponential Entity Expansion (Billion Laughs Attack) [40044]
@@ -118,118 +119,108 @@ PASS: Server Side Template Injection [90035]
 PASS: Server Side Template Injection (Blind) [90036]
 PASS: Remote OS Command Injection (Time Based) [90037]
 PASS: NoSQL Injection - MongoDB (Time Based) [90039]
+SKIP: Cross Site Scripting (DOM Based) [40026]
 WARN-NEW: Directory Browsing [0] x 6 
-	https://172.18.0.5:8443/docs/ (200 OK)
-	https://172.18.0.5:8443/dvwa/ (200 OK)
-	https://172.18.0.5:8443/dvwa/css/ (200 OK)
-	https://172.18.0.5:8443/dvwa/images/ (200 OK)
-	https://172.18.0.5:8443/dvwa/js/ (200 OK)
+	https://172.23.0.2:8443/docs/ (200 OK)
+	https://172.23.0.2:8443/dvwa/ (200 OK)
+	https://172.23.0.2:8443/dvwa/css/ (200 OK)
+	https://172.23.0.2:8443/dvwa/images/ (200 OK)
+	https://172.23.0.2:8443/dvwa/js/ (200 OK)
 WARN-NEW: In Page Banner Information Leak [10009] x 2 
-	https://172.18.0.5:8443/sitemap.xml (404 Not Found)
-	https://172.18.0.5:8443/vulnerabilities/csp/ZAP (404 Not Found)
+	https://172.23.0.2:8443/sitemap.xml (404 Not Found)
+	https://172.23.0.2:8443/DTD/xhtml1-transitional.dtd (404 Not Found)
 WARN-NEW: Cookie No HttpOnly Flag [10010] x 1 
-	https://172.18.0.5:8443/vulnerabilities/weak_id/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/weak_id/ (200 OK)
 WARN-NEW: Cookie Without Secure Flag [10011] x 1 
-	https://172.18.0.5:8443/vulnerabilities/weak_id/ (200 OK)
-WARN-NEW: Cross-Domain JavaScript Source File Inclusion [10017] x 2 
-	https://172.18.0.5:8443/vulnerabilities/captcha/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/captcha/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/weak_id/ (200 OK)
+WARN-NEW: Cross-Domain JavaScript Source File Inclusion [10017] x 1 
+	https://172.23.0.2:8443/vulnerabilities/captcha/ (200 OK)
 WARN-NEW: Missing Anti-clickjacking Header [10020] x 11 
-	https://172.18.0.5:8443/ (200 OK)
-	https://172.18.0.5:8443 (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/exec/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/brute/ (200 OK)
-	https://172.18.0.5:8443/instructions.php (200 OK)
-WARN-NEW: X-Content-Type-Options Header Missing [10021] x 12 
-	https://172.18.0.5:8443/ (200 OK)
-	https://172.18.0.5:8443/dvwa/images/logo.png (200 OK)
-	https://172.18.0.5:8443/robots.txt (200 OK)
-	https://172.18.0.5:8443/dvwa/css/main.css (200 OK)
-	https://172.18.0.5:8443 (200 OK)
+	https://172.23.0.2:8443/ (200 OK)
+	https://172.23.0.2:8443 (200 OK)
+	https://172.23.0.2:8443/instructions.php (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/brute/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_r/ (200 OK)
+WARN-NEW: X-Content-Type-Options Header Missing [10021] x 11 
+	https://172.23.0.2:8443/ (200 OK)
+	https://172.23.0.2:8443/robots.txt (200 OK)
+	https://172.23.0.2:8443 (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_r/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_d/ (200 OK)
 WARN-NEW: Information Disclosure - Debug Error Messages [10023] x 2 
-	https://172.18.0.5:8443/instructions.php (200 OK)
-	https://172.18.0.5:8443/instructions.php?doc=readme (200 OK)
-WARN-NEW: Strict-Transport-Security Header Not Set [10035] x 11 
-	https://172.18.0.5:8443/ (200 OK)
-	https://172.18.0.5:8443/dvwa/images/logo.png (200 OK)
-	https://172.18.0.5:8443/dvwa/css/main.css (200 OK)
-	https://172.18.0.5:8443/robots.txt (200 OK)
-	https://172.18.0.5:8443/sitemap.xml (404 Not Found)
+	https://172.23.0.2:8443/instructions.php (200 OK)
+	https://172.23.0.2:8443/instructions.php?doc=readme (200 OK)
+WARN-NEW: Strict-Transport-Security Header Not Set [10035] x 12 
+	https://172.23.0.2:8443/ (200 OK)
+	https://172.23.0.2:8443/robots.txt (200 OK)
+	https://172.23.0.2:8443 (200 OK)
+	https://172.23.0.2:8443/sitemap.xml (404 Not Found)
+	https://172.23.0.2:8443/vulnerabilities/xss_r/ (200 OK)
 WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 11 
-	https://172.18.0.5:8443/ (200 OK)
-	https://172.18.0.5:8443/sitemap.xml (404 Not Found)
-	https://172.18.0.5:8443 (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/brute/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/exec/ (200 OK)
-WARN-NEW: Relative Path Confusion [10051] x 3 
-	https://172.18.0.5:8443/about.php (200 OK)
-	https://172.18.0.5:8443/instructions.php (200 OK)
-	https://172.18.0.5:8443/instructions.php?doc=copying (200 OK)
+	https://172.23.0.2:8443/ (200 OK)
+	https://172.23.0.2:8443/sitemap.xml (404 Not Found)
+	https://172.23.0.2:8443 (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_r/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/brute/ (200 OK)
+WARN-NEW: Relative Path Confusion [10051] x 4 
+	https://172.23.0.2:8443/about.php (200 OK)
+	https://172.23.0.2:8443/instructions.php (200 OK)
+	https://172.23.0.2:8443/instructions.php?doc=readme (200 OK)
+	https://172.23.0.2:8443/phpinfo.php (200 OK)
 WARN-NEW: Cookie without SameSite Attribute [10054] x 1 
-	https://172.18.0.5:8443/vulnerabilities/weak_id/ (200 OK)
-WARN-NEW: CSP: Failure to Define Directive with No Fallback [10055] x 6 
-	https://172.18.0.5:8443/vulnerabilities/csp/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/csp/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/csp/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/csp/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/csp/ (200 OK)
-WARN-NEW: Permissions Policy Header Not Set [10063] x 11 
-	https://172.18.0.5:8443/ (200 OK)
-	https://172.18.0.5:8443/sitemap.xml (404 Not Found)
-	https://172.18.0.5:8443 (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/brute/ (200 OK)
-	https://172.18.0.5:8443/dvwa/js/add_event_listeners.js (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/weak_id/ (200 OK)
+WARN-NEW: CSP: Failure to Define Directive with No Fallback [10055] x 3 
+	https://172.23.0.2:8443/vulnerabilities/csp/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/csp/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/csp/ (200 OK)
+WARN-NEW: Permissions Policy Header Not Set [10063] x 12 
+	https://172.23.0.2:8443/ (200 OK)
+	https://172.23.0.2:8443 (200 OK)
+	https://172.23.0.2:8443/sitemap.xml (404 Not Found)
+	https://172.23.0.2:8443/vulnerabilities/brute/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_r/ (200 OK)
 WARN-NEW: Timestamp Disclosure - Unix [10096] x 19 
-	https://172.18.0.5:8443/vulnerabilities/javascript/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/javascript/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/javascript/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/javascript/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/javascript/ (200 OK)
-WARN-NEW: Cross-Domain Misconfiguration [10098] x 1 
-	https://172.18.0.5:8443/phpinfo.php (403 Forbidden)
+	https://172.23.0.2:8443/vulnerabilities/javascript/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/javascript/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/javascript/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/javascript/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/javascript/ (200 OK)
 WARN-NEW: Source Code Disclosure - SQL [10099] x 2 
-	https://172.18.0.5:8443/instructions.php (200 OK)
-	https://172.18.0.5:8443/instructions.php?doc=readme (200 OK)
+	https://172.23.0.2:8443/instructions.php (200 OK)
+	https://172.23.0.2:8443/instructions.php?doc=readme (200 OK)
 WARN-NEW: Dangerous JS Functions [10110] x 1 
-	https://172.18.0.5:8443/dvwa/js/dvwaPage.js (200 OK)
-WARN-NEW: Absence of Anti-CSRF Tokens [10202] x 12 
-	https://172.18.0.5:8443/vulnerabilities/exec/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/upload/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/captcha/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/xss_s/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/csp/ (200 OK)
+	https://172.23.0.2:8443/dvwa/js/dvwaPage.js (200 OK)
+WARN-NEW: Absence of Anti-CSRF Tokens [10202] x 11 
+	https://172.23.0.2:8443/vulnerabilities/weak_id/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/exec/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/upload/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/csp/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/javascript/ (200 OK)
 WARN-NEW: Private IP Disclosure [2] x 1 
-	https://172.18.0.5:8443/vulnerabilities/fi/?page=file3.php (200 OK)
-WARN-NEW: Anti-CSRF Tokens Check [20012] x 8 
-	https://172.18.0.5:8443/vulnerabilities/csp/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/exec/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/captcha/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/weak_id/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/upload/ (200 OK)
-WARN-NEW: SQL Injection - MySQL [40018] x 2 
-	https://172.18.0.5:8443/vulnerabilities/sqli/?Submit=Submit&id=%27 (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/brute/?Login=Login&password=ZAP&username=%27 (200 OK)
-WARN-NEW: Proxy Disclosure [40025] x 60 
-	https://172.18.0.5:8443/vulnerabilities/xss_r/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/xss_s/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/csp/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/xss_d/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/upload/ (200 OK)
-WARN-NEW: Bypassing 403 [40038] x 1 
-	https://172.18.0.5:8443/ (200 OK)
-WARN-NEW: CORS Misconfiguration [40040] x 1 
-	https://172.18.0.5:8443/phpinfo.php (403 Forbidden)
-WARN-NEW: Sub Resource Integrity Attribute Missing [90003] x 2 
-	https://172.18.0.5:8443/vulnerabilities/captcha/ (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/captcha/ (200 OK)
+	https://172.23.0.2:8443/phpinfo.php (200 OK)
+WARN-NEW: Anti-CSRF Tokens Check [20012] x 4 
+	https://172.23.0.2:8443/vulnerabilities/upload/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/weak_id/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_s/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_s/ (200 OK)
+WARN-NEW: SQL Injection [40018] x 1 
+	https://172.23.0.2:8443/vulnerabilities/xss_s/ (200 OK)
+WARN-NEW: Proxy Disclosure [40025] x 54 
+	https://172.23.0.2:8443/vulnerabilities/weak_id/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_r/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_s/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/upload/ (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/xss_d/ (200 OK)
+WARN-NEW: Sub Resource Integrity Attribute Missing [90003] x 1 
+	https://172.23.0.2:8443/vulnerabilities/captcha/ (200 OK)
 WARN-NEW: Cross-Origin-Embedder-Policy Header Missing or Invalid [90004] x 10 
-	https://172.18.0.5:8443/ (200 OK)
-	https://172.18.0.5:8443/ (200 OK)
-	https://172.18.0.5:8443 (200 OK)
-	https://172.18.0.5:8443 (200 OK)
-	https://172.18.0.5:8443/vulnerabilities/brute/ (200 OK)
+	https://172.23.0.2:8443/ (200 OK)
+	https://172.23.0.2:8443/ (200 OK)
+	https://172.23.0.2:8443 (200 OK)
+	https://172.23.0.2:8443 (200 OK)
+	https://172.23.0.2:8443/vulnerabilities/brute/ (200 OK)
 WARN-NEW: Cookie Slack Detector [90027] x 1 
-	https://172.18.0.5:8443/vulnerabilities/weak_id/ (200 OK)
-FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 28	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 114
+	https://172.23.0.2:8443/vulnerabilities/weak_id/ (200 OK)
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 25	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 115
 
 TOOL_RC=0

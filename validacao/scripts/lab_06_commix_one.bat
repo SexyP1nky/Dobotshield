@@ -10,12 +10,13 @@ setlocal enableextensions enabledelayedexpansion
 
 set "ROOT=%~dp0"
 if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+for %%I in ("%ROOT%\..") do set "LAB_ROOT=%%~fI"
 if "%NET%"=="" set "NET=dobotshield_waflab"
-if "%RESULTS%"=="" set "RESULTS=%ROOT%\lab_results"
+if "%RESULTS%"=="" set "RESULTS=%LAB_ROOT%\results"
 if "%LIB%"=="" set "LIB=%ROOT%\lab_lib.bat"
 if "%IMG_TOOLS%"=="" set "IMG_TOOLS=dobotshield/lab-tools:latest"
-if "%IMG_CURL%"=="" set "IMG_CURL=curlimages/curl:latest"
-if "%CERT_DIR%"=="" set "CERT_DIR=%ROOT%\certs"
+if "%IMG_CURL%"=="" set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
+if "%CERT_DIR%"=="" set "CERT_DIR=%LAB_ROOT%\certs"
 set "CERT_FWD=%CERT_DIR:\=/%"
 
 set "APP=%~1"
@@ -25,6 +26,7 @@ set "BACKEND=%~4"
 set "WAFCT=%~5"
 set "COOKIE=%~6"
 set "DATA=%~7"
+set "LAB_USER_AGENT=DoBotShield-TCC-Validation/1.0"
 
 if "%APP%"=="" (
     echo [ERRO] app vazio em lab_06_commix_one.bat.
@@ -65,7 +67,7 @@ REM default "n" (checks.py:893). Assim, ao DETECTAR a injecao (ex.: no_waf), o
 REM commix NAO abre o pseudo-shell interativo -- que, sem stdin real, entrava em
 REM loop e INUNDAVA o log (>1 GB). Tambem removido --all (enumeracao pesada,
 REM desnecessaria p/ medir deteccao). Detecta a injecao e sai limpo (rc=0).
->> "%LOG%" echo CMD: echo ^<url^> ^| commix.py !_DATA_ARG! --batch --random-agent --level=3 --skip-empty --skip-waf --delay=1 --timeout=20 --retries=2 !_CK_ARG! --output-dir=/work
+>> "%LOG%" echo CMD: echo ^<url^> ^| commix.py !_DATA_ARG! --batch --user-agent="%LAB_USER_AGENT%" --level=3 --skip-empty --skip-waf --delay=1 --timeout=20 --retries=2 !_CK_ARG! --output-dir=/work
 >> "%LOG%" echo ----------------------------------------------------------------
 echo %URL%| docker run --rm -i --network %NET% ^
     -v "%CERT_FWD%:/lab-ca:ro" ^
@@ -73,7 +75,7 @@ echo %URL%| docker run --rm -i --network %NET% ^
     %IMG_TOOLS% ^
     python /opt/commix/commix.py ^
         !_DATA_ARG! ^
-        --batch --random-agent ^
+        --batch --user-agent="%LAB_USER_AGENT%" ^
         --level=3 ^
         --skip-empty ^
         --skip-waf ^

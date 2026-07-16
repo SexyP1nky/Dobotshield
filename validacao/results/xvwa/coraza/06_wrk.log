@@ -1,19 +1,57 @@
-=== wrk | xvwa/coraza | https://172.18.0.9:443/xvwa/ | 06/06/2026 18:47:37,23 ===
-CMD: wrk -t12 -c400 -d30s --timeout 5s --latency https://172.18.0.9:443/xvwa/
+=== wrk | xvwa/coraza | https://172.23.0.8:443/xvwa/ | 15/07/2026  8:40:10,38 ===
+REPETICOES: 3
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" https://172.23.0.8:443/xvwa/
 ----------------------------------------------------------------
-Running 30s test @ https://172.18.0.9:443/xvwa/
+
+=== REPETICAO 1/3 ===
+Running 30s test @ https://172.23.0.8:443/xvwa/
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     2.67s   984.37ms   5.00s    66.18%
-    Req/Sec    14.36     10.51   101.00     76.15%
+    Latency     1.96s     1.43s    5.00s    59.27%
+    Req/Sec    14.91     12.71    90.00     76.00%
   Latency Distribution
-     50%    2.54s 
-     75%    3.39s 
-     90%    4.07s 
-     99%    4.85s 
-  3936 requests in 30.09s, 41.02MB read
-  Socket errors: connect 0, read 0, write 0, timeout 163
-Requests/sec:    130.81
-Transfer/sec:      1.36MB
+     50%    1.81s 
+     75%    3.02s 
+     90%    4.23s 
+     99%    4.95s 
+  3567 requests in 30.05s, 37.19MB read
+  Socket errors: connect 0, read 0, write 0, timeout 790
+Requests/sec:    118.70
+Transfer/sec:      1.24MB
+RUN_RC_1=0
+
+=== REPETICAO 2/3 ===
+Running 30s test @ https://172.23.0.8:443/xvwa/
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.49s     1.16s    5.00s    64.15%
+    Req/Sec    14.91     12.27   120.00     77.43%
+  Latency Distribution
+     50%    2.42s 
+     75%    3.34s 
+     90%    4.12s 
+     99%    4.91s 
+  3891 requests in 30.09s, 40.54MB read
+  Socket errors: connect 0, read 0, write 0, timeout 318
+Requests/sec:    129.31
+Transfer/sec:      1.35MB
+RUN_RC_2=0
+
+=== REPETICAO 3/3 ===
+Running 30s test @ https://172.23.0.8:443/xvwa/
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     2.18s     1.21s    5.00s    63.50%
+    Req/Sec    15.70     13.64   120.00     75.59%
+  Latency Distribution
+     50%    1.99s 
+     75%    2.93s 
+     90%    4.12s 
+     99%    4.91s 
+  3666 requests in 30.10s, 38.19MB read
+  Socket errors: connect 0, read 0, write 0, timeout 729
+Requests/sec:    121.80
+Transfer/sec:      1.27MB
+RUN_RC_3=0
 
 TOOL_RC=0

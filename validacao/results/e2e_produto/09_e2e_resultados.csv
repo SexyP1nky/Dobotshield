@@ -1,0 +1,8 @@
+﻿"Name","HTTP","Action","CurlRC"
+"benigno","200","Forwarded","0"
+"xss","400","Blocked-WAF","0"
+"cmd","400","Blocked-WAF","0"
+"sqli_booleana","200","Forwarded","0"
+"resposta_sql","502","Blocked-Response-WAF","0"
+"trace","405","Blocked-Method","0"
+"headers","200","Forwarded","0"

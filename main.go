@@ -54,7 +54,7 @@ func main() {
 
 	// HTTP_MODE=true desativa TLS — usado em ambientes de laboratorio onde o
 	// termino TLS e feito por um balanceador ou nao e necessario para o teste.
-	httpMode := os.Getenv("HTTP_MODE") == "true"
+	httpMode := cfg.HTTPMode
 
 	server := &http.Server{
 		Addr:              cfg.ProxyPort,

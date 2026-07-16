@@ -1,0 +1,13 @@
+HTTP/1.1 502 Bad Gateway
+Content-Length: 86
+Content-Type: application/json
+Date: Wed, 15 Jul 2026 11:44:19 GMT
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+Referrer-Policy: strict-origin-when-cross-origin
+Strict-Transport-Security: max-age=63072000; includeSubDomains
+X-Content-Type-Options: nosniff
+X-Dobotshield-Action: Blocked-Response-WAF
+X-Frame-Options: DENY
+X-Request-Id: 5f4ae29e2ca050672ae053a8a2fefb74
+X-Request-Id: 5f4ae29e2ca050672ae053a8a2fefb74
+

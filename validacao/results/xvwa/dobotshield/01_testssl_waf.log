@@ -1,0 +1,264 @@
+=== docker_logs lab_dobot_xvwa  (14/07/2026 19:30:53,67) ===
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+  DoBot Shield
+  Protocolo:        HTTPS
+  URL de acesso:    https://localhost:443
+  Proxy:            :443  ->  http://xvwa:80
+  WAF:              true (block)
+  Inspecao:         true
+  Rate limit:       true
+  Backend TLS:       verificado
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+2026/07/14 22:22:11 [ACCESS] request_id:bd92d6582f086ec730e8511b2a45d4b5 | GET /xvwa/ from 172.23.0.11
+2026/07/14 22:23:18 [ACCESS] request_id:aef506b42bf69208c775966572ea9fc3 | GET /xvwa/ from 172.23.0.11
+2026/07/14 22:23:19 [ACCESS] request_id:f9a3dbd3f141fbd727d85746074909f9 | GET /xvwa/ from 172.23.0.11
+2026/07/14 22:23:20 [ACCESS] request_id:e49089bbbcfd7666493bd94dad050e44 | GET /xvwa/ from 172.23.0.11
+2026/07/14 22:23:21 [ACCESS] request_id:47a8ff64b555a08d538cd27db2c74d69 | GET /xvwa/ from 172.23.0.11
+2026/07/14 22:23:22 [ACCESS] request_id:a6395bcb818d15cec259de7b67ff8ca9 | GET /xvwa/ from 172.23.0.11
+2026/07/14 22:29:53 [ACCESS] request_id:b46864265c913c6a70fd4292e3427773 | GET / from 172.23.0.11
+2026/07/14 22:29:54 [ACCESS] request_id:d8d4df5cc2c86fd9b96eb230839a0f7b | GET / from 172.23.0.11
+2026/07/14 22:29:55 [ACCESS] request_id:9d27771140444e60b2a489d1c65d23bb | GET / from 172.23.0.11
+2026/07/14 22:29:55 [ACCESS] request_id:c4cdc6d6fce7a6289c3f86e9b2d0afda | GET / from 172.23.0.11
+2026/07/14 22:29:56 [ACCESS] request_id:eea665550de205d2c6812e08a263763a | GET / from 172.23.0.11
+2026/07/14 22:30:02 http: TLS handshake error from 172.23.0.11:38248: EOF
+2026/07/14 22:30:02 http: TLS handshake error from 172.23.0.11:38262: EOF
+2026/07/14 22:30:02 http: TLS handshake error from 172.23.0.11:38274: EOF
+2026/07/14 22:30:02 http: TLS handshake error from 172.23.0.11:38290: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:02 http: TLS handshake error from 172.23.0.11:38300: EOF
+2026/07/14 22:30:02 http: TLS handshake error from 172.23.0.11:38308: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:02 [ACCESS] request_id:21e67e34e61cdd7aa50bcca7909e1484 | GET / from 172.23.0.11
+2026/07/14 22:30:03 http: TLS handshake error from 172.23.0.11:38332: EOF
+2026/07/14 22:30:03 http: TLS handshake error from 172.23.0.11:38348: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:03 http: TLS handshake error from 172.23.0.11:38362: EOF
+2026/07/14 22:30:03 http: TLS handshake error from 172.23.0.11:38378: tls: unsupported SSLv2 handshake received
+2026/07/14 22:30:03 http: TLS handshake error from 172.23.0.11:38380: EOF
+2026/07/14 22:30:03 http: TLS handshake error from 172.23.0.11:38392: tls: client offered only unsupported versions: []
+2026/07/14 22:30:03 http: TLS handshake error from 172.23.0.11:38408: EOF
+2026/07/14 22:30:03 http: TLS handshake error from 172.23.0.11:38414: tls: client offered only unsupported versions: [301]
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:38420: EOF
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:38426: tls: client offered only unsupported versions: [302 301]
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53226: EOF
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53232: tls: client offered only unsupported versions: [7f16 7f15 7f14 7f13 7f12]
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53244: EOF
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53252: tls: client offered only unsupported versions: [7f1c 7f1b 7f1a 7f19 7f18 7f17]
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53278: tls: client requested unsupported application protocols ([spdy/3.1])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53288: tls: client requested unsupported application protocols ([grpc-exp])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53304: tls: client requested unsupported application protocols ([h2-fb])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53308: tls: client requested unsupported application protocols ([spdy/1])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53310: tls: client requested unsupported application protocols ([spdy/2])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53322: tls: client requested unsupported application protocols ([spdy/3])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53332: tls: client requested unsupported application protocols ([stun.turn])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53342: tls: client requested unsupported application protocols ([stun.nat-discovery])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53348: tls: client requested unsupported application protocols ([webrtc])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53354: tls: client requested unsupported application protocols ([c-webrtc])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53364: tls: client requested unsupported application protocols ([ftp])
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53366: EOF
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53368: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53378: EOF
+2026/07/14 22:30:04 http: TLS handshake error from 172.23.0.11:53390: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53398: EOF
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53408: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53410: EOF
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53412: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53420: EOF
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53430: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53434: EOF
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53442: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53448: EOF
+2026/07/14 22:30:05 http: TLS handshake error from 172.23.0.11:53460: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53468: EOF
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53484: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53498: EOF
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53512: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53522: EOF
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53538: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53552: EOF
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53558: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53570: EOF
+2026/07/14 22:30:06 http: TLS handshake error from 172.23.0.11:53580: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:07 http: TLS handshake error from 172.23.0.11:53634: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:07 http: TLS handshake error from 172.23.0.11:53646: EOF
+2026/07/14 22:30:07 http: TLS handshake error from 172.23.0.11:53656: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:07 http: TLS handshake error from 172.23.0.11:53662: EOF
+2026/07/14 22:30:07 http: TLS handshake error from 172.23.0.11:53678: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:07 http: TLS handshake error from 172.23.0.11:53690: EOF
+2026/07/14 22:30:07 http: TLS handshake error from 172.23.0.11:53696: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:07 http: TLS handshake error from 172.23.0.11:53706: EOF
+2026/07/14 22:30:08 http: TLS handshake error from 172.23.0.11:53708: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:08 http: TLS handshake error from 172.23.0.11:53716: EOF
+2026/07/14 22:30:08 http: TLS handshake error from 172.23.0.11:53732: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:08 http: TLS handshake error from 172.23.0.11:53734: EOF
+2026/07/14 22:30:08 http: TLS handshake error from 172.23.0.11:53744: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:08 http: TLS handshake error from 172.23.0.11:53764: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:08 http: TLS handshake error from 172.23.0.11:53766: EOF
+2026/07/14 22:30:08 http: TLS handshake error from 172.23.0.11:53776: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53792: EOF
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53794: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53798: EOF
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53800: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53812: EOF
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53814: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53818: EOF
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53824: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53860: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:09 http: TLS handshake error from 172.23.0.11:53876: EOF
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53888: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53896: EOF
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53902: tls: no ECDHE curve supported by both client and server
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53910: EOF
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53926: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53938: EOF
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53942: tls: no ECDHE curve supported by both client and server
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53946: EOF
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53948: tls: peer doesn't support any of the certificate's signature algorithms
+2026/07/14 22:30:10 http: TLS handshake error from 172.23.0.11:53958: EOF
+2026/07/14 22:30:11 http: TLS handshake error from 172.23.0.11:53962: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:11 http: TLS handshake error from 172.23.0.11:53972: EOF
+2026/07/14 22:30:12 http: TLS handshake error from 172.23.0.11:53986: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:12 http: TLS handshake error from 172.23.0.11:53996: EOF
+2026/07/14 22:30:12 http: TLS handshake error from 172.23.0.11:54012: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:13 http: TLS handshake error from 172.23.0.11:54014: EOF
+2026/07/14 22:30:13 http: TLS handshake error from 172.23.0.11:54024: tls: peer doesn't support any of the certificate's signature algorithms
+2026/07/14 22:30:13 http: TLS handshake error from 172.23.0.11:54032: EOF
+2026/07/14 22:30:13 http: TLS handshake error from 172.23.0.11:54044: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:13 http: TLS handshake error from 172.23.0.11:54052: EOF
+2026/07/14 22:30:13 http: TLS handshake error from 172.23.0.11:54054: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:13 http: TLS handshake error from 172.23.0.11:54060: EOF
+2026/07/14 22:30:13 http: TLS handshake error from 172.23.0.11:54068: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:13 http: TLS handshake error from 172.23.0.11:54070: EOF
+2026/07/14 22:30:14 http: TLS handshake error from 172.23.0.11:54084: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:14 http: TLS handshake error from 172.23.0.11:54096: EOF
+2026/07/14 22:30:14 http: TLS handshake error from 172.23.0.11:54104: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:14 http: TLS handshake error from 172.23.0.11:54722: EOF
+2026/07/14 22:30:14 http: TLS handshake error from 172.23.0.11:54736: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:14 http: TLS handshake error from 172.23.0.11:54752: EOF
+2026/07/14 22:30:14 http: TLS handshake error from 172.23.0.11:54756: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:14 http: TLS handshake error from 172.23.0.11:54768: EOF
+2026/07/14 22:30:14 http: TLS handshake error from 172.23.0.11:54782: tls: peer doesn't support any of the certificate's signature algorithms
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54798: EOF
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54810: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54818: EOF
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54830: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54834: EOF
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54844: tls: client offered only unsupported versions: []
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54854: EOF
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54870: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54878: EOF
+2026/07/14 22:30:15 http: TLS handshake error from 172.23.0.11:54890: tls: client offered only unsupported versions: []
+2026/07/14 22:30:16 http: TLS handshake error from 172.23.0.11:54902: EOF
+2026/07/14 22:30:16 http: TLS handshake error from 172.23.0.11:54918: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:16 http: TLS handshake error from 172.23.0.11:54924: EOF
+2026/07/14 22:30:16 http: TLS handshake error from 172.23.0.11:54932: tls: peer doesn't support any of the certificate's signature algorithms
+2026/07/14 22:30:17 http: TLS handshake error from 172.23.0.11:54948: EOF
+2026/07/14 22:30:17 http: TLS handshake error from 172.23.0.11:54958: tls: peer doesn't support any of the certificate's signature algorithms
+2026/07/14 22:30:17 http: TLS handshake error from 172.23.0.11:54972: EOF
+2026/07/14 22:30:17 http: TLS handshake error from 172.23.0.11:54978: tls: peer doesn't support any of the certificate's signature algorithms
+2026/07/14 22:30:17 http: TLS handshake error from 172.23.0.11:54986: EOF
+2026/07/14 22:30:17 http: TLS handshake error from 172.23.0.11:55002: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:17 http: TLS handshake error from 172.23.0.11:55010: EOF
+2026/07/14 22:30:17 http: TLS handshake error from 172.23.0.11:55018: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:17 http: TLS handshake error from 172.23.0.11:55034: EOF
+2026/07/14 22:30:18 http: TLS handshake error from 172.23.0.11:55048: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:18 http: TLS handshake error from 172.23.0.11:55082: EOF
+2026/07/14 22:30:18 http: TLS handshake error from 172.23.0.11:55084: tls: client offered only unsupported versions: [301]
+2026/07/14 22:30:23 [ACCESS] request_id:a051265c07d475126b6f808639b3c0f6 | GET / from 172.23.0.11
+2026/07/14 22:30:24 [ACCESS] request_id:7e43e34e229875cbbf5b7a57db3f3fc8 | GET / from 172.23.0.11
+2026/07/14 22:30:25 http: TLS handshake error from 172.23.0.11:38024: EOF
+2026/07/14 22:30:25 http: TLS handshake error from 172.23.0.11:38032: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:29 http: TLS handshake error from 172.23.0.11:38044: EOF
+2026/07/14 22:30:29 http: TLS handshake error from 172.23.0.11:38054: local error: tls: unexpected message
+2026/07/14 22:30:29 http: TLS handshake error from 172.23.0.11:38060: EOF
+2026/07/14 22:30:29 http: TLS handshake error from 172.23.0.11:38074: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:29 http: TLS handshake error from 172.23.0.11:38082: EOF
+2026/07/14 22:30:29 http: TLS handshake error from 172.23.0.11:38096: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:30 [ACCESS] request_id:3dfb354b3afb72123b27eb1c8c448eb1 | GET / from 172.23.0.11
+2026/07/14 22:30:31 http: TLS handshake error from 172.23.0.11:38132: EOF
+2026/07/14 22:30:31 http: TLS handshake error from 172.23.0.11:38146: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:31 http: TLS handshake error from 172.23.0.11:38152: EOF
+2026/07/14 22:30:31 http: TLS handshake error from 172.23.0.11:38162: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38166: EOF
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38168: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38182: EOF
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38198: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38214: EOF
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38218: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38220: EOF
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38228: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38236: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38242: EOF
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38250: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:32 http: TLS handshake error from 172.23.0.11:38266: EOF
+2026/07/14 22:30:33 http: TLS handshake error from 172.23.0.11:38282: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:33 http: TLS handshake error from 172.23.0.11:38294: EOF
+2026/07/14 22:30:33 http: TLS handshake error from 172.23.0.11:38310: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:33 http: TLS handshake error from 172.23.0.11:38320: EOF
+2026/07/14 22:30:33 http: TLS handshake error from 172.23.0.11:38334: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:34 http: TLS handshake error from 172.23.0.11:38338: EOF
+2026/07/14 22:30:35 http: TLS handshake error from 172.23.0.11:38342: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:35 http: TLS handshake error from 172.23.0.11:50942: EOF
+2026/07/14 22:30:35 http: TLS handshake error from 172.23.0.11:50948: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:35 http: TLS handshake error from 172.23.0.11:50962: EOF
+2026/07/14 22:30:36 http: TLS handshake error from 172.23.0.11:50964: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:36 http: TLS handshake error from 172.23.0.11:50978: EOF
+2026/07/14 22:30:36 http: TLS handshake error from 172.23.0.11:50986: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:36 http: TLS handshake error from 172.23.0.11:50996: EOF
+2026/07/14 22:30:36 http: TLS handshake error from 172.23.0.11:51012: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:36 http: TLS handshake error from 172.23.0.11:51022: EOF
+2026/07/14 22:30:37 http: TLS handshake error from 172.23.0.11:51024: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:37 http: TLS handshake error from 172.23.0.11:51038: EOF
+2026/07/14 22:30:37 http: TLS handshake error from 172.23.0.11:51050: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:37 http: TLS handshake error from 172.23.0.11:51062: EOF
+2026/07/14 22:30:37 http: TLS handshake error from 172.23.0.11:51066: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:37 http: TLS handshake error from 172.23.0.11:51082: EOF
+2026/07/14 22:30:37 http: TLS handshake error from 172.23.0.11:51090: tls: client offered only unsupported versions: [301]
+2026/07/14 22:30:38 http: TLS handshake error from 172.23.0.11:51094: EOF
+2026/07/14 22:30:38 http: TLS handshake error from 172.23.0.11:51102: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:38 http: TLS handshake error from 172.23.0.11:51116: EOF
+2026/07/14 22:30:38 http: TLS handshake error from 172.23.0.11:51124: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:38 http: TLS handshake error from 172.23.0.11:51126: EOF
+2026/07/14 22:30:38 http: TLS handshake error from 172.23.0.11:51138: tls: no cipher suite supported by both client and server
+2026/07/14 22:30:38 http: TLS handshake error from 172.23.0.11:51144: EOF
+2026/07/14 22:30:39 http: TLS handshake error from 172.23.0.11:51146: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:39 http: TLS handshake error from 172.23.0.11:51158: EOF
+2026/07/14 22:30:39 http: TLS handshake error from 172.23.0.11:51166: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:39 http: TLS handshake error from 172.23.0.11:51174: EOF
+2026/07/14 22:30:40 http: TLS handshake error from 172.23.0.11:51176: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:40 http: TLS handshake error from 172.23.0.11:51190: EOF
+2026/07/14 22:30:40 http: TLS handshake error from 172.23.0.11:51206: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:40 http: TLS handshake error from 172.23.0.11:51214: EOF
+2026/07/14 22:30:40 http: TLS handshake error from 172.23.0.11:51230: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:40 http: TLS handshake error from 172.23.0.11:51232: EOF
+2026/07/14 22:30:41 http: TLS handshake error from 172.23.0.11:51242: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:41 http: TLS handshake error from 172.23.0.11:51248: EOF
+2026/07/14 22:30:41 http: TLS handshake error from 172.23.0.11:51258: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:41 http: TLS handshake error from 172.23.0.11:51262: EOF
+2026/07/14 22:30:41 http: TLS handshake error from 172.23.0.11:51264: tls: client offered only unsupported versions: [301]
+2026/07/14 22:30:41 http: TLS handshake error from 172.23.0.11:51270: EOF
+2026/07/14 22:30:42 http: TLS handshake error from 172.23.0.11:51276: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:42 http: TLS handshake error from 172.23.0.11:51282: EOF
+2026/07/14 22:30:42 http: TLS handshake error from 172.23.0.11:51298: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:42 http: TLS handshake error from 172.23.0.11:51312: EOF
+2026/07/14 22:30:42 http: TLS handshake error from 172.23.0.11:51322: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:42 http: TLS handshake error from 172.23.0.11:51328: EOF
+2026/07/14 22:30:43 http: TLS handshake error from 172.23.0.11:51340: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:43 http: TLS handshake error from 172.23.0.11:51356: EOF
+2026/07/14 22:30:43 http: TLS handshake error from 172.23.0.11:51368: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:43 http: TLS handshake error from 172.23.0.11:51374: EOF
+2026/07/14 22:30:43 http: TLS handshake error from 172.23.0.11:51390: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:43 http: TLS handshake error from 172.23.0.11:51400: EOF
+2026/07/14 22:30:44 http: TLS handshake error from 172.23.0.11:51406: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:44 http: TLS handshake error from 172.23.0.11:51414: EOF
+2026/07/14 22:30:44 http: TLS handshake error from 172.23.0.11:51430: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:44 http: TLS handshake error from 172.23.0.11:47576: EOF
+2026/07/14 22:30:44 http: TLS handshake error from 172.23.0.11:47582: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:44 http: TLS handshake error from 172.23.0.11:47596: EOF
+2026/07/14 22:30:45 http: TLS handshake error from 172.23.0.11:47606: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:45 http: TLS handshake error from 172.23.0.11:47612: EOF
+2026/07/14 22:30:45 http: TLS handshake error from 172.23.0.11:47626: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:45 http: TLS handshake error from 172.23.0.11:47642: EOF
+2026/07/14 22:30:45 http: TLS handshake error from 172.23.0.11:47650: tls: received record with version 301 when expecting version 303
+2026/07/14 22:30:46 [ACCESS] request_id:1a59694b02672195838b17ea7481e96a | GET / from 172.23.0.11
+2026/07/14 22:30:47 [ACCESS] request_id:006eb3225f3d4a1e5064f8bc7c606529 | GET / from 172.23.0.11
+2026/07/14 22:30:47 [ACCESS] request_id:40f362b5bd336ba38fb0453374eca0e1 | GET / from 172.23.0.11
+2026/07/14 22:30:48 [ACCESS] request_id:2313147cd1e9297cf7719c7c9893f4d5 | GET / from 172.23.0.11
+2026/07/14 22:30:49 [ACCESS] request_id:13fd0c750b86c0bdce364ef20928bfb8 | GET / from 172.23.0.11

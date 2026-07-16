@@ -1,2 +1,0 @@
-Target URL,Place,Parameter,Technique(s),Note(s)
-http://172.18.0.2:80/vulnerabilities/sqli/?id=1&Submit=Submit,GET,id,B,

@@ -10,11 +10,12 @@ setlocal enableextensions enabledelayedexpansion
 
 set "ROOT=%~dp0"
 if "%ROOT:~-1%"=="\" set "ROOT=%ROOT:~0,-1%"
+for %%I in ("%ROOT%\..") do set "LAB_ROOT=%%~fI"
 if "%NET%"=="" set "NET=dobotshield_waflab"
-if "%RESULTS%"=="" set "RESULTS=%ROOT%\lab_results"
+if "%RESULTS%"=="" set "RESULTS=%LAB_ROOT%\results"
 if "%LIB%"=="" set "LIB=%ROOT%\lab_lib.bat"
-if "%IMG_TESTSSL%"=="" set "IMG_TESTSSL=drwetter/testssl.sh:latest"
-if "%IMG_CURL%"=="" set "IMG_CURL=curlimages/curl:latest"
+if "%IMG_TESTSSL%"=="" set "IMG_TESTSSL=drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce"
+if "%IMG_CURL%"=="" set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58e06f95539d539b654f2cfa64bb13"
 
 set "APP=%~1"
 set "SCEN=%~2"
