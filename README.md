@@ -417,7 +417,6 @@ lab_04_sqlmap.bat      # SQLMap
 lab_05_xsstrike.bat    # XSStrike
 lab_06_commix.bat      # Commix
 lab_07_wrk.bat         # wrk
-lab_09_e2e_produto.bat # configuração gerada pela UI + proxy/WAF/relatório ponta a ponta
 lab_99_derrubar.bat    # derruba o lab
 ```
 
@@ -427,10 +426,6 @@ refletido continua coberto pelo ZAP e pelo XSStrike. O `wrk` executa três
 repetições por cenário. A entrega contém somente a rodada consolidada; tentativas
 interrompidas por falha de infraestrutura não fazem parte dos resultados.
 
-O E2E do produto usa um payload de injeção de comando coberto pelas regras
-(`;id`) e valida, além do bloqueio, as 23 variáveis exportadas pela interface,
-inspeção de resposta, treinamento, relatório, X-Forwarded-For e
-X-Forwarded-Proto.
 
 Os resultados ficam em `validacao/results/<app>/<cenario>/`, com um log por ferramenta, snapshots de saúde/recursos, relatórios do ZAP e logs dos WAFs. A entrega atual contém resultados para:
 
@@ -445,7 +440,6 @@ Para conferir os artefatos já publicados sem repetir as ferramentas de terceiro
 python validacao/tools/audit_validation.py validacao/results
 python validacao/tools/audit_tool_inputs.py validacao/results
 python validacao/tools/audit_training_report.py `
-  validacao/results/e2e_produto/e2e-training.jsonl training-report.html
 node --test admin-config/tests/admin-config.test.mjs
 go test -count=1 ./...
 ```
@@ -545,7 +539,6 @@ JSON Lines que o originou.
 |   |-- results/                 Logs e evidências da bancada de validação
 |   |   |-- dvwa/                4 cenários × 6 ferramentas
 |   |   |-- xvwa/                4 cenários × 6 ferramentas
-|   |   |-- e2e_produto/         Evidências do teste ponta a ponta
 |   |   |-- ANALISE_RESULTADOS.json
 |   |   |-- AUDITORIA_INPUTS.json
 |   |   |-- RESUMO_RESULTADOS.txt
@@ -559,7 +552,6 @@ JSON Lines que o originou.
 |   |   |-- lab_05_xsstrike.bat
 |   |   |-- lab_06_commix.bat
 |   |   |-- lab_07_wrk.bat
-|   |   |-- lab_09_e2e_produto.bat
 |   |   |-- lab_run_tudo.bat
 |   |   |-- lab_99_derrubar.bat
 |   |   `-- lab_lib.bat
