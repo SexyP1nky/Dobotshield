@@ -316,7 +316,7 @@ Resposta ao cliente
 | `TRAINING_MODE` | `true` | Registra cada bloqueio em JSON estruturado (Modo de Treinamento) |
 | `TRAINING_LOG_FILE` | `logs/training.jsonl` | Arquivo JSON Lines do Modo de Treinamento |
 
-Os valores booleanos aceitam `true`, `false`, `1`, `0`, `yes`, `no`, `on`, `off`, `enabled`, `disabled`, além de `t`/`f` e `y`/`n`, inclusive em `HTTP_MODE`. Campos numéricos com valor inválido ou menor/igual a zero retornam ao padrão.
+Em `HTTP_MODE`. Campos numéricos com valor inválido ou menor/igual a zero retornam ao padrão.
 
 ---
 
