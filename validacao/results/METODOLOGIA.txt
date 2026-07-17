@@ -1,10 +1,9 @@
-============================================================================
+
  BANCADA COMPARATIVA DE WAFs  --  METODOLOGIA
  DoBotShield  vs  ModSecurity (CRS)  vs  Coraza (CRS)
-============================================================================
 
 1. OBJETIVO
----------------------------------------------------------------------------
+
 Avaliar, de forma reproduzivel e padronizada, a eficacia de tres Web
 Application Firewalls protegendo duas aplicacoes propositalmente
 vulneraveis, comparando-os a um baseline SEM WAF. Os WAFs avaliados:
@@ -21,7 +20,6 @@ Aplicacoes-alvo (open source, propositalmente vulneraveis):
 
 
 2. MATRIZ DE TESTES
----------------------------------------------------------------------------
 2 aplicacoes  x  4 cenarios de protecao  x  6 ferramentas  =  48 testes.
 
 Cenarios por aplicacao:
@@ -40,7 +38,7 @@ Ferramentas (todas open source, executadas em containers):
 
 
 3. MAPA DE PORTAS E ALVOS (rede interna Docker: dobotshield_waflab)
----------------------------------------------------------------------------
+
 As FERRAMENTAS rodam como containers na MESMA rede dos alvos e os acessam
 por IP:porta interno dos containers, resolvido no inicio de cada .bat. As
 portas mapeadas no host servem apenas para inspecao manual via browser.
@@ -58,7 +56,6 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 
 4. PADRONIZACAO E JUSTICA EXPERIMENTAL
----------------------------------------------------------------------------
 - Para CADA ferramenta, os parametros de ataque sao IDENTICOS nos quatro
   cenarios de uma mesma aplicacao. SO a URL de destino muda. Isso garante
   comparabilidade direta: nenhum cenario e "privilegiado".
@@ -153,7 +150,7 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 
 5. CONFIGURACAO DOS WAFs
----------------------------------------------------------------------------
+
 - ModSecurity / Coraza: OWASP CRS, paranoia 1, anomaly inbound 5 / outbound 4
   (CRS), modo bloqueio. TLS terminado pelo proprio WAF.
 
@@ -175,7 +172,7 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 
 6. ESTRUTURA DOS RESULTADOS
----------------------------------------------------------------------------
+
   validacao/results/
     METODOLOGIA.txt                  (este documento, com timestamp da rodada)
     <app>/<cenario>/
@@ -200,7 +197,7 @@ de infraestrutura e artefatos temporarios nao fazem parte da entrega.
 
 
 7. COMO REPRODUZIR (ordem de execucao)
----------------------------------------------------------------------------
+
 Pre-requisito: Docker Desktop em execucao, com compartilhamento de arquivos
 habilitado para o drive do projeto (padrao no backend WSL2).
 
@@ -224,16 +221,14 @@ habilitado para o drive do projeto (padrao no backend WSL2).
 
 As ferramentas sao independentes: podem ser rodadas em qualquer ordem,
 desde que o lab esteja no ar (passos 1 e 2 concluidos).
-============================================================================
 
 
-============================================================================
  8. HISTORICO TECNICO DA BANCADA (registro encerrado em 2026-06-06)
 ATENCAO: esta secao preserva o historico de diagnosticos da bancada anterior e
 nao deve ser usada como resultado da rodada de 14/07/2026. Para os numeros
 atuais, consulte validacao/docs/RELATORIO_RESULTADOS.md, ANALISE_RESULTADOS.json e os
 logs brutos da pasta results/.
-============================================================================
+
 
 CORRECOES APLICADAS E VALIDADAS (OK):
   [OK] XSStrike: adicionado --skip. Sem ele, rodando via "docker run" sem TTY,
@@ -319,9 +314,9 @@ LIMITACAO CONHECIDA:
     viavel para fazer XSStrike ou Commix falharem o DoBotShield mantendo input
     identico para todos.
 
-============================================================================
+
 ANALISE DOS RESULTADOS (revisao 2026-06-06) -- 4 pontos verificados
-============================================================================
+
 
 PONTO 1 -- ZAP no XVWA gera poucos alertas (e a comparacao com WAF):
   Contagem de TIPOS de alerta (e instancias) extraida dos zap_report.json:
@@ -419,7 +414,7 @@ FIX IMPLEMENTADO (Ponto 1) -- seed do XVWA no ZAP (zap_hook.py):
     lab_03_zap_one.bat xvwa dobotshield "https://<ip_dobot>:443/xvwa/"     lab_xvwa lab_dobot_xvwa  ""
     lab_03_zap_one.bat xvwa coraza      "https://<ip_coraza>:443/xvwa/"    lab_xvwa lab_coraza_xvwa ""
   (IPs via docker inspect; e o trecho identico ao lab_03_zap.bat, so sem o DVWA.)
-============================================================================
+
 
 AUDITORIA HTML / RELATORIO DE TREINAMENTO (admin-config + training-report)
 ----------------------------------------------------------------------------
@@ -561,4 +556,4 @@ AUDITORIA HTML / RELATORIO DE TREINAMENTO (admin-config + training-report)
        .env 21 chaves, quoting PowerShell, persistencia, reset, status).
     Conclusao: o relatorio reflete fielmente os ataques do log, sem embaralhar,
     inventar ou omitir; todos os campos do admin corretos. Console sem erros.
-============================================================================
+
