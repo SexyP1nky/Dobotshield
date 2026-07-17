@@ -434,15 +434,7 @@ Os resultados ficam em `validacao/results/<app>/<cenario>/`, com um log por ferr
 
 O resumo interpretativo está em [validacao/docs/RELATORIO_RESULTADOS.md](validacao/docs/RELATORIO_RESULTADOS.md), e a metodologia completa está em [validacao/docs/METODOLOGIA.txt](validacao/docs/METODOLOGIA.txt).
 
-Para conferir os artefatos já publicados sem repetir as ferramentas de terceiros:
 
-```powershell
-python validacao/tools/audit_validation.py validacao/results
-python validacao/tools/audit_tool_inputs.py validacao/results
-python validacao/tools/audit_training_report.py `
-node --test admin-config/tests/admin-config.test.mjs
-go test -count=1 ./...
-```
 
 As duas primeiras auditorias verificam os 48 logs, os oito JSONs do ZAP, os
 códigos de saída, as três repetições do `wrk` e a paridade dos comandos entre
@@ -565,6 +557,5 @@ JSON Lines que o originou.
 |
 |-- gerar_relatorio.bat        Gera e abre o training-report.html
 |-- MODO_TREINAMENTO.md        Documentação do Modo de Treinamento
-|-- SHA256_MANIFEST.txt        Hash de todos os arquivos versionados da entrega
 `-- training-report.html       Relatório HTML gerado do Modo de Treinamento
 ```
