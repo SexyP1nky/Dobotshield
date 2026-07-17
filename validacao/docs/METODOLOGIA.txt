@@ -151,7 +151,7 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 
 
 5. CONFIGURACAO DOS WAFs
----------------------------------------------------------------------------
+
 - ModSecurity / Coraza: OWASP CRS, paranoia 1, anomaly inbound 5 / outbound 4
   (CRS), modo bloqueio. TLS terminado pelo proprio WAF.
 
@@ -192,13 +192,10 @@ portas mapeadas no host servem apenas para inspecao manual via browser.
 Cada .log de ferramenta comeca com um cabecalho contendo o comando docker
 EXATO executado e o timestamp -- garantindo reprodutibilidade.
 
-Os resultados publicados correspondem somente a rodada consolidada de 48
-execucoes e ao E2E automatizado do produto. Tentativas interrompidas por falha
-de infraestrutura e artefatos temporarios nao fazem parte da entrega.
 
 
 7. COMO REPRODUZIR (ordem de execucao)
----------------------------------------------------------------------------
+
 Pre-requisito: Docker Desktop em execucao, com compartilhamento de arquivos
 habilitado para o drive do projeto (padrao no backend WSL2).
 
@@ -558,4 +555,4 @@ AUDITORIA HTML / RELATORIO DE TREINAMENTO (admin-config + training-report)
        .env 21 chaves, quoting PowerShell, persistencia, reset, status).
     Conclusao: o relatorio reflete fielmente os ataques do log, sem embaralhar,
     inventar ou omitir; todos os campos do admin corretos. Console sem erros.
-============================================================================
+
