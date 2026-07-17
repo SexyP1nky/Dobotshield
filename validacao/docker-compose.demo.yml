@@ -16,9 +16,9 @@ networks:
 
 services:
 
-  # ============================================================
+  # 
   # APLICACOES VULNERAVEIS
-  # ============================================================
+  # 
 
   dvwa:
     image: vulnerables/web-dvwa
@@ -49,10 +49,10 @@ services:
       - mutillidae_db
     restart: unless-stopped
 
-  # ============================================================
+  # 
   # DOBOTSHIELD (TLS termination — converte HTTP backend em HTTPS)
   # Demonstra a funcionalidade principal do WAF: encerramento TLS.
-  # ============================================================
+  # 
 
   dobotshield_dvwa:
     build:
@@ -112,9 +112,9 @@ services:
       - mutillidae
     restart: unless-stopped
 
-  # ============================================================
+  # 
   # MODSECURITY + OWASP CRS (HTTPS, paranoia level 1)
-  # ============================================================
+  # 
 
   modsecurity_dvwa:
     image: owasp/modsecurity-crs:nginx
@@ -158,10 +158,10 @@ services:
       - mutillidae
     restart: unless-stopped
 
-  # ============================================================
+  # 
   # CORAZA + CADDY + OWASP CRS (HTTPS)
   # Implementacao moderna em Go do motor WAF, compativel com CRS.
-  # ============================================================
+  # 
 
   coraza_dvwa:
     build:
