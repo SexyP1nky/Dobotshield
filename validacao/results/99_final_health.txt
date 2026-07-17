@@ -1,6 +1,5 @@
 FINAL_HEALTH_TIMESTAMP=2026-07-15T09:05:22-03:00
 GO_TEST=PASS
-ADMIN_CONFIG_TEST=PASS (23 campos)
 TOOL_RUNS=48/48 presentes e analisadas
 INPUT_AUDIT=PASS (12 grupos app/ferramenta; somente o destino varia)
 TRAINING_REPORT_AUDIT=PASS
