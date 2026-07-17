@@ -101,7 +101,7 @@ Os clientes agora acessam o **DoBot Shield**, não a aplicação diretamente. Em
 
 ### Sem TLS (laboratório)
 
-`HTTP_MODE=true` faz o DoBot Shield atender em **HTTP puro**, sem certificado. Serve quando o TLS é terminado por outro componente ou em um teste local rápido. Apenas o valor exato `true` ativa esse modo.
+`HTTP_MODE=true` faz o DoBot Shield atender em **HTTP puro**, sem certificado. Serve quando o TLS é terminado por outro componente ou em um teste local rápido.
 
 ### Atalho: montar o comando pela interface
 
