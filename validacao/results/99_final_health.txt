@@ -3,11 +3,9 @@ GO_TEST=PASS
 ADMIN_CONFIG_TEST=PASS (23 campos)
 TOOL_RUNS=48/48 presentes e analisadas
 INPUT_AUDIT=PASS (12 grupos app/ferramenta; somente o destino varia)
-E2E_PRODUTO=PASS (23 variaveis; 7 probes; 3 eventos de treinamento)
 TRAINING_REPORT_AUDIT=PASS
 KNOWN_LIMITATION_SQLI=SQLi booleana confirmada atraves do DoBotShield no DVWA e XVWA
 ZAP_RULE_40026=IGNORED igualmente nos 8 destinos por falha do processo Java do scanner
-E2E_TEMP_CONTAINERS=0
 LOCAL_HTTP_SERVER_8765=NOT_RUNNING
 MAIN_LAB_STATE=STOPPED_AFTER_VALIDATION (9 containers preservados)
 
