@@ -24,6 +24,8 @@ set "IMG_CURL=curlimages/curl:latest@sha256:7c12af72ceb38b7432ab85e1a265cff6ae58
 set "IMG_PY=python:3-alpine@sha256:26730869004e2b9c4b9ad09cab8625e81d256d1ce97e72df5520e806b1709f92"
 set "SCRIPTS_DIR=%LAB_ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
+set "TMP_LOG_DIR=%TEMP%\dobotshield-validation"
+if not exist "%TMP_LOG_DIR%" mkdir "%TMP_LOG_DIR%"
 
 echo.
 echo ============================================================
@@ -78,10 +80,10 @@ REM Garante o banco do XVWA criado/populado (idempotente: caso o container
 REM tenha sido recriado pelo "up --build"). O XVWA nao exige autenticacao.
 echo.
 echo   Garantindo banco do XVWA (/xvwa/setup/?action=do)...
-docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/xvwa_setup.py "http://!IP_XVWA!:80" >"%SCRIPTS_DIR%\xvwa_setup.subir.stdout.log" 2>"%SCRIPTS_DIR%\xvwa_setup.subir.stderr.log"
+docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/xvwa_setup.py "http://!IP_XVWA!:80" >"%TMP_LOG_DIR%\xvwa_setup.subir.stdout.log" 2>"%TMP_LOG_DIR%\xvwa_setup.subir.stderr.log"
 if errorlevel 1 (
     echo   [ERRO] setup do XVWA falhou. Detalhes:
-    if exist "%SCRIPTS_DIR%\xvwa_setup.subir.stderr.log" type "%SCRIPTS_DIR%\xvwa_setup.subir.stderr.log"
+    if exist "%TMP_LOG_DIR%\xvwa_setup.subir.stderr.log" type "%TMP_LOG_DIR%\xvwa_setup.subir.stderr.log"
     exit /b 21
 )
 

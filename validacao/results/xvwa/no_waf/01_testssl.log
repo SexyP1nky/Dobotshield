@@ -1,12 +1,12 @@
-=== testssl.sh | xvwa/no_waf | 172.23.0.3:80 | 14/07/2026 19:27:51,45 ===
-CMD: docker run --rm --network dobotshield_waflab drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce --quiet --color 0 --warnings off --connect-timeout 10 --openssl-timeout 10 172.23.0.3:80
+=== testssl.sh | xvwa/no_waf | 172.18.0.3:80 | 17/07/2026 19:30:25,17 ===
+CMD: docker run --rm --network dobotshield_waflab drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce --quiet --color 0 --warnings off --connect-timeout 10 --openssl-timeout 10 172.18.0.3:80
 ----------------------------------------------------------------
 
- Start 2026-07-14 22:27:53        -->> 172.23.0.3:80 (172.23.0.3) <<--
+ Start 2026-07-17 22:30:28        -->> 172.18.0.3:80 (172.18.0.3) <<--
 
- rDNS (172.23.0.3):      lab_xvwa.dobotshield_waflab.
+ rDNS (172.18.0.3):      lab_xvwa.dobotshield_waflab.
 
- 172.23.0.3:80 doesn't seem to be a TLS/SSL enabled server
+ 172.18.0.3:80 doesn't seem to be a TLS/SSL enabled server
  Service detected:       Couldn't determine what's running on port 80, assuming no HTTP service => skipping all HTTP checks
 
  Testing protocols via sockets except NPN+ALPN 
@@ -148,7 +148,7 @@ Could not determine the protocol, only simulating generic clients.
                                 B. Forward Secrecy (FS) is not supported
  Grade warning                TLS 1.3 is not supported
 
- Done 2026-07-14 22:28:46 [  55s] -->> 172.23.0.3:80 (172.23.0.3) <<--
+ Done 2026-07-17 22:31:28 [  63s] -->> 172.18.0.3:80 (172.18.0.3) <<--
 
 
 

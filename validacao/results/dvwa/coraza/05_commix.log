@@ -1,5 +1,5 @@
-=== Commix | dvwa/coraza | https://172.23.0.7:443/vulnerabilities/exec/ | 15/07/2026  8:21:34,71 ===
-CMD: echo <url> | commix.py --data=ip=127.0.0.1&Submit=Submit --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=3 --skip-empty --skip-waf --delay=1 --timeout=20 --retries=2 --cookie="PHPSESSID=b4rjdlitk2qe9s717qafmrpev5;security=low" --output-dir=/work
+=== Commix | dvwa/coraza | https://172.18.0.6:443/vulnerabilities/exec/ | 17/07/2026 20:38:40,25 ===
+CMD: echo <url> | commix.py --data=ip=127.0.0.1&Submit=Submit --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=3 --skip-empty --skip-waf --delay=1 --timeout=20 --retries=2 --cookie="PHPSESSID=4ovr7qg6s6jhlgtio3nt5e2a60;security=low" --output-dir=/work
 ----------------------------------------------------------------
                                       __
    ___   ___     ___ ___     ___ ___ /\_\   __  _
@@ -15,18 +15,18 @@ Copyright © 2014-2026 Anastasios Stasinopoulos[0m ([91m@ancst[0m)
 
 ([1m[31m![0m) Legal disclaimer: Usage of commix for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
 [0m
-[[94m11:21:36[0m] [0m[[32minfo[0m] Using 'stdin' for parsing targets list.[0m
-[1m[1/1] URL - POST https://172.23.0.7:443/vulnerabilities/exec/[0m
+[[94m23:38:43[0m] [0m[[32minfo[0m] Using 'stdin' for parsing targets list.[0m
+[1m[1/1] URL - POST https://172.18.0.6:443/vulnerabilities/exec/[0m
 [1mDo you want to use URL #1 for testing? [Y/n] > Y[0m
-[[94m11:21:36[0m] [0m[[32minfo[0m] Testing URL 'https://172.23.0.7:443/vulnerabilities/exec/'.[0m
-[[94m11:21:36[0m] [[32m[1minfo[0m] [1mTesting connection to the target URL. [0m
-[[94m11:21:49[0m] [0m[[32minfo[0m] Using output directory '/work'.[0m
-[[94m11:21:49[0m] [0m[[32minfo[0m] Performing heuristic (passive) tests on the target URL.[0m
-[[94m11:21:57[0m] [[93mwarning[0m] Target's estimated response time is 3 seconds. That may cause serious delays during the data extraction procedure and/or possible corruptions over the extracted data.[0m
-[[94m11:21:57[0m] [0m[[32minfo[0m] Setting POST parameter 'ip' for tests.[0m
-[[94m11:21:57[0m] [0m[[32minfo[0m] Performing heuristic (basic) tests to the POST parameter 'ip'.[0m
-[[94m11:21:58[0m] [[93mwarning[0m] The web server responded with an HTTP error code '403' which could interfere with the results of the tests.[0m
+[[94m23:38:43[0m] [0m[[32minfo[0m] Testing URL 'https://172.18.0.6:443/vulnerabilities/exec/'.[0m
+[[94m23:38:43[0m] [[32m[1minfo[0m] [1mTesting connection to the target URL. [0m
+[[94m23:38:56[0m] [0m[[32minfo[0m] Using output directory '/work'.[0m
+[[94m23:38:56[0m] [0m[[32minfo[0m] Performing heuristic (passive) tests on the target URL.[0m
+[[94m23:39:04[0m] [[93mwarning[0m] Target's estimated response time is 3 seconds. That may cause serious delays during the data extraction procedure and/or possible corruptions over the extracted data.[0m
+[[94m23:39:04[0m] [0m[[32minfo[0m] Setting POST parameter 'ip' for tests.[0m
+[[94m23:39:04[0m] [0m[[32minfo[0m] Performing heuristic (basic) tests to the POST parameter 'ip'.[0m
+[[94m23:39:05[0m] [[93mwarning[0m] The web server responded with an HTTP error code '403' which could interfere with the results of the tests.[0m
 [1mDo you want to ignore HTTP response code '403' and proceed with testing? [y/N] > N[0m
-[[94m11:22:00[0m] [0m[[32minfo[0m] Skipping further testing on the target URL.[0m
+[[94m23:39:07[0m] [0m[[32minfo[0m] Skipping further testing on the target URL.[0m
 
 TOOL_RC=0

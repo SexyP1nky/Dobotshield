@@ -1,0 +1,3 @@
+https://172.18.0.9:443/xvwa/vulnerabilities/sqli/ (POST)  # /opt/sqlmap/sqlmap.py -u https://172.18.0.9:443/xvwa/vulnerabilities/sqli/ -p item --data=item=1 --batch --user-agent=DoBotShield-TCC-Validation/1.0 --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --delay=0.3 --string=Category "--answers=keep testing the others=Y,skip test payloads specific for other DBMSes=Y,extending provided level=N,redirect=N,continue with further target testing=Y" --flush-session --output-dir=/work
+
+item=1

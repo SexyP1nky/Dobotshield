@@ -47,7 +47,7 @@ func initSQLiPatterns() []*regexp.Regexp {
 		regexp.MustCompile(`(?i)\binsert\s+into\b[\s\S]{0,120}\bvalues?\b`),
 		regexp.MustCompile(`(?i)\bupdate\s+[a-z0-9_."\[\]-]{1,80}\s+set\b`),
 		regexp.MustCompile(`(?i)\bdelete\s+from\b[\s\S]{0,120}\bwhere\b`),
-		regexp.MustCompile(`(?i)(?:'|")?\s*(?:or|and)\s+(?:'[^']{0,40}'|"[^"]{0,40}"|\d+)\s*=\s*(?:'[^']{0,40}'|"[^"]{0,40}"|\d+)`),
+		regexp.MustCompile(`(?i)(?:'|")?\s*(?:or|and)\s+(?:'[^'\r\n]{0,40}'?|"[^"\r\n]{0,40}"?|\d+(?:\.\d+)?)\s*(?:=|~|\blike\b)\s*(?:'[^'\r\n]{0,40}'?|"[^"\r\n]{0,40}"?|\d+(?:\.\d+)?)`),
 		regexp.MustCompile(`(?i)\b(?:sleep|benchmark|pg_sleep)\s*\(\s*\d`),
 		regexp.MustCompile(`(?i)\bwaitfor\s+delay\s+`),
 		regexp.MustCompile(`(?i)\b(?:information_schema|pg_catalog|sqlite_master|sysobjects|syscolumns)\b`),

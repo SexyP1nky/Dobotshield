@@ -14,10 +14,10 @@ REM         Os argumentos sao IDENTICOS nos 4 cenarios; so a URL base muda.
 REM         NAO usa --crawl (assim nao toca /xvwa/setup/, que recriaria o banco).
 REM
 REM  Padrao comum (IDENTICO em TODOS os cenarios -- justo p/ todos os WAFs):
-REM    - --tamper=equaltolike: troca '=' por LIKE. Mantem a injecao valida na
-REM      app crua (no MySQL, LIKE sem curinga == igualdade) e deixa de depender
-REM      do operador '='. Mesmo tamper no no_waf e nos 3 WAFs. NAO altera delays.
+REM    - Sem tamper: o SQLMap envia os payloads booleanos originais.
 REM    - Faixa controlada: --level=1 --risk=1, tecnica booleana (B).
+REM      As respostas automaticas nao ampliam os testes alem dessa faixa e
+REM      pulam payloads de outros SGBDs quando o MySQL e identificado.
 REM    - Cookie DVWA (se houver) via --cookie. XVWA roda sem cookie (modulos abertos).
 REM ============================================================================
 
@@ -37,6 +37,8 @@ set "CERT_FWD=%CERT_DIR:\=/%"
 set "SCRIPTS_DIR=%LAB_ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
 set "COOKIE_FILE=%SCRIPTS_DIR%\dvwa_cookie.txt"
+set "TMP_LOG_DIR=%TEMP%\dobotshield-validation"
+if not exist "%TMP_LOG_DIR%" mkdir "%TMP_LOG_DIR%"
 set "FAIL=0"
 
 set "DVWA_COOKIE="
@@ -44,7 +46,7 @@ if exist "%COOKIE_FILE%" set /p DVWA_COOKIE=<"%COOKIE_FILE%"
 
 echo.
 echo ============================================================
-echo   FERRAMENTA: SQLMap (SQLi, level 1/risk 1, tecnica B, tamper equaltolike)  --  %DATE% %TIME%
+echo   FERRAMENTA: SQLMap (SQLi, sem tamper, level 1/risk 1, tecnica B)  --  %DATE% %TIME%
 if defined DVWA_COOKIE echo   Cookie DVWA: !DVWA_COOKIE!
 echo ============================================================
 
@@ -76,14 +78,14 @@ docker image inspect %IMG_PY% >nul 2>&1 || docker pull %IMG_PY% || ( echo [ERRO]
 echo.
 echo Renovando cookie do DVWA (login admin/password, security=low) para o SQLMap...
 set "DVWA_COOKIE="
-for /f "delims=" %%C in ('docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/dvwa_login.py --no-setup "http://!IP_DVWA!:80" 2^>"%SCRIPTS_DIR%\dvwa_login.sqlmap.stderr.log"') do set "DVWA_COOKIE=%%C"
+for /f "delims=" %%C in ('docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/dvwa_login.py --no-setup "http://!IP_DVWA!:80" 2^>"%TMP_LOG_DIR%\dvwa_login.sqlmap.stderr.log"') do set "DVWA_COOKIE=%%C"
 if defined DVWA_COOKIE set "DVWA_COOKIE=!DVWA_COOKIE:; =;!"
 if defined DVWA_COOKIE (
     > "%COOKIE_FILE%" echo !DVWA_COOKIE!
     echo   Cookie DVWA renovado: !DVWA_COOKIE!
 ) else (
     echo   [ERRO] Nao renovou o cookie DVWA. SQLMap nao sera executado sem sessao valida.
-    if exist "%SCRIPTS_DIR%\dvwa_login.sqlmap.stderr.log" type "%SCRIPTS_DIR%\dvwa_login.sqlmap.stderr.log"
+    if exist "%TMP_LOG_DIR%\dvwa_login.sqlmap.stderr.log" type "%TMP_LOG_DIR%\dvwa_login.sqlmap.stderr.log"
     exit /b 5
 )
 

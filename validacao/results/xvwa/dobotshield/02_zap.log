@@ -1,15 +1,13 @@
-=== OWASP ZAP | xvwa/dobotshield | https://172.23.0.4:443/xvwa/ | 14/07/2026 22:15:43,92 ===
-CMD: docker run --memory 3000m --memory-swap 3000m -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest@sha256:8d387b1a63e3425beef4846e39719f5af2a787753af2d8b6558c6257d7a577a2 zap-full-scan.py -t https://172.23.0.4:443/xvwa/ -m 2 -T 5 -c /zap/hooks/zap_rules.tsv -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10 -config network.connection.defaultUserAgent=DoBotShield-TCC-Validation/1.0" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
+=== OWASP ZAP | xvwa/dobotshield | https://172.18.0.10:443/xvwa/ | 17/07/2026 20:07:07,88 ===
+CMD: docker run --memory 3000m --memory-swap 3000m -e DVWA_COOKIE=<cookie> zaproxy/zap-stable:latest@sha256:8d387b1a63e3425beef4846e39719f5af2a787753af2d8b6558c6257d7a577a2 zap-full-scan.py -t https://172.18.0.10:443/xvwa/ -m 1 -T 2 -c /zap/hooks/zap_rules.tsv -r zap_report.html -J zap_report.json -w zap_report.md -z "-config network.connection.timeoutInSecs=10 -config network.connection.defaultUserAgent=DoBotShield-TCC-Validation/1.0 -config scanner.maxScanDurationInMins=3" --hook=/zap/hooks/zap_hook.py -I  (cookie injetado via Replacer pelo hook)
 ----------------------------------------------------------------
 [zap_hook] aplicando exclusoes de URL (logout/setup/security) ...
-[zap_hook] cookie de sessao DVWA injetado via Replacer (REQ_HEADER Cookie).
+[zap_hook] DVWA_COOKIE vazio -> scan sem cookie (esperado no XVWA).
 [zap_hook] XVWA detectado -> ligando submissao de forms e semeando URLs vulneraveis.
 [zap_hook] XVWA: 26/26 URLs semeadas.
-Total of 51 URLs
+Total of 83 URLs
 PASS: Directory Browsing [0]
 PASS: Vulnerable JS Library (Powered by Retire.js) [10003]
-PASS: Cookie No HttpOnly Flag [10010]
-PASS: Cookie Without Secure Flag [10011]
 PASS: Re-examine Cache-control Directives [10015]
 PASS: Content-Type Header Missing [10019]
 PASS: Anti-clickjacking Header [10020]
@@ -41,7 +39,6 @@ PASS: Content Cacheability [10049]
 PASS: Retrieved from Cache [10050]
 PASS: Relative Path Confusion [10051]
 PASS: X-ChromeLogger-Data (XCOLD) Header Information Leak [10052]
-PASS: Cookie without SameSite Attribute [10054]
 PASS: CSP [10055]
 PASS: X-Debug-Token Information Leak [10056]
 PASS: Username Hash Found [10057]
@@ -79,13 +76,13 @@ PASS: Buffer Overflow [30001]
 PASS: Format String Error [30002]
 PASS: Integer Overflow Error [30003]
 PASS: CRLF Injection [40003]
-PASS: Parameter Tampering [40008]
 PASS: Server Side Include [40009]
 PASS: Cross Site Scripting (Reflected) [40012]
 PASS: Session Fixation [40013]
 PASS: Cross Site Scripting (Persistent) [40014]
 PASS: Cross Site Scripting (Persistent) - Prime [40016]
 PASS: Cross Site Scripting (Persistent) - Spider [40017]
+PASS: SQL Injection [40018]
 PASS: SQL Injection - MySQL (Time Based) [40019]
 PASS: SQL Injection - Hypersonic SQL (Time Based) [40020]
 PASS: SQL Injection - Oracle (Time Based) [40021]
@@ -137,51 +134,74 @@ PASS: Remote OS Command Injection (Time Based) [90037]
 PASS: NoSQL Injection - MongoDB (Time Based) [90039]
 SKIP: Cross Site Scripting (DOM Based) [40026]
 WARN-NEW: In Page Banner Information Leak [10009] x 1 
-	https://172.23.0.4:443/ (403 Forbidden)
+	https://172.18.0.10:443/ (403 Forbidden)
+WARN-NEW: Cookie No HttpOnly Flag [10010] x 25 
+	https://172.18.0.10:443/xvwa/vulnerabilities/cmdi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/fi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/ssrf_xspa/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/xpath/ (200 OK)
+WARN-NEW: Cookie Without Secure Flag [10011] x 25 
+	https://172.18.0.10:443/xvwa/vulnerabilities/fi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/fileupload/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/cmdi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
 WARN-NEW: Cross-Domain JavaScript Source File Inclusion [10017] x 50 
-	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/xpath/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/idor/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/fi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
 WARN-NEW: Strict-Transport-Security Header Not Set [10035] x 1 
-	https://172.23.0.4:443/xvwa/vulnerabilities/redirect/?url=http://example.com (400 Bad Request)
+	https://172.18.0.10:443/xvwa/vulnerabilities/redirect/?url=http://example.com (400 Bad Request)
 WARN-NEW: Content Security Policy (CSP) Header Not Set [10038] x 26 
-	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/idor/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/cmdi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/fi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/ssrf_xspa/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/formula_injection/ (200 OK)
+WARN-NEW: Cookie without SameSite Attribute [10054] x 25 
+	https://172.18.0.10:443/xvwa/vulnerabilities/fi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/cmdi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/ssrf_xspa/ (200 OK)
 WARN-NEW: Absence of Anti-CSRF Tokens [10202] x 32 
-	https://172.23.0.4:443/xvwa/vulnerabilities/idor/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/xpath/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
-WARN-NEW: SQL Injection [40018] x 1 
-	https://172.23.0.4:443/xvwa/vulnerabilities/redirect/?url=http%3A%2F%2Fexample.com%27+AND+%271%27%3D%271%27+--+ (429 Too Many Requests)
+	https://172.18.0.10:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+WARN-NEW: Parameter Tampering [40008] x 2 
+	https://172.18.0.10:443/xvwa/vulnerabilities/fi/?file= (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/cmdi/?target=%00 (200 OK)
 WARN-NEW: Proxy Disclosure [40025] x 27 
-	https://172.23.0.4:443/xvwa/vulnerabilities/stored_xss/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/sqli/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/ssti/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/php_object_injection/?r=test (200 OK)
-WARN-NEW: Spring4Shell [40045] x 1 
-	https://172.23.0.4:443/xvwa/vulnerabilities/sqli_blind/ (400 Bad Request)
+	https://172.18.0.10:443/xvwa/vulnerabilities/php_object_injection/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/php_object_injection/?r=test (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/redirect/?url=http://example.com (400 Bad Request)
+	https://172.18.0.10:443/xvwa/vulnerabilities/idor/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/crypto/ (200 OK)
+WARN-NEW: Spring4Shell [40045] x 14 
+	https://172.18.0.10:443/xvwa/vulnerabilities/sqli_blind/?class.module.classLoader.DefaultAssertionStatus=nonsense (400 Bad Request)
+	https://172.18.0.10:443/xvwa/vulnerabilities/sqli/?class.module.classLoader.DefaultAssertionStatus=nonsense (400 Bad Request)
+	https://172.18.0.10:443/xvwa/vulnerabilities/reflected_xss/?item=test&class.module.classLoader.DefaultAssertionStatus=nonsense (400 Bad Request)
+	https://172.18.0.10:443/xvwa/vulnerabilities/fileupload/?class.module.classLoader.DefaultAssertionStatus=nonsense (400 Bad Request)
+	https://172.18.0.10:443/xvwa/vulnerabilities/reflected_xss/?class.module.classLoader.DefaultAssertionStatus=nonsense (400 Bad Request)
 WARN-NEW: Sub Resource Integrity Attribute Missing [90003] x 50 
-	https://172.23.0.4:443/xvwa/instruction.php (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/fileupload/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/idor/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/reflected_xss/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/ssti/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/sqli_blind/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
 WARN-NEW: Cross-Origin-Resource-Policy Header Missing or Invalid [90004] x 75 
-	https://172.23.0.4:443/xvwa/vulnerabilities/ssrf_xspa/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/fi/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/xpath/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/cmdi/ (200 OK)
-	https://172.23.0.4:443/xvwa/vulnerabilities/dom_xss/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/sqli/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/xpath/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/redirect/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/cmdi/ (200 OK)
+	https://172.18.0.10:443/xvwa/vulnerabilities/ssti/ (200 OK)
 WARN-NEW: Application Error Disclosure [90022] x 1 
-	https://172.23.0.4:443/xvwa/vulnerabilities/fi/?file=test.php (200 OK)
-FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 11	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 129
+	https://172.18.0.10:443/xvwa/vulnerabilities/fi/?file=test.php (200 OK)
+FAIL-NEW: 0	FAIL-INPROG: 0	WARN-NEW: 14	WARN-INPROG: 0	INFO: 0	IGNORE: 0	PASS: 126
 
 TOOL_RC=0

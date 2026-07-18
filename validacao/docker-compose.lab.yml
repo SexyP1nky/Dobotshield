@@ -81,17 +81,16 @@ services:
       ENABLE_RESPONSE_INSPECTION: "true"
       TRAINING_MODE:              "true"
       TRAINING_LOG_FILE:          "/app/logs/training.jsonl"
-      # Rate-limit LIGADO: e funcionalidade central do DoBotShield ("Shield").
-      # Decisao metodologica do TCC: o DoBotShield e testado como em producao.
-      # Valores explicitos = os defaults do produto (documentados em METODOLOGIA.txt).
+      # Rate-limit LIGADO e calibrado acima da carga legitima observada (~6k req/s).
+      # Os valores continuam limitando abuso sustentado sem saturar o wrk por configuracao.
       ENABLE_RATE_LIMIT:          "true"
-      RATE_LIMIT:                 "10"
-      BURST_LIMIT:                "20"
-      MAX_CONNS:                  "10"
+      RATE_LIMIT:                 "10000"
+      BURST_LIMIT:                "20000"
+      MAX_CONNS:                  "500"
       INSECURE_SKIP_VERIFY:       "false"
     volumes:
       - ./certs:/app/certs:ro
-      - ./results/training/dvwa:/app/logs
+      - ./logs/training/dvwa:/app/logs
     depends_on: [dvwa]
     restart: unless-stopped
 
@@ -114,15 +113,15 @@ services:
       ENABLE_RESPONSE_INSPECTION: "true"
       TRAINING_MODE:              "true"
       TRAINING_LOG_FILE:          "/app/logs/training.jsonl"
-      # Rate-limit LIGADO (mesma decisao metodologica do dobot_dvwa).
+      # Rate-limit LIGADO (mesma calibracao do dobot_dvwa).
       ENABLE_RATE_LIMIT:          "true"
-      RATE_LIMIT:                 "10"
-      BURST_LIMIT:                "20"
-      MAX_CONNS:                  "10"
+      RATE_LIMIT:                 "10000"
+      BURST_LIMIT:                "20000"
+      MAX_CONNS:                  "500"
       INSECURE_SKIP_VERIFY:       "false"
     volumes:
       - ./certs:/app/certs:ro
-      - ./results/training/xvwa:/app/logs
+      - ./logs/training/xvwa:/app/logs
     depends_on: [xvwa]
     restart: unless-stopped
 

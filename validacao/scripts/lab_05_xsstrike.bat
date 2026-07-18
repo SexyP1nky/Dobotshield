@@ -33,6 +33,8 @@ set "CERT_FWD=%CERT_DIR:\=/%"
 set "SCRIPTS_DIR=%LAB_ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
 set "COOKIE_FILE=%SCRIPTS_DIR%\dvwa_cookie.txt"
+set "TMP_LOG_DIR=%TEMP%\dobotshield-validation"
+if not exist "%TMP_LOG_DIR%" mkdir "%TMP_LOG_DIR%"
 set "FAIL=0"
 
 set "DVWA_COOKIE="
@@ -72,14 +74,14 @@ docker image inspect %IMG_PY% >nul 2>&1 || docker pull %IMG_PY% || ( echo [ERRO]
 echo.
 echo Renovando cookie do DVWA (login admin/password, security=low) para o XSStrike...
 set "DVWA_COOKIE="
-for /f "delims=" %%C in ('docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/dvwa_login.py --no-setup "http://!IP_DVWA!:80" 2^>"%SCRIPTS_DIR%\dvwa_login.xsstrike.stderr.log"') do set "DVWA_COOKIE=%%C"
+for /f "delims=" %%C in ('docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/dvwa_login.py --no-setup "http://!IP_DVWA!:80" 2^>"%TMP_LOG_DIR%\dvwa_login.xsstrike.stderr.log"') do set "DVWA_COOKIE=%%C"
 if defined DVWA_COOKIE set "DVWA_COOKIE=!DVWA_COOKIE:; =;!"
 if defined DVWA_COOKIE (
     > "%COOKIE_FILE%" echo !DVWA_COOKIE!
     echo   Cookie DVWA renovado: !DVWA_COOKIE!
 ) else (
     echo   [ERRO] Nao renovou o cookie DVWA. XSStrike nao sera executado sem sessao valida.
-    if exist "%SCRIPTS_DIR%\dvwa_login.xsstrike.stderr.log" type "%SCRIPTS_DIR%\dvwa_login.xsstrike.stderr.log"
+    if exist "%TMP_LOG_DIR%\dvwa_login.xsstrike.stderr.log" type "%TMP_LOG_DIR%\dvwa_login.xsstrike.stderr.log"
     exit /b 5
 )
 

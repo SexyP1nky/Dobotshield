@@ -1,8 +1,8 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.17.0",
-	"@generated": "Wed, 15 Jul 2026 01:01:13",
-	"created": "2026-07-15T01:01:13.598120637Z",
+	"@generated": "Fri, 17 Jul 2026 22:54:28",
+	"created": "2026-07-17T22:54:28.853874871Z",
 	"insights":[
 		{
 			"level": "Low",
@@ -15,10 +15,10 @@
 		{
 			"level": "Low",
 			"reason": "Exceeded High",
-			"site": "https://172.23.0.2",
+			"site": "https://172.18.0.7",
 			"key": "insight.code.4xx",
 			"description": "Percentage of responses with status code 4xx",
-			"statistic": "99"
+			"statistic": "98"
 		},
 		{
 			"level": "Info",
@@ -31,7 +31,7 @@
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "https://172.23.0.2",
+			"site": "https://172.18.0.7",
 			"key": "insight.code.2xx",
 			"description": "Percentage of responses with status code 2xx",
 			"statistic": "1"
@@ -39,56 +39,56 @@
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "https://172.23.0.2",
+			"site": "https://172.18.0.7",
+			"key": "insight.code.5xx",
+			"description": "Percentage of responses with status code 5xx",
+			"statistic": "2"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://172.18.0.7",
 			"key": "insight.endpoint.ctype.application/json",
 			"description": "Percentage of endpoints with content type application/json",
-			"statistic": "69"
+			"statistic": "85"
 		},
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "https://172.23.0.2",
+			"site": "https://172.18.0.7",
 			"key": "insight.endpoint.ctype.text/html",
 			"description": "Percentage of endpoints with content type text/html",
-			"statistic": "7"
+			"statistic": "10"
 		},
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "https://172.23.0.2",
+			"site": "https://172.18.0.7",
 			"key": "insight.endpoint.ctype.text/plain",
 			"description": "Percentage of endpoints with content type text/plain",
-			"statistic": "23"
+			"statistic": "3"
 		},
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "https://172.23.0.2",
+			"site": "https://172.18.0.7",
 			"key": "insight.endpoint.method.GET",
 			"description": "Percentage of endpoints with method GET",
-			"statistic": "92"
+			"statistic": "100"
 		},
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "https://172.23.0.2",
-			"key": "insight.endpoint.method.POST",
-			"description": "Percentage of endpoints with method POST",
-			"statistic": "7"
-		},
-		{
-			"level": "Info",
-			"reason": "Informational",
-			"site": "https://172.23.0.2",
+			"site": "https://172.18.0.7",
 			"key": "insight.endpoint.total",
 			"description": "Count of total endpoints",
-			"statistic": "26"
+			"statistic": "28"
 		}
 	],
 	"site":[ 
 		{
-			"@name": "https://172.23.0.2",
-			"@host": "172.23.0.2",
+			"@name": "https://172.18.0.7",
+			"@host": "172.18.0.7",
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
@@ -104,9 +104,19 @@
 					"instances":[ 
 						{
 							"id": "51",
-							"uri": "https://172.23.0.2/dvwa/css",
-							"nodeName": "https:\/\/172.23.0.2\/dvwa\/css ()(class.module.classLoader.DefaultAssertio...)",
-							"method": "POST",
+							"uri": "https://172.18.0.7/?class.module.classLoader.DefaultAssertionStatus=nonsense",
+							"nodeName": "https:\/\/172.18.0.7\/ (class.module.classLoader.DefaultAssertio...)",
+							"method": "GET",
+							"param": "",
+							"attack": "class.module.classLoader.DefaultAssertionStatus=nonsense",
+							"evidence": "HTTP/1.1 400 Bad Request",
+							"otherinfo": ""
+						},
+						{
+							"id": "50",
+							"uri": "https://172.18.0.7/robots.txt?class.module.classLoader.DefaultAssertionStatus=nonsense",
+							"nodeName": "https:\/\/172.18.0.7\/robots.txt (class.module.classLoader.DefaultAssertio...)",
+							"method": "GET",
 							"param": "",
 							"attack": "class.module.classLoader.DefaultAssertionStatus=nonsense",
 							"evidence": "HTTP/1.1 400 Bad Request",
@@ -114,8 +124,18 @@
 						},
 						{
 							"id": "52",
-							"uri": "https://172.23.0.2/vulnerabilities/fi",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/fi ()(class.module.classLoader.DefaultAssertio...)",
+							"uri": "https://172.18.0.7/sitemap.xml?class.module.classLoader.DefaultAssertionStatus=nonsense",
+							"nodeName": "https:\/\/172.18.0.7\/sitemap.xml (class.module.classLoader.DefaultAssertio...)",
+							"method": "GET",
+							"param": "",
+							"attack": "class.module.classLoader.DefaultAssertionStatus=nonsense",
+							"evidence": "HTTP/1.1 400 Bad Request",
+							"otherinfo": ""
+						},
+						{
+							"id": "53",
+							"uri": "https://172.18.0.7",
+							"nodeName": "https:\/\/172.18.0.7 ()(class.module.classLoader.DefaultAssertio...)",
 							"method": "POST",
 							"param": "",
 							"attack": "class.module.classLoader.DefaultAssertionStatus=nonsense",
@@ -123,14 +143,14 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "4",
 					"systemic": false,
 					"solution": "<p>Upgrade Spring Framework to versions 5.3.18, 5.2.20, or newer.</p>",
 					"otherinfo": "",
 					"reference": "<p>https://nvd.nist.gov/vuln/detail/CVE-2022-22965</p><p>https://www.rapid7.com/blog/post/2022/03/30/spring4shell-zero-day-vulnerability-in-spring-framework/</p><p>https://spring.io/blog/2022/03/31/spring-framework-rce-early-announcement/#vulnerability</p><p>https://spring.io/security/cve-2022-22965/</p>",
 					"cweid": "78",
 					"wascid": "20",
-					"sourceid": "673"
+					"sourceid": "678"
 				},
 				{
 					"pluginid": "10038",
@@ -143,9 +163,9 @@
 					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
 					"instances":[ 
 						{
-							"id": "14",
-							"uri": "https://172.23.0.2",
-							"nodeName": "https:\/\/172.23.0.2",
+							"id": "21",
+							"uri": "https://172.18.0.7",
+							"nodeName": "https:\/\/172.18.0.7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -154,8 +174,8 @@
 						},
 						{
 							"id": "1",
-							"uri": "https://172.23.0.2/",
-							"nodeName": "https:\/\/172.23.0.2\/",
+							"uri": "https://172.18.0.7/",
+							"nodeName": "https:\/\/172.18.0.7\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -164,8 +184,8 @@
 						},
 						{
 							"id": "6",
-							"uri": "https://172.23.0.2/sitemap.xml",
-							"nodeName": "https:\/\/172.23.0.2\/sitemap.xml",
+							"uri": "https://172.18.0.7/sitemap.xml",
+							"nodeName": "https:\/\/172.18.0.7\/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -180,7 +200,37 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "9"
+					"sourceid": "10"
+				},
+				{
+					"pluginid": "10051",
+					"alertRef": "10051",
+					"alert": "Relative Path Confusion",
+					"name": "Relative Path Confusion",
+					"riskcode": "2",
+					"confidence": "2",
+					"riskdesc": "Medium (Medium)",
+					"desc": "<p>The web server is configured to serve responses to ambiguous URLs in a manner that is likely to lead to confusion about the correct \"relative path\" for the URL. Resources (CSS, images, etc.) are also specified in the page response using relative, rather than absolute URLs. In an attack, if the web browser parses the \"cross-content\" response in a permissive manner, or can be tricked into permissively parsing the \"cross-content\" response, using techniques such as framing, then the web browser may be fooled into interpreting HTML as CSS (or other content types), leading to an XSS vulnerability.</p>",
+					"instances":[ 
+						{
+							"id": "371",
+							"uri": "https://172.18.0.7/about.php",
+							"nodeName": "https:\/\/172.18.0.7\/about.php\/ghg79\/vv6a2",
+							"method": "GET",
+							"param": "",
+							"attack": "https://172.18.0.7/about.php/ghg79/vv6a2",
+							"evidence": "<link rel=\"stylesheet\" type=\"text/css\" href=\"dvwa/css/main.css\">",
+							"otherinfo": "No <base> tag was specified in the HTML <head> tag to define the location for relative URLs.\nA Content Type of \"text/html;charset=utf-8\" was specified. If the web browser is employing strict parsing rules, this will prevent cross-content attacks from succeeding. Quirks Mode in the web browser would disable strict parsing.\nQuirks Mode is implicitly enabled via the use of an old DOCTYPE with PUBLIC id \"-//W3C//DTD XHTML 1.0 Strict//EN\", allowing the specified Content Type to be bypassed in some web browsers."
+						}
+					],
+					"count": "1",
+					"systemic": false,
+					"solution": "<p>Web servers and frameworks should be updated to be configured to not serve responses to ambiguous URLs in such a way that the relative path of such URLs could be mis-interpreted by components on either the client side, or server side.</p><p>Within the application, the correct use of the \"<base>\" HTML tag in the HTTP response will unambiguously specify the base URL for all relative URLs in the document.</p><p>Use the \"Content-Type\" HTTP response header to make it harder for the attacker to force the web browser to mis-interpret the content type of the response.</p><p>Use the \"X-Content-Type-Options: nosniff\" HTTP response header to prevent the web browser from \"sniffing\" the content type of the response.</p><p>Use a modern DOCTYPE such as \"<!doctype html>\" to prevent the page from being rendered in the web browser using \"Quirks Mode\", since this results in the content type being ignored by the web browser.</p><p>Specify the \"X-Frame-Options\" HTTP response header to prevent Quirks Mode from being enabled in the web browser using framing attacks.</p>",
+					"otherinfo": "<p>No <base> tag was specified in the HTML <head> tag to define the location for relative URLs.</p><p>A Content Type of \"text/html;charset=utf-8\" was specified. If the web browser is employing strict parsing rules, this will prevent cross-content attacks from succeeding. Quirks Mode in the web browser would disable strict parsing.</p><p>Quirks Mode is implicitly enabled via the use of an old DOCTYPE with PUBLIC id \"-//W3C//DTD XHTML 1.0 Strict//EN\", allowing the specified Content Type to be bypassed in some web browsers.</p>",
+					"reference": "<p>https://arxiv.org/abs/1811.00917</p><p>https://hsivonen.fi/doctype/</p><p>https://www.w3schools.com/tags/tag_base.asp</p>",
+					"cweid": "20",
+					"wascid": "20",
+					"sourceid": "2570"
 				},
 				{
 					"pluginid": "90004",
@@ -193,9 +243,9 @@
 					"desc": "<p>Cross-Origin-Embedder-Policy header is a response header that prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS).</p>",
 					"instances":[ 
 						{
-							"id": "42",
-							"uri": "https://172.23.0.2",
-							"nodeName": "https:\/\/172.23.0.2",
+							"id": "46",
+							"uri": "https://172.18.0.7:443",
+							"nodeName": "https:\/\/172.18.0.7",
 							"method": "GET",
 							"param": "Cross-Origin-Embedder-Policy",
 							"attack": "",
@@ -204,8 +254,8 @@
 						},
 						{
 							"id": "4",
-							"uri": "https://172.23.0.2/",
-							"nodeName": "https:\/\/172.23.0.2\/",
+							"uri": "https://172.18.0.7/",
+							"nodeName": "https:\/\/172.18.0.7\/",
 							"method": "GET",
 							"param": "Cross-Origin-Embedder-Policy",
 							"attack": "",
@@ -220,7 +270,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
 					"cweid": "693",
 					"wascid": "14",
-					"sourceid": "9"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "90004",
@@ -233,9 +283,9 @@
 					"desc": "<p>Cross-Origin-Opener-Policy header is a response header that allows a site to control if others included documents share the same browsing context. Sharing the same browsing context with untrusted documents might lead to data leak.</p>",
 					"instances":[ 
 						{
-							"id": "43",
-							"uri": "https://172.23.0.2",
-							"nodeName": "https:\/\/172.23.0.2",
+							"id": "49",
+							"uri": "https://172.18.0.7",
+							"nodeName": "https:\/\/172.18.0.7",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
 							"attack": "",
@@ -244,8 +294,8 @@
 						},
 						{
 							"id": "5",
-							"uri": "https://172.23.0.2/",
-							"nodeName": "https:\/\/172.23.0.2\/",
+							"uri": "https://172.18.0.7/",
+							"nodeName": "https:\/\/172.18.0.7\/",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
 							"attack": "",
@@ -260,7 +310,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy</p>",
 					"cweid": "693",
 					"wascid": "14",
-					"sourceid": "9"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "90004",
@@ -273,9 +323,9 @@
 					"desc": "<p>Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.</p>",
 					"instances":[ 
 						{
-							"id": "35",
-							"uri": "https://172.23.0.2",
-							"nodeName": "https:\/\/172.23.0.2",
+							"id": "44",
+							"uri": "https://172.18.0.7:443",
+							"nodeName": "https:\/\/172.18.0.7",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
@@ -284,8 +334,8 @@
 						},
 						{
 							"id": "3",
-							"uri": "https://172.23.0.2/",
-							"nodeName": "https:\/\/172.23.0.2\/",
+							"uri": "https://172.18.0.7/",
+							"nodeName": "https:\/\/172.18.0.7\/",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
@@ -293,9 +343,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "25",
-							"uri": "https://172.23.0.2/robots.txt",
-							"nodeName": "https:\/\/172.23.0.2\/robots.txt",
+							"id": "27",
+							"uri": "https://172.18.0.7/robots.txt",
+							"nodeName": "https:\/\/172.18.0.7\/robots.txt",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
@@ -310,7 +360,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
 					"cweid": "693",
 					"wascid": "14",
-					"sourceid": "9"
+					"sourceid": "14"
 				},
 				{
 					"pluginid": "10009",
@@ -323,9 +373,9 @@
 					"desc": "<p>The server returned a version banner string in the response content. Such information leaks may allow attackers to further target specific issues impacting the product and version in use.</p>",
 					"instances":[ 
 						{
-							"id": "7",
-							"uri": "https://172.23.0.2/sitemap.xml",
-							"nodeName": "https:\/\/172.23.0.2\/sitemap.xml",
+							"id": "8",
+							"uri": "https://172.18.0.7/sitemap.xml",
+							"nodeName": "https:\/\/172.18.0.7\/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -340,7 +390,7 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/</p>",
 					"cweid": "497",
 					"wascid": "13",
-					"sourceid": "8"
+					"sourceid": "9"
 				},
 				{
 					"pluginid": "10063",
@@ -353,9 +403,9 @@
 					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
 					"instances":[ 
 						{
-							"id": "50",
-							"uri": "https://172.23.0.2/dvwa/js/add_event_listeners.js",
-							"nodeName": "https:\/\/172.23.0.2\/dvwa\/js\/add_event_listeners.js",
+							"id": "40",
+							"uri": "https://172.18.0.7/dvwa/js/add_event_listeners.js",
+							"nodeName": "https:\/\/172.18.0.7\/dvwa\/js\/add_event_listeners.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -363,9 +413,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "49",
-							"uri": "https://172.23.0.2/dvwa/js/dvwaPage.js",
-							"nodeName": "https:\/\/172.23.0.2\/dvwa\/js\/dvwaPage.js",
+							"id": "39",
+							"uri": "https://172.18.0.7/dvwa/js/dvwaPage.js",
+							"nodeName": "https:\/\/172.18.0.7\/dvwa\/js\/dvwaPage.js",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -380,7 +430,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "69"
+					"sourceid": "68"
 				},
 				{
 					"pluginid": "10035",
@@ -393,29 +443,19 @@
 					"desc": "<p>HTTP Strict Transport Security (HSTS) is a web security policy mechanism whereby a web server declares that complying user agents (such as a web browser) are to interact with it using only secure HTTPS connections (i.e. HTTP layered over TLS/SSL). HSTS is an IETF standards track protocol and is specified in RFC 6797.</p>",
 					"instances":[ 
 						{
+							"id": "11",
+							"uri": "https://172.18.0.7/instructions.php",
+							"nodeName": "https:\/\/172.18.0.7\/instructions.php",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
 							"id": "9",
-							"uri": "https://172.23.0.2/instructions.php",
-							"nodeName": "https:\/\/172.23.0.2\/instructions.php",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "19",
-							"uri": "https://172.23.0.2/vulnerabilities/captcha/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/captcha\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "16",
-							"uri": "https://172.23.0.2/vulnerabilities/exec/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/exec\/",
+							"uri": "https://172.18.0.7/vulnerabilities/brute/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/brute\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -424,8 +464,8 @@
 						},
 						{
 							"id": "12",
-							"uri": "https://172.23.0.2/vulnerabilities/fi/?page=include.php",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/fi\/ (page)",
+							"uri": "https://172.18.0.7/vulnerabilities/captcha/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/captcha\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -434,8 +474,18 @@
 						},
 						{
 							"id": "10",
-							"uri": "https://172.23.0.2/vulnerabilities/upload/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/upload\/",
+							"uri": "https://172.18.0.7/vulnerabilities/exec/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/exec\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "14",
+							"uri": "https://172.18.0.7/vulnerabilities/upload/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/upload\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -450,7 +500,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</p><p>https://owasp.org/www-community/Security_Headers</p><p>https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</p><p>https://caniuse.com/stricttransportsecurity</p><p>https://datatracker.ietf.org/doc/html/rfc6797</p>",
 					"cweid": "319",
 					"wascid": "15",
-					"sourceid": "22"
+					"sourceid": "27"
 				},
 				{
 					"pluginid": "90027",
@@ -463,9 +513,9 @@
 					"desc": "<p>Repeated GET requests: drop a different cookie each time, followed by normal request with all cookies to stabilize session, compare responses against original baseline GET. This can reveal areas where cookie based authentication/attributes are not actually enforced.</p>",
 					"instances":[ 
 						{
-							"id": "291",
-							"uri": "https://172.23.0.2/vulnerabilities/sqli/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/sqli\/",
+							"id": "376",
+							"uri": "https://172.18.0.7",
+							"nodeName": "https:\/\/172.18.0.7",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -473,9 +523,9 @@
 							"otherinfo": "Dropping this cookie appears to have invalidated the session: [PHPSESSID] A follow-on request with all original cookies still had a different response than the original request.\n"
 						},
 						{
-							"id": "292",
-							"uri": "https://172.23.0.2/vulnerabilities/sqli_blind/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/sqli_blind\/",
+							"id": "373",
+							"uri": "https://172.18.0.7/vulnerabilities/captcha/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/captcha\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -483,9 +533,9 @@
 							"otherinfo": "Dropping this cookie appears to have invalidated the session: [PHPSESSID] A follow-on request with all original cookies still had a different response than the original request.\n"
 						},
 						{
-							"id": "290",
-							"uri": "https://172.23.0.2/vulnerabilities/xss_d/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/xss_d\/",
+							"id": "375",
+							"uri": "https://172.18.0.7/vulnerabilities/csp/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/csp\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -493,9 +543,9 @@
 							"otherinfo": "Dropping this cookie appears to have invalidated the session: [PHPSESSID] A follow-on request with all original cookies still had a different response than the original request.\n"
 						},
 						{
-							"id": "288",
-							"uri": "https://172.23.0.2/vulnerabilities/xss_r/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/xss_r\/",
+							"id": "374",
+							"uri": "https://172.18.0.7/vulnerabilities/xss_d/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/xss_d\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -503,9 +553,9 @@
 							"otherinfo": "Dropping this cookie appears to have invalidated the session: [PHPSESSID] A follow-on request with all original cookies still had a different response than the original request.\n"
 						},
 						{
-							"id": "289",
-							"uri": "https://172.23.0.2/vulnerabilities/xss_s/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/xss_s\/",
+							"id": "372",
+							"uri": "https://172.18.0.7/vulnerabilities/xss_r/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/xss_r\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -520,7 +570,7 @@
 					"reference": "<p>https://cwe.mitre.org/data/definitions/205.html</p>",
 					"cweid": "205",
 					"wascid": "45",
-					"sourceid": "3896"
+					"sourceid": "3944"
 				},
 				{
 					"pluginid": "10049",
@@ -533,39 +583,9 @@
 					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
 					"instances":[ 
 						{
-							"id": "27",
-							"uri": "https://172.23.0.2/vulnerabilities/captcha/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/captcha\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "400",
-							"otherinfo": ""
-						},
-						{
-							"id": "29",
-							"uri": "https://172.23.0.2/vulnerabilities/exec/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/exec\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "400",
-							"otherinfo": ""
-						},
-						{
-							"id": "22",
-							"uri": "https://172.23.0.2/vulnerabilities/fi/?page=include.php",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/fi\/ (page)",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "400",
-							"otherinfo": ""
-						},
-						{
-							"id": "34",
-							"uri": "https://172.23.0.2/vulnerabilities/upload/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/upload\/",
+							"id": "30",
+							"uri": "https://172.18.0.7/instructions.php",
+							"nodeName": "https:\/\/172.18.0.7\/instructions.php",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -574,8 +594,38 @@
 						},
 						{
 							"id": "28",
-							"uri": "https://172.23.0.2/vulnerabilities/weak_id/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/weak_id\/",
+							"uri": "https://172.18.0.7/vulnerabilities/brute/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/brute\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "32",
+							"uri": "https://172.18.0.7/vulnerabilities/captcha/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/captcha\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "29",
+							"uri": "https://172.18.0.7/vulnerabilities/exec/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/exec\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "400",
+							"otherinfo": ""
+						},
+						{
+							"id": "33",
+							"uri": "https://172.18.0.7/vulnerabilities/weak_id/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/weak_id\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -590,7 +640,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "35"
+					"sourceid": "27"
 				},
 				{
 					"pluginid": "10015",
@@ -603,9 +653,9 @@
 					"desc": "<p>The cache-control header has not been set properly or is missing, allowing the browser and proxies to cache content. For static assets like css, js, or image files this might be intended, however, the resources should be reviewed to ensure that no sensitive content will be cached.</p>",
 					"instances":[ 
 						{
-							"id": "11",
-							"uri": "https://172.23.0.2",
-							"nodeName": "https:\/\/172.23.0.2",
+							"id": "15",
+							"uri": "https://172.18.0.7",
+							"nodeName": "https:\/\/172.18.0.7",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -614,8 +664,8 @@
 						},
 						{
 							"id": "0",
-							"uri": "https://172.23.0.2/",
-							"nodeName": "https:\/\/172.23.0.2\/",
+							"uri": "https://172.18.0.7/",
+							"nodeName": "https:\/\/172.18.0.7\/",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -623,9 +673,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "8",
-							"uri": "https://172.23.0.2/robots.txt",
-							"nodeName": "https:\/\/172.23.0.2\/robots.txt",
+							"id": "7",
+							"uri": "https://172.18.0.7/robots.txt",
+							"nodeName": "https:\/\/172.18.0.7\/robots.txt",
 							"method": "GET",
 							"param": "cache-control",
 							"attack": "",
@@ -640,7 +690,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</p><p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control</p><p>https://grayduck.mn/2021/09/13/cache-control-recommendations/</p>",
 					"cweid": "525",
 					"wascid": "13",
-					"sourceid": "9"
+					"sourceid": "10"
 				},
 				{
 					"pluginid": "10049",
@@ -653,19 +703,9 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"id": "24",
-							"uri": "https://172.23.0.2/robots.txt",
-							"nodeName": "https:\/\/172.23.0.2\/robots.txt",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
-						},
-						{
-							"id": "45",
-							"uri": "https://172.23.0.2/sitemap.xml",
-							"nodeName": "https:\/\/172.23.0.2\/sitemap.xml",
+							"id": "26",
+							"uri": "https://172.18.0.7/robots.txt",
+							"nodeName": "https:\/\/172.18.0.7\/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -673,14 +713,14 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"systemic": false,
 					"solution": "<p>Validate that the response does not contain sensitive, personal or user-specific information. If it does, consider the use of the following HTTP response headers, to limit, or prevent the content being stored and retrieved from the cache by another user:</p><p>Cache-Control: no-cache, no-store, must-revalidate, private</p><p>Pragma: no-cache</p><p>Expires: 0</p><p>This configuration directs both HTTP 1.0 and HTTP 1.1 compliant caching servers to not store the response, and to not retrieve the response (without validation) from the cache, in response to a similar request.</p>",
 					"otherinfo": "<p>In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234.</p>",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "10"
+					"sourceid": "8"
 				},
 				{
 					"pluginid": "10049",
@@ -693,19 +733,9 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, but will not be retrieved directly from the cache, without validating the request upstream, in response to similar requests from other users.</p>",
 					"instances":[ 
 						{
-							"id": "30",
-							"uri": "https://172.23.0.2",
-							"nodeName": "https:\/\/172.23.0.2",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "no-cache",
-							"otherinfo": ""
-						},
-						{
 							"id": "2",
-							"uri": "https://172.23.0.2/",
-							"nodeName": "https:\/\/172.23.0.2\/",
+							"uri": "https://172.18.0.7/",
+							"nodeName": "https:\/\/172.18.0.7\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -713,14 +743,14 @@
 							"otherinfo": ""
 						}
 					],
-					"count": "2",
+					"count": "1",
 					"systemic": false,
 					"solution": "",
 					"otherinfo": "",
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "9"
+					"sourceid": "1"
 				},
 				{
 					"pluginid": "10104",
@@ -733,19 +763,9 @@
 					"desc": "<p>Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response.</p>",
 					"instances":[ 
 						{
-							"id": "54",
-							"uri": "https://172.23.0.2/vulnerabilities/sqli_blind/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/sqli_blind\/",
-							"method": "GET",
-							"param": "Header User-Agent",
-							"attack": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"id": "57",
-							"uri": "https://172.23.0.2/vulnerabilities/upload/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/upload\/",
+							"uri": "https://172.18.0.7",
+							"nodeName": "https:\/\/172.18.0.7",
 							"method": "GET",
 							"param": "Header User-Agent",
 							"attack": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)",
@@ -754,8 +774,8 @@
 						},
 						{
 							"id": "56",
-							"uri": "https://172.23.0.2/vulnerabilities/weak_id/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/weak_id\/",
+							"uri": "https://172.18.0.7/",
+							"nodeName": "https:\/\/172.18.0.7\/",
 							"method": "GET",
 							"param": "Header User-Agent",
 							"attack": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)",
@@ -764,8 +784,8 @@
 						},
 						{
 							"id": "55",
-							"uri": "https://172.23.0.2/vulnerabilities/xss_d/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/xss_d\/",
+							"uri": "https://172.18.0.7/vulnerabilities/captcha/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/captcha\/",
 							"method": "GET",
 							"param": "Header User-Agent",
 							"attack": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)",
@@ -773,12 +793,22 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "53",
-							"uri": "https://172.23.0.2/vulnerabilities/xss_r/",
-							"nodeName": "https:\/\/172.23.0.2\/vulnerabilities\/xss_r\/",
+							"id": "58",
+							"uri": "https://172.18.0.7/vulnerabilities/sqli_blind/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
 							"param": "Header User-Agent",
-							"attack": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)",
+							"attack": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "54",
+							"uri": "https://172.18.0.7/vulnerabilities/weak_id/",
+							"nodeName": "https:\/\/172.18.0.7\/vulnerabilities\/weak_id\/",
+							"method": "GET",
+							"param": "Header User-Agent",
+							"attack": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)",
 							"evidence": "",
 							"otherinfo": ""
 						}
@@ -790,7 +820,7 @@
 					"reference": "<p>https://owasp.org/wstg</p>",
 					"cweid": "0",
 					"wascid": "0",
-					"sourceid": "1362"
+					"sourceid": "1333"
 				}
 			]
 		}

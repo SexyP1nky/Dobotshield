@@ -81,7 +81,7 @@ call "%LIB%" stats_snap   "%BACKEND%" "%WAFCT%" "%OUT%\03_pre_sqlmap_stats.txt"
 if exist "%LOG%" del "%LOG%"
 
 > "%LOG%" echo === SQLMap ^| %APP%/%SCEN% ^| "%BASE%%PATH1%" ^| %DATE% %TIME% ===
->> "%LOG%" echo CMD: sqlmap.py -u "%BASE%%PATH1%" -p "%PARAM%" !_DATA_ARG! --batch --user-agent="%LAB_USER_AGENT%" --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --tamper=equaltolike !_STR_ARG! !_CK_ARG! --output-dir=/work
+>> "%LOG%" echo CMD: sqlmap.py -u "%BASE%%PATH1%" -p "%PARAM%" !_DATA_ARG! --batch --user-agent="%LAB_USER_AGENT%" --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --answers="keep testing the others=Y,skip test payloads specific for other DBMSes=Y,extending provided level=N,redirect=N,continue with further target testing=Y" !_STR_ARG! !_CK_ARG! --output-dir=/work
 >> "%LOG%" echo ----------------------------------------------------------------
 docker run --rm --network %NET% ^
     -v "%CERT_FWD%:/lab-ca:ro" ^
@@ -98,9 +98,8 @@ docker run --rm --network %NET% ^
         --skip-waf ^
         --ignore-redirects ^
         --delay=0.3 ^
-        --tamper=equaltolike ^
         !_STR_ARG! ^
-        --answers="keep testing the others=Y,skip test payloads specific for other DBMSes=N,extending provided level=Y,redirect=N,continue with further target testing=Y" ^
+        --answers="keep testing the others=Y,skip test payloads specific for other DBMSes=Y,extending provided level=N,redirect=N,continue with further target testing=Y" ^
         --flush-session ^
         !_CK_ARG! ^
         --output-dir=/work >> "%LOG%" 2>&1
@@ -111,7 +110,7 @@ set "TOOL_RC_1=!ERRORLEVEL!"
 if not "%PATH2%"=="" (
     >> "%LOG%" echo.
     >> "%LOG%" echo --- Blind SQLi: "%BASE%%PATH2%" ---
-    >> "%LOG%" echo CMD: sqlmap.py -u "%BASE%%PATH2%" -p "%PARAM%" --batch --user-agent="%LAB_USER_AGENT%" --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --tamper=equaltolike !_STR_ARG! !_CK_ARG! --output-dir=/work
+    >> "%LOG%" echo CMD: sqlmap.py -u "%BASE%%PATH2%" -p "%PARAM%" --batch --user-agent="%LAB_USER_AGENT%" --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --answers="keep testing the others=Y,skip test payloads specific for other DBMSes=Y,extending provided level=N,redirect=N,continue with further target testing=Y" !_STR_ARG! !_CK_ARG! --output-dir=/work
     >> "%LOG%" echo ----------------------------------------------------------------
     docker run --rm --network %NET% ^
         -v "%CERT_FWD%:/lab-ca:ro" ^
@@ -127,9 +126,8 @@ if not "%PATH2%"=="" (
             --skip-waf ^
             --ignore-redirects ^
             --delay=0.3 ^
-            --tamper=equaltolike ^
             !_STR_ARG! ^
-            --answers="keep testing the others=Y,skip test payloads specific for other DBMSes=N,extending provided level=Y,redirect=N,continue with further target testing=Y" ^
+            --answers="keep testing the others=Y,skip test payloads specific for other DBMSes=Y,extending provided level=N,redirect=N,continue with further target testing=Y" ^
             --flush-session ^
             !_CK_ARG! ^
             --output-dir=/work >> "%LOG%" 2>&1

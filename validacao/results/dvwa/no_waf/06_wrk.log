@@ -1,57 +1,57 @@
-=== wrk | dvwa/no_waf | http://172.23.0.3:80 | 15/07/2026  8:26:12,04 ===
+=== wrk | dvwa/no_waf | http://172.18.0.4:80 | 17/07/2026 20:43:59,21 ===
 REPETICOES: 3
-CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" http://172.23.0.3:80
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" http://172.18.0.4:80
 ----------------------------------------------------------------
 
 === REPETICAO 1/3 ===
-Running 30s test @ http://172.23.0.3:80
+Running 30s test @ http://172.18.0.4:80
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   428.64ms  912.79ms   4.98s    86.13%
-    Req/Sec     0.90k     1.07k   12.50k    87.49%
+    Latency   651.08ms    1.24s    5.00s    84.07%
+    Req/Sec   726.45    536.86     4.76k    69.02%
   Latency Distribution
-     50%   20.30ms
-     75%   95.23ms
-     90%    1.90s 
-     99%    3.90s 
-  190147 requests in 30.10s, 76.74MB read
-  Socket errors: connect 0, read 0, write 0, timeout 661
-Requests/sec:   6317.88
-Transfer/sec:      2.55MB
+     50%   35.66ms
+     75%  457.82ms
+     90%    2.89s 
+     99%    4.57s 
+  160358 requests in 30.10s, 64.72MB read
+  Socket errors: connect 0, read 0, write 0, timeout 558
+Requests/sec:   5327.70
+Transfer/sec:      2.15MB
 RUN_RC_1=0
 
 === REPETICAO 2/3 ===
-Running 30s test @ http://172.23.0.3:80
+Running 30s test @ http://172.18.0.4:80
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   425.49ms  895.99ms   5.00s    86.30%
-    Req/Sec   605.92    626.09     4.59k    82.14%
+    Latency   704.66ms    1.22s    5.00s    82.97%
+    Req/Sec   623.71    422.26     2.52k    57.86%
   Latency Distribution
-     50%   22.06ms
-     75%  106.95ms
-     90%    1.82s 
-     99%    3.93s 
-  191981 requests in 30.09s, 77.48MB read
-  Socket errors: connect 0, read 0, write 0, timeout 517
-Requests/sec:   6379.55
-Transfer/sec:      2.57MB
+     50%   34.62ms
+     75%  944.12ms
+     90%    2.85s 
+     99%    4.54s 
+  174509 requests in 30.08s, 70.43MB read
+  Socket errors: connect 0, read 0, write 0, timeout 238
+Requests/sec:   5800.65
+Transfer/sec:      2.34MB
 RUN_RC_2=0
 
 === REPETICAO 3/3 ===
-Running 30s test @ http://172.23.0.3:80
+Running 30s test @ http://172.18.0.4:80
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   418.07ms  886.10ms   5.00s    86.40%
-    Req/Sec   653.99    651.41     4.12k    80.63%
+    Latency   686.28ms    1.19s    5.00s    82.89%
+    Req/Sec   580.06    380.87     1.66k    60.78%
   Latency Distribution
-     50%   22.17ms
-     75%  109.60ms
-     90%    1.79s 
-     99%    3.86s 
-  189920 requests in 30.10s, 76.65MB read
-  Socket errors: connect 0, read 0, write 0, timeout 539
-Requests/sec:   6310.13
-Transfer/sec:      2.55MB
+     50%   33.75ms
+     75%  928.03ms
+     90%    2.76s 
+     99%    4.41s 
+  178790 requests in 30.06s, 72.16MB read
+  Socket errors: connect 0, read 0, write 0, timeout 218
+Requests/sec:   5947.72
+Transfer/sec:      2.40MB
 RUN_RC_3=0
 
 TOOL_RC=0

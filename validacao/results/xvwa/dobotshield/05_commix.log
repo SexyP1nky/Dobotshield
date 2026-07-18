@@ -1,4 +1,4 @@
-=== Commix | xvwa/dobotshield | https://172.23.0.9:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1 | 15/07/2026  8:24:25,10 ===
+=== Commix | xvwa/dobotshield | https://172.18.0.10:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1 | 17/07/2026 20:41:41,18 ===
 CMD: echo <url> | commix.py  --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=3 --skip-empty --skip-waf --delay=1 --timeout=20 --retries=2  --output-dir=/work
 ----------------------------------------------------------------
                                       __
@@ -15,21 +15,21 @@ Copyright © 2014-2026 Anastasios Stasinopoulos[0m ([91m@ancst[0m)
 
 ([1m[31m![0m) Legal disclaimer: Usage of commix for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
 [0m
-[[94m11:24:26[0m] [0m[[32minfo[0m] Using 'stdin' for parsing targets list.[0m
-[1m[1/1] URL - GET https://172.23.0.9:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1[0m
+[[94m23:41:44[0m] [0m[[32minfo[0m] Using 'stdin' for parsing targets list.[0m
+[1m[1/1] URL - GET https://172.18.0.10:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1[0m
 [1mDo you want to use URL #1 for testing? [Y/n] > Y[0m
-[[94m11:24:26[0m] [0m[[32minfo[0m] Testing URL 'https://172.23.0.9:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1'.[0m
-[[94m11:24:26[0m] [[32m[1minfo[0m] [1mTesting connection to the target URL. [0m
-[1mYou have not declared any cookie(s), but the server wants to set its own ('PHPSESSID=ec777d90b8f...dec42165fa'). Do you want to use those? [Y/n] > Y[0m
-[[94m11:24:36[0m] [0m[[32minfo[0m] Using output directory '/work'.[0m
-[[94m11:24:36[0m] [0m[[32minfo[0m] Performing heuristic (passive) tests on the target URL.[0m
-[[94m11:24:45[0m] [[93mwarning[0m] Failed to identify the server's underlying operating system.[0m
+[[94m23:41:44[0m] [0m[[32minfo[0m] Testing URL 'https://172.18.0.10:443/xvwa/vulnerabilities/cmdi/?target=127.0.0.1'.[0m
+[[94m23:41:44[0m] [[32m[1minfo[0m] [1mTesting connection to the target URL. [0m
+[1mYou have not declared any cookie(s), but the server wants to set its own ('PHPSESSID=88712b9b2e5...f62cd771fd'). Do you want to use those? [Y/n] > Y[0m
+[[94m23:41:53[0m] [0m[[32minfo[0m] Using output directory '/work'.[0m
+[[94m23:41:53[0m] [0m[[32minfo[0m] Performing heuristic (passive) tests on the target URL.[0m
+[[94m23:42:02[0m] [[93mwarning[0m] Failed to identify the server's underlying operating system.[0m
 [1mDo you recognize the server's underlying operating system? [(N)o/(u)nix-like/(w)indows/(q)uit] > N[0m
-[[94m11:24:45[0m] [[41mcritical[0m] Unable to connect to the target URL (HTTP Error 400: Bad Request).[0m
-[[94m11:24:45[0m] [0m[[32minfo[0m] Setting GET parameter 'target' for tests.[0m
-[[94m11:24:45[0m] [0m[[32minfo[0m] Performing heuristic (basic) tests to the GET parameter 'target'.[0m
-[[94m11:24:46[0m] [[93mwarning[0m] The web server responded with an HTTP error code '400' which could interfere with the results of the tests.[0m
+[[94m23:42:03[0m] [[41mcritical[0m] Unable to connect to the target URL (HTTP Error 400: Bad Request).[0m
+[[94m23:42:03[0m] [0m[[32minfo[0m] Setting GET parameter 'target' for tests.[0m
+[[94m23:42:03[0m] [0m[[32minfo[0m] Performing heuristic (basic) tests to the GET parameter 'target'.[0m
+[[94m23:42:04[0m] [[93mwarning[0m] The web server responded with an HTTP error code '400' which could interfere with the results of the tests.[0m
 [1mDo you want to ignore HTTP response code '400' and proceed with testing? [y/N] > N[0m
-[[94m11:24:47[0m] [0m[[32minfo[0m] Skipping further testing on the target URL.[0m
+[[94m23:42:05[0m] [0m[[32minfo[0m] Skipping further testing on the target URL.[0m
 
 TOOL_RC=0

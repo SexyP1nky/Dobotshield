@@ -29,6 +29,8 @@ set "NET=dobotshield_waflab"
 set "CERT_FWD=%CERT_DIR:\=/%"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
 set "COOKIE_FILE=%SCRIPTS_DIR%\dvwa_cookie.txt"
+set "TMP_LOG_DIR=%TEMP%\dobotshield-validation"
+if not exist "%TMP_LOG_DIR%" mkdir "%TMP_LOG_DIR%"
 
 REM Imagens construidas localmente (referenciadas pelos .bat de ferramenta)
 set "IMG_TOOLS=dobotshield/lab-tools:latest"
@@ -115,14 +117,14 @@ REM --------------------------------------------------------------------------
 call :step "Login automatico DVWA (admin/password) + security=low + cookie"
 echo   Executando login...
 set "DVWA_COOKIE="
-for /f "delims=" %%C in ('docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/dvwa_login.py "http://!IP_DVWA!:80" 2^>"%SCRIPTS_DIR%\dvwa_login.stderr.log"') do set "DVWA_COOKIE=%%C"
+for /f "delims=" %%C in ('docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/dvwa_login.py "http://!IP_DVWA!:80" 2^>"%TMP_LOG_DIR%\dvwa_login.stderr.log"') do set "DVWA_COOKIE=%%C"
 
 if defined DVWA_COOKIE (
     echo   Cookie capturado automaticamente: !DVWA_COOKIE!
 ) else (
     echo.
     echo   [ERRO] Login automatico nao retornou cookie. Detalhes:
-    if exist "%SCRIPTS_DIR%\dvwa_login.stderr.log" type "%SCRIPTS_DIR%\dvwa_login.stderr.log"
+    if exist "%TMP_LOG_DIR%\dvwa_login.stderr.log" type "%TMP_LOG_DIR%\dvwa_login.stderr.log"
     echo.
     echo   A bateria nao seguira com DVWA sem cookie valido, pois isso quebra
     echo   o padrao de input das ferramentas autenticadas.
@@ -163,13 +165,13 @@ if not defined IP_XVWA (
 )
 call :wait_target "http://!IP_XVWA!:80/xvwa/" "XVWA HTTP"
 echo   Criando banco do XVWA via /xvwa/setup/?action=do ...
-docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/xvwa_setup.py "http://!IP_XVWA!:80" >"%SCRIPTS_DIR%\xvwa_setup.stdout.log" 2>"%SCRIPTS_DIR%\xvwa_setup.stderr.log"
+docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/xvwa_setup.py "http://!IP_XVWA!:80" >"%TMP_LOG_DIR%\xvwa_setup.stdout.log" 2>"%TMP_LOG_DIR%\xvwa_setup.stderr.log"
 if errorlevel 1 (
     echo   [ERRO] setup do XVWA falhou. Detalhes:
-    if exist "%SCRIPTS_DIR%\xvwa_setup.stderr.log" type "%SCRIPTS_DIR%\xvwa_setup.stderr.log"
+    if exist "%TMP_LOG_DIR%\xvwa_setup.stderr.log" type "%TMP_LOG_DIR%\xvwa_setup.stderr.log"
     exit /b 32
 )
-echo   (Detalhes em %SCRIPTS_DIR%\xvwa_setup.stdout.log e %SCRIPTS_DIR%\xvwa_setup.stderr.log)
+echo   (Logs temporarios fora do repositorio: %TMP_LOG_DIR%)
 echo   OBS: o XVWA nao exige login; os scanners alcancam os modulos sem cookie.
 
 call :step "Registrando METODOLOGIA.txt"

@@ -21,7 +21,7 @@ A ideia é simples: em vez de expor a aplicação diretamente na internet, os cl
 ## O que ele não faz
 
 - **Não substitui a validação no backend.** É uma camada adicional, baseada em regex. Ela reduz a superfície de ataque, mas não garante cobertura total; a aplicação continua precisando tratar suas próprias entradas.
-- **Não bloqueia todos os payloads possíveis.** Na bancada de 14 de julho de 2026, uma SQLi booleana com ofuscação leve continuou explorável através do DoBotShield. O resultado foi mantido como limitação real, sem ajuste de regra para ocultá-lo.
+- **Não garante cobertura universal.** Na rodada consolidada de 17 e 18 de julho de 2026, o vetor booleano original do SQLMap foi bloqueado após a correção da regra de SQLi. Isso valida esse vetor e as variações cobertas pela regra (`=`, `LIKE`, `~` e operandos com aspas desbalanceadas), mas não prova que toda forma futura de SQLi será detectada.
 
 ---
 
@@ -316,7 +316,7 @@ Resposta ao cliente
 | `TRAINING_MODE` | `true` | Registra cada bloqueio em JSON estruturado (Modo de Treinamento) |
 | `TRAINING_LOG_FILE` | `logs/training.jsonl` | Arquivo JSON Lines do Modo de Treinamento |
 
-Em `HTTP_MODE`. Campos numéricos com valor inválido ou menor/igual a zero retornam ao padrão.
+Em `HTTP_MODE`, somente o valor `true` ativa HTTP puro. Campos numéricos inválidos ou menores que o mínimo aceito retornam ao valor-padrão do código.
 
 ---
 
@@ -426,6 +426,25 @@ refletido continua coberto pelo ZAP e pelo XSStrike. O `wrk` executa três
 repetições por cenário. A entrega contém somente a rodada consolidada; tentativas
 interrompidas por falha de infraestrutura não fazem parte dos resultados.
 
+O SQLMap foi executado sem tamper, com `--technique=B --level=1 --risk=1`,
+marcador de resposta por aplicação e atraso de `0.3 s`. Os dois acessos diretos
+confirmaram a SQLi booleana; ModSecurity, DoBotShield e Coraza impediram a
+confirmação. A configuração de carga do DoBotShield na bancada foi calibrada em
+`RATE_LIMIT=10000`, `BURST_LIMIT=20000` e `MAX_CONNS=500`, sem alterar os
+valores-padrão do produto mostrados anteriormente.
+
+Resumo da rodada consolidada:
+
+| Aplicação | Cenário | ZAP HIGH | SQLMap | XSStrike | Commix | wrk req/s média | não 2xx/3xx |
+|---|---|---:|---|---|---|---:|---:|
+| DVWA | sem WAF | 1 | vulnerável | XSS confirmado | injeção confirmada | 5.692,02 | 0 |
+| DVWA | ModSecurity | 2 | não injetável | bloqueado | bloqueado | 1.426,61 | 0 |
+| DVWA | DoBotShield | 1 | não injetável | bloqueado | bloqueado | 1.894,84 | 990 |
+| DVWA | Coraza | 0 | não injetável | bloqueado | bloqueado | 1.999,55 | 0 |
+| XVWA | sem WAF | 5 | vulnerável | XSS confirmado | injeção confirmada | 490,54 | 0 |
+| XVWA | ModSecurity | 1 | não injetável | bloqueado | bloqueado | 328,49 | 0 |
+| XVWA | DoBotShield | 1 | não injetável | bloqueado | bloqueado | 144,07 | 0 |
+| XVWA | Coraza | 1 | não injetável | bloqueado | bloqueado | 130,61 | 0 |
 
 Os resultados ficam em `validacao/results/<app>/<cenario>/`, com um log por ferramenta, snapshots de saúde/recursos, relatórios do ZAP e logs dos WAFs. A entrega atual contém resultados para:
 
@@ -433,14 +452,6 @@ Os resultados ficam em `validacao/results/<app>/<cenario>/`, com um log por ferr
 - `xvwa/no_waf`, `xvwa/dobotshield`, `xvwa/modsecurity`, `xvwa/coraza`.
 
 O resumo interpretativo está em [validacao/docs/RELATORIO_RESULTADOS.md](validacao/docs/RELATORIO_RESULTADOS.md), e a metodologia completa está em [validacao/docs/METODOLOGIA.txt](validacao/docs/METODOLOGIA.txt).
-
-
-
-As duas primeiras auditorias verificam os 48 logs, os oito JSONs do ZAP, os
-códigos de saída, as três repetições do `wrk` e a paridade dos comandos entre
-cenários. A terceira recalcula os indicadores do relatório HTML a partir do log
-JSON Lines que o originou.
-
 ---
 
 ## Estrutura do projeto
@@ -532,30 +543,25 @@ JSON Lines que o originou.
 |   |   |-- dvwa/                4 cenários × 6 ferramentas
 |   |   |-- xvwa/                4 cenários × 6 ferramentas
 |   |   |-- ANALISE_RESULTADOS.json
-|   |   |-- AUDITORIA_INPUTS.json
 |   |   |-- RESUMO_RESULTADOS.txt
-|   |   `-- 99_final_health.txt
+|   |   `-- METODOLOGIA.txt
 |   |-- scripts/                 Scripts .bat/.ps1 do laboratório
 |   |   |-- lab_00_setup.bat
 |   |   |-- lab_01_subir.bat
 |   |   |-- lab_02_testssl.bat
-|   |   |-- lab_03_zap_isolado.bat
+|   |   |-- lab_03_zap.bat / lab_03_zap_isolado.bat
 |   |   |-- lab_04_sqlmap.bat
 |   |   |-- lab_05_xsstrike.bat
 |   |   |-- lab_06_commix.bat
 |   |   |-- lab_07_wrk.bat
-|   |   |-- lab_run_tudo.bat
+|   |   |-- lab_0X_*_one.bat       Execuções unitárias usadas pelos runners
 |   |   |-- lab_99_derrubar.bat
 |   |   `-- lab_lib.bat
-|   `-- tools/                   Auditorias reproduzíveis dos resultados
-|       |-- audit_validation.py
-|       |-- audit_tool_inputs.py
-|       |-- audit_training_report.py
-|       |-- analyze_validation_results.py
-|       |-- generate_validation_report.py
-|       `-- create_manifest.py
 |
 |-- gerar_relatorio.bat        Gera e abre o training-report.html
-|-- MODO_TREINAMENTO.md        Documentação do Modo de Treinamento
-`-- training-report.html       Relatório HTML gerado do Modo de Treinamento
+`-- MODO_TREINAMENTO.md        Documentação do Modo de Treinamento
 ```
+
+`training-report.html` é um artefato local gerado sob demanda por
+`gerar_relatorio.bat` ou `go run ./cmd/report`; ele não faz parte do estado
+versionado desta pasta.

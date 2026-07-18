@@ -3,7 +3,8 @@ REM ============================================================================
 REM  lab_03_zap.bat  --  Ferramenta 2/6: OWASP ZAP (DAST full-scan)
 REM
 REM  Roda zap-full-scan.py contra os 8 alvos (DVWA e XVWA x 4 cenarios).
-REM  Orcamento MODERADO: spider 2 min (-m 2) + scan/passivo ate 5 min (-T 5).
+REM  Orcamento MODERADO e limitado: spider 1 min, active scan ate 3 min e
+REM  inicializacao/passivo ate 2 min. Mesmos limites nos 8 destinos.
 REM  Input IDENTICO nos 4 cenarios de cada app; so a URL base (host) muda.
 REM
 REM  DVWA: exige login. O cookie de sessao e RENOVADO (login fresco) antes do
@@ -31,6 +32,8 @@ set "IMG_PY=python:3-alpine@sha256:26730869004e2b9c4b9ad09cab8625e81d256d1ce97e7
 set "SCRIPTS_DIR=%LAB_ROOT%\helpers"
 set "SCRIPTS_FWD=%SCRIPTS_DIR:\=/%"
 set "COOKIE_FILE=%SCRIPTS_DIR%\dvwa_cookie.txt"
+set "TMP_LOG_DIR=%TEMP%\dobotshield-validation"
+if not exist "%TMP_LOG_DIR%" mkdir "%TMP_LOG_DIR%"
 set "FAIL=0"
 
 set "DVWA_COOKIE="
@@ -66,14 +69,14 @@ REM --- Renova o cookie do DVWA (login fresco) p/ o ZAP varrer AUTENTICADO ---
 echo.
 echo Renovando cookie do DVWA (login admin/password, security=low) para o ZAP...
 set "DVWA_COOKIE="
-for /f "delims=" %%C in ('docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/dvwa_login.py --no-setup "http://!IP_DVWA!:80" 2^>"%SCRIPTS_DIR%\dvwa_login.zap.stderr.log"') do set "DVWA_COOKIE=%%C"
+for /f "delims=" %%C in ('docker run --rm --network %NET% -v "%SCRIPTS_FWD%:/scripts:ro" %IMG_PY% python /scripts/dvwa_login.py --no-setup "http://!IP_DVWA!:80" 2^>"%TMP_LOG_DIR%\dvwa_login.zap.stderr.log"') do set "DVWA_COOKIE=%%C"
 if defined DVWA_COOKIE set "DVWA_COOKIE=!DVWA_COOKIE:; =;!"
 if defined DVWA_COOKIE (
     > "%COOKIE_FILE%" echo !DVWA_COOKIE!
     echo   Cookie DVWA renovado: !DVWA_COOKIE!
 ) else (
     echo   [ERRO] Nao renovou o cookie DVWA. O ZAP nao sera executado sem sessao valida.
-    if exist "%SCRIPTS_DIR%\dvwa_login.zap.stderr.log" type "%SCRIPTS_DIR%\dvwa_login.zap.stderr.log"
+    if exist "%TMP_LOG_DIR%\dvwa_login.zap.stderr.log" type "%TMP_LOG_DIR%\dvwa_login.zap.stderr.log"
     exit /b 4
 )
 

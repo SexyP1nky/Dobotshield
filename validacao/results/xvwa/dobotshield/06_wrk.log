@@ -1,60 +1,57 @@
-=== wrk | xvwa/dobotshield | https://172.23.0.9:443/xvwa/ | 15/07/2026  8:38:12,05 ===
+=== wrk | xvwa/dobotshield | https://172.18.0.10:443/xvwa/ | 17/07/2026 23:39:00,91 ===
 REPETICOES: 3
-CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" https://172.23.0.9:443/xvwa/
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" https://172.18.0.10:443/xvwa/
 ----------------------------------------------------------------
 
 === REPETICAO 1/3 ===
-Running 30s test @ https://172.23.0.9:443/xvwa/
+Running 30s test @ https://172.18.0.10:443/xvwa/
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    12.52ms   17.44ms 584.59ms   89.51%
-    Req/Sec     4.00k     2.55k   10.42k    63.64%
+    Latency     2.11s     1.32s    5.00s    62.23%
+    Req/Sec    15.36     12.19    90.00     74.00%
   Latency Distribution
-     50%    7.25ms
-     75%   16.73ms
-     90%   30.76ms
-     99%   79.90ms
-  1421638 requests in 30.07s, 392.40MB read
-  Socket errors: connect 0, read 0, write 0, timeout 3
-  Non-2xx or 3xx responses: 1421321
-Requests/sec:  47282.51
-Transfer/sec:     13.05MB
+     50%    1.67s 
+     75%    3.25s 
+     90%    4.13s 
+     99%    4.83s 
+  4283 requests in 30.09s, 45.38MB read
+  Socket errors: connect 0, read 0, write 0, timeout 296
+Requests/sec:    142.34
+Transfer/sec:      1.51MB
 RUN_RC_1=0
 
 === REPETICAO 2/3 ===
-Running 30s test @ https://172.23.0.9:443/xvwa/
+Running 30s test @ https://172.18.0.10:443/xvwa/
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    11.42ms   18.53ms   1.38s    91.26%
-    Req/Sec     4.34k     2.56k   10.71k    59.79%
+    Latency     1.93s     1.21s    5.00s    73.92%
+    Req/Sec    16.14     12.70   110.00     71.08%
   Latency Distribution
-     50%    6.82ms
-     75%   15.30ms
-     90%   27.87ms
-     99%   69.75ms
-  1547266 requests in 30.10s, 426.78MB read
-  Socket errors: connect 0, read 0, write 0, timeout 19
-  Non-2xx or 3xx responses: 1546949
-Requests/sec:  51409.99
-Transfer/sec:     14.18MB
+     50%    1.47s 
+     75%    2.72s 
+     90%    4.01s 
+     99%    4.93s 
+  4348 requests in 30.08s, 46.07MB read
+  Socket errors: connect 0, read 0, write 0, timeout 590
+Requests/sec:    144.54
+Transfer/sec:      1.53MB
 RUN_RC_2=0
 
 === REPETICAO 3/3 ===
-Running 30s test @ https://172.23.0.9:443/xvwa/
+Running 30s test @ https://172.18.0.10:443/xvwa/
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    11.10ms   17.65ms   1.31s    91.29%
-    Req/Sec     4.52k     2.52k    9.93k    51.82%
+    Latency     1.94s     1.32s    5.00s    70.68%
+    Req/Sec    15.40     11.54    70.00     73.89%
   Latency Distribution
-     50%    6.55ms
-     75%   14.42ms
-     90%   26.70ms
-     99%   71.65ms
-  1607714 requests in 30.09s, 443.32MB read
-  Socket errors: connect 0, read 0, write 0, timeout 32
-  Non-2xx or 3xx responses: 1607398
-Requests/sec:  53429.07
-Transfer/sec:     14.73MB
+     50%    1.33s 
+     75%    2.95s 
+     90%    4.15s 
+     99%    4.90s 
+  4372 requests in 30.08s, 46.33MB read
+  Socket errors: connect 0, read 0, write 0, timeout 498
+Requests/sec:    145.34
+Transfer/sec:      1.54MB
 RUN_RC_3=0
 
 TOOL_RC=0

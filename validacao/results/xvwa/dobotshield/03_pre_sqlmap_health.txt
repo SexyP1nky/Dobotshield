@@ -1,7 +1,7 @@
-=== health_probe  14/07/2026 22:42:40,06 ===
-URL: https://172.23.0.7:443
-probe 1  code=403  time=0.141769s  bytes=275
-probe 2  code=403  time=0.015377s  bytes=275
-probe 3  code=403  time=0.016343s  bytes=275
-probe 4  code=403  time=0.019909s  bytes=275
-probe 5  code=403  time=0.017725s  bytes=275
+=== health_probe  18/07/2026  0:02:12,32 ===
+URL: https://172.18.0.10:443
+probe 1  code=403  time=0.013371s  bytes=276
+probe 2  code=403  time=0.011187s  bytes=276
+probe 3  code=403  time=0.015604s  bytes=276
+probe 4  code=403  time=0.014754s  bytes=276
+probe 5  code=403  time=0.013657s  bytes=276

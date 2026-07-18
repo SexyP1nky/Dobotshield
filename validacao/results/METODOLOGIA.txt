@@ -1,559 +1,255 @@
+METODOLOGIA DA BANCADA COMPARATIVA
+===================================
 
- BANCADA COMPARATIVA DE WAFs  --  METODOLOGIA
- DoBotShield  vs  ModSecurity (CRS)  vs  Coraza (CRS)
+Versão consolidada: 18 de julho de 2026
+Rodada documentada: 17 e 18 de julho de 2026
 
 1. OBJETIVO
 
-Avaliar, de forma reproduzivel e padronizada, a eficacia de tres Web
-Application Firewalls protegendo duas aplicacoes propositalmente
-vulneraveis, comparando-os a um baseline SEM WAF. Os WAFs avaliados:
-
-  - DoBotShield  : reverse proxy WAF proprio (Go), com sanitizacao de
-                   requisicao/resposta e rate-limiting/anti-bot.
-  - ModSecurity  : nginx + OWASP Core Rule Set (CRS).
-  - Coraza       : Caddy + OWASP Core Rule Set (CRS) (motor em Go).
-
-Aplicacoes-alvo (open source, propositalmente vulneraveis):
-  - DVWA   (PHP/MySQL)  -- vulnerables/web-dvwa
-  - XVWA   (PHP/MySQL)  -- build local a partir de s4n7h0/xvwa
-                           + mysql:5.7 (Xtreme Vulnerable Web Application)
-
-
-2. MATRIZ DE TESTES
-2 aplicacoes  x  4 cenarios de protecao  x  6 ferramentas  =  48 testes.
-
-Cenarios por aplicacao:
-  (a) no_waf       -- acesso HTTP direto a aplicacao (baseline)
-  (b) modsecurity  -- atras de ModSecurity + CRS  (HTTPS)
-  (c) dobotshield  -- atras do DoBotShield        (HTTPS)
-  (d) coraza       -- atras de Coraza + CRS        (HTTPS)
-
-Ferramentas (todas open source, executadas em containers):
-  1. testssl.sh -- analise de criptografia TLS/SSL
-  2. OWASP ZAP  -- DAST / vulnerability scanner (full-scan)
-  3. SQLMap     -- SQL Injection
-  4. XSStrike   -- XSS (fuzzing/evasao)
-  5. Commix     -- Command Injection (OSCI)
-  6. wrk        -- gerador de carga HTTP (teste de DoS/resiliencia)
-
-
-3. MAPA DE PORTAS E ALVOS (rede interna Docker: dobotshield_waflab)
-
-As FERRAMENTAS rodam como containers na MESMA rede dos alvos e os acessam
-por IP:porta interno dos containers, resolvido no inicio de cada .bat. As
-portas mapeadas no host servem apenas para inspecao manual via browser.
-
-  App   Cenario      URL interna (usada nas ferramentas)   Host
-  ----  -----------  ------------------------------------  ----------
-  DVWA  no_waf       http://dvwa:80                        :8080
-  DVWA  modsecurity  https://modsec_dvwa:8443              :9180
-  DVWA  dobotshield  https://dobot_dvwa:443                :9080
-  DVWA  coraza       https://coraza_dvwa:443               :9280
-  XVWA  no_waf       http://xvwa:80/xvwa/                  :8082
-  XVWA  modsecurity  https://modsec_xvwa:8443/xvwa/        :9182
-  XVWA  dobotshield  https://dobot_xvwa:443/xvwa/          :9082
-  XVWA  coraza       https://coraza_xvwa:443/xvwa/         :9282
-
-
-4. PADRONIZACAO E JUSTICA EXPERIMENTAL
-- Para CADA ferramenta, os parametros de ataque sao IDENTICOS nos quatro
-  cenarios de uma mesma aplicacao. SO a URL de destino muda. Isso garante
-  comparabilidade direta: nenhum cenario e "privilegiado".
-
-- Vetores de ataque por ferramenta -- endpoint EXPLICITO em IP:porta; NENHUMA
-  ferramenta usa --crawl, garantindo que o MESMO parametro vulneravel seja
-  exercitado nos 4 cenarios de cada app (e que nada toque /setup/):
-    * SQLMap  DVWA: GET  /vulnerabilities/sqli/?id=1&Submit=Submit  e
-                         /vulnerabilities/sqli_blind/?id=1&Submit=Submit  (-p id)
-    * SQLMap  XVWA: POST /xvwa/vulnerabilities/sqli/  --data "item=1"     (-p item)
-    * XSStrike DVWA: GET /vulnerabilities/xss_r/?name=test
-    * XSStrike XVWA: GET /xvwa/vulnerabilities/reflected_xss/?item=test
-    * Commix   DVWA: POST /vulnerabilities/exec/  --data "ip=127.0.0.1&Submit=Submit"
-    * Commix   XVWA: GET  /xvwa/vulnerabilities/cmdi/?target=127.0.0.1
-
-- SQLMap (vetor calibrado p/ expor a falha do DoBotShield em SQLi):
-    --technique=B (boolean-based blind) --tamper=equaltolike --string=<marcador>
-    --level=1 --risk=1 --delay=0.3, IDENTICO nos 4 cenarios de cada app.
-  Justificativas (todas medidas empiricamente contra o lab):
-    * equaltolike troca '=' por LIKE -> evade a regra OR/AND-com-'=' do WAF e a
-      injecao continua valida no MySQL (LIKE sem curinga == igualdade).
-    * technique=B: a unica classe cujo payload (ex.: 1 AND 1 LIKE 1) NAO contem
-      UNION/SLEEP/comentario/$() -> passa pelo DoBotShield. As demais (E,U,S,T)
-      sao 100% bloqueadas (400) e so poluem.
-    * --string=<marcador>: texto presente SO na resposta TRUE (DVWA=Surname,
-      XVWA=Category). Faz o SQLMap decidir TRUE/FALSE pelo conteudo e IGNORAR o
-      ruido do WAF (400 dos bloqueios + 502 da inspecao de resposta em erro SQL).
-    * level 1 (e NAO o "nivel maximo"): ACHADO IMPORTANTE -> no level 5 o SQLMap
-      dispara ~1400 payloads, a maioria vira 400/502, e esse mar de erros
-      CORROMPE a calibracao TRUE/FALSE dele -> ele descarta ate o payload simples
-      que passa. No level 1 manda poucos payloads, o que funciona nao e afogado e
-      o --string crava. Confirmado: level 5/risk 3 e level 5/risk 1 NAO detectam;
-      level 1/risk 1 detecta (DVWA 'id' e XVWA 'item' = vulnerable).
-  Mesmo input nos 4 cenarios (so a URL muda) -> comparacao justa; mede a
-  resistencia de cada WAF a uma injecao booleana ofuscada leve.
-
-- Commix: --delay=1 em TODOS os cenarios (Commix pode derrubar a app sem
-  throttle). Sem --crawl; alvo no endpoint vulneravel. A URL e passada pelo STDIN
-  (echo <url> | docker run -i ... commix.py), NAO por --url. Motivo: rodando via
-  "docker run" sem TTY, o Commix le alvos do stdin e ignoraria um --url (assim
-  antes nao testava NADA). Passar a URL pelo stdin liga o STDIN_PARSING, que tem o
-  efeito colateral DESEJADO de deixar o default do prompt "spawn pseudo-terminal
-  shell?" como "n": ao confirmar a injecao (ex.: no_waf), o Commix NAO abre o shell
-  interativo que, sem stdin real, entrava em loop e INUNDAVA o log (>1 GB). Tambem
-  removido --all (enumeracao pesada, desnecessaria p/ medir deteccao). (bug duplo
-  corrigido: "nao testava nada" + "flood de log de >1 GB").
-  NOTA (resultado): o DoBotShield NAO falha no Commix. A brecha existe (echo/sleep
-  nao estao na lista de comandos do WAF e executam), mas toda confirmacao do
-  Commix usa $(...) (classic/eval/time) ou um interpretador da lista (python/perl)
-  -> bloqueados. O file-based (unica via sem $()) exige diretorio web gravavel,
-  que o DVWA nao tem. Logo o Commix e barrado pelo DoBotShield.
-
-- XSStrike: 10 threads, --skip-dom, sem --crawl; alvo no parametro refletido.
-
-- ZAP: full-scan autenticado no DVWA e com os mesmos parametros nos oito alvos.
-  Para evitar que uma limitacao de memoria da bancada interrompa o processo Java,
-  a regra ativa 40026 (DOM XSS) e marcada como IGNORE por zap_rules.tsv em TODOS
-  os cenarios. A exclusao e uniforme e nao altera nenhum WAF; XSS refletido segue
-  coberto pelo proprio ZAP e pelo XSStrike. Os alvos sao executados de forma
-  sequencial, mantendo ativos apenas o backend e o WAF do cenario corrente.
-
-- NOTA DE JUSTICA/EVASAO: o tamper (SQLMap) e os endpoints/payloads sao
-  IDENTICOS no no_waf e nos 3 WAFs. Eles tornam o ataque mais realista (com
-  ofuscacao leve) e sao aplicados igualmente -> a comparacao permanece justa;
-  o que varia e apenas a capacidade de cada WAF de barrar o MESMO ataque.
-
-- Os --delay (SQLMap 0.3s; Commix 1s) NAO sao alterados entre cenarios.
-
-- wrk e, por definicao, um teste de carga/DoS: dispara sem delay (12 threads
-  x 400 conexoes x 30s), em 3 repeticoes por cenario e identico em todos os
-  cenarios. Mede throughput e
-  resiliencia, nao deteccao de payload.
-
-- DVWA exige autenticacao. Faz-se login automatico (admin/password), define-se
-  DVWA Security = "low" e captura-se o cookie (PHPSESSID;security=low), injetado
-  em SQLMap/XSStrike/Commix via --cookie/--headers. Para o ZAP o cookie e RENOVADO
-  (login fresco) antes do scan e passado por VARIAVEL DE AMBIENTE (DVWA_COOKIE); o
-  hook zap_hook.py cria a regra de Replacer pela API do ZAP
-  (zap.replacer.add_rule, REQ_HEADER Cookie) injetando-o em TODA requisicao ->
-  varredura AUTENTICADA das paginas internas. ATENCAO: criar a regra por
-  "-config replacer.rules..." NAO funciona nesta versao do ZAP (config aceita mas
-  nao aplicada) -> antes o scan ia DESLOGADO e so achava login.php (bug corrigido).
-  O hook exclui logout/setup/security E TAMBEM /vulnerabilities/csrf (este ultimo
-  TROCA a senha do admin durante o active-scan e quebraria o login das ferramentas
-  seguintes). O reset/criacao do banco do DVWA ocorre somente no lab_00_setup. Os
-  scanners renovam cookie com --no-setup, sem tocar em /setup.php.
-
-- XVWA NAO exige login: os modulos de vulnerabilidade sao abertos, entao roda
-  sem cookie. So e preciso criar o banco uma vez via GET /xvwa/setup/?action=do
-  (feito no lab_00_setup). O ZAP exclui /xvwa/setup/ (hook) para nao resetar o
-  banco durante a varredura.
-
-
-5. CONFIGURACAO DOS WAFs
-
-- ModSecurity / Coraza: OWASP CRS, paranoia 1, anomaly inbound 5 / outbound 4
-  (CRS), modo bloqueio. TLS terminado pelo proprio WAF.
-
-- DoBotShield: WAF em modo "block", inspecao de requisicao E resposta,
-  e RATE-LIMITING LIGADO (RATE_LIMIT=10 req/s, BURST=20, MAX_CONNS=10 por IP).
-  DECISAO METODOLOGICA: o rate-limiting/anti-bot e funcionalidade central do
-  produto; portanto o DoBotShield e avaliado como em producao.
-
-  Implicacao a registrar na analise:
-   * No teste wrk (DoS), o rate-limiting estrangula o flood (HTTP 429) -- e a
-     defesa relevante; ModSecurity/Coraza (CRS) NAO fazem rate-limiting.
-   * SQLMap roda com --delay=0.3 (~3 req/s) e Commix com --delay=1 (~1 req/s),
-     ambos abaixo do limite de 10 req/s. Eventuais bloqueios do DoBotShield no
-     SQLMap/Commix podem ser por REGRA de WAF ou por taxa -- interpretar os logs
-     (X-Shield-Action / eventos DoS_BLOCK vs WAF_BLOCK) ao analisar.
-   * ZAP e XSStrike sao mais rapidos; contra o DoBotShield, parte dos
-     bloqueios pode advir do rate-limiting alem das regras. Interpretar os
-     logs (X-Shield-Action / eventos DoS_BLOCK vs WAF_BLOCK) ao analisar.
-
-
-6. ESTRUTURA DOS RESULTADOS
-
-  validacao/results/
-    METODOLOGIA.txt                  (este documento, com timestamp da rodada)
-    <app>/<cenario>/
-        01_testssl.log               saida da ferramenta (1 log por teste)
-        02_zap.log    + zap/         relatorios HTML/JSON/MD do ZAP
-        03_sqlmap.log + sqlmap/      saida e sessao do SQLMap
-        04_xsstrike.log
-        05_commix.log + commix/
-        06_wrk.log
-        NN_pre_<tool>_health.txt     disponibilidade ANTES da ferramenta
-        NN_post_<tool>_health.txt    disponibilidade DEPOIS (recuperacao)
-        NN_pre/post_<tool>_stats.txt CPU/RAM/rede do backend e do WAF
-        NN_<tool>_waf.log            log do container WAF apos o teste
-                                     (eventos WAF_BLOCK/DoS_BLOCK/regras CRS)
-
-Cada .log de ferramenta comeca com um cabecalho contendo o comando docker
-EXATO executado e o timestamp -- garantindo reprodutibilidade.
-
-Os resultados publicados correspondem somente a rodada consolidada de 48
-execucoes e ao E2E automatizado do produto. Tentativas interrompidas por falha
-de infraestrutura e artefatos temporarios nao fazem parte da entrega.
-
-
-7. COMO REPRODUZIR (ordem de execucao)
-
-Pre-requisito: Docker Desktop em execucao, com compartilhamento de arquivos
-habilitado para o drive do projeto (padrao no backend WSL2).
-
-  1) lab_00_setup.bat     baixa/builda TODAS as dependencias (imagens), gera o
-                          certificado TLS, sobe DVWA e XVWA, faz login no DVWA
-                          (security=low + cookie) e cria o banco do XVWA.
-  2) lab_01_subir.bat     sobe os 8 alvos (2 apps x 4 protecoes), aguarda a
-                          saude de cada um e garante o banco do XVWA.
-  3) Rode as ferramentas (cada uma cobre os 8 alvos):
-        lab_02_testssl.bat
-        lab_03_zap_isolado.bat
-        lab_04_sqlmap.bat
-        lab_05_xsstrike.bat
-        lab_06_commix.bat
-        lab_07_wrk.bat
-     Rode lab_09_e2e_produto.bat para validar ponta a ponta a configuracao
-     exportada pela interface, o proxy/WAF, os headers, o treinamento e o relatorio.
-     (ou lab_run_tudo.bat para executar 1->2->todas as ferramentas e o E2E
-      automatizado em sequencia)
-  9) lab_99_derrubar.bat  derruba e limpa o lab.
-
-As ferramentas sao independentes: podem ser rodadas em qualquer ordem,
-desde que o lab esteja no ar (passos 1 e 2 concluidos).
-
-
- 8. HISTORICO TECNICO DA BANCADA (registro encerrado em 2026-06-06)
-ATENCAO: esta secao preserva o historico de diagnosticos da bancada anterior e
-nao deve ser usada como resultado da rodada de 14/07/2026. Para os numeros
-atuais, consulte validacao/docs/RELATORIO_RESULTADOS.md, ANALISE_RESULTADOS.json e os
-logs brutos da pasta results/.
-
-
-CORRECOES APLICADAS E VALIDADAS (OK):
-  [OK] XSStrike: adicionado --skip. Sem ele, rodando via "docker run" sem TTY,
-       ao achar o 1o XSS o XSStrike abre input("continue scanning?") e quebra com
-       EOFError (RC=1). Com --skip conclui o scan. Validado: dvwa/no_waf e
-       xvwa/no_waf, antes RC=1, agora RC=0 (3072 payloads processados).
-  [OK] modsec_xvwa: ZAP e Commix falhavam SO neste alvo (ZAP "failed to access",
-       Commix "connection refused"). CAUSA: o nginx do modsec_xvwa estava em
-       ESTADO RUNTIME corrompido e respondia 308 -> https://<ip>/<path> (porta
-       8443 -> 443, que esta fechada) para TODO request; ZAP/Commix seguiam o
-       redirect e batiam em porta morta. A config em disco estava CORRETA (igual
-       a do modsec_dvwa, que funcionava) e o backend xvwa respondia 200 -> nao era
-       bug de script nem de config. FIX: "docker exec lab_modsec_xvwa nginx -s
-       reload" regenerou os workers. Pos-fix: ZAP RC=0 (125 PASS/0 FAIL) e Commix
-       conecta e recebe 403 do CRS (ModSecurity BLOQUEIA o cmd injection).
-  [OK] lab_01_subir.bat: apos subir/aguardar os alvos, executa um "nginx -s reload"
-       DEFENSIVO e NAO-FATAL nos dois WAFs ModSecurity (lab_modsec_dvwa e
-       lab_modsec_xvwa) p/ blindar contra o estado corrompido acima reaparecer.
-       Qualquer falha do reload e ignorada (o lab segue no ar; script sai 0).
-       Validado: snippet roda limpo e os alvos respondem normal (200/302), sem 308.
-  [OK] Commix: URL passada pelo STDIN (echo <url> | docker run -i ... commix.py)
-       em vez de --url. Corrige DOIS bugs em lab_06_commix_one.bat:
-       (1) via "docker run" sem TTY o Commix lia o stdin e ignorava o --url ->
-           testava NADA;
-       (2) ao achar injecao, o prompt de pseudo-shell entrava em loop e gerava
-           log de >1 GB. Com a URL no stdin o default do prompt vira "n" e o flood
-           some (logs caem de 1.7 GB para ~3 KB). Removido tambem --all.
-  [OK] ZAP autenticado: cookie injetado via API no hook (zap_hook.py /
-       zap.replacer.add_rule), passado por env DVWA_COOKIE em lab_03_zap_one.bat.
-       Antes usava "-config replacer.rules.rule1" que NAO funciona -> scan ia
-       deslogado (so login.php). Injecao do cookie comprovada (REQ_HEADER Cookie
-       em 100% das requisicoes contra servidor de teste).
-  [OK] ZAP nao se auto-sabota: hook passou a excluir /vulnerabilities/csrf (a
-       pagina troca a senha do admin durante o active-scan).
-  [OK] ZAP autenticado VALIDADO ponta-a-ponta: varredura do DVWA agora alcanca as
-       paginas internas (12 distintas: sqli, sqli_blind, exec, upload, brute,
-       xss_s, fi, weak_id, captcha, csp, javascript...) em vez de so o login.php.
-  [OK] lab_00 idempotente: restaura setup.php (se estiver .bak) ANTES do create_db,
-       entao re-rodar o lab_00 consegue resetar um DVWA com login quebrado SEM
-       precisar recriar o container.
-  [OK] ZAP gera os relatorios .html/.json/.md no fim (flag -I); so nao gera se o
-       processo for morto externamente antes de concluir.
-  [OK] SQLi = VETOR DE FALHA DO DOBOTSHIELD (comprovado): com
-       --technique=B --tamper=equaltolike --string=<marcador> --level=1 --risk=1,
-       o DoBotShield FALHA (injecao confirmada): DVWA 'id' e XVWA 'item' = "is
-       vulnerable" (boolean-based blind). Config aplicada em lab_04_sqlmap*.bat.
-  [OK] Padronizacao de input mantida (so a URL muda entre os 4 cenarios de cada
-       app) e delays NAO alterados (sqlmap 0.3 / commix 1 / wrk sem delay).
-
-RESULTADOS POR FERRAMENTA vs DOBOTSHIELD (o que o WAF faz):
-  - SQLMap   : FALHA o DoBotShield (injecao booleana passa) -> ver config acima.
-  - XSStrike : DoBotShield BLOQUEIA (XSS robustamente filtrado; sem tamper viavel).
-  - Commix   : DoBotShield BLOQUEIA (toda confirmacao usa $() ou interpretador da
-               lista; a brecha do echo nao e "confirmavel" pelo Commix).
-  - ZAP/testssl/wrk: nao sao vetores de "bypass" (DAST/TLS/carga).
-
-RESULTADO DA BATERIA COMPLETA (8 alvos x 6 ferramentas = 48 testes): 48/48 OK.
-  - testssl : 8/8 executaram. Nos 6 alvos HTTPS (os 3 WAFs x 2 apps) analisa o
-              TLS normalmente. Nos 2 no_waf (HTTP puro, porta 80) reporta
-              "doesn't seem to be a TLS/SSL enabled server" e sai RC=10 -- isso e
-              ESPERADO (o baseline nao tem TLS para analisar), nao e falha.
-  - ZAP     : 8/8 RC=0 (apos o fix do modsec_xvwa). DVWA varrido autenticado.
-  - SQLMap  : 8/8 encerraram limpo. Injecao confirmada em no_waf e DoBotShield
-              (DVWA 'id', XVWA 'item'); ModSecurity e Coraza bloqueiam (sem
-              injecao confirmada).
-  - XSStrike: 8/8 RC=0 (apos --skip).
-  - Commix  : 8/8 RC=0. no_waf detecta a injecao; os 3 WAFs bloqueiam.
-  - wrk     : 8/8 RC=0. DoBotShield estrangula o flood com rate-limit (429): ~64k
-              respostas/s, ~100% non-2xx -- rejeicao na BORDA, backend blindado.
-              ModSec/Coraza/no_waf proxiam de fato (2,5k-6,5k req/s). O numero alto
-              do DoBotShield e rejeicao rapida, NAO vazao de aplicacao.
-
-TROUBLESHOOTING (se reaparecer):
-  - Se ZAP der "failed to access" ou Commix der "connection refused" em UM unico
-    alvo modsec (e o curl -k no alvo retornar 308 para a porta :443), o nginx
-    daquele container esta em estado ruim: "docker exec <ct> nginx -s reload" e
-    re-rode so aquele alvo. Numa subida limpa (lab_99 -> lab_01) o problema nao
-    deve ocorrer (a config em disco e correta).
-
-LIMITACAO CONHECIDA:
-  - O DoBotShield e robusto: bloqueia XSS e Command Injection das ferramentas
-    usadas. O unico bypass confirmado e o SQLi booleano acima. Nao ha vetor
-    viavel para fazer XSStrike ou Commix falharem o DoBotShield mantendo input
-    identico para todos.
-
-
-ANALISE DOS RESULTADOS (revisao 2026-06-06) -- 4 pontos verificados
-
-
-PONTO 1 -- ZAP no XVWA gera poucos alertas (e a comparacao com WAF):
-  Contagem de TIPOS de alerta (e instancias) extraida dos zap_report.json:
-     XVWA  no_waf=23(42)  modsec=23(43)  dobot=19(37)  coraza=24(50)
-     DVWA  no_waf=42(136) modsec=40(135) dobot=14(40)  coraza=38(134)
-  Conclusao 1: dentro do XVWA, no_waf NAO gera "bem menos" que com WAF -- os
-  numeros sao equivalentes (23 vs 23/24, dobot ate menor). A percepcao de
-  "poucos alertas" e REAL mas o contraste verdadeiro e XVWA(~23) << DVWA(~42).
-  Conclusao 2 (causa-raiz): o spider do ZAP quase nao percorre o XVWA. URLs
-  unicas atacadas por cenario (instancias com param): XVWA so /xvwa/, /, robots,
-  sitemap, .git/config (6 caminhos) -- NUNCA chega em /xvwa/vulnerabilities/sqli,
-  /xss_*, /cmdi etc. Resultado: 0 HIGH reais no XVWA (o unico "High" =
-  'Spring4Shell' em dobot/xvwa e FALSO-POSITIVO: XVWA e PHP, nao Java/Spring).
-  No DVWA o ZAP entra autenticado (cookie via zap_hook.py) e varre 77 URLs ->
-  6 HIGH no no_waf. "Total of N URLs" do spider: XVWA 11/6/11/6 vs DVWA 77/69/43/63.
-  => O baixo numero no XVWA e COBERTURA do spider (nao bug de execucao). Para o
-  ZAP exercitar de fato o XVWA, e preciso semear as URLs vulneraveis (seed/
-  contexto) e/ou sessao -- isso ALTERA o input do ZAP so para o XVWA.
-
-PONTO 2 -- DoBotShield ficou vulneravel a alguma ferramenta?
-  SIM, apenas a UMA: SQLMap (SQLi booleano-cego). Verdicts dos logs:
-     SQLMap  DVWA 'id'  -> "GET parameter 'id' is vulnerable"  (igual ao no_waf)
-     SQLMap  XVWA 'item'-> "POST parameter 'item' is vulnerable"(igual ao no_waf)
-     XSStrike-> "WAF detected"; gera 3072 payloads, NENHUM passa -> BLOQUEADO
-     Commix  -> HTTP 400 (Bad Request) na fase de teste -> NAO injeta -> BLOQUEADO
-     ZAP/testssl/wrk -> nao sao vetores de bypass (DAST/TLS/carga)
-  ModSecurity e Coraza bloqueiam TODAS (incl. o SQLi). Logo, o unico "furo"
-  do DoBotShield em toda a bancada continua sendo o SQLi booleano.
-
-PONTO 3 -- Commix esta OK?
-  SIM. 8/8 rodaram e percorreram o fluxo ate o veredito:
-     no_waf  -> "parameter ... appears to be injectable (classic command
-                injection)"; recusa pseudo-shell (n) e pula testes extras (Y)
-                -> NAO ha mais o flood de >1GB (correcao do STDIN/--all mantida).
-     modsec/coraza -> HTTP 403 (bloqueio CRS).
-     dobotshield   -> HTTP 400 (bloqueio DoBotShield).
-  Observacao (fluxo): nos 3 WAFs o Commix encerra cedo porque recebe 403/400 na
-  fase de heuristica -- isso e o WAF bloqueando ANTES da injecao (resultado
-  esperado), nao um defeito do Commix nem de input.
-
-PONTO 4 -- Quais ferramentas estao 100% OK (sucesso absoluto, sem erro):
-  100% LIMPAS (8/8, fluxo completo, coerente): SQLMap, XSStrike, Commix, wrk.
-  OK COM RESSALVA ESPERADA:
-     testssl -> 6/8 RC=0; 2/8 (no_waf, HTTP puro) RC=10 "not a TLS server".
-                E POR DESIGN (baseline sem TLS), nao e erro.
-     ZAP     -> 8/8 RC=0, mas a COBERTURA no XVWA e rasa (Ponto 1). Roda inteiro
-                e sai limpo, porem so produz resultado profundo no DVWA.
-
-REQUISITO "nao parar prematuramente por causa de input" -- estado por ferramenta:
-  - SQLMap : responde "skip other DBMS? N" e "keep testing others? Y" -> segue. OK.
-  - XSStrike: --skip evita o prompt e continua testando todos os payloads. OK.
-  - Commix : no_waf recusa shell e segue; nos WAFs para por 403/400 = bloqueio
-             do WAF (esperado, nao ha como injetar apos o bloqueio).
-  - wrk    : carga de 30s completa sempre. OK.
-  - testssl: no_waf "para" por nao haver TLS na porta 80 (nada a testar). Esperado.
-  - ZAP    : roda o tempo todo; a limitacao e cobertura do spider no XVWA, nao
-             parada por input. (Acao opcional: semear URLs vulneraveis do XVWA.)
-
-FIX IMPLEMENTADO (Ponto 1) -- seed do XVWA no ZAP (zap_hook.py):
-  Decisao do usuario: semear as URLs vulneraveis do XVWA, com INPUT IDENTICO nos
-  4 cenarios do XVWA (so o host:porta muda), e o DVWA INTOCADO.
-  Implementacao 100% no validacao/helpers/zap_hook.py (que ja e passado via --hook a
-  TODOS os scans). O hook detecta o XVWA pelo alvo ("/xvwa" na URL) e:
-    (1) liga no spider postForm/processForm/handleParameters=USE_ALL/maxChildren=0
-        -> o spider passa a SUBMETER os forms POST e descobrir params sozinho;
-    (2) semeia (zap.core.access_url) as paginas dos modulos + pontos GET com
-        parametro de exemplo (cmdi 'target', reflected_xss/idor 'item', ssti
-        'name', fi 'file', redirect 'url', php_object 'r').
-  As rotas relativas sao as MESMAS nos 4 cenarios (derivadas do proprio alvo).
-  O bloco e gated por "/xvwa" -> DVWA nao executa nada disso (identico ao antes).
-  Tudo best-effort (nao-fatal): falha de seed nao aborta o scan. A linha de
-  comando dos .bat (lab_03_zap*) NAO mudou -> input segue padronizado.
-  NB: ao rodar via bash/MSYS o argumento --hook=/zap/... e mangleado p/ caminho
-      Windows; no .bat (cmd.exe) isso NAO ocorre. Validar sempre pelo .bat.
-
-  VALIDACAO COMPLETA (4 cenarios XVWA re-rodados via lab_03_zap_one.bat, RC=0):
-    cenario      tipos      instancias   HIGH   HIGH encontrados
-    no_waf       23 -> 32   42 -> 134    0->6   XSS DOM x6, XSS Refletido, Path
-                                                Traversal, RFI, OS Command
-                                                Injection, SSRF
-    modsecurity  23 -> 29   43 -> 132    0->1   RFI
-    dobotshield  19 -> 22   37 -> 105    1->1   so Spring4Shell (FALSO-POSITIVO)
-    coraza       24 -> 28   50 -> 136    0->1   RFI
-  Leitura: SEM WAF o XVWA expoe 6 HIGH reais; COM WAF cai para 1 (ModSec/Coraza
-  deixam so o RFI passar pela deteccao do ZAP; DoBotShield bloqueia tudo, sobra
-  apenas o FP Spring4Shell). Direcao agora correta (no_waf >> protegido), ao
-  contrario do que se via antes do seed. No DoBotShield o ZAP so registrou o
-  param 'item' (os seeds GET com 'target'/'file' levaram 400 -> bloqueio na
-  semeadura), coerente com "DoBotShield robusto exceto SQLi".
-
-  COMO RE-RODAR SO O XVWA (sem o DVWA, p/ validar rapido): com o lab no ar,
-  chamar o MESMO unitario que a bateria usa, 1x por cenario XVWA (cookie vazio):
-    lab_03_zap_one.bat xvwa no_waf      "http://<ip_xvwa>:80/xvwa/"        lab_xvwa ""              ""
-    lab_03_zap_one.bat xvwa modsecurity "https://<ip_modsec>:8443/xvwa/"   lab_xvwa lab_modsec_xvwa ""
-    lab_03_zap_one.bat xvwa dobotshield "https://<ip_dobot>:443/xvwa/"     lab_xvwa lab_dobot_xvwa  ""
-    lab_03_zap_one.bat xvwa coraza      "https://<ip_coraza>:443/xvwa/"    lab_xvwa lab_coraza_xvwa ""
-  (IPs via docker inspect; e o trecho identico ao lab_03_zap.bat, so sem o DVWA.)
-
-
-AUDITORIA HTML / RELATORIO DE TREINAMENTO (admin-config + training-report)
-----------------------------------------------------------------------------
-  PASTA DUPLICADA (Ponto 1): a versao atual e a RAIZ (main--). A pasta
-  aninhada DoBotshield-main\DoBotshield-main e a extracao crua do ZIP
-  (DoBotshield-main.zip), congelada em 30/05/2026. Provas:
-    - main.go raiz (4105 b, 02/06) tem a integracao do traininglog; o main.go
-      aninhado (3791 b, 30/05) NAO tem (diff confirma 3 blocos a mais na raiz).
-    - So a raiz tem lab_0X_*_one.bat, lab_METODOLOGIA, lab_RELATORIO, report/,
-      traininglog/, cmd/report. A aninhada ainda usa o monolitico
-      run_lab_tests.bat. => a aninhada pode ser ignorada/apagada.
-
-  COMO O RELATORIO E GERADO (cadeia):
-    logs\training.jsonl  (log JSON Lines do Modo de Treinamento)
-      -> cmd\report\main.go            (le -in, escreve -out)
-        -> report\report.go  Build()   (agrega cards/categorias/IPs/timeline)
-        -> report\glossary.go          (texto didatico por categoria)
-        -> report\template.go Execute() (HTML autocontido: CSS+JS embutidos)
-      -> training-report.html          (artefato na raiz)
-    O botao "Abrir relatorio" do index.html (linha 175) e so um link estatico
-    <a href="../training-report.html">: NAO regenera nada, apenas abre o
-    arquivo que ja existe.
-
-  POR QUE PARECE "RELATORIO EXEMPLO/ANTIGO" (Ponto 2):
-    1) O proprio logs\training.jsonl e SEMENTE/DEMO: 11 eventos com IPs de
-       documentacao RFC5737 (203.0.113.x, 198.51.100.x, 192.0.2.x), zero
-       trafego real do lab (172.18.0.x). O Modo de Treinamento nunca foi
-       rodado de fato contra o lab para capturar ataques reais.
-    2) O botao nunca regenera; mostra o HTML de 03/06 como esta.
-    => Para um relatorio "de verdade": subir o WAF com TRAINING_MODE=true,
-       gerar trafego de ataque, depois rodar gerar_relatorio.bat.
-
-  END-TO-END (executado, tudo OK):
-    - go vet (report, cmd/report, traininglog) = limpo; go test = ok (2 pacotes).
-    - go run ./cmd/report regenerou o HTML a partir do log atual sem erro:
-      11 eventos (10 bloqueados/1 detectado), 4 IPs, 10 regras. Conteudo
-      BYTE-IDENTICO ao training-report.html atual exceto a data de geracao
-      => pipeline integro; o "exemplo" vem 100% do log-semente, nao de bug.
-    - Formulario admin (servido em :8100, /admin-config/index.html): geracao
-      PowerShell/Bash/.env correta; validacao de URL invalida -> "Revisao
-      pendente" + erro no campo + classe invalid; retorno a "Pronto"; abas
-      trocam o formato; link "Abrir relatorio" resolve p/ /training-report.html.
-    - training-report.html renderizado: 7 cards (11/10/1/10/1/4/10), 14 barras
-      (todas com largura aplicada via JS), 10 itens de glossario, 11 eventos,
-      contador "11 de 11", busca "jndi" filtra p/ 1, filtro de categoria com
-      11 opcoes. Console sem erros. Nenhum campo fora do lugar.
-
-  ONDE ALTERAR O TEXTO DO training-report.html (Ponto 3) -- so a escrita, nao
-  a logica. NAO editar training-report.html (e regenerado e sobrescreve):
-    - report\template.go : textos fixos da pagina (titulo, subtitulo do
-      cabecalho, rotulos dos 7 cards, titulos das secoes "Entenda os ataques"
-      e "Linha do tempo", placeholders dos filtros, rodape).
-    - report\glossary.go : texto didatico por ameaca (Title, Summary, Attack,
-      Defense e os Subtypes Name/Explanation/Example/Reading de XSS, SQLi,
-      CMD_INJ, JNDI, etc.) -- e o defaultCategoryInfo.
-    Depois de editar qualquer um, rodar gerar_relatorio.bat para o texto novo
-    aparecer no HTML.
-
-  CSS DO RELATORIO (Ponto 4 - FEITO): o CSS NAO estava "solto" escrito a mao no
-  training-report.html; vivia embutido em report\template.go (const reportHTML,
-  bloco <style>). Abordagem escolhida pelo usuario: EXTERNO + MANTER AUTOCONTIDO.
-  Implementacao (gerador, nao toca o WAF):
-    - NOVO admin-config\styles\report.css : fonte unica do visual, organizado em
-      secoes comentadas. Regras/valores IDENTICOS aos antigos (so + comentarios
-      e espacos) -> zero mudanca visual.
-    - NOVO report\cssloader.go : loadReportCSS() le o report.css (via
-      runtime.Caller, robusto ao diretorio; fallback p/ cwd; e um estilo minimo
-      de seguranca se o arquivo sumir) e devolve template.CSS (seguro).
-    - report\report.go : campo Report.CSS (template.CSS), preenchido no Build()
-      com loadReportCSS(); import html/template.
-    - report\template.go : o bloco <style>...</style> virou <style>{{.CSS}}</style>.
-    Resultado: o training-report.html GERADO continua autocontido (CSS embutido,
-    0 <link> externo), so que o CSS agora vem do report.css. Editar o visual =
-    editar admin-config\styles\report.css e rodar gerar_relatorio.bat.
-  Validacao: go vet/build/test OK; prova de equivalencia (minify) = CSS antigo
-  embutido == report.css == HTML gerado, 8386 chars identicos; render no
-  navegador confirma tokens aplicados (--bg, --accent, radius, sombra) e
-  estrutura intacta (7 cards/14 barras/10 glossario/11 eventos), sem <link>.
-
-  E2E EXAUSTIVO POS-REFATORACAO (campo a campo, no navegador):
-    training-report.html (25 checagens, todas OK): 7 cards com valores certos;
-      busca por payload/regra/caminho/IP; filtro por categoria e por fase;
-      busca+filtro combinados; contador; no-results; payload XSS aparece como
-      TEXTO e NAO injeta <script> vivo (escape ok); <details> de glossario e de
-      "explicar por evento" abrem com ataque+defesa+exemplo; soma das barras de
-      categoria = 11. (Obs: busca por 203.0.113.55 retorna 2 - correto, esse IP
-      aparece em 2 eventos: JNDI + CMD_INJ.)
-    admin-config\index.html (45 checagens, todas OK): os 21 campos validam
-      certo - cada obrigatorio rejeita invalido com a mensagem correta e aceita
-      valido; opcionais (wafAllowlist/blockedIps/rateLimitStateFile/
-      trainingLogFile) nao acusam erro vazios; wafMode valida o enum; os 5
-      checkboxes entram no .env/localStorage/reset. Geracao reflete valores nas
-      3 abas (PowerShell/Bash/.env); .env com 21 chaves + header; PowerShell
-      escapa aspas; persistencia em localStorage; reset restaura default, limpa
-      erro/localStorage e volta a "Pronto"; status global vira revisao quando
-      invalido. Console sem erros.
-
-  INCONSISTENCIA min HTML x validacao JS - CORRIGIDA (sentido: apertar a
-  validacao para honrar/EXIBIR o minimo correto; nunca afrouxar o exibido):
-    Antes: validateInteger exigia so inteiro>=1 e validateDecimal so >0, entao
-    maxBodySize aceitava 512 (min=1024) e rateLimit aceitava 0.05 (min=0.1).
-    Correcao (3 arquivos, so admin-config, nao toca WAF):
-      - config-schema.js : o minimo virou metadado do campo (min) em
-        CONFIG_FIELDS -> rateLimit 0.1; burstLimit/maxConns/maxTrackedIps 1;
-        maxBodySize/responseInspectionLimit 1024. Fonte UNICA do minimo.
-      - validators.js : validateInteger/validateDecimal recebem o min (lido do
-        schema via fieldMin()) e rejeitam abaixo dele, com a mensagem exibindo
-        o valor ("... deve ser no minimo 1024." / "no minimo 0.1.").
-      - app.js : syncFieldConstraints() espelha esse min no atributo min de cada
-        input no init -> o numero exibido no formulario e o cobrado pela
-        validacao vem do MESMO lugar (impossivel divergir de novo).
-    OBS: rateLimit fracionario < 1 continua VALIDO (ex 0.5); o piso e 0.1, nao 1.
-    Validacao no navegador (24 + 9 checagens, todas OK): 512/1023 -> erro "no
-    minimo 1024"; 1024 -> ok; 0.05 -> erro "no minimo 0.1"; 0.1 e 0.5 -> ok;
-    0/abc -> erro; 1.5 -> "numero inteiro"; atributos min dos inputs espelham o
-    schema; default -> Pronto; regressao dos demais campos/.env/abas/reset OK;
-    console sem erros.
-
-  E2E FINAL DE FIDELIDADE (foco: relatorio nao pode embaralhar/inventar/omitir):
-    A) Relatorio x log REAL (logs\training.jsonl, 11 eventos): comparacao campo
-       a campo no DOM renderizado contra o JSON, casando por request_id -
-       11 eventos x 11 campos (request_id, category, phase, action, ip, method,
-       path, rule, location, payload, variants) = 121 comparacoes, ZERO
-       divergencia. Ordem identica ao log ordenado por timestamp; nenhum
-       request_id inventado/omitido. Os 7 cards, as barras de categoria e de IP,
-       o glossario e o dropdown de filtro recomputados do log batem 100% (XSS=1,
-       SQLi=2,... ; IPs 198.51.100.23=4/203.0.113.10=3/192.0.2.88=2/203.0.113.55=2).
-    B) Teste de CONTROLE (log sintetico com armadilhas, 4 eventos): timestamps
-       fora de ordem, IPs/payloads trocaveis e 1 categoria fora do glossario.
-       Resultado: ordenou por timestamp (idA,idB,idC,idD); cada evento manteve
-       seu proprio ip/payload/categoria/regra/metodo/acao/path (PAYLOAD_A ficou
-       com 10.0.0.1, PAYLOAD_B com 10.0.0.2 - sem troca); regras deduplicadas
-       (3, nao 4); categoria desconhecida FOO_BAR_CUSTOM caiu no fallback usando
-       o proprio nome como titulo (nao inventou); payload com <x> exibido como
-       texto (escape). 16/16 OK. (arquivos _fid.* removidos apos o teste.)
-    C) Admin index.html - matriz final consolidada: 52 checagens, 0 falha
-       (21 campos invalidos com a mensagem certa, validos sem erro, opcionais,
-       5 checkboxes, wafMode enum, mins espelhando o schema, geracao nas 3 abas,
-       .env 21 chaves, quoting PowerShell, persistencia, reset, status).
-    Conclusao: o relatorio reflete fielmente os ataques do log, sem embaralhar,
-    inventar ou omitir; todos os campos do admin corretos. Console sem erros.
+Comparar o DoBotShield com ModSecurity + OWASP CRS, Coraza + OWASP CRS e o
+acesso direto sem WAF. A comparação mede proteção, disponibilidade e efeito de
+carga sobre duas aplicações deliberadamente vulneráveis.
 
+2. MATRIZ EXPERIMENTAL
+
+Aplicações:
+- DVWA (PHP/MySQL), com security=low e sessão autenticada quando necessária.
+- XVWA (PHP/MySQL), com banco preparado pelo setup da bancada.
+
+Cenários:
+- no_waf: acesso HTTP direto à aplicação.
+- modsecurity: terminação HTTPS pelo ModSecurity + CRS.
+- dobotshield: terminação HTTPS pelo DoBotShield.
+- coraza: terminação HTTPS pelo Coraza + CRS.
+
+Ferramentas:
+- testssl.sh: protocolos e vulnerabilidades TLS.
+- OWASP ZAP: DAST.
+- SQLMap: SQL injection booleana.
+- XSStrike: XSS refletido.
+- Commix: injeção de comando.
+- wrk: carga, latência e disponibilidade.
+
+Total lógico:
+2 aplicações x 4 cenários x 6 ferramentas = 48 combinações comparativas.
+
+O wrk executa três repetições por combinação. As 48 combinações representam os
+resultados comparáveis; as repetições do wrk são agregadas por média.
+
+3. PRINCÍPIO DE PARIDADE
+
+Dentro de cada aplicação, a entrada de uma ferramenta é idêntica nos quatro
+cenários. Somente o destino (host/porta) muda.
+
+A paridade foi aplicada aos 12 grupos aplicação/ferramenta; somente o destino
+varia entre os quatro cenários de cada aplicação.
+
+O User-Agent comum é:
+DoBotShield-TCC-Validation/1.0
+
+4. AMBIENTE
+
+Composição principal:
+validacao/docker-compose.lab.yml
+
+Rede Docker:
+dobotshield_waflab
+
+Imagens externas relevantes são fixadas por digest no compose, incluindo DVWA,
+MySQL, ModSecurity CRS e curl. XVWA, DoBotShield, Coraza e as imagens de
+ferramentas são construídos pelos Dockerfiles versionados da bancada.
+
+Configuração do DoBotShield na validação:
+- HTTP_MODE=false
+- ENABLE_WAF=true
+- WAF_MODE=block
+- ENABLE_RESPONSE_INSPECTION=true
+- TRAINING_MODE=true
+- ENABLE_RATE_LIMIT=true
+- RATE_LIMIT=10000
+- BURST_LIMIT=20000
+- MAX_CONNS=500
+- INSECURE_SKIP_VERIFY=false
+
+A calibração 10000/20000/500 é exclusiva da bancada. Os valores-padrão do
+produto continuam sendo RATE_LIMIT=10, BURST_LIMIT=20 e MAX_CONNS=10.
+
+5. PREPARAÇÃO
+
+Executar, a partir de validacao/scripts:
+
+1. lab_00_setup.bat
+   - verifica o Docker;
+   - gera os certificados;
+   - sobe e prepara DVWA/XVWA;
+   - renova o cookie do DVWA;
+   - define o DVWA em security=low;
+   - cria o banco do XVWA.
+
+2. lab_01_subir.bat
+   - sobe aplicações e WAFs;
+   - aguarda a saúde dos destinos;
+   - registra snapshots iniciais.
+
+Somente lab_00_setup.bat cria ou redefine bancos.
+
+6. INPUTS POR FERRAMENTA
+
+6.1 testssl.sh
+
+- Mesmos parâmetros para os quatro destinos da aplicação.
+- no_waf usa HTTP puro e deve informar que o destino não oferece TLS.
+- ModSecurity, DoBotShield e Coraza usam HTTPS com certificado autoassinado.
+- A comparação considera protocolos e vulnerabilidades, não confiança da CA.
+
+6.2 OWASP ZAP
+
+- zap-full-scan.py com spider de 1 minuto e limite de scan ativo de 3 minutos.
+- Mesma política zap_rules.tsv nos oito destinos.
+- Regra ativa 40026 (DOM XSS) ignorada uniformemente porque encerrava o processo
+  Java nos alvos HTTPS autoassinados.
+- DVWA recebe cookie autenticado via hook/Replacer.
+- XVWA recebe as mesmas sementes relativas nos quatro cenários.
+- XSS refletido permanece coberto pelo ZAP e pelo XSStrike.
+- Relatórios gerados: zap_report.html, zap_report.json e zap_report.md.
+
+6.3 SQLMap
+
+Parâmetros comuns:
+- --batch
+- --level=1
+- --risk=1
+- --retries=2
+- --technique=B
+- --skip-waf
+- --ignore-redirects
+- --flush-session
+- --delay=0.3
+- sem tamper
+
+DVWA:
+- GET /vulnerabilities/sqli/?id=1&Submit=Submit
+- GET /vulnerabilities/sqli_blind/?id=1&Submit=Submit
+- parâmetro id
+- cookie autenticado
+- --string=Surname
+
+XVWA:
+- POST /xvwa/vulnerabilities/sqli/
+- corpo item=1
+- parâmetro item
+- --string=Category
+
+Decisão de nível e risco:
+Os dois acessos diretos confirmaram a injeção booleana com level=1 e risk=1.
+Elevar esses valores acrescentaria payloads e duração sem melhorar a validação
+do vetor booleano escolhido. Por isso, os valores foram mantidos.
+
+6.4 XSStrike
+
+- dez threads;
+- --skip para evitar interrupção por prompt;
+- --skip-dom, porque DOM XSS não faz parte deste vetor focal;
+- cookie renovado no DVWA;
+- mesma URL relativa e mesmos parâmetros nos quatro cenários da aplicação.
+
+6.5 Commix
+
+Parâmetros comuns:
+- --batch
+- --level=3
+- --skip-empty
+- --skip-waf
+- --delay=1
+- --timeout=20
+- --retries=2
+
+DVWA:
+- POST /vulnerabilities/exec/
+- ip=127.0.0.1&Submit=Submit
+- cookie autenticado
+
+XVWA:
+- GET /xvwa/vulnerabilities/cmdi/?target=127.0.0.1
+
+A URL é fornecida pelo STDIN do contêiner para evitar prompts que interrompam a
+execução. O pseudo-shell é recusado e testes extras não necessários são pulados.
+
+6.6 wrk
+
+Comando comum:
+wrk -t12 -c400 -d30s --timeout 5s --latency
+
+- três repetições por cenário;
+- intervalo aproximado de 5 segundos entre repetições;
+- sem atraso artificial dentro do teste;
+- registrar req/s, total, não 2xx/3xx, latência e erros de socket/timeout.
+
+7. ORDEM DE EXECUÇÃO
+
+Executar:
+- lab_02_testssl.bat
+- lab_03_zap_isolado.bat
+- lab_04_sqlmap.bat
+- lab_05_xsstrike.bat
+- lab_06_commix.bat
+- lab_07_wrk.bat
+- lab_99_derrubar.bat
+
+Os scripts lab_0X_*_one.bat são os executores unitários chamados pelos runners.
+
+8. EVIDÊNCIAS
+
+Para cada app/cenário:
+validacao/results/<app>/<cenario>/
+
+Cada ferramenta possui:
+- log numerado;
+- saúde antes/depois;
+- recursos antes/depois;
+- log do WAF quando aplicável;
+- saída nativa em subpasta quando a ferramenta a produz.
+
+Artefatos consolidados:
+- validacao/results/ANALISE_RESULTADOS.json
+- validacao/results/RESUMO_RESULTADOS.txt
+- validacao/docs/RELATORIO_RESULTADOS.md
+
+9. CRITÉRIOS DE INTERPRETAÇÃO
+
+- Exploração confirmada exige o veredito positivo da ferramenta no backend.
+- HTTP 400/403/429/502 ou timeout isolado não prova bloqueio.
+- Bloqueio exige coerência entre payload, resposta, veredito e log do WAF.
+- Alertas do ZAP são evidências para revisão, não prova automática de exploração.
+- Spring4Shell em DVWA/XVWA é falso positivo: as aplicações são PHP/MySQL.
+- no_waf é o baseline vulnerável e não oferece TLS.
+- Resultados do wrk devem combinar throughput, não 2xx/3xx, latência, erros,
+  saúde e recursos.
+
+10. RESULTADO CONSOLIDADO
+
+- SQLMap: vulnerável nos dois no_waf; não injetável nos seis caminhos protegidos.
+- XSStrike: XSS encontrado nos dois no_waf; nenhum payload útil nos protegidos.
+- Commix: injeção confirmada nos dois no_waf; nenhuma confirmação nos protegidos.
+- testssl.sh: HTTP sem TLS nos baselines; TLS 1.2/1.3 nos seis WAFs; falhas
+  legadas avaliadas não encontradas.
+- ZAP HIGH:
+  DVWA: no_waf=1, ModSecurity=2, DoBotShield=1, Coraza=0.
+  XVWA: no_waf=5, ModSecurity=1, DoBotShield=1, Coraza=1.
+- O alerta SQL Injection do ZAP (plugin 40018) deixou de aparecer no XVWA com
+  DoBotShield após a correção da regra.
+
+SQLMap DoBotShield:
+- DVWA: HTTP 400 x 24; HTTP 404 x 2; HTTP 502 x 2.
+- XVWA: HTTP 400 x 12; HTTP 502 x 2.
+
+11. LIMITAÇÕES
+
+- Uma única bancada consolidada (n=1); não há inferência estatística.
+- O ZAP depende da cobertura do spider e das sementes configuradas.
+- O DoBotShield não inspeciona quadros WebSocket após o upgrade.
+- Respostas comprimidas, binárias ou maiores que o limite não são inspecionadas.
+- Bytes CRLF literais usados como separadores são consumidos pelo parser HTTP
+  do Go e não chegam aos valores de cabeçalho inspecionados.
+- O estado do rate limiter é local ao processo.
+- INSECURE_SKIP_VERIFY não foi habilitado na rodada consolidada.

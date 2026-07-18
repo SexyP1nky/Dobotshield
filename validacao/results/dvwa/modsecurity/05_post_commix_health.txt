@@ -1,7 +1,7 @@
-=== health_probe  15/07/2026  8:20:42,46 ===
-URL: https://172.23.0.5:8443/vulnerabilities/exec/
-probe 1  code=302  time=0.009359s  bytes=0
-probe 2  code=302  time=0.008614s  bytes=0
-probe 3  code=302  time=0.026983s  bytes=0
-probe 4  code=302  time=0.037136s  bytes=0
-probe 5  code=302  time=0.032667s  bytes=0
+=== health_probe  17/07/2026 20:37:48,28 ===
+URL: https://172.18.0.5:8443/vulnerabilities/exec/
+probe 1  code=302  time=0.015311s  bytes=0
+probe 2  code=302  time=0.017973s  bytes=0
+probe 3  code=302  time=0.013828s  bytes=0
+probe 4  code=302  time=0.016533s  bytes=0
+probe 5  code=302  time=0.014854s  bytes=0

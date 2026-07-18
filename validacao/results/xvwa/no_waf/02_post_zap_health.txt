@@ -1,7 +1,7 @@
-=== health_probe  14/07/2026 22:10:31,23 ===
-URL: http://172.23.0.3:80/xvwa/
-probe 1  code=200  time=0.011883s  bytes=10482
-probe 2  code=200  time=0.011648s  bytes=10482
-probe 3  code=200  time=0.008895s  bytes=10482
-probe 4  code=200  time=0.020204s  bytes=10482
-probe 5  code=200  time=0.007725s  bytes=10482
+=== health_probe  17/07/2026 20:03:00,88 ===
+URL: http://172.18.0.3:80/xvwa/
+probe 1  code=200  time=0.006153s  bytes=10482
+probe 2  code=200  time=0.006030s  bytes=10482
+probe 3  code=200  time=0.005341s  bytes=10482
+probe 4  code=200  time=0.005719s  bytes=10482
+probe 5  code=200  time=0.005134s  bytes=10482

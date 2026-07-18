@@ -1,5 +1,5 @@
-=== Commix | dvwa/dobotshield | https://172.23.0.6:443/vulnerabilities/exec/ | 15/07/2026  8:21:00,57 ===
-CMD: echo <url> | commix.py --data=ip=127.0.0.1&Submit=Submit --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=3 --skip-empty --skip-waf --delay=1 --timeout=20 --retries=2 --cookie="PHPSESSID=b4rjdlitk2qe9s717qafmrpev5;security=low" --output-dir=/work
+=== Commix | dvwa/dobotshield | https://172.18.0.7:443/vulnerabilities/exec/ | 17/07/2026 20:38:02,22 ===
+CMD: echo <url> | commix.py --data=ip=127.0.0.1&Submit=Submit --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=3 --skip-empty --skip-waf --delay=1 --timeout=20 --retries=2 --cookie="PHPSESSID=4ovr7qg6s6jhlgtio3nt5e2a60;security=low" --output-dir=/work
 ----------------------------------------------------------------
                                       __
    ___   ___     ___ ___     ___ ___ /\_\   __  _
@@ -15,20 +15,20 @@ Copyright © 2014-2026 Anastasios Stasinopoulos[0m ([91m@ancst[0m)
 
 ([1m[31m![0m) Legal disclaimer: Usage of commix for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
 [0m
-[[94m11:21:02[0m] [0m[[32minfo[0m] Using 'stdin' for parsing targets list.[0m
-[1m[1/1] URL - POST https://172.23.0.6:443/vulnerabilities/exec/[0m
+[[94m23:38:05[0m] [0m[[32minfo[0m] Using 'stdin' for parsing targets list.[0m
+[1m[1/1] URL - POST https://172.18.0.7:443/vulnerabilities/exec/[0m
 [1mDo you want to use URL #1 for testing? [Y/n] > Y[0m
-[[94m11:21:02[0m] [0m[[32minfo[0m] Testing URL 'https://172.23.0.6:443/vulnerabilities/exec/'.[0m
-[[94m11:21:02[0m] [[32m[1minfo[0m] [1mTesting connection to the target URL. [0m
-[[94m11:21:15[0m] [0m[[32minfo[0m] Using output directory '/work'.[0m
-[[94m11:21:15[0m] [0m[[32minfo[0m] Performing heuristic (passive) tests on the target URL.[0m
-[[94m11:21:20[0m] [[93mwarning[0m] Failed to identify the server's underlying operating system.[0m
+[[94m23:38:05[0m] [0m[[32minfo[0m] Testing URL 'https://172.18.0.7:443/vulnerabilities/exec/'.[0m
+[[94m23:38:05[0m] [[32m[1minfo[0m] [1mTesting connection to the target URL. [0m
+[[94m23:38:18[0m] [0m[[32minfo[0m] Using output directory '/work'.[0m
+[[94m23:38:18[0m] [0m[[32minfo[0m] Performing heuristic (passive) tests on the target URL.[0m
+[[94m23:38:23[0m] [[93mwarning[0m] Failed to identify the server's underlying operating system.[0m
 [1mDo you recognize the server's underlying operating system? [(N)o/(u)nix-like/(w)indows/(q)uit] > N[0m
-[[94m11:21:20[0m] [[41mcritical[0m] Unable to connect to the target URL (HTTP Error 400: Bad Request).[0m
-[[94m11:21:20[0m] [0m[[32minfo[0m] Setting POST parameter 'ip' for tests.[0m
-[[94m11:21:20[0m] [0m[[32minfo[0m] Performing heuristic (basic) tests to the POST parameter 'ip'.[0m
-[[94m11:21:21[0m] [[93mwarning[0m] The web server responded with an HTTP error code '400' which could interfere with the results of the tests.[0m
+[[94m23:38:23[0m] [[41mcritical[0m] Unable to connect to the target URL (HTTP Error 400: Bad Request).[0m
+[[94m23:38:23[0m] [0m[[32minfo[0m] Setting POST parameter 'ip' for tests.[0m
+[[94m23:38:23[0m] [0m[[32minfo[0m] Performing heuristic (basic) tests to the POST parameter 'ip'.[0m
+[[94m23:38:24[0m] [[93mwarning[0m] The web server responded with an HTTP error code '400' which could interfere with the results of the tests.[0m
 [1mDo you want to ignore HTTP response code '400' and proceed with testing? [y/N] > N[0m
-[[94m11:21:22[0m] [0m[[32minfo[0m] Skipping further testing on the target URL.[0m
+[[94m23:38:25[0m] [0m[[32minfo[0m] Skipping further testing on the target URL.[0m
 
 TOOL_RC=0

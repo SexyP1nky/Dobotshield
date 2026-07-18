@@ -9,9 +9,8 @@ REM  nao de payload; por isso NAO usa delay nem cookie):
 REM    - 3 repeticoes por cenario; em cada uma: 12 threads, 400 conexoes,
 REM      30s, timeout 5s, --latency e o mesmo User-Agent fixo.
 REM
-REM  Mede throughput/resiliencia. Contra o DoBotShield (rate-limit LIGADO),
-REM  espera-se estrangulamento do flood (HTTP 429 / conexoes recusadas) --
-REM  ModSecurity/Coraza (CRS) nao fazem rate-limiting.
+REM  Mede throughput/resiliencia. No DoBotShield, o rate limit permanece ligado,
+REM  calibrado para nao confundir carga legitima com bloqueio por configuracao.
 REM ============================================================================
 
 setlocal enableextensions enabledelayedexpansion

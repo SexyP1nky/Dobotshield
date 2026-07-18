@@ -1,10 +1,10 @@
-=== testssl.sh | xvwa/dobotshield | 172.23.0.10:443 | 14/07/2026 19:30:00,23 ===
-CMD: docker run --rm --network dobotshield_waflab drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce --quiet --color 0 --warnings off --connect-timeout 10 --openssl-timeout 10 172.23.0.10:443
+=== testssl.sh | xvwa/dobotshield | 172.18.0.10:443 | 17/07/2026 19:33:02,39 ===
+CMD: docker run --rm --network dobotshield_waflab drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce --quiet --color 0 --warnings off --connect-timeout 10 --openssl-timeout 10 172.18.0.10:443
 ----------------------------------------------------------------
 
- Start 2026-07-14 22:30:02        -->> 172.23.0.10:443 (172.23.0.10) <<--
+ Start 2026-07-17 22:33:05        -->> 172.18.0.10:443 (172.18.0.10) <<--
 
- rDNS (172.23.0.10):     lab_dobot_xvwa.dobotshield_waflab.
+ rDNS (172.18.0.10):     lab_dobot_xvwa.dobotshield_waflab.
  Service detected:       HTTP
 
  Testing protocols via sockets except NPN+ALPN 
@@ -85,9 +85,9 @@ TLSv1.3 (no server order, thus listed by strength)
  Server key size              RSA 2048 bits (exponent is 65537)
  Server key usage             --
  Server extended key usage    --
- Serial                       7E58671B831E15C42C0B478ADD84EAA206109D81 (OK: length 20)
- Fingerprints                 SHA1 30EB5C6FAE523C80301336E2E2301312E52856A9
-                              SHA256 E00402647DC8095A49C790801F28CBEFC616B24C54C30971BED8BED392269E27
+ Serial                       21AC6FFE72CD306122CE6FB5F1455A20A62A0775 (OK: length 20)
+ Fingerprints                 SHA1 152AD1FD59B915627F22C35E5C4D62A0F68AE1DA
+                              SHA256 EEB9ADBE386F90DDBC2CECFCAF32E6763461928240599ADC2CD3F6FBD88D6EB9
  Common Name (CN)             localhost 
  subjectAltName (SAN)         localhost dvwa xvwa dobot_dvwa dobot_xvwa
                               coraza_dvwa coraza_xvwa modsec_dvwa modsec_xvwa
@@ -95,7 +95,7 @@ TLSv1.3 (no server order, thus listed by strength)
  Trust (hostname)             certificate does not match supplied URI
  Chain of trust               NOT ok (self signed)
  EV cert (experimental)       no 
- Certificate Validity (UTC)   363 >= 60 days (2026-07-13 10:41 --> 2027-07-13 10:41)
+ Certificate Validity (UTC)   364 >= 60 days (2026-07-17 22:16 --> 2027-07-17 22:16)
  ETS/"eTLS", visibility info  not present
  Certificate Revocation List  --
  OCSP URI                     --
@@ -142,7 +142,7 @@ TLSv1.3 (no server order, thus listed by strength)
  FREAK (CVE-2015-0204)                     not vulnerable (OK)
  DROWN (CVE-2016-0800, CVE-2016-0703)      not vulnerable on this host and port (OK)
                                            make sure you don't use this certificate elsewhere with SSLv2 enabled services, see
-                                           https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=E00402647DC8095A49C790801F28CBEFC616B24C54C30971BED8BED392269E27
+                                           https://search.censys.io/search?resource=hosts&virtual_hosts=INCLUDE&q=EEB9ADBE386F90DDBC2CECFCAF32E6763461928240599ADC2CD3F6FBD88D6EB9
  LOGJAM (CVE-2015-4000), experimental      not vulnerable (OK): no DH EXPORT ciphers, no DH key detected with <= TLS 1.2
  BEAST (CVE-2011-3389)                     not vulnerable (OK), no SSL3 or TLS1
  LUCKY13 (CVE-2013-0169), experimental     not vulnerable (OK)
@@ -205,7 +205,7 @@ TLSv1.3 (no server order, thus listed by strength)
                               Grade capped to
                                 M. Domain name mismatch
 
- Done 2026-07-14 22:30:46 [  46s] -->> 172.23.0.10:443 (172.23.0.10) <<--
+ Done 2026-07-17 22:34:06 [  63s] -->> 172.18.0.10:443 (172.18.0.10) <<--
 
 
 

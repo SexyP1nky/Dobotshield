@@ -1,117 +1,134 @@
-# Guia de Evidencias por Logs
+# Guia de evidências da validação
 
-Este guia descreve como usar os artefatos gerados pela bancada atual
-(`DVWA + XVWA`) para sustentar que uma ferramenta degradou, explorou ou foi
-bloqueada por um WAF. A execucao completa recomendada e `lab_run_tudo.bat`.
+Este guia descreve como localizar e interpretar os artefatos da bancada
+`DVWA + XVWA`. A rodada consolidada foi executada em 17 e 18 de julho de 2026.
 
 ## Estrutura
 
-Para cada combinacao `app x cenario`, os arquivos ficam em:
+Cada combinação `aplicação × cenário` usa o diretório:
 
 ```text
-validacao\results\<app>\<cenario>\
+validacao/results/<app>/<cenario>/
 ```
 
-Apps:
+Aplicações: `dvwa` e `xvwa`.
 
-- `dvwa`
-- `xvwa`
+Cenários: `no_waf`, `modsecurity`, `dobotshield` e `coraza`.
 
-Cenarios:
-
-- `no_waf`
-- `modsecurity`
-- `dobotshield`
-- `coraza`
-
-Arquivos principais:
+Arquivos principais de cada combinação:
 
 ```text
 00_pre_battery_health.txt
 00_pre_battery_stats.txt
+01_pre_testssl_health.txt / 01_post_testssl_health.txt
+01_pre_testssl_stats.txt  / 01_post_testssl_stats.txt
 01_testssl.log
+02_pre_zap_health.txt     / 02_post_zap_health.txt
+02_pre_zap_stats.txt      / 02_post_zap_stats.txt
 02_zap.log
-02_zap_waf.log
+03_pre_sqlmap_health.txt  / 03_post_sqlmap_health.txt
+03_pre_sqlmap_stats.txt   / 03_post_sqlmap_stats.txt
 03_sqlmap.log
-03_sqlmap_waf.log
+04_pre_xsstrike_health.txt / 04_post_xsstrike_health.txt
+04_pre_xsstrike_stats.txt  / 04_post_xsstrike_stats.txt
 04_xsstrike.log
-04_xsstrike_waf.log
+05_pre_commix_health.txt  / 05_post_commix_health.txt
+05_pre_commix_stats.txt   / 05_post_commix_stats.txt
 05_commix.log
-05_commix_waf.log
+06_pre_wrk_health.txt     / 06_post_wrk_health.txt
+06_pre_wrk_stats.txt      / 06_post_wrk_stats.txt
 06_wrk.log
-06_wrk_waf.log
-99_post_battery_health.txt
-99_post_battery_stats.txt
-99_backend_full.log
-99_waf_full.log
-SUMMARY.txt
 ```
 
-Subpastas nativas:
+Nos cenários protegidos, cada etapa também possui `<etapa>_waf.log`, com a
+saída do contêiner do WAF. As subpastas nativas são:
 
-- `zap\` contem `zap_report.html`, `zap_report.json` e `zap_report.md`.
-- `sqlmap\` contem a sessao e os resultados do SQLMap.
-- `commix\` contem a saida propria do Commix.
+- `zap/`: `zap_report.html`, `zap_report.json` e `zap_report.md`;
+- `sqlmap/`: sessão e CSV de resultados do SQLMap;
+- `commix/`: saída própria do Commix.
 
-## Como Ler
+Na raiz de `validacao/results/` ficam:
 
-Compare sempre tres sinais:
+- `ANALISE_RESULTADOS.json`;
+- `RESUMO_RESULTADOS.txt`;
+- `METODOLOGIA.txt`, cópia da metodologia usada na rodada.
 
-1. Saude antes/depois: `*_health.txt`, olhando `code=`, `time=` e `bytes=`.
-2. Recursos antes/depois: `*_stats.txt`, olhando CPU, memoria, rede e PIDs.
-3. Logs do alvo/WAF: `*_waf.log`, `99_backend_full.log` e `99_waf_full.log`.
+## Como interpretar
 
-Exemplo de queda por carga:
+Compare sempre quatro sinais:
+
+1. veredito da ferramenta no log numerado;
+2. códigos HTTP e erros de conexão no mesmo log;
+3. saúde e recursos imediatamente antes e depois da ferramenta;
+4. log do WAF, quando o cenário é protegido.
+
+Um `403`, `400`, `429`, `502`, timeout ou encerramento da ferramenta não prova
+sozinho que o WAF bloqueou o ataque. O veredito precisa ser coerente com o
+payload enviado, a regra registrada e o estado do backend.
+
+Exemplo de bloqueio de SQLi pelo DoBotShield:
 
 ```text
-00_pre_battery_health.txt:  code=200 em 5 probes
-06_post_wrk_health.txt:     code=000 ou timeouts
-06_post_wrk_stats.txt:      CPU/PIDs/rede muito acima do pre-teste
-99_backend_full.log:        rajada de requisicoes ou reinicio do processo
+03_sqlmap.log:             payloads enviados e resultado "não injetável"
+03_sqlmap_waf.log:         eventos da regra SQLi
+03_post_sqlmap_health.txt: aplicação continua respondendo
 ```
 
-Exemplo de bloqueio pelo WAF:
+Exemplo de leitura do `wrk`:
 
 ```text
-03_sqlmap.log:      ferramenta enviou payloads SQLi
-03_sqlmap_waf.log:  WAF registrou bloqueios/regras disparadas
-03_post_sqlmap_health.txt: app continuou respondendo
+06_wrk.log:              req/s, total, não 2xx/3xx, latência e erros
+06_pre_wrk_stats.txt:    recursos antes da carga
+06_post_wrk_stats.txt:   recursos depois da carga
+06_post_wrk_health.txt:  disponibilidade após as três repetições
 ```
 
-## Padrao de Inputs
+## Paridade dos inputs
 
-Dentro de cada app, os quatro cenarios recebem o mesmo input. Apenas o IP:porta
-do alvo muda.
+Dentro de cada aplicação, os quatro cenários recebem a mesma entrada; somente o
+host/porta muda. A paridade final passou em 12/12 grupos de
+aplicação/ferramenta.
 
-- SQLMap DVWA: `GET /vulnerabilities/sqli/?id=1&Submit=Submit` e blind SQLi,
-  parametro `id`, com cookie DVWA renovado via `--no-setup`.
-- SQLMap XVWA: `POST /xvwa/vulnerabilities/sqli/`, `--data item=1`,
-  parametro `item`.
-- XSStrike DVWA: `GET /vulnerabilities/xss_r/?name=test`, com cookie DVWA
-  renovado.
-- XSStrike XVWA: `GET /xvwa/vulnerabilities/reflected_xss/?item=test`.
-- Commix DVWA: `POST /vulnerabilities/exec/`, `ip=127.0.0.1&Submit=Submit`,
-  com cookie DVWA renovado.
-- Commix XVWA: `GET /xvwa/vulnerabilities/cmdi/?target=127.0.0.1`.
-- ZAP DVWA: raiz autenticada com cookie renovado via `--no-setup` e hook
-  contra logout/setup.
-- ZAP XVWA: `/xvwa/`, sem cookie, com hook contra `/xvwa/setup/`.
-- wrk e testssl: mesmo perfil em todos os cenarios.
+- SQLMap DVWA: endpoints `sqli` e `sqli_blind`, parâmetro `id`, cookie renovado,
+  `--technique=B --level=1 --risk=1 --delay=0.3 --string=Surname`, sem tamper.
+- SQLMap XVWA: `POST /xvwa/vulnerabilities/sqli/`, `item=1`, parâmetro `item`,
+  `--technique=B --level=1 --risk=1 --delay=0.3 --string=Category`, sem tamper.
+- XSStrike DVWA: `GET /vulnerabilities/xss_r/?name=test`, cookie renovado,
+  dez threads, `--skip --skip-dom`.
+- XSStrike XVWA: `GET /xvwa/vulnerabilities/reflected_xss/?item=test`, dez
+  threads, `--skip --skip-dom`.
+- Commix DVWA: `POST /vulnerabilities/exec/`,
+  `ip=127.0.0.1&Submit=Submit`, cookie renovado, `--level=3 --delay=1`.
+- Commix XVWA: `GET /xvwa/vulnerabilities/cmdi/?target=127.0.0.1`,
+  `--level=3 --delay=1`.
+- ZAP: mesma política e regra 40026 ignorada em todos os destinos; DVWA usa
+  sessão autenticada e XVWA usa as mesmas sementes relativas nos quatro
+  cenários.
+- wrk: `-t12 -c400 -d30s --timeout 5s --latency`, três repetições.
+- testssl.sh: mesmo perfil por aplicação; os baselines `no_waf` usam HTTP e,
+  portanto, não oferecem TLS.
 
-Somente `lab_00_setup.bat` pode criar/resetar banco. Os scanners autenticados
-usam login sem setup; o SQLMap nao usa crawl e nao acessa `/setup.php`.
+## Execução por etapas
 
-## Execucao
+A partir de `validacao/scripts/`:
 
 ```bat
-lab_run_tudo.bat
+lab_00_setup.bat
+lab_01_subir.bat
+lab_02_testssl.bat
+lab_03_zap_isolado.bat
+lab_04_sqlmap.bat
+lab_05_xsstrike.bat
+lab_06_commix.bat
+lab_07_wrk.bat
+lab_99_derrubar.bat
 ```
 
-O runner salva um log mestre em:
+Os scripts `lab_0X_*_one.bat` são os executores unitários chamados pelos
+runners. Apenas `lab_00_setup.bat` cria ou redefine os bancos; as demais etapas
+preservam o estado preparado.
 
-```text
-validacao\results\run_<timestamp>.log
-```
-
-Os scripts individuais tambem podem ser rodados separadamente depois de
-`lab_00_setup.bat` e `lab_01_subir.bat`.
+Os resultados consolidados versionados são apenas as evidências diretas das seis
+ferramentas, os logs dos WAFs, os snapshots de saúde/recursos e os resumos da
+rodada. Testes end-to-end adicionais, auditorias auxiliares e seus utilitários
+permanecem fora do repositório.

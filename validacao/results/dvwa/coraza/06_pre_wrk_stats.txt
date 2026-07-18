@@ -1,5 +1,5 @@
-=== docker_stats  15/07/2026  8:32:05,57 ===
-NAME       CPU %     MEM USAGE / LIMIT     NET I/O         PIDS
-lab_dvwa   0.54%     707.8MiB / 3.673GiB   171MB / 399MB   54
-NAME              CPU %     MEM USAGE / LIMIT     NET I/O         PIDS
-lab_coraza_dvwa   0.00%     57.19MiB / 3.673GiB   143kB / 165kB   14
+=== docker_stats  17/07/2026 20:49:58,94 ===
+NAME       CPU %     MEM USAGE / LIMIT   NET I/O         PIDS
+lab_dvwa   1.15%     2GiB / 15.57GiB     198MB / 459MB   47
+NAME              CPU %     MEM USAGE / LIMIT     NET I/O           PIDS
+lab_coraza_dvwa   0.00%     43.88MiB / 15.57GiB   12.5MB / 17.3MB   21

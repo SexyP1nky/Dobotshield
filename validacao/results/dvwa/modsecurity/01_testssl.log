@@ -1,10 +1,10 @@
-=== testssl.sh | dvwa/modsecurity | 172.23.0.5:8443 | 14/07/2026 19:24:41,80 ===
-CMD: docker run --rm --network dobotshield_waflab drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce --quiet --color 0 --warnings off --connect-timeout 10 --openssl-timeout 10 172.23.0.5:8443
+=== testssl.sh | dvwa/modsecurity | 172.18.0.5:8443 | 17/07/2026 19:26:28,56 ===
+CMD: docker run --rm --network dobotshield_waflab drwetter/testssl.sh:latest@sha256:a01b40d1e6c124d1eeac89e5e7597ab79757ce3bd60773c3bafd1e496e4d8fce --quiet --color 0 --warnings off --connect-timeout 10 --openssl-timeout 10 172.18.0.5:8443
 ----------------------------------------------------------------
 
- Start 2026-07-14 22:24:43        -->> 172.23.0.5:8443 (172.23.0.5) <<--
+ Start 2026-07-17 22:26:31        -->> 172.18.0.5:8443 (172.18.0.5) <<--
 
- rDNS (172.23.0.5):      lab_modsec_dvwa.dobotshield_waflab.
+ rDNS (172.18.0.5):      lab_modsec_dvwa.dobotshield_waflab.
  Service detected:       HTTP
 
  Testing protocols via sockets except NPN+ALPN 
@@ -87,15 +87,15 @@ TLSv1.3 (no server order, thus listed by strength)
  Server key size              EC 256 bits (curve P-256)
  Server key usage             --
  Server extended key usage    --
- Serial                       29B0A933A344513ED13E0D0FFA0413D7EAAAAE6D (OK: length 20)
- Fingerprints                 SHA1 7632C574F3F15B10810FCF9E47FFB83F621BE5D5
-                              SHA256 D4DF0B1595955427BCACA13E1A5123CD050CD2D6DB64DD3DF5589966B13CF1EE
+ Serial                       599EE2A365595CA18B5595039D1FF1DEDDA6F9FA (OK: length 20)
+ Fingerprints                 SHA1 B9EDE4092EBA62C2DC649B4A6FCD01BBB76E3462
+                              SHA256 0D9434CF9B7680F6DDD06F794FB0D68EB3478FC42197BE0511FE3D2D458735EF
  Common Name (CN)             localhost 
  subjectAltName (SAN)         missing (NOT ok) -- Browsers are complaining
  Trust (hostname)             certificate does not match supplied URI
  Chain of trust               NOT ok (self signed)
  EV cert (experimental)       no 
- Certificate Validity (UTC)   364 >= 60 days (2026-07-14 22:21 --> 2027-07-14 22:21)
+ Certificate Validity (UTC)   364 >= 60 days (2026-07-17 22:25 --> 2027-07-17 22:25)
  ETS/"eTLS", visibility info  not present
  Certificate Revocation List  --
  OCSP URI                     --
@@ -202,7 +202,7 @@ TLSv1.3 (no server order, thus listed by strength)
                               Grade capped to
                                 M. Domain name mismatch
 
- Done 2026-07-14 22:25:28 [  46s] -->> 172.23.0.5:8443 (172.23.0.5) <<--
+ Done 2026-07-17 22:27:28 [  59s] -->> 172.18.0.5:8443 (172.18.0.5) <<--
 
 
 

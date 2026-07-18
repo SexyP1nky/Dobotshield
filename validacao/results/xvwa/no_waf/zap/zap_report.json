@@ -1,8 +1,8 @@
 {
 	"@programName": "ZAP",
 	"@version": "2.17.0",
-	"@generated": "Wed, 15 Jul 2026 01:10:29",
-	"created": "2026-07-15T01:10:29.618032388Z",
+	"@generated": "Fri, 17 Jul 2026 23:02:59",
+	"created": "2026-07-17T23:02:59.512859250Z",
 	"insights":[
 		{
 			"level": "Low",
@@ -10,7 +10,7 @@
 			"site": "",
 			"key": "insight.log.error",
 			"description": "ZAP errors logged - see the zap.log file for details",
-			"statistic": "2"
+			"statistic": "1"
 		},
 		{
 			"level": "Low",
@@ -18,28 +18,20 @@
 			"site": "",
 			"key": "insight.log.warn",
 			"description": "ZAP warnings logged - see the zap.log file for details",
-			"statistic": "38"
+			"statistic": "5"
 		},
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "",
-			"key": "insight.network.failure",
-			"description": "Percentage of network failures",
-			"statistic": "1"
-		},
-		{
-			"level": "Info",
-			"reason": "Informational",
-			"site": "http://172.23.0.3",
+			"site": "http://172.18.0.3",
 			"key": "insight.code.2xx",
 			"description": "Percentage of responses with status code 2xx",
-			"statistic": "55"
+			"statistic": "54"
 		},
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "http://172.23.0.3",
+			"site": "http://172.18.0.3",
 			"key": "insight.code.3xx",
 			"description": "Percentage of responses with status code 3xx",
 			"statistic": "24"
@@ -47,15 +39,15 @@
 		{
 			"level": "Info",
 			"reason": "Exceeded Low",
-			"site": "http://172.23.0.3",
+			"site": "http://172.18.0.3",
 			"key": "insight.code.4xx",
 			"description": "Percentage of responses with status code 4xx",
-			"statistic": "18"
+			"statistic": "20"
 		},
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "http://172.23.0.3",
+			"site": "http://172.18.0.3",
 			"key": "insight.endpoint.ctype.text/html",
 			"description": "Percentage of endpoints with content type text/html",
 			"statistic": "100"
@@ -63,7 +55,7 @@
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "http://172.23.0.3",
+			"site": "http://172.18.0.3",
 			"key": "insight.endpoint.method.GET",
 			"description": "Percentage of endpoints with method GET",
 			"statistic": "100"
@@ -71,23 +63,23 @@
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "http://172.23.0.3",
+			"site": "http://172.18.0.3",
 			"key": "insight.endpoint.total",
 			"description": "Count of total endpoints",
-			"statistic": "31"
-		},
-		{
-			"level": "Info",
-			"reason": "Exceeded Low",
-			"site": "http://172.23.0.3",
-			"key": "insight.response.slow",
-			"description": "Percentage of slow responses",
-			"statistic": "16"
+			"statistic": "32"
 		},
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "https://172.23.0.3",
+			"site": "http://172.18.0.3",
+			"key": "insight.response.slow",
+			"description": "Percentage of slow responses",
+			"statistic": "1"
+		},
+		{
+			"level": "Info",
+			"reason": "Informational",
+			"site": "https://172.18.0.3",
 			"key": "insight.endpoint.method.GET",
 			"description": "Percentage of endpoints with method GET",
 			"statistic": "100"
@@ -95,7 +87,7 @@
 		{
 			"level": "Info",
 			"reason": "Informational",
-			"site": "https://172.23.0.3",
+			"site": "https://172.18.0.3",
 			"key": "insight.endpoint.total",
 			"description": "Count of total endpoints",
 			"statistic": "1"
@@ -103,16 +95,16 @@
 	],
 	"site":[ 
 		{
-			"@name": "https://172.23.0.3",
-			"@host": "172.23.0.3",
+			"@name": "https://172.18.0.3",
+			"@host": "172.18.0.3",
 			"@port": "443",
 			"@ssl": "true",
 			"alerts": [ 
 			]
 		},
 		{
-			"@name": "http://172.23.0.3",
-			"@host": "172.23.0.3",
+			"@name": "http://172.18.0.3",
+			"@host": "172.18.0.3",
 			"@port": "80",
 			"@ssl": "false",
 			"alerts": [ 
@@ -127,9 +119,9 @@
 					"desc": "<p>Cross-site Scripting (XSS) is an attack technique that involves echoing attacker-supplied code into a user's browser instance. A browser instance can be a standard web browser client, or a browser object embedded in a software product such as the browser within WinAmp, an RSS reader, or an email client. The code itself is usually written in HTML/JavaScript, but may also extend to VBScript, ActiveX, Java, Flash, or any other browser-supported technology.</p><p>When an attacker gets a user's browser to execute his/her code, the code will run within the security context (or zone) of the hosting web site. With this level of privilege, the code has the ability to read, modify and transmit any sensitive data accessible by the browser. A Cross-site Scripted user could have his/her account hijacked (cookie theft), their browser redirected to another location, or possibly shown fraudulent content delivered by the web site they are visiting. Cross-site Scripting attacks essentially compromise the trust relationship between a user and the web site. Applications utilizing browser object instances which load content from the file system may execute code under the local machine zone allowing for system compromise.</p><p></p><p>There are three types of Cross-site Scripting attacks: non-persistent, persistent and DOM-based.</p><p>Non-persistent attacks and DOM-based attacks require a user to either visit a specially crafted link laced with malicious code, or visit a malicious web page containing a web form, which when posted to the vulnerable site, will mount the attack. Using a malicious form will oftentimes take place when the vulnerable resource only accepts HTTP POST requests. In such a case, the form can be submitted automatically, without the victim's knowledge (e.g. by using JavaScript). Upon clicking on the malicious link or submitting the malicious form, the XSS payload will get echoed back and will get interpreted by the user's browser and execute. Another technique to send almost arbitrary requests (GET and POST) is by using an embedded client, such as Adobe Flash.</p><p>Persistent attacks occur when the malicious code is submitted to a web site where it's stored for a period of time. Examples of an attacker's favorite targets often include message board posts, web mail messages, and web chat software. The unsuspecting user is not required to interact with any additional site/link (e.g. an attacker site or a malicious link sent via email), just simply view the web page containing the code.</p>",
 					"instances":[ 
 						{
-							"id": "458",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/?item=%3C%2Fdiv%3E%3CscrIpt%3Ealert%281%29%3B%3C%2FscRipt%3E%3Cdiv%3E",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/reflected_xss\/ (item)",
+							"id": "539",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/?item=%3C%2Fdiv%3E%3CscrIpt%3Ealert%281%29%3B%3C%2FscRipt%3E%3Cdiv%3E",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/ (item)",
 							"method": "GET",
 							"param": "item",
 							"attack": "</div><scrIpt>alert(1);</scRipt><div>",
@@ -144,7 +136,7 @@
 					"reference": "<p>https://owasp.org/www-community/attacks/xss/</p><p>https://cwe.mitre.org/data/definitions/79.html</p>",
 					"cweid": "79",
 					"wascid": "8",
-					"sourceid": "658"
+					"sourceid": "672"
 				},
 				{
 					"pluginid": "6",
@@ -157,9 +149,9 @@
 					"desc": "<p>The Path Traversal attack technique allows an attacker access to files, directories, and commands that potentially reside outside the web document root directory. An attacker may manipulate a URL in such a way that the web site will execute or reveal the contents of arbitrary files anywhere on the web server. Any device that exposes an HTTP-based interface is potentially vulnerable to Path Traversal.</p><p></p><p>Most web sites restrict user access to a specific portion of the file-system, typically called the \"web document root\" or \"CGI root\" directory. These directories contain the files intended for user access and the executable necessary to drive web application functionality. To access files or execute commands anywhere on the file-system, Path Traversal attacks will utilize the ability of special-characters sequences.</p><p></p><p>The most basic Path Traversal attack uses the \"../\" special-character sequence to alter the resource location requested in the URL. Although most popular web servers will prevent this technique from escaping the web document root, alternate encodings of the \"../\" sequence may help bypass the security filters. These method variations include valid and invalid Unicode-encoding (\"..%u2216\" or \"..%c0%af\") of the forward slash character, backslash characters (\"..\\\") on Windows-based servers, URL encoded characters \"%2e%2e%2f\"), and double URL encoding (\"..%255c\") of the backslash character.</p><p></p><p>Even if the web server properly restricts Path Traversal attempts in the URL path, a web application itself may still be vulnerable due to improper handling of user-supplied input. This is a common problem of web applications that use template mechanisms or load static text from files. In variations of the attack, the original URL parameter value is substituted with the file name of one of the web application's dynamic scripts. Consequently, the results can reveal source code because the file is interpreted as text instead of an executable script. These techniques often employ additional special characters such as the dot (\".\") to reveal the listing of the current working directory, or \"%00\" NULL characters in order to bypass rudimentary file extension checks.</p>",
 					"instances":[ 
 						{
-							"id": "456",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=%2Fetc%2Fpasswd",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
+							"id": "537",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/?file=%2Fetc%2Fpasswd",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
 							"method": "GET",
 							"param": "file",
 							"attack": "/etc/passwd",
@@ -187,9 +179,9 @@
 					"desc": "<p>Remote File Include (RFI) is an attack technique used to exploit \"dynamic file include\" mechanisms in web applications. When web applications take user input (URL, parameter value, etc.) and pass them into file include commands, the web application might be tricked into including remote files with malicious code.</p><p></p><p>Almost all web application frameworks support file inclusion. File inclusion is mainly used for packaging common code into separate files that are later referenced by main application modules. When a web application references an include file, the code in this file may be executed implicitly or explicitly by calling specific procedures. If the choice of module to load is based on elements from the HTTP request, the web application might be vulnerable to RFI.</p><p>An attacker can use RFI for:</p><p>    * Running malicious code on the server: any code in the included malicious files will be run by the server. If the file include is not executed using some wrapper, code in include files is executed in the context of the server user. This could lead to a complete system compromise.</p><p>    * Running malicious code on clients: the attacker's malicious code can manipulate the content of the response sent to the client. The attacker can embed malicious code in the response that will be run by the client (for example, JavaScript to steal the client session cookies).</p><p></p><p>PHP is particularly vulnerable to RFI attacks due to the extensive use of \"file includes\" in PHP programming and due to default server configurations that increase susceptibility to an RFI attack.</p>",
 					"instances":[ 
 						{
-							"id": "457",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=http%3A%2F%2Fwww.google.com%2F",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
+							"id": "538",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/?file=http%3A%2F%2Fwww.google.com%2F",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
 							"method": "GET",
 							"param": "file",
 							"attack": "http://www.google.com/",
@@ -204,7 +196,7 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.2-Testing_for_Remote_File_Inclusion</p><p>https://cwe.mitre.org/data/definitions/98.html</p>",
 					"cweid": "98",
 					"wascid": "5",
-					"sourceid": "243"
+					"sourceid": "293"
 				},
 				{
 					"pluginid": "90020",
@@ -217,9 +209,9 @@
 					"desc": "<p>Attack technique used for unauthorized execution of operating system commands. This attack is possible when an application accepts untrusted input to build operating system commands in an insecure manner involving improper data sanitization, and/or improper calling of external programs.</p>",
 					"instances":[ 
 						{
-							"id": "459",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1%26cat+%2Fetc%2Fpasswd%26",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
+							"id": "540",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1%26cat+%2Fetc%2Fpasswd%26",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
 							"method": "GET",
 							"param": "target",
 							"attack": "127.0.0.1&cat /etc/passwd&",
@@ -234,7 +226,7 @@
 					"reference": "<p>https://cwe.mitre.org/data/definitions/78.html</p><p>https://owasp.org/www-community/attacks/Command_Injection</p>",
 					"cweid": "78",
 					"wascid": "31",
-					"sourceid": "1629"
+					"sourceid": "1740"
 				},
 				{
 					"pluginid": "40046",
@@ -247,24 +239,24 @@
 					"desc": "<p>The web server receives a remote address and retrieves the contents of this URL, but it does not sufficiently ensure that the request is being sent to the expected destination.</p>",
 					"instances":[ 
 						{
-							"id": "715",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=test.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
+							"id": "796",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/?file=test.php",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
 							"method": "GET",
 							"param": "file",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "Received out-of-band interaction [GET http://172.23.0.4:40825/76400133-9714-40b7-a196-8e02a3432774 HTTP/1.0]\nRequest\nGET http://172.23.0.4:40825/76400133-9714-40b7-a196-8e02a3432774 HTTP/1.0\r\nHost: 172.23.0.4:40825\r\nConnection: close\r\n\r\n\nResponse\nHTTP/1.1 200\r\nContent-Length: 0\r\nConnection: close\r\n\r\n\n--------------------------------"
+							"otherinfo": "Received out-of-band interaction [GET http://172.18.0.11:37139/bd77f467-8bf6-40f5-957c-e5527b42e909 HTTP/1.0]\nRequest\nGET http://172.18.0.11:37139/bd77f467-8bf6-40f5-957c-e5527b42e909 HTTP/1.0\r\nHost: 172.18.0.11:37139\r\nConnection: close\r\n\r\n\nResponse\nHTTP/1.1 200\r\nContent-Length: 0\r\nConnection: close\r\n\r\n\n--------------------------------"
 						}
 					],
 					"count": "1",
 					"systemic": false,
 					"solution": "<p>Do not accept remote addresses as request parameters, and if you must, ensure that they are validated against an allow-list of expected values.</p>",
-					"otherinfo": "<p>Received out-of-band interaction [GET http://172.23.0.4:40825/76400133-9714-40b7-a196-8e02a3432774 HTTP/1.0]</p><p>Request</p><p>GET http://172.23.0.4:40825/76400133-9714-40b7-a196-8e02a3432774 HTTP/1.0</p><p>Host: 172.23.0.4:40825</p><p>Connection: close</p><p></p><p></p><p>Response</p><p>HTTP/1.1 200</p><p>Content-Length: 0</p><p>Connection: close</p><p></p><p></p><p>--------------------------------</p>",
+					"otherinfo": "<p>Received out-of-band interaction [GET http://172.18.0.11:37139/bd77f467-8bf6-40f5-957c-e5527b42e909 HTTP/1.0]</p><p>Request</p><p>GET http://172.18.0.11:37139/bd77f467-8bf6-40f5-957c-e5527b42e909 HTTP/1.0</p><p>Host: 172.18.0.11:37139</p><p>Connection: close</p><p></p><p></p><p>Response</p><p>HTTP/1.1 200</p><p>Content-Length: 0</p><p>Connection: close</p><p></p><p></p><p>--------------------------------</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html</p>",
 					"cweid": "918",
 					"wascid": "20",
-					"sourceid": "4097"
+					"sourceid": "4129"
 				},
 				{
 					"pluginid": "10202",
@@ -277,9 +269,9 @@
 					"desc": "<p>No Anti-CSRF tokens were found in a HTML submission form.</p><p>A cross-site request forgery is an attack that involves forcing a victim to send an HTTP request to a target destination without their knowledge or intent in order to perform an action as the victim. The underlying cause is application functionality using predictable URL/form actions in a repeatable way. The nature of the attack is that CSRF exploits the trust that a web site has for a user. By contrast, cross-site scripting (XSS) exploits the trust that a user has for a web site. Like XSS, CSRF attacks are not necessarily cross-site, but they can be. Cross-site request forgery is also known as CSRF, XSRF, one-click attack, session riding, confused deputy, and sea surf.</p><p></p><p>CSRF attacks are effective in a number of situations, including:</p><p>    * The victim has an active session on the target site.</p><p>    * The victim is authenticated via HTTP auth on the target site.</p><p>    * The victim is on the same local network as the target site.</p><p></p><p>CSRF has primarily been used to perform an action against a target site using the victim's privileges, but recent techniques have been discovered to disclose information by gaining access to the response. The risk of information disclosure is dramatically increased when the target site is vulnerable to XSS, because XSS can be used as a platform for CSRF, allowing the attack to operate within the bounds of the same-origin policy.</p>",
 					"instances":[ 
 						{
-							"id": "30",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "88",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -287,9 +279,9 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: \"password\" \"username\" ]."
 						},
 						{
-							"id": "21",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "70",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -297,9 +289,9 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: \"password\" \"username\" ]."
 						},
 						{
-							"id": "27",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli\/",
+							"id": "65",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -307,9 +299,9 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: \"password\" \"username\" ]."
 						},
 						{
-							"id": "29",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "79",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -317,14 +309,14 @@
 							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: \"password\" \"username\" ]."
 						},
 						{
-							"id": "35",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "82",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssti/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssti\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
-							"evidence": "<form method='post' action=''>",
-							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 2: \"search\" ]."
+							"evidence": "<form class='form' method='POST' id='formLogin' action='/xvwa/login.php'>",
+							"otherinfo": "No known Anti-CSRF token [anticsrf, CSRFToken, __RequestVerificationToken, csrfmiddlewaretoken, authenticity_token, OWASP_CSRFTOKEN, anoncsrf, csrf_token, _csrf, _csrfSecret, __csrf_magic, CSRF, _token, _csrf_token, _csrfToken] was found in the following HTML form: [Form 1: \"password\" \"username\" ]."
 						}
 					],
 					"count": "5",
@@ -334,7 +326,7 @@
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html</p><p>https://cwe.mitre.org/data/definitions/352.html</p>",
 					"cweid": "352",
 					"wascid": "9",
-					"sourceid": "1"
+					"sourceid": "19"
 				},
 				{
 					"pluginid": "90022",
@@ -347,9 +339,9 @@
 					"desc": "<p>This page contains an error/warning message that may disclose sensitive information like the location of the file that produced the unhandled exception. This information can be used to launch further attacks against the web application. The alert could be a false positive if the error message is found inside a documentation page.</p>",
 					"instances":[ 
 						{
-							"id": "337",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=test.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
+							"id": "395",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/?file=test.php",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -377,29 +369,39 @@
 					"desc": "<p>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page \u2014 covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</p>",
 					"instances":[ 
 						{
-							"id": "18",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "12",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"id": "25",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/cmdi\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "24",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "18",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "17",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -408,18 +410,8 @@
 						},
 						{
 							"id": "16",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "15",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssrf_xspa/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssrf_xspa\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -434,7 +426,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</p><p>https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</p><p>https://www.w3.org/TR/CSP/</p><p>https://w3c.github.io/webappsec-csp/</p><p>https://web.dev/articles/csp</p><p>https://caniuse.com/#feat=contentsecuritypolicy</p><p>https://content-security-policy.com/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "17"
 				},
 				{
 					"pluginid": "10106",
@@ -447,24 +439,24 @@
 					"desc": "<p>The site is only served under HTTP and not HTTPS.</p>",
 					"instances":[ 
 						{
-							"id": "460",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/xpath/",
-							"nodeName": "https:\/\/172.23.0.3\/xvwa\/vulnerabilities\/xpath\/",
+							"id": "541",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/xpath/",
+							"nodeName": "https:\/\/172.18.0.3\/xvwa\/vulnerabilities\/xpath\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "Failed to connect.\nZAP attempted to connect via: https://172.23.0.3/xvwa/vulnerabilities/xpath/"
+							"otherinfo": "Failed to connect.\nZAP attempted to connect via: https://172.18.0.3/xvwa/vulnerabilities/xpath/"
 						}
 					],
 					"count": "1",
 					"systemic": false,
 					"solution": "<p>Configure your web or application server to use SSL (https).</p>",
-					"otherinfo": "<p>Failed to connect.</p><p>ZAP attempted to connect via: https://172.23.0.3/xvwa/vulnerabilities/xpath/</p>",
+					"otherinfo": "<p>Failed to connect.</p><p>ZAP attempted to connect via: https://172.18.0.3/xvwa/vulnerabilities/xpath/</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html</p><p>https://letsencrypt.org/</p>",
 					"cweid": "311",
 					"wascid": "4",
-					"sourceid": "2234"
+					"sourceid": "2265"
 				},
 				{
 					"pluginid": "10020",
@@ -477,39 +469,39 @@
 					"desc": "<p>The response does not protect against 'ClickJacking' attacks. It should include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options.</p>",
 					"instances":[ 
 						{
-							"id": "1",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "9",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
-							"id": "8",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fileupload/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fileupload\/",
-							"method": "GET",
-							"param": "x-frame-options",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": ""
-						},
-						{
 							"id": "3",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"uri": "http://172.18.0.3:80/xvwa/instruction.php",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/instruction.php",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "6",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/dom_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/dom_xss\/",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "4",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"method": "GET",
+							"param": "x-frame-options",
+							"attack": "",
+							"evidence": "",
+							"otherinfo": ""
+						},
+						{
+							"id": "2",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
 							"param": "x-frame-options",
 							"attack": "",
@@ -537,9 +529,9 @@
 					"desc": "<p>Parameter manipulation caused an error page or Java stack trace to be displayed. This indicated lack of exception handling and potential areas for further exploit.</p>",
 					"instances":[ 
 						{
-							"id": "462",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=%00",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
+							"id": "543",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/?target=%00",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
 							"method": "GET",
 							"param": "target",
 							"attack": "\\x0000",
@@ -547,9 +539,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "461",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/?file=",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
+							"id": "542",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/?file=",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
 							"method": "GET",
 							"param": "file",
 							"attack": "",
@@ -564,7 +556,7 @@
 					"reference": "",
 					"cweid": "472",
 					"wascid": "20",
-					"sourceid": "2442"
+					"sourceid": "2476"
 				},
 				{
 					"pluginid": "10051",
@@ -577,12 +569,12 @@
 					"desc": "<p>The web server is configured to serve responses to ambiguous URLs in a manner that is likely to lead to confusion about the correct \"relative path\" for the URL. Resources (CSS, images, etc.) are also specified in the page response using relative, rather than absolute URLs. In an attack, if the web browser parses the \"cross-content\" response in a permissive manner, or can be tricked into permissively parsing the \"cross-content\" response, using techniques such as framing, then the web browser may be fooled into interpreting HTML as CSS (or other content types), leading to an XSS vulnerability.</p>",
 					"instances":[ 
 						{
-							"id": "716",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php\/i4g2x\/7g67l",
+							"id": "797",
+							"uri": "http://172.18.0.3:80/xvwa/instruction.php",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/instruction.php\/jzbp6\/yqdwo",
 							"method": "GET",
 							"param": "",
-							"attack": "http://172.23.0.3:80/xvwa/instruction.php/i4g2x/7g67l",
+							"attack": "http://172.18.0.3:80/xvwa/instruction.php/jzbp6/yqdwo",
 							"evidence": "<link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">",
 							"otherinfo": "No <base> tag was specified in the HTML <head> tag to define the location for relative URLs.\nA Content Type of \"text/html; charset=UTF-8\" was specified. If the web browser is employing strict parsing rules, this will prevent cross-content attacks from succeeding. Quirks Mode in the web browser would disable strict parsing.\nNo X-Frame-Options header was specified, so the page can be framed, and this can be used to enable Quirks Mode, allowing the specified Content Type to be bypassed."
 						}
@@ -594,7 +586,7 @@
 					"reference": "<p>https://arxiv.org/abs/1811.00917</p><p>https://hsivonen.fi/doctype/</p><p>https://www.w3schools.com/tags/tag_base.asp</p>",
 					"cweid": "20",
 					"wascid": "20",
-					"sourceid": "4327"
+					"sourceid": "4358"
 				},
 				{
 					"pluginid": "90003",
@@ -607,9 +599,9 @@
 					"desc": "<p>The integrity attribute is missing on a script or link tag served by an external server. The integrity tag prevents an attacker who have gained access to this server from injecting a malicious content.</p>",
 					"instances":[ 
 						{
-							"id": "73",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "152",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -617,43 +609,43 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "74",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"id": "75",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"id": "83",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"id": "90",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"id": "154",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
 							"evidence": "<script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "153",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "155",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "151",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli\/",
+							"method": "GET",
+							"param": "",
+							"attack": "",
+							"evidence": "<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>",
 							"otherinfo": ""
 						}
 					],
@@ -664,7 +656,147 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Subresource_Integrity</p>",
 					"cweid": "345",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "23"
+				},
+				{
+					"pluginid": "10010",
+					"alertRef": "10010",
+					"alert": "Cookie No HttpOnly Flag",
+					"name": "Cookie No HttpOnly Flag",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the HttpOnly flag, which means that the cookie can be accessed by JavaScript. If a malicious script can be run on this page then the cookie will be accessible and can be transmitted to another site. If this is a session cookie then session hijacking may be possible.</p>",
+					"instances":[ 
+						{
+							"id": "27",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
+							"id": "21",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
+							"id": "48",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
+							"id": "20",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
+							"id": "19",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssrf_xspa/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssrf_xspa\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure that the HttpOnly flag is set for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://owasp.org/www-community/HttpOnly</p>",
+					"cweid": "1004",
+					"wascid": "13",
+					"sourceid": "23"
+				},
+				{
+					"pluginid": "10054",
+					"alertRef": "10054-1",
+					"alert": "Cookie without SameSite Attribute",
+					"name": "Cookie without SameSite Attribute",
+					"riskcode": "1",
+					"confidence": "2",
+					"riskdesc": "Low (Medium)",
+					"desc": "<p>A cookie has been set without the SameSite attribute, which means that the cookie can be sent as a result of a 'cross-site' request. The SameSite attribute is an effective counter measure to cross-site request forgery, cross-site script inclusion, and timing attacks.</p>",
+					"instances":[ 
+						{
+							"id": "28",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
+							"id": "23",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
+							"id": "26",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
+							"id": "22",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssrf_xspa/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssrf_xspa\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						},
+						{
+							"id": "55",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssti/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssti\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "Set-Cookie: PHPSESSID",
+							"otherinfo": ""
+						}
+					],
+					"count": "5",
+					"systemic": true,
+					"solution": "<p>Ensure that the SameSite attribute is set to either 'lax' or ideally 'strict' for all cookies.</p>",
+					"otherinfo": "",
+					"reference": "<p>https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site</p>",
+					"cweid": "1275",
+					"wascid": "13",
+					"sourceid": "23"
 				},
 				{
 					"pluginid": "10017",
@@ -677,9 +809,9 @@
 					"desc": "<p>The page includes one or more script files from a third-party domain.</p>",
 					"instances":[ 
 						{
-							"id": "13",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "40",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
 							"method": "GET",
 							"param": "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js",
 							"attack": "",
@@ -687,19 +819,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "14",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
-							"method": "GET",
-							"param": "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js",
-							"attack": "",
-							"evidence": "<script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>",
-							"otherinfo": ""
-						},
-						{
-							"id": "17",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli\/",
+							"id": "30",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js",
 							"attack": "",
@@ -707,19 +829,29 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "20",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli\/",
+							"id": "34",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
-							"param": "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js",
+							"param": "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js",
 							"attack": "",
-							"evidence": "<script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>",
+							"evidence": "<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>",
 							"otherinfo": ""
 						},
 						{
-							"id": "19",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "33",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssrf_xspa/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssrf_xspa\/",
+							"method": "GET",
+							"param": "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js",
+							"attack": "",
+							"evidence": "<script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>",
+							"otherinfo": ""
+						},
+						{
+							"id": "57",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssti/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssti\/",
 							"method": "GET",
 							"param": "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js",
 							"attack": "",
@@ -734,7 +866,7 @@
 					"reference": "",
 					"cweid": "829",
 					"wascid": "15",
-					"sourceid": "19"
+					"sourceid": "23"
 				},
 				{
 					"pluginid": "90004",
@@ -747,9 +879,9 @@
 					"desc": "<p>Cross-Origin-Embedder-Policy header is a response header that prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS).</p>",
 					"instances":[ 
 						{
-							"id": "156",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "271",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/dom_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/dom_xss\/",
 							"method": "GET",
 							"param": "Cross-Origin-Embedder-Policy",
 							"attack": "",
@@ -757,9 +889,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "157",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "263",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/",
 							"method": "GET",
 							"param": "Cross-Origin-Embedder-Policy",
 							"attack": "",
@@ -767,9 +899,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "146",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"id": "242",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "Cross-Origin-Embedder-Policy",
 							"attack": "",
@@ -777,9 +909,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "173",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"id": "275",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
 							"param": "Cross-Origin-Embedder-Policy",
 							"attack": "",
@@ -787,9 +919,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "141",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "254",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/xpath/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/xpath\/",
 							"method": "GET",
 							"param": "Cross-Origin-Embedder-Policy",
 							"attack": "",
@@ -804,7 +936,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
 					"cweid": "693",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "15"
 				},
 				{
 					"pluginid": "90004",
@@ -817,9 +949,9 @@
 					"desc": "<p>Cross-Origin-Opener-Policy header is a response header that allows a site to control if others included documents share the same browsing context. Sharing the same browsing context with untrusted documents might lead to data leak.</p>",
 					"instances":[ 
 						{
-							"id": "161",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "288",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/dom_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/dom_xss\/",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
 							"attack": "",
@@ -827,9 +959,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "160",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "266",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
 							"attack": "",
@@ -837,9 +969,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "147",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"id": "290",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/php_object_injection/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/php_object_injection\/",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
 							"attack": "",
@@ -847,9 +979,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "175",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"id": "264",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
 							"attack": "",
@@ -857,9 +989,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "143",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "296",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli\/",
 							"method": "GET",
 							"param": "Cross-Origin-Opener-Policy",
 							"attack": "",
@@ -874,7 +1006,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Opener-Policy</p>",
 					"cweid": "693",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "15"
 				},
 				{
 					"pluginid": "90004",
@@ -887,9 +1019,9 @@
 					"desc": "<p>Cross-Origin-Resource-Policy header is an opt-in header designed to counter side-channels attacks like Spectre. Resource should be specifically set as shareable amongst different origins.</p>",
 					"instances":[ 
 						{
-							"id": "152",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "258",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/dom_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/dom_xss\/",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
@@ -897,9 +1029,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "154",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "243",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
@@ -907,9 +1039,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "145",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"id": "239",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
@@ -917,9 +1049,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "140",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "256",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli\/",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
@@ -927,9 +1059,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "162",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/ssrf_xspa/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/ssrf_xspa\/",
+							"id": "224",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/xpath/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/xpath\/",
 							"method": "GET",
 							"param": "Cross-Origin-Resource-Policy",
 							"attack": "",
@@ -944,7 +1076,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy</p>",
 					"cweid": "693",
 					"wascid": "14",
-					"sourceid": "1"
+					"sourceid": "15"
 				},
 				{
 					"pluginid": "10009",
@@ -957,9 +1089,9 @@
 					"desc": "<p>The server returned a version banner string in the response content. Such information leaks may allow attackers to further target specific issues impacting the product and version in use.</p>",
 					"instances":[ 
 						{
-							"id": "446",
-							"uri": "http://172.23.0.3:80/",
-							"nodeName": "http:\/\/172.23.0.3\/",
+							"id": "527",
+							"uri": "http://172.18.0.3:80/",
+							"nodeName": "http:\/\/172.18.0.3\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -967,9 +1099,9 @@
 							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
 						},
 						{
-							"id": "444",
-							"uri": "http://172.23.0.3/robots.txt",
-							"nodeName": "http:\/\/172.23.0.3\/robots.txt",
+							"id": "525",
+							"uri": "http://172.18.0.3/robots.txt",
+							"nodeName": "http:\/\/172.18.0.3\/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -977,9 +1109,9 @@
 							"otherinfo": "There is a chance that the highlight in the finding is on a value in the headers, versus the actual matched string in the response body."
 						},
 						{
-							"id": "445",
-							"uri": "http://172.23.0.3/sitemap.xml",
-							"nodeName": "http:\/\/172.23.0.3\/sitemap.xml",
+							"id": "526",
+							"uri": "http://172.18.0.3/sitemap.xml",
+							"nodeName": "http:\/\/172.18.0.3\/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1007,9 +1139,9 @@
 					"desc": "<p>Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources. Permissions Policy provides a set of standard HTTP headers that allow website owners to limit which features of browsers can be used by the page such as camera, microphone, location, full screen etc.</p>",
 					"instances":[ 
 						{
-							"id": "150",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "237",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1017,9 +1149,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "151",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "218",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1027,9 +1159,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "144",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"id": "227",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1037,9 +1169,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "158",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"id": "249",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssrf_xspa/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssrf_xspa\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1047,9 +1179,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "139",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "221",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/xpath/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/xpath\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1064,7 +1196,7 @@
 					"reference": "<p>https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Permissions-Policy</p><p>https://developer.chrome.com/blog/feature-policy/</p><p>https://scotthelme.co.uk/a-new-security-header-feature-policy/</p><p>https://w3c.github.io/webappsec-feature-policy/</p><p>https://www.smashingmagazine.com/2018/12/feature-policy/</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "1"
+					"sourceid": "19"
 				},
 				{
 					"pluginid": "10037",
@@ -1077,9 +1209,9 @@
 					"desc": "<p>The web/application server is leaking information via one or more \"X-Powered-By\" HTTP response headers. Access to such information may facilitate attackers identifying other frameworks/components your web application is reliant upon and the vulnerabilities such components may be subject to.</p>",
 					"instances":[ 
 						{
-							"id": "117",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "197",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1087,9 +1219,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "106",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/",
+							"id": "167",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1097,9 +1229,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "107",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"id": "188",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1107,9 +1239,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "112",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"id": "183",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssti/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssti\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1117,9 +1249,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "110",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "175",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/xpath/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/xpath\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1134,7 +1266,7 @@
 					"reference": "<p>https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/08-Fingerprint_Web_Application_Framework</p><p>https://www.troyhunt.com/shhh-dont-let-your-response-headers/</p>",
 					"cweid": "497",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "19"
 				},
 				{
 					"pluginid": "10036",
@@ -1147,9 +1279,9 @@
 					"desc": "<p>The web/application server is leaking version information via the \"Server\" HTTP response header. Access to such information may facilitate attackers identifying other vulnerabilities your web/application server is subject to.</p>",
 					"instances":[ 
 						{
-							"id": "59",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "133",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/cmdi\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1157,9 +1289,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "58",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/",
+							"id": "131",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1167,9 +1299,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "56",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "140",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1177,9 +1309,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "60",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli\/",
+							"id": "141",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssti/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssti\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1187,9 +1319,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "57",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "134",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/xpath/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/xpath\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1204,7 +1336,7 @@
 					"reference": "<p>https://httpd.apache.org/docs/current/mod/core.html#servertokens</p><p>https://learn.microsoft.com/en-us/previous-versions/msp-n-p/ff648552(v=pandp.10)</p><p>https://www.troyhunt.com/shhh-dont-let-your-response-headers/</p>",
 					"cweid": "497",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "17"
 				},
 				{
 					"pluginid": "10021",
@@ -1217,9 +1349,9 @@
 					"desc": "<p>The Anti-MIME-Sniffing header X-Content-Type-Options was not set to 'nosniff'. This allows older versions of Internet Explorer and Chrome to perform MIME-sniffing on the response body, potentially causing the response body to be interpreted and displayed as a content type other than the declared content type. Current (early 2014) and legacy versions of Firefox will use the declared content type (if one is set), rather than performing MIME-sniffing.</p>",
 					"instances":[ 
 						{
-							"id": "97",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/",
+							"id": "166",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1227,9 +1359,9 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "100",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "164",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1237,9 +1369,9 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "94",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"id": "185",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1247,9 +1379,9 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "105",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"id": "179",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssti/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssti\/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1257,9 +1389,9 @@
 							"otherinfo": "This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.\nAt \"High\" threshold this scan rule will not alert on client or server error responses."
 						},
 						{
-							"id": "108",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "173",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/xpath/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/xpath\/",
 							"method": "GET",
 							"param": "x-content-type-options",
 							"attack": "",
@@ -1274,77 +1406,7 @@
 					"reference": "<p>https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</p><p>https://owasp.org/www-community/Security_Headers</p>",
 					"cweid": "693",
 					"wascid": "15",
-					"sourceid": "17"
-				},
-				{
-					"pluginid": "90027",
-					"alertRef": "90027",
-					"alert": "Cookie Slack Detector",
-					"name": "Cookie Slack Detector",
-					"riskcode": "0",
-					"confidence": "1",
-					"riskdesc": "Informational (Low)",
-					"desc": "<p>Repeated GET requests: drop a different cookie each time, followed by normal request with all cookies to stabilize session, compare responses against original baseline GET. This can reveal areas where cookie based authentication/attributes are not actually enforced.</p>",
-					"instances":[ 
-						{
-							"id": "721",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/ssrf_xspa/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/ssrf_xspa\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.\nThese cookies affected the response: \nThese cookies did NOT affect the response: security,PHPSESSID\n"
-						},
-						{
-							"id": "720",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/ssti/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/ssti\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.\nThese cookies affected the response: \nThese cookies did NOT affect the response: security,PHPSESSID\n"
-						},
-						{
-							"id": "718",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/ssti/?name=test",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/ssti\/ (name)",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.\nThese cookies affected the response: \nThese cookies did NOT affect the response: security,PHPSESSID\n"
-						},
-						{
-							"id": "719",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/stored_xss/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/stored_xss\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.\nThese cookies affected the response: \nThese cookies did NOT affect the response: security,PHPSESSID\n"
-						},
-						{
-							"id": "717",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/xpath/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/xpath\/",
-							"method": "GET",
-							"param": "",
-							"attack": "",
-							"evidence": "",
-							"otherinfo": "Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.\nThese cookies affected the response: \nThese cookies did NOT affect the response: security,PHPSESSID\n"
-						}
-					],
-					"count": "5",
-					"systemic": true,
-					"solution": "",
-					"otherinfo": "<p>Cookies that don't have expected effects can reveal flaws in application logic. In the worst case, this can reveal where authentication via cookie token(s) is not actually enforced.</p><p>These cookies affected the response: </p><p>These cookies did NOT affect the response: security,PHPSESSID</p><p></p>",
-					"reference": "<p>https://cwe.mitre.org/data/definitions/205.html</p>",
-					"cweid": "205",
-					"wascid": "45",
-					"sourceid": "6037"
+					"sourceid": "23"
 				},
 				{
 					"pluginid": "10109",
@@ -1357,9 +1419,9 @@
 					"desc": "<p>The application appears to be a modern web application. If you need to explore it automatically then the Client Spider may well be more effective than the standard one.</p>",
 					"instances":[ 
 						{
-							"id": "37",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "123",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/cmdi\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1367,9 +1429,9 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "49",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/",
+							"id": "121",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1377,9 +1439,9 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "34",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "117",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1387,9 +1449,9 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "47",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli\/",
+							"id": "120",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1397,9 +1459,9 @@
 							"otherinfo": "Links have been found that do not have traditional href attributes, which is an indication that this is a modern web application."
 						},
 						{
-							"id": "46",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "122",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssrf_xspa/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssrf_xspa\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1414,7 +1476,7 @@
 					"reference": "",
 					"cweid": "-1",
 					"wascid": "-1",
-					"sourceid": "1"
+					"sourceid": "17"
 				},
 				{
 					"pluginid": "10049",
@@ -1427,9 +1489,9 @@
 					"desc": "<p>The response contents are not storable by caching components such as proxy servers. If the response does not contain sensitive, personal or user-specific information, it may benefit from being stored and cached, to improve performance.</p>",
 					"instances":[ 
 						{
-							"id": "148",
-							"uri": "http://172.23.0.3:80/xvwa/instruction.php",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/instruction.php",
+							"id": "219",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1437,9 +1499,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "149",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/fi/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"id": "195",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1447,9 +1509,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "142",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"id": "202",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1457,9 +1519,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "153",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/reflected_xss/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"id": "207",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssti/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssti\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1467,9 +1529,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "138",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/sqli_blind/",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"id": "196",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/xpath/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/xpath\/",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1484,7 +1546,297 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "1"
+					"sourceid": "19"
+				},
+				{
+					"pluginid": "10112",
+					"alertRef": "10112",
+					"alert": "Session Management Response Identified",
+					"name": "Session Management Response Identified",
+					"riskcode": "0",
+					"confidence": "2",
+					"riskdesc": "Informational (Medium)",
+					"desc": "<p>The given response has been identified as containing a session management token. The 'Other Info' field contains a set of header tokens that can be used in the Header Based Session Management Method. If the request is in a context which has a Session Management Method set to \"Auto-Detect\" then this rule will change the session management to use the tokens identified.</p>",
+					"instances":[ 
+						{
+							"id": "516",
+							"uri": "http://172.18.0.3:80/xvwa/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "280",
+							"uri": "http://172.18.0.3:80/xvwa/instruction.php",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/instruction.php",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "235",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/cmdi\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "444",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "369",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/crypto/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/crypto\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "232",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/dom_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/dom_xss\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "216",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "447",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fi/?file=test.php",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fi\/ (file)",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "238",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/fileupload/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/fileupload\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "269",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/formula_injection/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/formula_injection\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "217",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "450",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/?item=1",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/ (item)",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "370",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/missfunc/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/missfunc\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "257",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/php_object_injection/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/php_object_injection\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "491",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/php_object_injection/?r=test",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/php_object_injection\/ (r)",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "244",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/redirect/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/redirect\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "495",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/redirect/?url=http://example.com",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/redirect\/ (url)",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "190",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "372",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/reflected_xss/?item=test",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/reflected_xss\/ (item)",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "347",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sessionflaws/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sessionflaws\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "229",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "200",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/sqli_blind/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/sqli_blind\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "225",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssrf_xspa/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssrf_xspa\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "206",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssti/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssti\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "441",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/ssti/?name=test",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/ssti\/ (name)",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "276",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/stored_xss/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/stored_xss\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						},
+						{
+							"id": "191",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/xpath/",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/xpath\/",
+							"method": "GET",
+							"param": "PHPSESSID",
+							"attack": "",
+							"evidence": "PHPSESSID",
+							"otherinfo": "cookie:PHPSESSID"
+						}
+					],
+					"count": "27",
+					"systemic": false,
+					"solution": "<p>This is an informational alert rather than a vulnerability and so there is nothing to fix.</p>",
+					"otherinfo": "<p>cookie:PHPSESSID</p>",
+					"reference": "<p>https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/</p>",
+					"cweid": "-1",
+					"wascid": "-1",
+					"sourceid": "48"
 				},
 				{
 					"pluginid": "10049",
@@ -1497,9 +1849,9 @@
 					"desc": "<p>The response contents are storable by caching components such as proxy servers, and may be retrieved directly from the cache, rather than from the origin server by the caching servers, in response to similar requests from other users. If the response data is sensitive, personal or user-specific, this may result in sensitive information being leaked. In some cases, this may even result in a user gaining complete control of the session of another user, depending on the configuration of the caching components in use in their environment. This is primarily an issue where \"shared\" caching servers such as \"proxy\" caches are configured on the local network. This configuration is typically found in corporate or educational environments, for instance.</p>",
 					"instances":[ 
 						{
-							"id": "452",
-							"uri": "http://172.23.0.3/robots.txt",
-							"nodeName": "http:\/\/172.23.0.3\/robots.txt",
+							"id": "531",
+							"uri": "http://172.18.0.3/robots.txt",
+							"nodeName": "http:\/\/172.18.0.3\/robots.txt",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1507,9 +1859,9 @@
 							"otherinfo": "In the absence of an explicitly specified caching lifetime directive in the response, a liberal lifetime heuristic of 1 year was assumed. This is permitted by rfc7234."
 						},
 						{
-							"id": "454",
-							"uri": "http://172.23.0.3/sitemap.xml",
-							"nodeName": "http:\/\/172.23.0.3\/sitemap.xml",
+							"id": "533",
+							"uri": "http://172.18.0.3/sitemap.xml",
+							"nodeName": "http:\/\/172.18.0.3\/sitemap.xml",
 							"method": "GET",
 							"param": "",
 							"attack": "",
@@ -1524,7 +1876,7 @@
 					"reference": "<p>https://datatracker.ietf.org/doc/html/rfc7234</p><p>https://datatracker.ietf.org/doc/html/rfc7231</p><p>https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html</p>",
 					"cweid": "524",
 					"wascid": "13",
-					"sourceid": "52"
+					"sourceid": "53"
 				},
 				{
 					"pluginid": "10104",
@@ -1537,9 +1889,9 @@
 					"desc": "<p>Check for differences in response based on fuzzed User Agent (eg. mobile sites, access as a Search Engine Crawler). Compares the response statuscode and the hashcode of the response body with the original response.</p>",
 					"instances":[ 
 						{
-							"id": "465",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
+							"id": "546",
+							"uri": "http://172.18.0.3/xvwa",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa",
 							"method": "GET",
 							"param": "Header User-Agent",
 							"attack": "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)",
@@ -1547,9 +1899,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "464",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
+							"id": "545",
+							"uri": "http://172.18.0.3/xvwa",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa",
 							"method": "GET",
 							"param": "Header User-Agent",
 							"attack": "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)",
@@ -1557,9 +1909,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "463",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
+							"id": "544",
+							"uri": "http://172.18.0.3/xvwa",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa",
 							"method": "GET",
 							"param": "Header User-Agent",
 							"attack": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)",
@@ -1567,9 +1919,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "466",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
+							"id": "547",
+							"uri": "http://172.18.0.3/xvwa",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa",
 							"method": "GET",
 							"param": "Header User-Agent",
 							"attack": "Mozilla/5.0 (Windows NT 10.0; Trident/7.0; rv:11.0) like Gecko",
@@ -1577,9 +1929,9 @@
 							"otherinfo": ""
 						},
 						{
-							"id": "467",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/cmdi/?target=127.0.0.1",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/cmdi\/ (target)",
+							"id": "548",
+							"uri": "http://172.18.0.3/xvwa",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa",
 							"method": "GET",
 							"param": "Header User-Agent",
 							"attack": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0",
@@ -1594,7 +1946,7 @@
 					"reference": "<p>https://owasp.org/wstg</p>",
 					"cweid": "0",
 					"wascid": "0",
-					"sourceid": "2851"
+					"sourceid": "3127"
 				},
 				{
 					"pluginid": "10031",
@@ -1607,20 +1959,20 @@
 					"desc": "<p>This check looks at user-supplied input in query string parameters and POST data to identify where certain HTML attribute values might be controlled. This provides hot-spot detection for XSS (cross-site scripting) that will require further review by a security analyst to determine exploitability.</p>",
 					"instances":[ 
 						{
-							"id": "362",
-							"uri": "http://172.23.0.3:80/xvwa/vulnerabilities/idor/?item=1",
-							"nodeName": "http:\/\/172.23.0.3\/xvwa\/vulnerabilities\/idor\/ (item)",
+							"id": "434",
+							"uri": "http://172.18.0.3:80/xvwa/vulnerabilities/idor/?item=1",
+							"nodeName": "http:\/\/172.18.0.3\/xvwa\/vulnerabilities\/idor\/ (item)",
 							"method": "GET",
 							"param": "item",
 							"attack": "",
 							"evidence": "",
-							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttp://172.23.0.3:80/xvwa/vulnerabilities/idor/?item=1\n\nappears to include user input in:\na(n) [meta] tag [content] attribute\n\nThe user input found was:\nitem=1\n\nThe user-controlled value was:\nwidth=device-width, initial-scale=1"
+							"otherinfo": "User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:\n\nhttp://172.18.0.3:80/xvwa/vulnerabilities/idor/?item=1\n\nappears to include user input in:\na(n) [meta] tag [content] attribute\n\nThe user input found was:\nitem=1\n\nThe user-controlled value was:\nwidth=device-width, initial-scale=1"
 						}
 					],
 					"count": "1",
 					"systemic": false,
 					"solution": "<p>Validate all input and sanitize output it before writing to any HTML attributes.</p>",
-					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>http://172.23.0.3:80/xvwa/vulnerabilities/idor/?item=1</p><p></p><p>appears to include user input in:</p><p>a(n) [meta] tag [content] attribute</p><p></p><p>The user input found was:</p><p>item=1</p><p></p><p>The user-controlled value was:</p><p>width=device-width, initial-scale=1</p>",
+					"otherinfo": "<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p><p></p><p>http://172.18.0.3:80/xvwa/vulnerabilities/idor/?item=1</p><p></p><p>appears to include user input in:</p><p>a(n) [meta] tag [content] attribute</p><p></p><p>The user input found was:</p><p>item=1</p><p></p><p>The user-controlled value was:</p><p>width=device-width, initial-scale=1</p>",
 					"reference": "<p>https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</p>",
 					"cweid": "20",
 					"wascid": "20",

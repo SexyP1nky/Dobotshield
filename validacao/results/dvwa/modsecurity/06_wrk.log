@@ -1,54 +1,54 @@
-=== wrk | dvwa/modsecurity | https://172.23.0.5:8443 | 15/07/2026  8:28:12,62 ===
+=== wrk | dvwa/modsecurity | https://172.18.0.5:8443 | 17/07/2026 20:45:59,52 ===
 REPETICOES: 3
-CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" https://172.23.0.5:8443
+CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" https://172.18.0.5:8443
 ----------------------------------------------------------------
 
 === REPETICAO 1/3 ===
-Running 30s test @ https://172.23.0.5:8443
+Running 30s test @ https://172.18.0.5:8443
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   258.65ms  167.01ms   1.25s    79.47%
-    Req/Sec   135.44     72.54   313.00     54.50%
+    Latency   253.20ms  102.09ms 780.03ms   68.73%
+    Req/Sec   130.61     38.89   373.00     63.89%
   Latency Distribution
-     50%  199.54ms
-     75%  316.92ms
-     90%  507.41ms
-     99%  815.73ms
-  47785 requests in 30.09s, 21.10MB read
-Requests/sec:   1587.89
-Transfer/sec:    717.96KB
+     50%  244.08ms
+     75%  312.94ms
+     90%  383.86ms
+     99%  556.18ms
+  46320 requests in 30.08s, 20.45MB read
+Requests/sec:   1539.92
+Transfer/sec:    696.27KB
 RUN_RC_1=0
 
 === REPETICAO 2/3 ===
-Running 30s test @ https://172.23.0.5:8443
+Running 30s test @ https://172.18.0.5:8443
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   267.34ms  150.46ms 914.46ms   77.24%
-    Req/Sec   125.06     70.37   323.00     61.07%
+    Latency   287.22ms  106.76ms 915.09ms   68.61%
+    Req/Sec   114.66     33.49   222.00     64.68%
   Latency Distribution
-     50%  202.51ms
-     75%  366.35ms
-     90%  498.39ms
-     99%  698.58ms
-  44676 requests in 30.10s, 19.73MB read
-Requests/sec:   1484.13
-Transfer/sec:    671.05KB
+     50%  275.70ms
+     75%  352.41ms
+     90%  430.22ms
+     99%  592.27ms
+  40623 requests in 30.10s, 17.94MB read
+Requests/sec:   1349.63
+Transfer/sec:    610.23KB
 RUN_RC_2=0
 
 === REPETICAO 3/3 ===
-Running 30s test @ https://172.23.0.5:8443
+Running 30s test @ https://172.18.0.5:8443
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   266.46ms  172.02ms   1.23s    80.43%
-    Req/Sec   130.40     75.04   830.00     60.61%
+    Latency   278.40ms  107.44ms 904.88ms   67.43%
+    Req/Sec   118.51     33.98   242.00     69.83%
   Latency Distribution
-     50%  199.25ms
-     75%  340.99ms
-     90%  520.58ms
-     99%  836.41ms
-  46407 requests in 30.08s, 20.49MB read
-Requests/sec:   1542.60
-Transfer/sec:    697.48KB
+     50%  266.43ms
+     75%  344.14ms
+     90%  423.82ms
+     99%  571.29ms
+  41845 requests in 30.10s, 18.48MB read
+Requests/sec:   1390.29
+Transfer/sec:    628.62KB
 RUN_RC_3=0
 
 TOOL_RC=0

@@ -65,8 +65,17 @@ O recurso é controlado por duas variáveis de ambiente (também editáveis pela
 | `TRAINING_MODE`      | `true`                 | Liga/desliga o registro estruturado.         |
 | `TRAINING_LOG_FILE`  | `logs/training.jsonl`  | Caminho do arquivo de log (deixe vazio para desativar). |
 
-No `docker-compose.yml`, os serviços `dobotshield_*` já montam `./logs/training`
-e definem essas variáveis, de modo que os eventos persistem no host.
+Nos laboratórios versionados, os serviços `dobotshield_*` já definem essas
+variáveis e persistem os eventos no host:
+
+- `validacao/docker-compose.demo.yml`: `validacao/logs/training/<app>/`;
+- `validacao/docker-compose.lab.yml`: `validacao/logs/training/<app>/`.
+
+Esses logs são artefatos locais de execução e não fazem parte dos resultados
+consolidados versionados em `validacao/results/`.
+
+Em uma implantação própria, monte o diretório indicado por
+`TRAINING_LOG_FILE` em um volume persistente.
 
 ---
 
@@ -90,7 +99,8 @@ go run ./cmd/report -in caminho.jsonl -out relatorio.html
 ```
 
 Na Admin UI, a seção *Modo de Treinamento* traz o comando e um botão
-**“Abrir relatório”** apontando para `../training-report.html`.
+**“Abrir relatório”** apontando para `../training-report.html`. O link funciona
+depois que o relatório tiver sido gerado; o HTML não é versionado nesta pasta.
 
 ---
 

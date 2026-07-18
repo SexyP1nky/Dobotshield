@@ -1,10 +1,10 @@
 RESUMO MECÂNICO DOS RESULTADOS
 
-dvwa/no_waf: ZAP HIGH=6; SQLMap vulnerável=True; XSStrike encontrou XSS=True; Commix vulnerável=True; wrk repetições=3
-dvwa/modsecurity: ZAP HIGH=1; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk repetições=3
-dvwa/dobotshield: ZAP HIGH=1; SQLMap vulnerável=True; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk repetições=3
+dvwa/no_waf: ZAP HIGH=1; SQLMap vulnerável=True; XSStrike encontrou XSS=True; Commix vulnerável=True; wrk repetições=3
+dvwa/modsecurity: ZAP HIGH=2; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk repetições=3
+dvwa/dobotshield: ZAP HIGH=1; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk repetições=3
 dvwa/coraza: ZAP HIGH=0; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk repetições=3
 xvwa/no_waf: ZAP HIGH=5; SQLMap vulnerável=True; XSStrike encontrou XSS=True; Commix vulnerável=True; wrk repetições=3
 xvwa/modsecurity: ZAP HIGH=1; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk repetições=3
-xvwa/dobotshield: ZAP HIGH=2; SQLMap vulnerável=True; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk repetições=3
+xvwa/dobotshield: ZAP HIGH=1; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk repetições=3
 xvwa/coraza: ZAP HIGH=1; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk repetições=3

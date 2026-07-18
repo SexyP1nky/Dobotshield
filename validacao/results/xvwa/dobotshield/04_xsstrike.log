@@ -1,5 +1,5 @@
-=== XSStrike | xvwa/dobotshield | https://172.23.0.7:443/xvwa/vulnerabilities/reflected_xss/?item=test | 14/07/2026 22:55:01,84 ===
-CMD: xsstrike.py -u "https://172.23.0.7:443/xvwa/vulnerabilities/reflected_xss/?item=test" -t 10 --skip --skip-dom --headers "User-Agent: DoBotShield-TCC-Validation/1.0"
+=== XSStrike | xvwa/dobotshield | https://172.18.0.10:443/xvwa/vulnerabilities/reflected_xss/?item=test | 17/07/2026 20:33:04,71 ===
+CMD: xsstrike.py -u "https://172.18.0.10:443/xvwa/vulnerabilities/reflected_xss/?item=test" -t 10 --skip --skip-dom --headers "User-Agent: DoBotShield-TCC-Validation/1.0"
 ----------------------------------------------------------------
 [91m
 	XSStrike [97mv3.1.5

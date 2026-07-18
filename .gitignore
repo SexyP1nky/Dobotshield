@@ -18,7 +18,6 @@ dist/
 # Ambiente local
 .env
 *.env
-!validacao/results/e2e_produto/config-gerada.env
 
 # Cache e estado em tempo de execucao
 .gocache/
@@ -28,6 +27,16 @@ ratelimit.json
 # Modo de Treinamento — logs locais de execução
 logs/training.jsonl
 logs/training/
+validacao/results/training/
+training-report.html
+
+# Verificações auxiliares locais — não fazem parte da entrega consolidada
+validacao/results/00_go_test.log
+validacao/results/AUDITORIA_INPUTS.json
+validacao/results/e2e_produto/
+validacao/e2e/
+validacao/tools/
+validacao/helpers/verificar_paridade.py
 
 # Ferramentas de seguranca baixadas localmente
 ferramentas/sqlmap/

