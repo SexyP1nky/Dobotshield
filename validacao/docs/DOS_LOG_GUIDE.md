@@ -52,6 +52,8 @@ Na raiz de `validacao/results/` ficam:
 - `ANALISE_RESULTADOS.json`;
 - `RESUMO_RESULTADOS.txt`;
 - `METODOLOGIA.txt`, cópia da metodologia usada na rodada.
+- `falsos_positivos/`, ensaio complementar com 100 requisições legítimas por
+  aplicação, CSV linha a linha, resumo e eventos de bloqueio do DoBotShield.
 
 ## Como interpretar
 
@@ -90,6 +92,14 @@ modsecurity/zap/zap_report.json: alerta Remote File Inclusion (High), evidência
 coraza/zap/zap_report.json:      alerta Remote File Inclusion (High), evidência <title>Google</title>
 dobotshield/02_zap_waf.log:      WAF_BLOCK em /xvwa/vulnerabilities/fi/ por SSRF na query
 dobotshield/zap/zap_report.json: sem alerta Remote File Inclusion
+```
+
+Exemplo do ensaio de tráfego legítimo:
+
+```text
+falsos_positivos/trafego_legitimo_200.csv: 200 respostas e classificação por evento
+falsos_positivos/bloqueios_dvwa.log:       20 RESPONSE_WAF_BLOCK do DVWA
+falsos_positivos/RESUMO.txt:               método, taxas por evento/rota e limites
 ```
 
 ## Paridade dos inputs
@@ -137,7 +147,8 @@ Os scripts `lab_0X_*_one.bat` são os executores unitários chamados pelos
 runners. Apenas `lab_00_setup.bat` cria ou redefine os bancos; as demais etapas
 preservam o estado preparado.
 
-Os resultados consolidados versionados são apenas as evidências diretas das seis
-ferramentas, os logs dos WAFs, os snapshots de saúde/recursos e os resumos da
-rodada. Testes end-to-end adicionais, auditorias auxiliares e seus utilitários
+Os resultados consolidados versionados contêm as evidências diretas das seis
+ferramentas, os logs dos WAFs, os snapshots de saúde/recursos, os resumos da
+rodada e o ensaio direto de tráfego legítimo solicitado para medir falsos
+positivos. Testes end-to-end auxiliares, auditorias de apoio e seus utilitários
 permanecem fora do repositório.

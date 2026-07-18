@@ -8,3 +8,11 @@ xvwa/no_waf: ZAP HIGH=5; SQLMap vulnerável=True; XSStrike encontrou XSS=True; C
 xvwa/modsecurity: ZAP HIGH=1; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk execuções=1; req/s=368.64; non-2xx/3xx=0
 xvwa/dobotshield: ZAP HIGH=1; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk execuções=1; req/s=142.34; non-2xx/3xx=0
 xvwa/coraza: ZAP HIGH=1; SQLMap vulnerável=False; XSStrike encontrou XSS=False; Commix vulnerável=False; wrk execuções=1; req/s=131.94; non-2xx/3xx=0
+
+TRÁFEGO LEGÍTIMO (DOBOTSHIELD EM BLOCK)
+
+DVWA: 100 requisições; 20 bloqueios indevidos; 20,0% por evento; 2/10 rotas.
+- /instructions.php: RESPONSE_SQL_ERROR, HTTP 502, 10/10.
+- /security.php: RESPONSE_XSS_PATTERN, HTTP 502, 10/10.
+XVWA: 100 requisições; 0 bloqueios indevidos; 0,0%; 0/10 rotas.
+Evidências detalhadas: falsos_positivos/.

@@ -33,8 +33,14 @@ A injeção foi confirmada nos dois destinos diretos (`no_waf`) e não foi confi
 - A diferença de throughput entre os cenários não deve ser atribuída somente ao WAF: cada implantação tem cadeia de proxy, limites e condições de execução próprios.
 - A latência de 2.190 ms no XVWA com Coraza sugere sensibilidade ao perfil da aplicação, possivelmente porque regras do CRS são acionadas com maior frequência em suas páginas PHP; a investigação causal permanece fora do escopo.
 
+## Tráfego legítimo e falsos positivos
+
+Em um ensaio complementar, o DoBotShield permaneceu em `WAF_MODE=block` e recebeu 100 requisições GET legítimas por aplicação. Cada amostra percorreu 10 rotas com valores neutros, repetidas 10 vezes. No DVWA houve 20/100 bloqueios indevidos (20,0% por evento e 2/10 rotas): `/instructions.php` acionou `RESPONSE_SQL_ERROR` e `/security.php` acionou `RESPONSE_XSS_PATTERN`, sempre com HTTP 502. No XVWA, as 100 requisições retornaram HTTP 200 e nenhum bloqueio do WAF foi observado.
+
+As repetições não constituem 100 casos independentes, por isso o resultado também é informado por rota e não deve ser extrapolado para produção. O achado mostra sensibilidade da inspeção de resposta a conteúdo didático do DVWA e fundamenta a sequência operacional Modo de Treinamento → `monitor` → revisão → `block`, com allowlist restrita à categoria e à rota quando necessária. Evidências: `validacao/results/falsos_positivos/`.
+
 ## Rastreabilidade
 
-Os 12 grupos aplicação/ferramenta mantiveram os mesmos parâmetros e divergiram somente no destino. Os arquivos brutos, relatórios do ZAP, snapshots de saúde/recursos e logs dos WAFs estão em `validacao/results/`.
+Os 12 grupos aplicação/ferramenta mantiveram os mesmos parâmetros e divergiram somente no destino. Os arquivos brutos, relatórios do ZAP, snapshots de saúde/recursos, logs dos WAFs e o ensaio complementar de tráfego legítimo estão em `validacao/results/`.
 
-A entrega contém apenas a rodada consolidada. Tentativas interrompidas por falha de infraestrutura não foram incorporadas aos resultados finais.
+A entrega contém a rodada consolidada e o ensaio complementar de tráfego legítimo. Tentativas interrompidas por falha de infraestrutura não foram incorporadas aos resultados finais.

@@ -4,6 +4,8 @@ Proxy reverso de segurança com WAF integrado, desenvolvido como Trabalho de Con
 
 A ideia é simples: em vez de expor a aplicação diretamente na internet, os clientes passam a acessar o DoBot Shield. Ele termina o TLS, inspeciona cada requisição e cada resposta, descarta o que é malicioso e encaminha o restante para a aplicação, que continua funcionando como antes.
 
+> **Versão pós-banca (18/07/2026):** as correções consolidadas estão na branch `docs/atualizacao-validacao-2026-07-18` e na tag `tcc-pos-banca-2026-07-18`. Enquanto essa branch não for incorporada ao `main`, use `git switch docs/atualizacao-validacao-2026-07-18` ou `git checkout tcc-pos-banca-2026-07-18` após clonar o repositório.
+
 ---
 
 ## O que ele faz
@@ -105,7 +107,7 @@ Os clientes agora acessam o **DoBot Shield**, não a aplicação diretamente. Em
 
 ### Atalho: montar o comando pela interface
 
-Em vez de digitar as variáveis manualmente, abra `admin-config/index.html` em qualquer navegador, preencha o formulário e copie o comando pronto nos formatos PowerShell, Bash ou `.env`. A página valida os campos e não precisa de backend.
+Em vez de digitar as variáveis manualmente, abra `admin-config/index.html` em qualquer navegador, preencha o formulário e copie o comando pronto nos formatos PowerShell, Bash ou `.env`. A página é um utilitário estático: valida os campos no próprio navegador, mostra a URL resultante, gera os comandos de compilação/execução para PowerShell e Bash, permite copiar a saída e baixar `dobotshield.env`. Ela não envia dados pela rede, não aplica a configuração e não inicia o serviço; o operador continua responsável por revisar e executar o conteúdo gerado.
 
 ---
 
@@ -318,6 +320,8 @@ Resposta ao cliente
 
 Em `HTTP_MODE`, somente o valor `true` ativa HTTP puro. Campos numéricos inválidos ou menores que o mínimo aceito retornam ao valor-padrão do código.
 
+`INSECURE_SKIP_VERIFY` controla exclusivamente a validação do certificado TLS entre o DoBotShield e um backend configurado com `https://`. Mantê-lo em `false` preserva a verificação da cadeia e do nome do host; ativá-lo aceita certificados inválidos e abre risco de interceptação, portanto só é justificável em um laboratório isolado. Na bancada consolidada ele permaneceu `false`: DVWA e XVWA eram acessados pelo proxy via HTTP, e o certificado autoassinado existia apenas no frontend HTTPS do próprio DoBotShield.
+
 ---
 
 ## Modo monitor
@@ -354,6 +358,10 @@ A comparação é feita por prefixo de caminho: a regra vale para o caminho info
 
 Com `TRAINING_MODE=true` (padrão), cada requisição barrada gera um registro JSON estruturado em `TRAINING_LOG_FILE` (padrão `logs/training.jsonl`) contendo o payload original, as variantes geradas pelas decodificações, a categoria, a regra acionada, o timestamp e o IP.
 
+Um falso negativo deixa uma ameaça alcançar a aplicação e pode comprometer dados ou disponibilidade; um falso positivo interrompe uma operação legítima e reduz a confiança no serviço. O ajuste não é binário: endurecer regras tende a capturar mais variantes, mas também pode bloquear conteúdo válido.
+
+Por isso, a implantação recomendada é gradual: habilite o Modo de Treinamento, opere primeiro em `monitor`, revise os eventos e só então migre para `block`. Quando uma regra colidir com conteúdo legítimo, prefira uma `WAF_ALLOWLIST` restrita à categoria e à rota afetadas. Esse fluxo reduz o risco operacional, mas não garante erro zero nem substitui validação e testes na aplicação.
+
 O relatório HTML didático (linha do tempo do ataque) é gerado por um utilitário separado, sem backend:
 
 ```powershell
@@ -370,6 +378,23 @@ O registro é totalmente aditivo: nunca altera a decisão do WAF e, em caso de f
 **Requisição:** XSS, SQLi, CMD_INJ, PATH_TRAVERSAL, SSRF, XXE, JNDI, NoSQLi, SSTI, PROTOTYPE_POLLUTION, OPEN_REDIRECT, HTTP_HEADER_INJECTION
 
 **Resposta:** RESPONSE_SQL_ERROR, RESPONSE_STACK_TRACE, RESPONSE_XSS_PATTERN, RESPONSE_FILE_LEAK
+
+Relação funcional com o OWASP Top 10:2025:
+
+| Risco OWASP | Categorias relacionadas | Limite da relação |
+|---|---|---|
+| A01 — Broken Access Control | PATH_TRAVERSAL, SSRF, OPEN_REDIRECT, RESPONSE_FILE_LEAK | Detecta alguns vetores e vazamentos; não decide autorização. |
+| A02 — Security Misconfiguration | HTTP_HEADER_INJECTION, OPEN_REDIRECT, RESPONSE_SQL_ERROR, RESPONSE_STACK_TRACE, RESPONSE_FILE_LEAK | Cobertura parcial de sintomas; headers e TLS também são controles fora das 16 categorias. |
+| A03 — Software Supply Chain Failures | JNDI | Apenas um vetor específico; não audita dependências ou o pipeline. |
+| A04 — Cryptographic Failures | Nenhuma categoria direta | A terminação TLS é um controle separado e não corrige criptografia da aplicação. |
+| A05 — Injection | XSS, SQLi, CMD_INJ, XXE, JNDI, NoSQLi, SSTI, HTTP_HEADER_INJECTION, PROTOTYPE_POLLUTION | Relação mais direta, ainda sem pretensão de cobrir toda variante. |
+| A06 — Insecure Design | SSRF, OPEN_REDIRECT, PROTOTYPE_POLLUTION | Detecta alguns sintomas, não falhas de projeto em si. |
+| A07 — Authentication Failures | Nenhuma categoria direta | Rate limiting ajuda contra abuso, mas não valida autenticação. |
+| A08 — Software or Data Integrity Failures | PROTOTYPE_POLLUTION, JNDI | Cobertura parcial de vetores, não de toda a cadeia de integridade. |
+| A09 — Security Logging and Alerting Failures | Nenhuma categoria direta | Logs e Modo de Treinamento geram evidências, mas são controles fora das 16 categorias. |
+| A10 — Mishandling of Exceptional Conditions | RESPONSE_SQL_ERROR, RESPONSE_STACK_TRACE, RESPONSE_FILE_LEAK | Identifica vazamentos de erro; não garante tratamento correto das exceções. |
+
+O quadro é uma aproximação de cobertura técnica, não uma certificação de aderência ao OWASP Top 10 nem prova de cobertura integral de cada risco.
 
 ---
 
@@ -426,9 +451,9 @@ refletido continua coberto pelo ZAP e pelo XSStrike. O `wrk` executa uma vez
 por cenário. A bancada chegou a produzir três execuções por engano; para
 restabelecer o desenho planejado com `n = 1` sem selecionar pelo desempenho,
 foi mantida sistematicamente a primeira execução completa de cada cenário e as
-duas posteriores foram excluídas. A entrega contém somente a rodada consolidada;
-tentativas interrompidas por falha de infraestrutura não fazem parte dos
-resultados.
+duas posteriores foram excluídas. A entrega contém a rodada consolidada e o
+ensaio complementar direto de tráfego legítimo; tentativas interrompidas por
+falha de infraestrutura não fazem parte dos resultados.
 
 O SQLMap foi executado sem tamper, com `--technique=B --level=1 --risk=1`,
 marcador de resposta por aplicação e atraso de `0.3 s`. Os dois acessos diretos
@@ -454,6 +479,8 @@ Resumo da rodada consolidada:
 | XVWA | Coraza | 1 | não injetável | bloqueado | bloqueado | 131,94 | 0 |
 
 No XVWA, o DoBotShield barrou com HTTP 400 o vetor de URL externa que o ZAP classificou como RFI; ModSecurity e Coraza, ambos com CRS, deixaram o vetor alcançar a aplicação e o ZAP registrou o alerta `High`.
+
+Um ensaio adicional enviou 100 requisições GET legítimas a cada aplicação pelo DoBotShield em `block`, com 10 rotas neutras repetidas 10 vezes. No DVWA ocorreram 20 bloqueios indevidos (20,0% por requisição; 2/10 rotas): `/instructions.php` acionou `RESPONSE_SQL_ERROR` e `/security.php` acionou `RESPONSE_XSS_PATTERN`. No XVWA não houve bloqueios indevidos (0/100). O resultado é exploratório e não permite alegar taxa de produção; ele demonstra por que `monitor`, Modo de Treinamento e allowlist por categoria/rota são necessários antes de `block`. Os dados linha a linha e os eventos do WAF estão em `validacao/results/falsos_positivos/`.
 
 Os resultados ficam em `validacao/results/<app>/<cenario>/`, com um log por ferramenta, snapshots de saúde/recursos, relatórios do ZAP e logs dos WAFs. A entrega atual contém resultados para:
 

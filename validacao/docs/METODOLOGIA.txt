@@ -262,4 +262,22 @@ SQLMap DoBotShield:
 - Bytes CRLF literais usados como separadores são consumidos pelo parser HTTP
   do Go e não chegam aos valores de cabeçalho inspecionados.
 - O estado do rate limiter é local ao processo.
-- INSECURE_SKIP_VERIFY não foi habilitado na rodada consolidada.
+- INSECURE_SKIP_VERIFY permaneceu false: os backends eram HTTP, e o
+  certificado autoassinado terminava apenas no frontend HTTPS do DoBotShield.
+
+12. ENSAIO COMPLEMENTAR DE TRÁFEGO LEGÍTIMO
+
+- Data: 18/07/2026.
+- DoBotShield em WAF_MODE=block, com inspeção de requisição e resposta ativa.
+- 100 GETs autenticados no DVWA e 100 GETs no XVWA.
+- Por aplicação, 10 rotas legítimas com valores neutros foram repetidas 10
+  vezes; a taxa é informada por evento e por rota para não tratar as repetições
+  como casos independentes.
+- Critério de falso positivo: HTTP 400/502 com a resposta padronizada de
+  bloqueio do DoBotShield e confirmação no log RESPONSE_WAF_BLOCK.
+- Resultado DVWA: 20/100 (20,0%) e 2/10 rotas; /instructions.php acionou
+  RESPONSE_SQL_ERROR e /security.php acionou RESPONSE_XSS_PATTERN.
+- Resultado XVWA: 0/100 (0,0%) e 0/10 rotas.
+- Evidências: results/falsos_positivos/trafego_legitimo_200.csv,
+  results/falsos_positivos/bloqueios_dvwa.log e RESUMO.txt.
+- Ensaio exploratório; não estima taxa de falso positivo em produção.

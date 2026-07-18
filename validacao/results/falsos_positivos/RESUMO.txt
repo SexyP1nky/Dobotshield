@@ -1,0 +1,56 @@
+Ensaio de tráfego legítimo — falsos positivos do DoBotShield
+Data: 2026-07-18
+
+OBJETIVO
+Medir bloqueios indevidos em tráfego legítimo com o DoBotShield em modo block.
+
+CONFIGURAÇÃO
+- WAF_MODE=block
+- ENABLE_WAF=true
+- ENABLE_RESPONSE_INSPECTION=true
+- RATE_LIMIT=10000
+- BURST_LIMIT=20000
+- MAX_CONNS=500
+- INSECURE_SKIP_VERIFY=false
+- Frontend HTTPS do WAF com certificado autoassinado; o cliente de ensaio aceitou
+  esse certificado. Os backends DVWA/XVWA permaneceram em HTTP, portanto a
+  validação TLS do upstream não foi desabilitada.
+
+AMOSTRA
+- DVWA: 100 requisições GET autenticadas, distribuídas igualmente entre 10
+  rotas legítimas (10 repetições por rota), com parâmetros neutros quando
+  aplicável.
+- XVWA: 100 requisições GET, distribuídas igualmente entre 10 rotas legítimas
+  (10 repetições por rota), com parâmetros neutros quando aplicável.
+- Total: 200 requisições. A repetição das rotas mede eventos de bloqueio na
+  amostra; também é informado o resultado por rota para não sugerir 100 casos
+  independentes.
+
+RESULTADOS
+- DVWA: 20/100 bloqueios indevidos = 20,0% por requisição; 2/10 rotas = 20,0%.
+  - /instructions.php: 10 bloqueios HTTP 502, categoria RESPONSE_SQL_ERROR.
+  - /security.php: 10 bloqueios HTTP 502, categoria RESPONSE_XSS_PATTERN.
+  - Demais 80 requisições: HTTP 200.
+- XVWA: 0/100 bloqueios indevidos = 0,0% por requisição; 0/10 rotas.
+  - Todas as 100 requisições: HTTP 200.
+- Agregado descritivo: 20/200 = 10,0%; não deve substituir os resultados
+  separados, pois as aplicações e as rotas são diferentes.
+
+CRITÉRIO
+Foi contado como falso positivo apenas o HTTP 400/502 acompanhado da resposta
+padronizada "Security Violation"/"blocked by security policy" do DoBotShield.
+Os logs do contêiner confirmaram RESPONSE_WAF_BLOCK e a categoria acionada.
+
+INTERPRETAÇÃO
+O resultado não sustenta a alegação de taxa zero de falsos positivos. Ele mostra
+sensibilidade da inspeção de resposta a páginas didáticas do DVWA, que exibem
+texto semelhante a erro SQL e exemplos de XSS. A mitigação operacional adequada
+é observar primeiro em monitor/Modo de Treinamento, revisar os eventos e aplicar
+allowlist restrita por categoria e rota antes de ativar block. O ensaio é
+exploratório e não estima a taxa em produção nem substitui um corpus amplo e
+independente de tráfego real.
+
+ARQUIVOS
+- trafego_legitimo_200.csv: uma linha por requisição, com rota, status, tamanho,
+  latência e indicação de bloqueio do WAF.
+- bloqueios_dvwa.log: 20 eventos RESPONSE_WAF_BLOCK emitidos durante o ensaio.

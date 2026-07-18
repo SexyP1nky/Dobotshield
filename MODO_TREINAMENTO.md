@@ -10,6 +10,17 @@ O objetivo é posicioná-lo, no artigo, como um **diferencial para equipes que
 querem aprender sobre ataques web enquanto protegem sistemas legados**: o mesmo
 proxy que bloqueia o ataque também serve de material de estudo.
 
+Operacionalmente, o recurso também apoia a calibração de falsos positivos. O
+fluxo recomendado é registrar em Modo de Treinamento, observar primeiro com
+`WAF_MODE=monitor`, revisar categoria e rota, aplicar uma allowlist restrita
+quando necessária e somente então ativar `block`. Na amostra complementar de
+18/07/2026, 20 de 100 requisições legítimas ao DVWA foram bloqueadas em duas
+rotas didáticas, enquanto o XVWA teve 0 de 100; os eventos permitiram identificar
+`RESPONSE_SQL_ERROR` em `/instructions.php` e `RESPONSE_XSS_PATTERN` em
+`/security.php`. As evidências estão em
+`validacao/results/falsos_positivos/`; o ensaio é exploratório e não representa
+uma taxa de produção.
+
 > **Garantia de não-intrusão:** todo o recurso é aditivo. Ele observa o ponto em
 > que o WAF já decidiu bloquear e nunca altera essa decisão. Se o registro
 > falhar (disco cheio, diretório somente leitura), o logger entra em modo
