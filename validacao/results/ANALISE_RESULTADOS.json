@@ -21,7 +21,11 @@
       "sqlmap": {
         "disponivel": true,
         "vulneravel": true,
-        "nao_injetavel": true,
+        "nao_injetavel": false,
+        "veredito_por_endpoint": {
+          "/sqli": "vulneravel",
+          "/sqli_blind": "nao_injetavel"
+        },
         "http": {
           "404": 7
         },
@@ -45,47 +49,15 @@
       },
       "wrk": {
         "disponivel": true,
-        "repeticoes": [
-          {
-            "req_s": 5327.7,
-            "total": 160358,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 651.08,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 558
-          },
-          {
-            "req_s": 5800.65,
-            "total": 174509,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 704.66,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 238
-          },
-          {
-            "req_s": 5947.72,
-            "total": 178790,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 686.28,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 218
-          }
-        ],
-        "media": {
-          "req_s": 5692.0233333333335,
-          "total": 171219.0,
-          "non_2xx_3xx": 0.0,
-          "latencia_ms": 680.6733333333333,
-          "socket_connect": 0.0,
-          "socket_read": 0.0,
-          "socket_write": 0.0,
-          "timeout": 338.0
+        "execucao_unica": {
+          "req_s": 5327.7,
+          "total": 160358,
+          "non_2xx_3xx": 0,
+          "latencia_ms": 651.08,
+          "socket_connect": 0,
+          "socket_read": 0,
+          "socket_write": 0,
+          "timeout": 558
         }
       }
     },
@@ -120,6 +92,15 @@
           "403": 24,
           "404": 2
         },
+        "http_por_endpoint": {
+          "/sqli": {
+            "403": 12
+          },
+          "/sqli_blind": {
+            "403": 12,
+            "404": 2
+          }
+        },
         "tool_rc": [
           "0",
           "0"
@@ -142,47 +123,15 @@
       },
       "wrk": {
         "disponivel": true,
-        "repeticoes": [
-          {
-            "req_s": 1539.92,
-            "total": 46320,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 253.2,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 0
-          },
-          {
-            "req_s": 1349.63,
-            "total": 40623,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 287.22,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 0
-          },
-          {
-            "req_s": 1390.29,
-            "total": 41845,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 278.4,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 0
-          }
-        ],
-        "media": {
-          "req_s": 1426.6133333333335,
-          "total": 42929.333333333336,
-          "non_2xx_3xx": 0.0,
-          "latencia_ms": 272.94,
-          "socket_connect": 0.0,
-          "socket_read": 0.0,
-          "socket_write": 0.0,
-          "timeout": 0.0
+        "execucao_unica": {
+          "req_s": 1539.92,
+          "total": 46320,
+          "non_2xx_3xx": 0,
+          "latencia_ms": 253.2,
+          "socket_connect": 0,
+          "socket_read": 0,
+          "socket_write": 0,
+          "timeout": 0
         }
       }
     },
@@ -213,6 +162,16 @@
           "400": 24,
           "404": 2
         },
+        "http_por_endpoint": {
+          "/sqli": {
+            "400": 12,
+            "502": 2
+          },
+          "/sqli_blind": {
+            "400": 12,
+            "404": 2
+          }
+        },
         "tool_rc": [
           "0",
           "0"
@@ -235,47 +194,15 @@
       },
       "wrk": {
         "disponivel": true,
-        "repeticoes": [
-          {
-            "req_s": 2299.94,
-            "total": 69189,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 235.1,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 0
-          },
-          {
-            "req_s": 1326.3,
-            "total": 39911,
-            "non_2xx_3xx": 2817,
-            "latencia_ms": 331.73,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 0
-          },
-          {
-            "req_s": 2058.27,
-            "total": 61939,
-            "non_2xx_3xx": 153,
-            "latencia_ms": 244.83,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 9
-          }
-        ],
-        "media": {
-          "req_s": 1894.8366666666668,
-          "total": 57013.0,
-          "non_2xx_3xx": 990.0,
-          "latencia_ms": 270.55333333333334,
-          "socket_connect": 0.0,
-          "socket_read": 0.0,
-          "socket_write": 0.0,
-          "timeout": 3.0
+        "execucao_unica": {
+          "req_s": 2299.94,
+          "total": 69189,
+          "non_2xx_3xx": 0,
+          "latencia_ms": 235.1,
+          "socket_connect": 0,
+          "socket_read": 0,
+          "socket_write": 0,
+          "timeout": 0
         }
       }
     },
@@ -299,6 +226,15 @@
           "403": 24,
           "404": 2
         },
+        "http_por_endpoint": {
+          "/sqli": {
+            "403": 12
+          },
+          "/sqli_blind": {
+            "403": 12,
+            "404": 2
+          }
+        },
         "tool_rc": [
           "0",
           "0"
@@ -321,47 +257,15 @@
       },
       "wrk": {
         "disponivel": true,
-        "repeticoes": [
-          {
-            "req_s": 2039.97,
-            "total": 61309,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 399.8,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 733
-          },
-          {
-            "req_s": 1869.29,
-            "total": 56285,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 306.22,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 654
-          },
-          {
-            "req_s": 2089.38,
-            "total": 62858,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 360.34,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 699
-          }
-        ],
-        "media": {
-          "req_s": 1999.5466666666669,
-          "total": 60150.666666666664,
-          "non_2xx_3xx": 0.0,
-          "latencia_ms": 355.4533333333334,
-          "socket_connect": 0.0,
-          "socket_read": 0.0,
-          "socket_write": 0.0,
-          "timeout": 695.3333333333334
+        "execucao_unica": {
+          "req_s": 2039.97,
+          "total": 61309,
+          "non_2xx_3xx": 0,
+          "latencia_ms": 399.8,
+          "socket_connect": 0,
+          "socket_read": 0,
+          "socket_write": 0,
+          "timeout": 733
         }
       }
     },
@@ -427,47 +331,15 @@
       },
       "wrk": {
         "disponivel": true,
-        "repeticoes": [
-          {
-            "req_s": 641.58,
-            "total": 19299,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 238.68,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 178
-          },
-          {
-            "req_s": 391.14,
-            "total": 11772,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 338.5,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 68
-          },
-          {
-            "req_s": 438.91,
-            "total": 13210,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 260.39,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 127
-          }
-        ],
-        "media": {
-          "req_s": 490.54333333333335,
-          "total": 14760.333333333334,
-          "non_2xx_3xx": 0.0,
-          "latencia_ms": 279.19,
-          "socket_connect": 0.0,
-          "socket_read": 0.0,
-          "socket_write": 0.0,
-          "timeout": 124.33333333333333
+        "execucao_unica": {
+          "req_s": 641.58,
+          "total": 19299,
+          "non_2xx_3xx": 0,
+          "latencia_ms": 238.68,
+          "socket_connect": 0,
+          "socket_read": 0,
+          "socket_write": 0,
+          "timeout": 178
         }
       }
     },
@@ -517,47 +389,15 @@
       },
       "wrk": {
         "disponivel": true,
-        "repeticoes": [
-          {
-            "req_s": 368.64,
-            "total": 11097,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 915.56,
-            "socket_connect": 0,
-            "socket_read": 320,
-            "socket_write": 0,
-            "timeout": 63
-          },
-          {
-            "req_s": 303.85,
-            "total": 9144,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 1140.0,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 28
-          },
-          {
-            "req_s": 312.98,
-            "total": 9417,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 1060.0,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 43
-          }
-        ],
-        "media": {
-          "req_s": 328.49,
-          "total": 9886.0,
-          "non_2xx_3xx": 0.0,
-          "latencia_ms": 1038.52,
-          "socket_connect": 0.0,
-          "socket_read": 106.66666666666667,
-          "socket_write": 0.0,
-          "timeout": 44.666666666666664
+        "execucao_unica": {
+          "req_s": 368.64,
+          "total": 11097,
+          "non_2xx_3xx": 0,
+          "latencia_ms": 915.56,
+          "socket_connect": 0,
+          "socket_read": 320,
+          "socket_write": 0,
+          "timeout": 63
         }
       }
     },
@@ -608,47 +448,15 @@
       },
       "wrk": {
         "disponivel": true,
-        "repeticoes": [
-          {
-            "req_s": 142.34,
-            "total": 4283,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 2110.0,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 296
-          },
-          {
-            "req_s": 144.54,
-            "total": 4348,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 1930.0,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 590
-          },
-          {
-            "req_s": 145.34,
-            "total": 4372,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 1940.0,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 498
-          }
-        ],
-        "media": {
-          "req_s": 144.07333333333335,
-          "total": 4334.333333333333,
-          "non_2xx_3xx": 0.0,
-          "latencia_ms": 1993.3333333333333,
-          "socket_connect": 0.0,
-          "socket_read": 0.0,
-          "socket_write": 0.0,
-          "timeout": 461.3333333333333
+        "execucao_unica": {
+          "req_s": 142.34,
+          "total": 4283,
+          "non_2xx_3xx": 0,
+          "latencia_ms": 2110.0,
+          "socket_connect": 0,
+          "socket_read": 0,
+          "socket_write": 0,
+          "timeout": 296
         }
       }
     },
@@ -698,47 +506,15 @@
       },
       "wrk": {
         "disponivel": true,
-        "repeticoes": [
-          {
-            "req_s": 131.94,
-            "total": 3970,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 2190.0,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 465
-          },
-          {
-            "req_s": 128.31,
-            "total": 3862,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 2620.0,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 188
-          },
-          {
-            "req_s": 131.59,
-            "total": 3961,
-            "non_2xx_3xx": 0,
-            "latencia_ms": 2650.0,
-            "socket_connect": 0,
-            "socket_read": 0,
-            "socket_write": 0,
-            "timeout": 155
-          }
-        ],
-        "media": {
-          "req_s": 130.61333333333334,
-          "total": 3931.0,
-          "non_2xx_3xx": 0.0,
-          "latencia_ms": 2486.6666666666665,
-          "socket_connect": 0.0,
-          "socket_read": 0.0,
-          "socket_write": 0.0,
-          "timeout": 269.3333333333333
+        "execucao_unica": {
+          "req_s": 131.94,
+          "total": 3970,
+          "non_2xx_3xx": 0,
+          "latencia_ms": 2190.0,
+          "socket_connect": 0,
+          "socket_read": 0,
+          "socket_write": 0,
+          "timeout": 465
         }
       }
     }

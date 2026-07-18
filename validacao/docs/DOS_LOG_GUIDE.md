@@ -80,7 +80,7 @@ Exemplo de leitura do `wrk`:
 06_wrk.log:              req/s, total, não 2xx/3xx, latência e erros
 06_pre_wrk_stats.txt:    recursos antes da carga
 06_post_wrk_stats.txt:   recursos depois da carga
-06_post_wrk_health.txt:  disponibilidade após as três repetições
+06_post_wrk_health.txt:  disponibilidade após a execução única
 ```
 
 ## Paridade dos inputs
@@ -104,7 +104,7 @@ aplicação/ferramenta.
 - ZAP: mesma política e regra 40026 ignorada em todos os destinos; DVWA usa
   sessão autenticada e XVWA usa as mesmas sementes relativas nos quatro
   cenários.
-- wrk: `-t12 -c400 -d30s --timeout 5s --latency`, três repetições.
+- wrk: `-t12 -c400 -d30s --timeout 5s --latency`, uma execução por cenário.
 - testssl.sh: mesmo perfil por aplicação; os baselines `no_waf` usam HTTP e,
   portanto, não oferecem TLS.
 

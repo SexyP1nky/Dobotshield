@@ -1,9 +1,9 @@
 === wrk | dvwa/modsecurity | https://172.18.0.5:8443 | 17/07/2026 20:45:59,52 ===
-REPETICOES: 3
+REPETICOES: 1
 CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" https://172.18.0.5:8443
 ----------------------------------------------------------------
 
-=== REPETICAO 1/3 ===
+=== EXECUCAO UNICA ===
 Running 30s test @ https://172.18.0.5:8443
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -17,38 +17,6 @@ Running 30s test @ https://172.18.0.5:8443
   46320 requests in 30.08s, 20.45MB read
 Requests/sec:   1539.92
 Transfer/sec:    696.27KB
-RUN_RC_1=0
-
-=== REPETICAO 2/3 ===
-Running 30s test @ https://172.18.0.5:8443
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   287.22ms  106.76ms 915.09ms   68.61%
-    Req/Sec   114.66     33.49   222.00     64.68%
-  Latency Distribution
-     50%  275.70ms
-     75%  352.41ms
-     90%  430.22ms
-     99%  592.27ms
-  40623 requests in 30.10s, 17.94MB read
-Requests/sec:   1349.63
-Transfer/sec:    610.23KB
-RUN_RC_2=0
-
-=== REPETICAO 3/3 ===
-Running 30s test @ https://172.18.0.5:8443
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   278.40ms  107.44ms 904.88ms   67.43%
-    Req/Sec   118.51     33.98   242.00     69.83%
-  Latency Distribution
-     50%  266.43ms
-     75%  344.14ms
-     90%  423.82ms
-     99%  571.29ms
-  41845 requests in 30.10s, 18.48MB read
-Requests/sec:   1390.29
-Transfer/sec:    628.62KB
-RUN_RC_3=0
+RUN_RC=0
 
 TOOL_RC=0

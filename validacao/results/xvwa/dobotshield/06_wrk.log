@@ -1,9 +1,9 @@
 === wrk | xvwa/dobotshield | https://172.18.0.10:443/xvwa/ | 17/07/2026 23:39:00,91 ===
-REPETICOES: 3
+REPETICOES: 1
 CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" https://172.18.0.10:443/xvwa/
 ----------------------------------------------------------------
 
-=== REPETICAO 1/3 ===
+=== EXECUCAO UNICA ===
 Running 30s test @ https://172.18.0.10:443/xvwa/
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -18,40 +18,6 @@ Running 30s test @ https://172.18.0.10:443/xvwa/
   Socket errors: connect 0, read 0, write 0, timeout 296
 Requests/sec:    142.34
 Transfer/sec:      1.51MB
-RUN_RC_1=0
-
-=== REPETICAO 2/3 ===
-Running 30s test @ https://172.18.0.10:443/xvwa/
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.93s     1.21s    5.00s    73.92%
-    Req/Sec    16.14     12.70   110.00     71.08%
-  Latency Distribution
-     50%    1.47s 
-     75%    2.72s 
-     90%    4.01s 
-     99%    4.93s 
-  4348 requests in 30.08s, 46.07MB read
-  Socket errors: connect 0, read 0, write 0, timeout 590
-Requests/sec:    144.54
-Transfer/sec:      1.53MB
-RUN_RC_2=0
-
-=== REPETICAO 3/3 ===
-Running 30s test @ https://172.18.0.10:443/xvwa/
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.94s     1.32s    5.00s    70.68%
-    Req/Sec    15.40     11.54    70.00     73.89%
-  Latency Distribution
-     50%    1.33s 
-     75%    2.95s 
-     90%    4.15s 
-     99%    4.90s 
-  4372 requests in 30.08s, 46.33MB read
-  Socket errors: connect 0, read 0, write 0, timeout 498
-Requests/sec:    145.34
-Transfer/sec:      1.54MB
-RUN_RC_3=0
+RUN_RC=0
 
 TOOL_RC=0

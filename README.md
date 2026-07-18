@@ -422,29 +422,36 @@ lab_99_derrubar.bat    # derruba o lab
 
 O ZAP usa a mesma política nos oito destinos e ignora uniformemente a regra
 ativa 40026 (DOM XSS), que encerrava o processo Java nesta bancada. XSS
-refletido continua coberto pelo ZAP e pelo XSStrike. O `wrk` executa três
-repetições por cenário. A entrega contém somente a rodada consolidada; tentativas
-interrompidas por falha de infraestrutura não fazem parte dos resultados.
+refletido continua coberto pelo ZAP e pelo XSStrike. O `wrk` executa uma vez
+por cenário. A bancada chegou a produzir três execuções por engano; para
+restabelecer o desenho planejado com `n = 1` sem selecionar pelo desempenho,
+foi mantida sistematicamente a primeira execução completa de cada cenário e as
+duas posteriores foram excluídas. A entrega contém somente a rodada consolidada;
+tentativas interrompidas por falha de infraestrutura não fazem parte dos
+resultados.
 
 O SQLMap foi executado sem tamper, com `--technique=B --level=1 --risk=1`,
 marcador de resposta por aplicação e atraso de `0.3 s`. Os dois acessos diretos
 confirmaram a SQLi booleana; ModSecurity, DoBotShield e Coraza impediram a
-confirmação. A configuração de carga do DoBotShield na bancada foi calibrada em
+confirmação. O tamper `equaltolike` foi removido para avaliar o WAF sem
+mascaramento do operador de comparação; a regra corrigida também bloqueia
+variantes com `LIKE` e `~`, verificadas em teste ponta a ponta. A configuração
+de carga do DoBotShield na bancada foi calibrada em
 `RATE_LIMIT=10000`, `BURST_LIMIT=20000` e `MAX_CONNS=500`, sem alterar os
 valores-padrão do produto mostrados anteriormente.
 
 Resumo da rodada consolidada:
 
-| Aplicação | Cenário | ZAP HIGH | SQLMap | XSStrike | Commix | wrk req/s média | não 2xx/3xx |
+| Aplicação | Cenário | ZAP HIGH | SQLMap | XSStrike | Commix | wrk req/s | não 2xx/3xx |
 |---|---|---:|---|---|---|---:|---:|
-| DVWA | sem WAF | 1 | vulnerável | XSS confirmado | injeção confirmada | 5.692,02 | 0 |
-| DVWA | ModSecurity | 2 | não injetável | bloqueado | bloqueado | 1.426,61 | 0 |
-| DVWA | DoBotShield | 1 | não injetável | bloqueado | bloqueado | 1.894,84 | 990 |
-| DVWA | Coraza | 0 | não injetável | bloqueado | bloqueado | 1.999,55 | 0 |
-| XVWA | sem WAF | 5 | vulnerável | XSS confirmado | injeção confirmada | 490,54 | 0 |
-| XVWA | ModSecurity | 1 | não injetável | bloqueado | bloqueado | 328,49 | 0 |
-| XVWA | DoBotShield | 1 | não injetável | bloqueado | bloqueado | 144,07 | 0 |
-| XVWA | Coraza | 1 | não injetável | bloqueado | bloqueado | 130,61 | 0 |
+| DVWA | sem WAF | 1 | vulnerável | XSS confirmado | injeção confirmada | 5.327,70 | 0 |
+| DVWA | ModSecurity | 2 | não injetável | bloqueado | bloqueado | 1.539,92 | 0 |
+| DVWA | DoBotShield | 1 | não injetável | bloqueado | bloqueado | 2.299,94 | 0 |
+| DVWA | Coraza | 0 | não injetável | bloqueado | bloqueado | 2.039,97 | 0 |
+| XVWA | sem WAF | 5 | vulnerável | XSS confirmado | injeção confirmada | 641,58 | 0 |
+| XVWA | ModSecurity | 1 | não injetável | bloqueado | bloqueado | 368,64 | 0 |
+| XVWA | DoBotShield | 1 | não injetável | bloqueado | bloqueado | 142,34 | 0 |
+| XVWA | Coraza | 1 | não injetável | bloqueado | bloqueado | 131,94 | 0 |
 
 Os resultados ficam em `validacao/results/<app>/<cenario>/`, com um log por ferramenta, snapshots de saúde/recursos, relatórios do ZAP e logs dos WAFs. A entrega atual contém resultados para:
 

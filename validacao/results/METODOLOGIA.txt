@@ -33,8 +33,11 @@ Ferramentas:
 Total lógico:
 2 aplicações x 4 cenários x 6 ferramentas = 48 combinações comparativas.
 
-O wrk executa três repetições por combinação. As 48 combinações representam os
-resultados comparáveis; as repetições do wrk são agregadas por média.
+O wrk executa uma vez por combinação. As 48 combinações representam os
+resultados comparáveis. A bancada havia produzido três execuções por engano;
+para restabelecer o desenho planejado com n=1 sem selecionar pelo desempenho,
+foi mantida sistematicamente a primeira execução completa de cada cenário e as
+duas posteriores foram excluídas.
 
 3. PRINCÍPIO DE PARIDADE
 
@@ -127,6 +130,10 @@ Parâmetros comuns:
 - --delay=0.3
 - sem tamper
 
+O tamper equaltolike foi removido para avaliar o comportamento do WAF sem
+mascaramento do operador de comparação; a regra corrigida também bloqueia as
+variantes com LIKE e ~, conforme verificado em teste ponta a ponta.
+
 DVWA:
 - GET /vulnerabilities/sqli/?id=1&Submit=Submit
 - GET /vulnerabilities/sqli_blind/?id=1&Submit=Submit
@@ -180,8 +187,7 @@ execução. O pseudo-shell é recusado e testes extras não necessários são pu
 Comando comum:
 wrk -t12 -c400 -d30s --timeout 5s --latency
 
-- três repetições por cenário;
-- intervalo aproximado de 5 segundos entre repetições;
+- uma execução por cenário;
 - sem atraso artificial dentro do teste;
 - registrar req/s, total, não 2xx/3xx, latência e erros de socket/timeout.
 
@@ -240,7 +246,8 @@ Artefatos consolidados:
   DoBotShield após a correção da regra.
 
 SQLMap DoBotShield:
-- DVWA: HTTP 400 x 24; HTTP 404 x 2; HTTP 502 x 2.
+- DVWA /sqli: HTTP 400 x 12; HTTP 502 x 2.
+- DVWA /sqli_blind: HTTP 400 x 12; HTTP 404 x 2.
 - XVWA: HTTP 400 x 12; HTTP 502 x 2.
 
 11. LIMITAÇÕES

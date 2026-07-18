@@ -1,9 +1,9 @@
 === wrk | dvwa/dobotshield | https://172.18.0.7:443 | 17/07/2026 23:36:42,36 ===
-REPETICOES: 3
+REPETICOES: 1
 CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: DoBotShield-TCC-Validation/1.0" https://172.18.0.7:443
 ----------------------------------------------------------------
 
-=== REPETICAO 1/3 ===
+=== EXECUCAO UNICA ===
 Running 30s test @ https://172.18.0.7:443
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -17,41 +17,6 @@ Running 30s test @ https://172.18.0.7:443
   69189 requests in 30.08s, 46.45MB read
 Requests/sec:   2299.94
 Transfer/sec:      1.54MB
-RUN_RC_1=0
-
-=== REPETICAO 2/3 ===
-Running 30s test @ https://172.18.0.7:443
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   331.73ms  314.09ms   2.90s    79.45%
-    Req/Sec   114.75     72.31   460.00     61.31%
-  Latency Distribution
-     50%  276.15ms
-     75%  484.20ms
-     90%  677.99ms
-     99%    1.49s 
-  39911 requests in 30.09s, 25.59MB read
-  Non-2xx or 3xx responses: 2817
-Requests/sec:   1326.30
-Transfer/sec:      0.85MB
-RUN_RC_2=0
-
-=== REPETICAO 3/3 ===
-Running 30s test @ https://172.18.0.7:443
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   244.83ms  271.23ms   3.65s    88.27%
-    Req/Sec   175.83     88.83   838.00     66.16%
-  Latency Distribution
-     50%  153.63ms
-     75%  345.91ms
-     90%  560.09ms
-     99%    1.26s 
-  61939 requests in 30.09s, 41.52MB read
-  Socket errors: connect 0, read 0, write 0, timeout 9
-  Non-2xx or 3xx responses: 153
-Requests/sec:   2058.27
-Transfer/sec:      1.38MB
-RUN_RC_3=0
+RUN_RC=0
 
 TOOL_RC=0

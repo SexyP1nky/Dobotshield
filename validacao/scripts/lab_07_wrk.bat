@@ -6,8 +6,8 @@ REM  Roda wrk contra os 8 alvos. Input IDENTICO em todos; so a URL muda.
 REM
 REM  Configuracao (agressiva, identica para todos -- e um teste de carga,
 REM  nao de payload; por isso NAO usa delay nem cookie):
-REM    - 3 repeticoes por cenario; em cada uma: 12 threads, 400 conexoes,
-REM      30s, timeout 5s, --latency e o mesmo User-Agent fixo.
+REM    - 1 execucao por cenario: 12 threads, 400 conexoes, 30s, timeout 5s,
+REM      --latency e o mesmo User-Agent fixo.
 REM
 REM  Mede throughput/resiliencia. No DoBotShield, o rate limit permanece ligado,
 REM  calibrado para nao confundir carga legitima com bloqueio por configuracao.
@@ -27,7 +27,7 @@ set "FAIL=0"
 
 echo.
 echo ============================================================
-echo   FERRAMENTA: wrk (3 x carga 12t x 400c x 30s)  --  %DATE% %TIME%
+echo   FERRAMENTA: wrk (1 x carga 12t x 400c x 30s)  --  %DATE% %TIME%
 echo ============================================================
 
 call "%LIB%" ensure_net || exit /b 2

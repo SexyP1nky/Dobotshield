@@ -22,7 +22,7 @@ set "SCEN=%~2"
 set "URL=%~3"
 set "BACKEND=%~4"
 set "WAFCT=%~5"
-if "%WRK_REPETITIONS%"=="" set "WRK_REPETITIONS=3"
+set "WRK_REPETITIONS=1"
 set "LAB_USER_AGENT=DoBotShield-TCC-Validation/1.0"
 
 if "%APP%"=="" (
@@ -51,18 +51,15 @@ call "%LIB%" stats_snap   "%BACKEND%" "%WAFCT%" "%OUT%\06_pre_wrk_stats.txt"
 >> "%LOG%" echo CMD: wrk -t12 -c400 -d30s --timeout 5s --latency -H "User-Agent: %LAB_USER_AGENT%" %URL%
 >> "%LOG%" echo ----------------------------------------------------------------
 set "TOOL_RC=0"
-for /l %%R in (1,1,%WRK_REPETITIONS%) do (
-    >> "%LOG%" echo.
-    >> "%LOG%" echo === REPETICAO %%R/%WRK_REPETITIONS% ===
-    docker run --rm --network %NET% %IMG_WRK% ^
-        -t12 -c400 -d30s --timeout 5s --latency ^
-        -H "User-Agent: %LAB_USER_AGENT%" ^
-        "%URL%" >> "%LOG%" 2>&1
-    set "RUN_RC=!ERRORLEVEL!"
-    >> "%LOG%" echo RUN_RC_%%R=!RUN_RC!
-    if not "!RUN_RC!"=="0" set "TOOL_RC=!RUN_RC!"
-    if not "%%R"=="%WRK_REPETITIONS%" ping -n 6 127.0.0.1 >nul
-)
+>> "%LOG%" echo.
+>> "%LOG%" echo === EXECUCAO UNICA ===
+docker run --rm --network %NET% %IMG_WRK% ^
+    -t12 -c400 -d30s --timeout 5s --latency ^
+    -H "User-Agent: %LAB_USER_AGENT%" ^
+    "%URL%" >> "%LOG%" 2>&1
+set "RUN_RC=!ERRORLEVEL!"
+>> "%LOG%" echo RUN_RC=!RUN_RC!
+if not "!RUN_RC!"=="0" set "TOOL_RC=!RUN_RC!"
 >> "%LOG%" echo.
 >> "%LOG%" echo TOOL_RC=!TOOL_RC!
 
