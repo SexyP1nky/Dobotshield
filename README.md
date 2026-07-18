@@ -365,7 +365,7 @@ O registro é totalmente aditivo: nunca altera a decisão do WAF e, em caso de f
 
 ---
 
-## Categorias de ataque detectadas
+## Categorias de inspeção
 
 **Requisição:** XSS, SQLi, CMD_INJ, PATH_TRAVERSAL, SSRF, XXE, JNDI, NoSQLi, SSTI, PROTOTYPE_POLLUTION, OPEN_REDIRECT, HTTP_HEADER_INJECTION
 
@@ -452,6 +452,8 @@ Resumo da rodada consolidada:
 | XVWA | ModSecurity | 1 | não injetável | bloqueado | bloqueado | 368,64 | 0 |
 | XVWA | DoBotShield | 1 | não injetável | bloqueado | bloqueado | 142,34 | 0 |
 | XVWA | Coraza | 1 | não injetável | bloqueado | bloqueado | 131,94 | 0 |
+
+No XVWA, o DoBotShield barrou com HTTP 400 o vetor de URL externa que o ZAP classificou como RFI; ModSecurity e Coraza, ambos com CRS, deixaram o vetor alcançar a aplicação e o ZAP registrou o alerta `High`.
 
 Os resultados ficam em `validacao/results/<app>/<cenario>/`, com um log por ferramenta, snapshots de saúde/recursos, relatórios do ZAP e logs dos WAFs. A entrega atual contém resultados para:
 

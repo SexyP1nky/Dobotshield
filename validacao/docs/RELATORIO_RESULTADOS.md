@@ -27,6 +27,7 @@ A injeção foi confirmada nos dois destinos diretos (`no_waf`) e não foi confi
 
 ## Leitura dos demais resultados
 
+- No XVWA, ModSecurity e Coraza, ambos com CRS, deixaram passar o vetor de URL externa que o ZAP classificou como RFI (`High`); no DoBotShield, o mesmo vetor foi barrado com HTTP 400 pela regra de SSRF e o alerta RFI não apareceu no relatório do ZAP.
 - O alerta ZAP 40018 não apareceu na rodada final. O alerta de Spring4Shell observado no DVWA direto foi classificado como falso positivo para a aplicação PHP.
 - Códigos HTTP, erros de conexão e alertas do scanner devem ser lidos junto com os logs brutos; uma interrupção de ferramenta não é tratada como bloqueio do WAF.
 - A diferença de throughput entre os cenários não deve ser atribuída somente ao WAF: cada implantação tem cadeia de proxy, limites e condições de execução próprios.

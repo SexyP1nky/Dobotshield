@@ -242,6 +242,9 @@ Artefatos consolidados:
 - ZAP HIGH:
   DVWA: no_waf=1, ModSecurity=2, DoBotShield=1, Coraza=0.
   XVWA: no_waf=5, ModSecurity=1, DoBotShield=1, Coraza=1.
+- XVWA RFI: o vetor de URL externa alcançou a aplicação com ModSecurity e
+  Coraza, ambos com CRS, e gerou alerta High; o DoBotShield o bloqueou com
+  HTTP 400 pela regra de SSRF, sem alerta RFI no relatório do ZAP.
 - O alerta SQL Injection do ZAP (plugin 40018) deixou de aparecer no XVWA com
   DoBotShield após a correção da regra.
 

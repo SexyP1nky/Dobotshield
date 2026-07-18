@@ -83,6 +83,15 @@ Exemplo de leitura do `wrk`:
 06_post_wrk_health.txt:  disponibilidade após a execução única
 ```
 
+Exemplo do vetor de RFI no XVWA:
+
+```text
+modsecurity/zap/zap_report.json: alerta Remote File Inclusion (High), evidência <title>Google</title>
+coraza/zap/zap_report.json:      alerta Remote File Inclusion (High), evidência <title>Google</title>
+dobotshield/02_zap_waf.log:      WAF_BLOCK em /xvwa/vulnerabilities/fi/ por SSRF na query
+dobotshield/zap/zap_report.json: sem alerta Remote File Inclusion
+```
+
 ## Paridade dos inputs
 
 Dentro de cada aplicação, os quatro cenários recebem a mesma entrada; somente o
